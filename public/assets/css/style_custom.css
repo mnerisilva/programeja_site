@@ -1,0 +1,5 @@
+.border-line {
+    border: solid 1px rebeccapurple;
+    border-radius: 5px;
+    padding: 6px 8px;
+}
