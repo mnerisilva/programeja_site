@@ -1,0 +1,61 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.header-wrapper ul {
+    list-style: none;
+    margin-top: 10px;;
+}
+
+.header-wrapper header ul {
+    display: flex;
+    justify-content: space-between;    
+}
+
+.header-wrapper header ul li ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;    
+}
+
+.logo {
+    font-size: 2em;
+}
+
+.user {
+    width: 100%;
+    text-align: center;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.nave-wrapper {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;    
+}
+
+.nave-wrapper .list {
+    border: solid thin #dedede;
+    padding: 10px;
+}
+
+.nave-wrapper .list .lesson-title {
+    padding: 3px 5px;
+}
+
+.nave-wrapper .list ul {
+    list-style: none;
+}
+
+.nave-wrapper .list .lesson-title {
+    background-color: #333;
+    color: #fff;
+}
