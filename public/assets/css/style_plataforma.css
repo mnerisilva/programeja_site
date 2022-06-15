@@ -39,7 +39,9 @@
 .nave-wrapper {
     display: flex;
     width: 100%;
-    justify-content: space-between;    
+    height: 100vhs;
+    justify-content: space-between;
+
 }
 
 .nave-wrapper .list {
@@ -58,4 +60,9 @@
 .nave-wrapper .list .lesson-title {
     background-color: #333;
     color: #fff;
+}
+
+.nave-wrapper .video iframe {
+    width: 640px;
+    height: 320px;
 }
