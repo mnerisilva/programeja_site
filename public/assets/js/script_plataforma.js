@@ -68,7 +68,8 @@ const _playlist = [
 
 const iframe = document.querySelector('iframe');
 
-let src = `https://www.youtube.com/embed/${'sj0p9O85AIg'}?rel=0`;
+// let src = `https://www.youtube.com/embed/${'sj0p9O85AIg'}?rel=0`;
+let src = "https://google.com";
 
 iframe.setAttribute('src', src);
 
