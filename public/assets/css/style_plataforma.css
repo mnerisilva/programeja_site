@@ -47,6 +47,7 @@
 .nave-wrapper .list {
     border: solid thin #dedede;
     padding: 10px;
+    width: 40vw;
 }
 
 .nave-wrapper .list .lesson-title {
@@ -65,4 +66,13 @@
 .nave-wrapper .video iframe {
     width: 640px;
     height: 320px;
+}
+
+.nave-wrapper .video {
+    width: 60vw;
+}
+
+.list ul li {
+    display: flex;
+    justify-content: space-between;    
 }

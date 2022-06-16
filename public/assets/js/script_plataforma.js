@@ -66,12 +66,27 @@ const _playlist = [
     }
 ]
 
+const iframe = document.querySelector('iframe');
+
+let src = `https://www.youtube.com/embed/${'thxYzTpOzHs'}?enablejsapi=1&amp;version=3&amp;playerapiid=ytplayer&amp;showinfo=0&amp;modestbranding=1&amp;fs=1&amp;rel=0;cc_load_policy=1`;
+
+iframe.setAttribute('src', src);
+
 const _list = document.querySelector('.list ul');
-var _li;
+
+console.log(_playlist)
 
 for(let i=0; i < _playlist.length; i++){
-    console.log(_playlist[i].licao.conteudo.id, _playlist[i].licao.conteudo.titulo, _playlist[i].licao.conteudo.duracao);
-    _list.innerHTML = `<li>${_playlist[i].licao.conteudo.id} - ${_playlist[i].licao.conteudo.titulo}<span>${_playlist[i].licao.conteudo.duracao}</span></li>`
+    //console.log(_playlist[i].licao.conteudo.id, _playlist[i].licao.conteudo.titulo, _playlist[i].licao.conteudo.duracao);
+    //_list.innerHTML = `<li>${_playlist[i].licao.conteudo.id} - ${_playlist[i].licao.conteudo.titulo}<span>${_playlist[i].licao.conteudo.duracao}</span></li>`
+    var liNova = document.createElement('li');
+    var string = `<span data-ytcodigo="${_playlist[i].licao.conteudo.codigo_yt}">${_playlist[i].licao.conteudo.id} - ${_playlist[i].licao.conteudo.titulo}</span><span class="duracao">${_playlist[i].licao.conteudo.duracao}</span>`;
+    //var conteudoNovo = document.createTextNode(string);
+    //liNova.appendChild(conteudoNovo);
+    liNova.innerHTML = string;
+    _list.appendChild(liNova);
+    console.log(i)
+    //_list.appendChild(_li)
 }
 
-console.log(_playlist.length)
+//console.log(_playlist.length)
