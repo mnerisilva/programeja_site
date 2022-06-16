@@ -67,12 +67,13 @@ const _playlist = [
 ];
 
 const _list = document.querySelector(".list ul");
+const _quadro_banner = document.querySelector(".quadro-banner");
 
 console.log(_playlist);
 
 for (let i = 0; i < _playlist.length; i++) {
   var liNova = document.createElement("li");
-  var string = `<span data-ytcodigo="${_playlist[i].licao.conteudo.codigo_yt}">${_playlist[i].licao.conteudo.id} - ${_playlist[i].licao.conteudo.titulo}</span><span class="duracao">${_playlist[i].licao.conteudo.duracao}</span>`;
+  var string = `<span data-ytcodigo="${_playlist[i].licao.conteudo.codigo_yt}" data-title="${_playlist[i].licao.conteudo.titulo}" data-duracao="${_playlist[i].licao.conteudo.duracao}">${_playlist[i].licao.conteudo.id} - ${_playlist[i].licao.conteudo.titulo}</span><span class="duracao">${_playlist[i].licao.conteudo.duracao}</span>`;
   liNova.innerHTML = string;
   _list.appendChild(liNova);
   console.log(i);
@@ -83,13 +84,16 @@ console.log(_lista_carregada);
 
 for (let i = 0; i < _lista_carregada.length; i++) {
   _lista_carregada[i].addEventListener("click", function (e) {
-    desactive(_lista_carregada);
+    _titulo = e.target.dataset.title;
+    console.log("data-title: " + _titulo);
+    desactiveAll(_lista_carregada);
     e.target.parentNode.classList.add("active");
+    _quadro_banner.innerHTML = `<h1>${_titulo}</h1><p>CLIQUE E ASSISTA!<i class="fa-solid fa-circle-arrow-right"></i></p>`;
     console.log("clicou");
   });
 }
 
-function desactive(lista) {
+function desactiveAll(lista) {
   for (let i = 0; i < lista.length; i++) {
     lista[i].classList.remove("active");
   }
