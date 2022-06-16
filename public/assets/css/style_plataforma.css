@@ -90,7 +90,20 @@ iframe {
 }
 
 a .quadro-video {
+  position: relative;
   border: solid thin #dedede;
+  overflow: hidden;
+}
+
+a .quadro-video img {
+  width: 100%;
+}
+
+.quadro-banner {
+  position: absolute;
+  width: 100%;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.247);
 }
 
 .list ul {
@@ -104,5 +117,8 @@ a .quadro-video {
 }
 
 .active {
-  color: red;
+  transition: color, background 0.5s ease;
+  color: chocolate;
+  background-color: #dedede;
+  font-weight: 400;
 }
