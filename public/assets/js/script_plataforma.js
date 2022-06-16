@@ -5,10 +5,10 @@ const _playlist = [
                 conteudo: {            
                             ordem: 1,
                             id: 1, // id do conteúdo. Neste caso, um vídeo
-                            titulo: "introdução",
+                            titulo: "Aula 01 - Criando novo projeto",
                             duracao: "05:45",
                             tipo: "video",
-                            codigo_yt: "NHKUR8YQ3tk"
+                            codigo_yt: "sj0p9O85AIg"
                         }
             }
     },
@@ -18,10 +18,10 @@ const _playlist = [
                 conteudo: {            
                             ordem: 2,
                             id: 2, // id do conteúdo. Neste caso, um vídeo
-                            titulo: "lógica de programação",
+                            titulo: "Aula 02 - Estrutura básica",
                             duracao: "15:21",
                             tipo: "video",
-                            codigo_yt: "1So-GZonNu8"
+                            codigo_yt: "MOd8PCyEB88"
                         }
             }
     },
@@ -31,10 +31,10 @@ const _playlist = [
                 conteudo: {            
                             ordem: 3,
                             id: 3, // id do conteúdo. Neste caso, um vídeo
-                            titulo: "variáveis",
+                            titulo: "Aula 03 - Meta Tags, Cabeçalho e Parágrafo",
                             duracao: "22:03",
                             tipo: "video",
-                            codigo_yt: "gfkdaNKum2Q"
+                            codigo_yt: "1ntb19o-2MI"
                         }
             }
     },
@@ -44,10 +44,10 @@ const _playlist = [
                 conteudo: {            
                             ordem: 4,
                             id: 4, // id do conteúdo. Neste caso, um vídeo
-                            titulo: "estrutura de dados",
+                            titulo: "Aula 04 - Formatação de Texto",
                             duracao: "30:16",
                             tipo: "video",
-                            codigo_yt: "thxYzTpOzHs"
+                            codigo_yt: "RiGo7BN1Wps"
                         }
             }
     },
@@ -57,10 +57,10 @@ const _playlist = [
                 conteudo: {            
                             ordem: 5,
                             id: 5, // id do conteúdo. Neste caso, um vídeo
-                            titulo: "estruturas de repetição",
+                            titulo: "Aula 05 - Elementos de Citação",
                             duracao: "46:52",
                             tipo: "video",
-                            codigo_yt: "4DNjOy9k3HI"
+                            codigo_yt: "bzWtE7GFi0Y"
                         }
             }
     }
@@ -68,7 +68,7 @@ const _playlist = [
 
 const iframe = document.querySelector('iframe');
 
-let src = `https://www.youtube.com/embed/${'thxYzTpOzHs'}?enablejsapi=1&amp;version=3&amp;playerapiid=ytplayer&amp;showinfo=0&amp;modestbranding=1&amp;fs=1&amp;rel=0;cc_load_policy=1`;
+let src = `https://www.youtube.com/embed/${'sj0p9O85AIg'}?rel=0`;
 
 iframe.setAttribute('src', src);
 
