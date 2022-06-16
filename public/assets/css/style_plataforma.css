@@ -1,79 +1,108 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+iframe {
+  position: relative;
+}
+
+.iframe-protect {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: bisque;
+  z-index: 999;
 }
 
 .header-wrapper ul {
-    list-style: none;
-    margin-top: 10px;;
+  list-style: none;
+  margin-top: 10px;
 }
 
 .header-wrapper header ul {
-    display: flex;
-    justify-content: space-between;    
+  display: flex;
+  justify-content: space-between;
 }
 
 .header-wrapper header ul li ul {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;    
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .logo {
-    font-size: 2em;
+  font-size: 2em;
 }
 
 .user {
-    width: 100%;
-    text-align: center;
+  width: 100%;
+  text-align: center;
 }
 
 .content-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 .nave-wrapper {
-    display: flex;
-    width: 100%;
-    height: 100vhs;
-    justify-content: space-between;
-
+  display: flex;
+  width: 100%;
+  height: 100vhs;
+  justify-content: space-between;
 }
 
 .nave-wrapper .list {
-    border: solid thin #dedede;
-    padding: 10px;
-    width: 30vw;
+  border: solid thin #dedede;
+  padding: 10px;
+  width: 30vw;
 }
 
 .nave-wrapper .list .lesson-title {
-    padding: 3px 5px;
+  padding: 3px 5px;
 }
 
 .nave-wrapper .list ul {
-    list-style: none;
+  list-style: none;
 }
 
 .nave-wrapper .list .lesson-title {
-    background-color: #333;
-    color: #fff;
-}
-
-.nave-wrapper .video iframe {
-    /*width: 640px;
-    height: 320px;*/
+  background-color: #333;
+  color: #fff;
 }
 
 .nave-wrapper .video {
-    width: 70vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  width: 70vw;
+}
+
+.video-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+a .quadro-video {
+  border: solid thin #dedede;
+}
+
+.list ul {
+  padding-top: 12px;
 }
 
 .list ul li {
-    display: flex;
-    justify-content: space-between;    
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
 }
 
+.active {
+  color: red;
+}
