@@ -70,9 +70,23 @@ const _list = document.querySelector(".list ul");
 const _quadro_banner = document.querySelector(".quadro-banner");
 const _video_link = document.querySelector(".video-link");
 
-_video_link.addEventListener('click', function(e){
-  // e.preventDefault();
-})
+
+
+let _linkP1 = "https://www.youtube.com/watch?v=";
+
+
+_titulo = _playlist[0].licao.conteudo.titulo;
+_codigo_yt = _playlist[0].licao.conteudo.codigo_yt;
+_video_link.setAttribute('href', _linkP1+_codigo_yt);
+_quadro_banner.innerHTML = `<h1>${_titulo}</h1><p>CLIQUE E ASSISTA!<i class="fa-solid fa-circle-arrow-right"></i></p>`;
+
+
+
+
+
+
+
+
 
 console.log(_playlist);
 
@@ -86,15 +100,15 @@ for (let i = 0; i < _playlist.length; i++) {
 
 const _lista_carregada = document.querySelectorAll(".list ul li");
 console.log(_lista_carregada);
+_lista_carregada[0].classList.add('active');
 
-let _linkP1 = "https://www.youtube.com/watch?v=";
 
 for (let i = 0; i < _lista_carregada.length; i++) {
   _lista_carregada[i].addEventListener("click", function (e) {
+    desactiveAll(_lista_carregada);
     _titulo = e.target.dataset.title;
     _codigo_yt = e.target.dataset.ytcodigo;
     console.log("data-title: " + _titulo);
-    desactiveAll(_lista_carregada);
     e.target.parentNode.classList.add("active");
     _quadro_banner.innerHTML = `<h1>${_titulo}</h1><p>CLIQUE E ASSISTA!<i class="fa-solid fa-circle-arrow-right"></i></p>`;
     console.log("clicou");
