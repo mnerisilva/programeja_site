@@ -142,3 +142,9 @@ a .quadro-video img {
   background-color: #dedede;
   font-weight: 400;
 }
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+  list-style: none;  
+}
