@@ -375,11 +375,14 @@
       _tipo.addEventListener("change", function (e) {
         console.log(e.target.value);
         if (e.target.value === "playlist") {
+          if (_select_quantidadevideos.getAttribute("disabled") == true) {
+            _select_quantidadevideos.removeAttribute("disabled");
+          }
           _quantidadevideos.style.opacity = 1;
           _label_titulo.textContent = "Título da playlist";
           _tipo_escolhido = "playlist";
         } else {
-          _select_quantidadevideos.setAttribute("disabled", "");
+          _select_quantidadevideos.removeAttribute("disabled");
           for (let i = 0; i < _videos.length; i++) {
             _videos[i].classList.add("d-none");
           }
