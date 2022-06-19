@@ -201,8 +201,25 @@
             <h4 class="mb-3">Cadastro de conteúdo</h4>
             <form class="needs-validation" novalidate="">
               <div class="row g-3">
+                <div class="col-md-5">
+                  <label for="country" class="form-label">Tipo</label>
+                  <select class="form-select" id="country" required="">
+                    <option value="">Escolha...</option>
+                    <option value="1">Playlist</option>
+                    <option value="2">Link</option>
+                    <option value="3">Vídeo</option>
+                  </select>
+                  <div class="invalid-feedback">
+                    Please select a valid country.
+                  </div>
+                </div>
+
+                <div class="col-md-4"></div>
+
+                <div class="col-md-3"></div>
+
                 <div class="col-sm-6">
-                  <label for="firstName" class="form-label">First name</label>
+                  <label for="firstName" class="form-label">Título</label>
                   <input
                     type="text"
                     class="form-control"
@@ -287,40 +304,6 @@
                     id="address2"
                     placeholder="Apartment or suite"
                   />
-                </div>
-
-                <div class="col-md-5">
-                  <label for="country" class="form-label">Country</label>
-                  <select class="form-select" id="country" required="">
-                    <option value="">Choose...</option>
-                    <option>United States</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please select a valid country.
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <label for="state" class="form-label">State</label>
-                  <select class="form-select" id="state" required="">
-                    <option value="">Choose...</option>
-                    <option>California</option>
-                  </select>
-                  <div class="invalid-feedback">
-                    Please provide a valid state.
-                  </div>
-                </div>
-
-                <div class="col-md-3">
-                  <label for="zip" class="form-label">Zip</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="zip"
-                    placeholder=""
-                    required=""
-                  />
-                  <div class="invalid-feedback">Zip code required.</div>
                 </div>
               </div>
 
