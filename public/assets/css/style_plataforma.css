@@ -161,7 +161,7 @@ aside {
 
 .categoria-list ul {
   list-style: none;
-  max-width: 70%;
+  max-width: 75%;
   background-color: #fcfcfc;
   padding: 5px;
 }
@@ -170,6 +170,18 @@ aside {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
+  padding: 0 8px;
+  text-decoration: none;
+}
+
+.categoria-list .categoria-item:hover {
+  background-color: rgb(222 222 222);
+  padding: 0 8px;
+}
+
+.item-link {
+  text-decoration: none !important;
 }
 
 .icons-group {

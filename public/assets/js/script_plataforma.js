@@ -64,33 +64,36 @@ const _playlist = [
       },
     },
   },
+  {
+    licao: {
+      id: 2, // id da lição
+      conteudo: {
+        ordem: 1,
+        id: 1, // id do conteúdo. Neste caso, um vídeo
+        titulo: "O que são Atributos HTML e como usar",
+        duracao: "34:19",
+        tipo: "video",
+        codigo_yt: "u0DyDbH1Ek",
+      },
+    },
+  },
 ];
 
 const _list = document.querySelector(".list ul");
 const _quadro_banner = document.querySelector(".quadro-banner");
 const _video_link = document.querySelector(".video-link");
 
-
-
 let _linkP1 = "https://www.youtube.com/watch?v=";
-
 
 _titulo = _playlist[0].licao.conteudo.titulo;
 _codigo_yt = _playlist[0].licao.conteudo.codigo_yt;
-_video_link.setAttribute('href', _linkP1+_codigo_yt);
+_video_link.setAttribute("href", _linkP1 + _codigo_yt);
 _quadro_banner.innerHTML = `<h1>${_titulo}</h1><p>CLIQUE E ASSISTA!<i class="fa-solid fa-circle-arrow-right"></i></p>`;
-
-
-
-
-
-
-
-
 
 console.log(_playlist);
 
-for (let i = 0; i < _playlist.length; i++) {
+//for (let i = 0; i < _playlist.length; i++) {
+for (let i = 0; i < 4; i++) {
   var liNova = document.createElement("li");
   var string = `<span data-ytcodigo="${_playlist[i].licao.conteudo.codigo_yt}" data-title="${_playlist[i].licao.conteudo.titulo}" data-duracao="${_playlist[i].licao.conteudo.duracao}">${_playlist[i].licao.conteudo.id} - ${_playlist[i].licao.conteudo.titulo}</span><span class="duracao">${_playlist[i].licao.conteudo.duracao}</span>`;
   liNova.innerHTML = string;
@@ -100,8 +103,7 @@ for (let i = 0; i < _playlist.length; i++) {
 
 const _lista_carregada = document.querySelectorAll(".list ul li");
 console.log(_lista_carregada);
-_lista_carregada[0].classList.add('active');
-
+_lista_carregada[0].classList.add("active");
 
 for (let i = 0; i < _lista_carregada.length; i++) {
   _lista_carregada[i].addEventListener("click", function (e) {
@@ -112,8 +114,7 @@ for (let i = 0; i < _lista_carregada.length; i++) {
     e.target.parentNode.classList.add("active");
     _quadro_banner.innerHTML = `<h1>${_titulo}</h1><p>CLIQUE E ASSISTA!<i class="fa-solid fa-circle-arrow-right"></i></p>`;
     console.log("clicou");
-    _video_link.setAttribute('href', _linkP1+_codigo_yt);
-
+    _video_link.setAttribute("href", _linkP1 + _codigo_yt);
   });
 }
 
