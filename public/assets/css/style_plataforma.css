@@ -146,5 +146,38 @@ a .quadro-video img {
 header ul {
   display: flex;
   justify-content: space-between;
-  list-style: none;  
+  list-style: none;
+}
+
+aside {
+  padding-left: 30px !important;
+}
+.categoria-list {
+  max-width: 100%;
+  border: solid thin #dedede46;
+  border-radius: 15px;
+  padding-top: 20px;
+}
+
+.categoria-list ul {
+  list-style: none;
+  max-width: 70%;
+  background-color: #fcfcfc;
+  padding: 5px;
+}
+
+.categoria-list .categoria-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icons-group {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.icons-group i {
+  margin-left: 7px;
 }
