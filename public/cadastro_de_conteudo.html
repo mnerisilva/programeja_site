@@ -369,7 +369,7 @@
       _tipo_escolhido = "video";
 
       for (let i = 0; i < _videos.length; i++) {
-        _videos[i].classList.add("fade");
+        _videos[i].classList.add("d-none");
       }
 
       _tipo.addEventListener("change", function (e) {
@@ -379,14 +379,18 @@
           _label_titulo.textContent = "Título da playlist";
           _tipo_escolhido = "playlist";
         } else {
-          _quantidadevideos.style.display = "none";
+          _select_quantidadevideos.setAttribute("disabled", "");
+          for (let i = 0; i < _videos.length; i++) {
+            _videos[i].classList.add("d-none");
+          }
+          _quantidadevideos.style.opacity = 0;
           _tipo_escolhido = "video";
         }
       });
 
       _quantidadevideos.addEventListener("change", function (e) {
         console.log(e.target.value);
-        _select_quantidadevideos.setAttribute("disabled", true);
+        _select_quantidadevideos.setAttribute("disabled", "");
         let _quantidade_videos_escolhidos = parseInt(
           _select_quantidadevideos.value
         );
@@ -395,7 +399,7 @@
           _quantidade_videos_escolhidos > 0
         ) {
           for (let i = 0; i < _quantidade_videos_escolhidos; i++) {
-            _videos[i].classList.remove("fade");
+            _videos[i].classList.remove("d-none");
           }
         }
       });
