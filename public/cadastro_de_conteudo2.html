@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--<link
+      href="assets/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />-->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css"
+      integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <form method="POST" action="recebe.php">
+        <h1>Cadastro de conteúdo</h1>
+        <div class="row g-3">
+          <div class="col-md-2">
+            <label for="categoria" class="form-label">Categoria</label>
+            <select
+              class="form-select"
+              id="categoria"
+              required=""
+              name="categoria"
+            >
+              <option value="">Categoria...</option>
+              <option value="1">Html</option>
+              <option value="2">Css</option>
+              <option value="3">Javascript</option>
+              <option value="4">Sem categoria</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-2">
+            <label for="tipo" class="form-label">Tipo</label>
+            <select class="form-select" id="tipo" required="" name="tipo">
+              <option value="">Tipo...</option>
+              <option value="playlist">Playlist</option>
+              <option value="link">Link</option>
+              <option value="video">Vídeo</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="titulo" class="form-label titulo"
+              >Título do vídeo</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="titulo"
+              required=""
+              name="titulo"
+              placeholder="título"
+            />
+          </div>
+        </div>
+
+        <div class="row g-3 quantidade-videos">
+          <div class="col-md-2">
+            <label for="quantidade" class="form-label"
+              >Qtde de vídeos da playlist</label
+            >
+            <select
+              class="form-select"
+              id="quantidade"
+              required=""
+              name="quantidade"
+            >
+              <option value="">Escolha...</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+            </select>
+          </div>
+        </div>
+
+        <!--<div class="row g-3 video video1">
+          <div class="col-md-6">
+            <label for="nomevideo1" class="form-label">Nome do vídeo</label>
+            <span>#1 </span
+            ><input
+              type="text"
+              class="form-control"
+              id="nomevideo1"
+              required=""
+              name="nomevideo1"
+              placeholder=""
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="linkyt1" class="form-label">Link Youtube</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkyt1"
+              required=""
+              name="linkyt1"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="row g-3 video video2">
+          <div class="col-md-6">
+            <label for="nomevideo2" class="form-label">Nome do vídeo</label>
+            <span>#2 </span
+            ><input
+              type="text"
+              class="form-control"
+              id="nomevideo2"
+              required=""
+              name="nomevideo2"
+              placeholder=""
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="linkyt2" class="form-label">Link Youtube</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkyt2"
+              required=""
+              name="linkyt2"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="row g-3 video video3">
+          <div class="col-md-6">
+            <label for="nomevideo3" class="form-label">Nome do vídeo</label>
+            <span>#3 </span
+            ><input
+              type="text"
+              class="form-control"
+              id="nomevideo3"
+              required=""
+              name="nomevideo3"
+              placeholder=""
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="linkyt3" class="form-label">Link Youtube</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkyt3"
+              required=""
+              name="linkyt3"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="row g-3 video video4">
+          <div class="col-md-6">
+            <label for="nomevideo1" class="form-label">Nome do vídeo</label>
+            <span>#4 </span
+            ><input
+              type="text"
+              class="form-control"
+              id="nomevideo4"
+              required=""
+              name="nomevideo4"
+              placeholder=""
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="linkyt4" class="form-label">Link Youtube</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkyt4"
+              required=""
+              name="linkyt4"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="row g-3 video video5">
+          <div class="col-md-6">
+            <label for="nomevideo1" class="form-label">Nome do vídeo</label>
+            <span>#5 </span
+            ><input
+              type="text"
+              class="form-control"
+              id="nomevideo5"
+              required=""
+              name="nomevideo5"
+              placeholder=""
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="linkyt5" class="form-label">Link Youtube</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkyt5"
+              required=""
+              name="linkyt5"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="row g-3 video video6">
+          <div class="col-md-6">
+            <label for="nomevideo1" class="form-label">Nome do vídeo</label>
+            <span>#6 </span
+            ><input
+              type="text"
+              class="form-control"
+              id="nomevideo6"
+              required=""
+              name="nomevideo6"
+              placeholder=""
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="linkyt6" class="form-label">Link Youtube</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkyt6"
+              required=""
+              name="linkyt6"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="row g-3 video video7">
+          <div class="col-md-6">
+            <label for="nomevideo1" class="form-label">Nome do vídeo</label>
+            <span>#7 </span
+            ><input
+              type="text"
+              class="form-control"
+              id="nomevideo7"
+              required=""
+              name="nomevideo7"
+              placeholder=""
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="linkyt7" class="form-label">Link Youtube</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkyt7"
+              required=""
+              name="linkyt7"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="row g-3 video video8">
+          <div class="col-md-6">
+            <label for="nomevideo1" class="form-label">Nome do vídeo</label>
+            <span>#8 </span
+            ><input
+              type="text"
+              class="form-control"
+              id="nomevideo8"
+              required=""
+              name="nomevideo8"
+              placeholder=""
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="linkyt8" class="form-label">Link Youtube</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkyt8"
+              required=""
+              name="linkyt8"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="row g-3 video video9">
+          <div class="col-md-6">
+            <label for="nomevideo1" class="form-label">Nome do vídeo</label>
+            <span>#9 </span
+            ><input
+              type="text"
+              class="form-control"
+              id="nomevideo9"
+              required=""
+              name="nomevideo9"
+              placeholder=""
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="linkyt9" class="form-label">Link Youtube</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkyt9"
+              required=""
+              name="linkyt9"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="row g-3 video video10">
+          <div class="col-md-6">
+            <label for="nomevideo1" class="form-label">Nome do vídeo</label>
+            <span>#10 </span
+            ><input
+              type="text"
+              class="form-control"
+              id="nomevideo10"
+              required=""
+              name="nomevideo10"
+              placeholder=""
+            />
+          </div>
+          <div class="col-md-2">
+            <label for="linkyt10" class="form-label">Link Youtube</label>
+            <input
+              type="text"
+              class="form-control"
+              id="linkyt10"
+              required=""
+              name="linkyt10"
+              placeholder=""
+            />
+          </div>
+        </div>-->
+        <button class="btn btn-primary" type="submit">Salvar</button>
+      </form>
+    </div>
+
+    <!--<script src="vendors/bootstrap/bootstrap.min.js"></script>-->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"
+      integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+
+        const _body = document.querySelector('body');
+
+        const arrDivRow     = ['','','','','','','','','','',''];
+        const arrDivCol_1   = ['','','','','','','','','','',''];
+        const arrDivCol_2   = ['','','','','','','','','','',''];
+        const arrLabel_1      = ['','','','','','','','','','',''];
+        const arrLabel_2      = ['','','','','','','','','','',''];
+        const arrLabelText_1  = ['','','','','','','','','','',''];
+        const arrLabelText_2  = ['','','','','','','','','','',''];
+        const arrInput_1      = ['','','','','','','','','','',''];
+        const arrInput_2      = ['','','','','','','','','','',''];
+
+        arrLabelText_1[1] = document.createTextNode('Nome do vídeo');
+        arrLabelText_2[1] = document.createTextNode('Código do vídeo');
+
+        arrLabel_1[1] = document.createElement('label');
+        arrLabel_1[1].appendChild(arrLabelText_1[1]);
+        arrLabel_1[1].setAttribute('for', 'nomevideo'+1);
+        arrLabel_1[1].classList.add('form-label');
+        
+        arrLabel_2[1] = document.createElement('label');
+        arrLabel_2[1].appendChild(arrLabelText_2[1]);
+        arrLabel_2[1].setAttribute('for', 'linkyt'+1);
+        arrLabel_2[1].classList.add('form-label');
+
+        arrInput_1[1] = document.createElement('input');
+        arrInput_1[1].setAttribute('type','text');        
+        arrInput_1[1].classList.add('form-control');        
+        arrInput_1[1].setAttribute('id','nomevideo'+1);        
+        arrInput_1[1].setAttribute('required','');       
+        arrInput_1[1].setAttribute('name','nomevideo'+1); 
+        arrInput_1[1].setAttribute('placeholder',''); 
+
+        arrInput_2[1] = document.createElement('input');
+        arrInput_2[1].setAttribute('type','text');        
+        arrInput_2[1].classList.add('form-control');        
+        arrInput_2[1].setAttribute('id','linkyt'+1);        
+        arrInput_2[1].setAttribute('required','');       
+        arrInput_2[1].setAttribute('name','linkyt'+1);  
+        arrInput_2[1].setAttribute('placeholder','');  
+
+        arrDivCol_1[1] = document.createElement('div');
+        arrDivCol_1[1].classList.add('col-md-6');
+
+
+        arrDivCol_2[1] = document.createElement('div');
+        arrDivCol_2[1].classList.add('col-md-2');
+
+        arrDivRow[1] = document.createElement('div');
+        arrDivRow[1].classList.add('row','g-3', 'video', 'video'+1);
+
+
+
+
+
+        arrDivCol_1[1].appendChild(arrLabel_1[1]);
+        arrDivCol_1[1].appendChild(arrInput_1[1]);
+        arrDivCol_2[1].appendChild(arrLabel_2[1]);
+        arrDivCol_2[1].appendChild(arrInput_2[1]);
+
+        arrDivRow[1].appendChild(arrDivCol_1[1]);
+        arrDivRow[1].appendChild(arrDivCol_2[1]);
+
+        _body.appendChild(arrDivRow[1]);
+
+        console.log(arrDivRow);
+        console.log(arrDivCol_1);
+        console.log(arrDivCol_2);
+        console.log(arrLabel_1);
+        console.log(arrLabel_2);
+        console.log(arrLabelText_1);
+        console.log(arrLabelText_2);
+        console.log(arrInput_1);
+        console.log(arrInput_2);      
+
+
+      const _videos = document.querySelectorAll(".video");
+      const _label_titulo = document.querySelector(".titulo");
+      const _tipo = document.querySelector("#tipo");
+      const _quantidadevideos = document.querySelector(".quantidade-videos");
+      const _select_quantidadevideos = document.querySelector(
+        ".quantidade-videos select"
+      );
+      _quantidadevideos.style.opacity = 0;
+      _tipo_escolhido = "video";
+
+      for (let i = 0; i < _videos.length; i++) {
+        _videos[i].classList.add("d-none");
+      }
+
+      _tipo.addEventListener("change", function (e) {
+        console.log(e.target.value);
+        if (e.target.value === "playlist") {
+          if (_select_quantidadevideos.getAttribute("disabled") == true) {
+            _select_quantidadevideos.removeAttribute("disabled");
+          }
+          _quantidadevideos.style.opacity = 1;
+          _label_titulo.textContent = "Título da playlist";
+          _tipo_escolhido = "playlist";
+        } else {
+          _select_quantidadevideos.removeAttribute("disabled");
+          for (let i = 0; i < _videos.length; i++) {
+            _videos[i].classList.add("d-none");
+          }
+          _select_quantidadevideos.value = "";
+          _quantidadevideos.style.opacity = 0;
+          _tipo_escolhido = "video";
+        }
+      });
+
+      _quantidadevideos.addEventListener("change", function (e) {
+        console.log(e.target.value);
+        _select_quantidadevideos.setAttribute("disabled", "");
+        let _quantidade_videos_escolhidos = parseInt(
+          _select_quantidadevideos.value
+        );
+        if (
+          _tipo_escolhido === "playlist" &&
+          _quantidade_videos_escolhidos > 0
+        ) {
+          for (let i = 0; i < _quantidade_videos_escolhidos; i++) {
+            _videos[i].classList.remove("d-none");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
