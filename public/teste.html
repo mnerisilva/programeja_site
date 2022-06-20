@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const arrCreateElement = ["", "", "", ""];
+      const arrCreateTextNode = ["", "", "", ""];
+
+      const body = document.querySelector("body");
+
+      for (let i = 0; i < 5; i++) {
+        arrCreateElement[i] = document.createElement("p");
+        arrCreateTextNode[i] = document.createTextNode(`Texto${i}`);
+      }
+
+      console.log(arrCreateElement);
+      console.log(arrCreateTextNode);
+      for (let i = 0; i < 5; i++) {
+        arrCreateElement[i].appendChild(arrCreateTextNode[i]);
+      }
+
+      console.log(arrCreateElement);
+      console.log(arrCreateTextNode);
+
+      for (let i = 0; i < 5; i++) {
+        body.appendChild(arrCreateElement[i]);
+      }
+    </script>
+  </body>
+</html>
