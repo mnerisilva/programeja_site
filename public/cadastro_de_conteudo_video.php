@@ -32,8 +32,8 @@
               name="categoria"
             >
               <option value="">Categoria...</option>
-              <option value="1">Html</option>
-              <option value="2">Css</option>
+              <option value="1">Css</option>
+              <option value="2">Html</option>
               <option value="3">Javascript</option>
               <option value="4">Sem categoria</option>
             </select>
