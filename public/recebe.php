@@ -26,9 +26,7 @@ if(count($_POST) > 0){
 
 		$sql_2 = "INSERT INTO `conteudo`( `id_conteudo_indice`, `conteudo_descricao`, `conteudo_codigoyoutube`, `id_conteudotipo`) VALUES ('$id_doIndice', '$conteudo_titulo', '$id_codigoyt', '$id_conteudotipo')";
 		if (mysqli_query($conn, $sql_2)) {
-                 
-        echo '<a href="http://localhost/programeja_site/public/cadastro_de_conteudo_video.php"></a>';
-			//echo json_encode(array("statusCode"=>200));
+			echo json_encode(array("statusCode"=>200));
 		} 
 		else {
 			echo "Error: " . $sql_2 . "<br>" . mysqli_error($conn);

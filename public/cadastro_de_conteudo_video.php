@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="container">
-      <form id="cadastro_video" method="POST" action="recebe.php">
+      <form id="cadastro_video">
         <h1>Cadastro de conteúdo - [ vídeo ]</h1>
         <div class="row g-3">
           <div class="col-md-2">
@@ -67,9 +67,10 @@
 
         <button class="btn btn-primary submit" type="submit">Salvar</button>
       </form>
+      <div class="texto">...</div>
     </div>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" integrity="sha512-QAV866KcCo2YSgj8D7BW+Zn3Fe5wVKTWwzKtWy8mkW+tePcJL7JYilvdfrBFQcdz4ODD48GpIPnhTp9UDI37uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"
       integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA=="
@@ -93,6 +94,7 @@
           dataType: "json",
           encode: true}).done(function(data) {
           console.log(data);
+          $('.texto').append("teste");
         });
 
         event.preventDefault();
