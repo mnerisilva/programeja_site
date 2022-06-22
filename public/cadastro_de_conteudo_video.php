@@ -20,7 +20,7 @@
   </head>
   <body>
     <div class="container">
-      <form method="POST" action="recebe.php">
+      <form id="cadastro_video" method="POST" action="recebe.php">
         <h1>Cadastro de conteúdo - [ vídeo ]</h1>
         <div class="row g-3">
           <div class="col-md-2">
@@ -69,7 +69,7 @@
       </form>
     </div>
 
-   
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js" integrity="sha512-QAV866KcCo2YSgj8D7BW+Zn3Fe5wVKTWwzKtWy8mkW+tePcJL7JYilvdfrBFQcdz4ODD48GpIPnhTp9UDI37uw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"
       integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA=="
@@ -78,8 +78,39 @@
     ></script>
     <script>
 
+      $(document).ready(function () {
+        $("form").submit(function (event) {
+            var formData = {
+                categoria: $("#categoria").val(),
+                nomevideo: $("#nomevideo").val(),
+                codigoyt: $("#codigoyt").val(),
+                };
+
+        $.ajax({
+          type: "POST",
+          url: "recebe.php",
+          data: formData,
+          dataType: "json",
+          encode: true}).done(function(data) {
+          console.log(data);
+        });
+
+        event.preventDefault();
+      });
+    });
+
+
+
+        const _select_categoria = document.querySelector('#categoria');
+        const _nomevideo = document.querySelector('#nomevideo');
+        const _codigoyt = document.querySelector('#codigoyt');
         const _form = document.querySelector('form');
         const _buttonSubmit = document.querySelector('.submit');
+
+        _select_categoria.value = '';
+        _nomevideo.value = '';
+        _codigoyt.value = '';
+
 
         const arrDivRow     = ['','','','','','','','','','',''];
         const arrDivCol_1   = ['','','','','','','','','','',''];
