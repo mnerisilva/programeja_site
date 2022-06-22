@@ -28,8 +28,12 @@
   </head>
   <body>
     <div class="container">
+      <div class="row">
+        <div class="col-md-6 d-flex justify-content-center">          
+          <h1>Cadastro de vídeo avulso</h1>
+        </div>
+      </div>
       <form id="cadastro_video">
-        <h1>Cadastro de vídeo avulso</h1>
         <div class="row g-3">
           <div class="col-md-2">
             <label for="categoria" class="form-label">Categoria</label>
@@ -105,31 +109,16 @@
     <script>
       const _listaVideos = document.querySelector('.lista-videos tbody');
       console.log(_listaVideos);
-      $(document).ready(function () {
-        $("form").submit(function (event) {
-            var formData = {
-                categoria: $("#categoria").val(),
-                nomevideo: $("#nomevideo").val(),
-                codigoyt: $("#codigoyt").val(),
-                };
 
-        $.ajax({
+      // inicio do código ajax listagem inicial - cadastro de vídeo avulso
+      $.ajax({
           type: "POST",
-          url: "recebe.php",
-          data: formData,
+          url: "lista.php",
           dataType: "json",
           encode: true}).done(function(data) {
-          console.log(data);
-          //$('.texto').append(data);
-          //_texto.innerHTML = `<table><tr>`
-          console.log(typeof data);
-          
-
-
           for(let i=0; i < data.length; i++){
             console.log(data[i].descricao,data[i].codigo);
           }
-
             for(let i=0; i < data.length; i++){
               let _tr = document.createElement('tr');
               let _td1 = document.createElement('td');
@@ -150,18 +139,65 @@
               _tr.appendChild(_td3);
               _tr.appendChild(_td4);
               _tr.appendChild(_td5);
-
               _listaVideos.appendChild(_tr);
             }
+        });
+        // fim do código ajax listagem inicial - cadastro de vídeo avulso
 
+      // inicio do código ajax envio - cadastro de vídeo avulso
+      $(document).ready(function () {
+        $("form").submit(function (event) {
+            var formData = {
+                categoria: $("#categoria").val(),
+                nomevideo: $("#nomevideo").val(),
+                codigoyt: $("#codigoyt").val(),
+                };
+
+        $.ajax({
+          type: "POST",
+          url: "recebe.php",
+          data: formData,
+          dataType: "json",
+          encode: true}).done(function(data) {
+          console.log(data);
+          //$('.texto').append(data);
+          //_texto.innerHTML = `<table><tr>`
+          console.log(typeof data);
+          //for(let i=0; i < data.length; i++){
+            let _ultimoAdicionado = (data.length)-1;
+            console.log(data[_ultimoAdicionado].descricao,data[_ultimoAdicionado].codigo);
+          //}
+            /*for(let i=0; i < data.length; i++){*/
+              let _tr = document.createElement('tr');
+              let _td1 = document.createElement('td');
+              let _td2 = document.createElement('td');
+              let _td3 = document.createElement('td');
+              let _td4 = document.createElement('td');
+              let _td5 = document.createElement('td');
+              let _nodeText1 = document.createTextNode(data[_ultimoAdicionado].id);
+              let _nodeText2 = document.createTextNode(data[_ultimoAdicionado].descricao);
+              let _nodeText3 = document.createTextNode(data[_ultimoAdicionado].codigo);
+              _td1.appendChild(_nodeText1);
+              _td2.innerHTML - '<i class="fa-brands fa-youtube"></i> '+data[_ultimoAdicionado].descricao;
+              _td2.appendChild(_nodeText2);
+              _td3.appendChild(_nodeText3);
+              _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
+              _td5.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+              _tr.appendChild(_td1);
+              _tr.appendChild(_td2);
+              _tr.appendChild(_td3);
+              _tr.appendChild(_td4);
+              _tr.appendChild(_td5);
+              _listaVideos.appendChild(_tr);
+            /*}*/
             _select_categoria.value = '';
             _nomevideo.value = '';
             _codigoyt.value = '';
         });
-
         event.preventDefault();
       });
     });
+     // fim do código ajax envio - cadastro de vídeo avulso
 
 
 
@@ -206,7 +242,7 @@
 
 
 
-      function geraCampos(quantidade){
+      /*function geraCampos(quantidade){
         arrLabelText_1[quantidade] = document.createTextNode('Nome do vídeo');
         arrLabelText_2[quantidade] = document.createTextNode('Código do vídeo');
         arrLabel_1[quantidade] = document.createElement('label');
@@ -254,7 +290,7 @@
         console.log(arrLabelText_2);
         console.log(arrInput_1);
         console.log(arrInput_2);             
-      }
+      }*/
     </script>
   </body>
 </html>
