@@ -12,7 +12,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -24,12 +24,39 @@
       body {
         background-color: #f8f9fa;
       }
+
+      .youtube-icon,
+      .fa-pencil,
+      .fa-trash-can {
+        color: gray;
+        cursor: pointer;
+      }
+
+      .div-label-normalize {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .normalize {
+        cursor: pointer;
+      }
+
+      .ferramentas-right i {
+        color: #515151;
+        margin-left: 8px;
+      }
+
+      .ferramentas-right .rubber,
+      .copy,
+      .youtube-tester {
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-md-6 d-flex justify-content-center">          
+        <div class="col-md-6 d-flex justify-content-center">
           <h1>Cadastro de vídeo avulso</h1>
         </div>
       </div>
@@ -65,7 +92,17 @@
             />
           </div>
           <div class="col-md-2">
-            <label for="codigoyt" class="form-label">Código</label>
+            <div class="div-label-normalize">
+              <label for="codigoyt" class="form-label">Código</label>
+              <span class="ferramentas-right"
+                ><i class="fa-solid fa-eraser rubber"></i
+                ><i class="fa-solid fa-copy copy"></i
+                ><!--<i class="fa-solid fa-arrow-down-9-1 normalize"></i
+              >--><i class="fa-solid fa-screwdriver-wrench normalize"></i
+                ><a class="youtuber-link-tester" href="" target="_blank"
+                  ><i class="fa-brands fa-youtube-square youtube-tester"></i></a
+              ></span>
+            </div>
             <input
               type="text"
               class="form-control"
@@ -75,7 +112,7 @@
               placeholder=""
             />
           </div>
-        </div>        
+        </div>
 
         <button class="btn btn-primary submit" type="submit">Salvar</button>
       </form>
@@ -91,15 +128,18 @@
                 <th></th>
               </tr>
             </thead>
-            <tbody>          
-            </tbody>
+            <tbody></tbody>
           </table>
         </div>
       </div>
-
     </div>
 
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"
       integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA=="
@@ -107,114 +147,165 @@
       referrerpolicy="no-referrer"
     ></script>
     <script>
-      const _listaVideos = document.querySelector('.lista-videos tbody');
+      const _listaVideos = document.querySelector(".lista-videos tbody");
+      const _normalize = document.querySelector(".normalize");
+      const _rubber = document.querySelector(".rubber");
+      const _copy = document.querySelector(".copy");
+      const _youtubeLinkTester = document.querySelector(".youtube-link-tester");
+
+      _copy.addEventListener("click", function () {
+        navigator.clipboard.writeText(_codigoyt.value);
+      });
+      _rubber.addEventListener("click", function () {
+        console.log("cliquei no rubber");
+        _codigoyt.value = "";
+      });
+      _normalize.addEventListener("click", function () {
+        if (_codigoyt.value === "" || _codigoyt.value === null) {
+          console.log("campo codigo está vazio");
+          return;
+        } else {
+          let link = codigoyt.value;
+          if (!link.includes("watch?v=")) {
+            return;
+          } else {
+            let partes = link.split("watch?v=");
+            if (partes[1].length > 11) {
+              console.log("é uma playlist");
+              _codigoyt.value = partes[1].substring(0, 11);
+              _youtubeLinkTester.setAttribute(
+                "href",
+                `https://www.youtube.com/watch?v=${_codigoyt.value}`
+              );
+            } else {
+              console.log("é um vídeo simples");
+              _codigoyt.value = partes[1];
+              _youtubeLinkTester.setAttribute(
+                "href",
+                `https://www.youtube.com/watch?v=${_codigoyt.value}`
+              );
+            }
+            //console.log(partes);
+            return;
+          }
+        }
+      });
+
       console.log(_listaVideos);
 
       // inicio do código ajax listagem inicial - cadastro de vídeo avulso
       $.ajax({
-          type: "POST",
-          url: "lista.php",
-          dataType: "json",
-          encode: true}).done(function(data) {
-          for(let i=0; i < data.length; i++){
-            console.log(data[i].descricao,data[i].codigo);
-          }
-            for(let i=0; i < data.length; i++){
-              let _tr = document.createElement('tr');
-              let _td1 = document.createElement('td');
-              let _td2 = document.createElement('td');
-              let _td3 = document.createElement('td');
-              let _td4 = document.createElement('td');
-              let _td5 = document.createElement('td');
-              let _nodeText1 = document.createTextNode(data[i].id);
-              let _nodeText2 = document.createTextNode(data[i].descricao);
-              let _nodeText3 = document.createTextNode(data[i].codigo);
-              _td1.appendChild(_nodeText1);
-              _td2.appendChild(_nodeText2);
-              let texto_t2 = _td2.textContent;
-              _td2.textContent = texto_t2;
-              _td2.innerHTML = '<i class="fa-brands fa-youtube"></i> '+texto_t2;
-              _td3.appendChild(_nodeText3);
-              _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
-              _td5.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-              _tr.appendChild(_td1);
-              _tr.appendChild(_td2);
-              _tr.appendChild(_td3);
-              _tr.appendChild(_td4);
-              _tr.appendChild(_td5);
-              _listaVideos.appendChild(_tr);
-            }
-        });
-        // fim do código ajax listagem inicial - cadastro de vídeo avulso
+        type: "POST",
+        url: "lista.php",
+        dataType: "json",
+        encode: true,
+      }).done(function (data) {
+        for (let i = 0; i < data.length; i++) {
+          console.log(data[i].descricao, data[i].codigo);
+        }
+        for (let i = 0; i < data.length; i++) {
+          let _tr = document.createElement("tr");
+          let _td1 = document.createElement("td");
+          let _td2 = document.createElement("td");
+          let _td3 = document.createElement("td");
+          let _td4 = document.createElement("td");
+          let _td5 = document.createElement("td");
+          let _nodeText1 = document.createTextNode(data[i].id);
+          let _nodeText2 = document.createTextNode(data[i].descricao);
+          let _nodeText3 = document.createTextNode(data[i].codigo);
+          _td1.appendChild(_nodeText1);
+          _td2.appendChild(_nodeText2);
+          let texto_t2 = _td2.textContent;
+          _td2.textContent = texto_t2;
+          _td2.innerHTML =
+            '<i class="fa-brands fa-youtube youtube-icon"></i> ' + texto_t2;
+          _td3.appendChild(_nodeText3);
+          _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
+          _td5.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+          _tr.appendChild(_td1);
+          _tr.appendChild(_td2);
+          _tr.appendChild(_td3);
+          _tr.appendChild(_td4);
+          _tr.appendChild(_td5);
+          _listaVideos.appendChild(_tr);
+        }
+      });
+      // fim do código ajax listagem inicial - cadastro de vídeo avulso
 
       // inicio do código ajax envio - cadastro de vídeo avulso
       $(document).ready(function () {
         $("form").submit(function (event) {
-            var formData = {
-                categoria: $("#categoria").val(),
-                nomevideo: $("#nomevideo").val(),
-                codigoyt: $("#codigoyt").val(),
-                };
-        $.ajax({
-          type: "POST",
-          url: "recebe.php",
-          data: formData,
-          dataType: "json",
-          encode: true}).done(function(data) {
-          console.log(data);
-          //$('.texto').append(data);
-          //_texto.innerHTML = `<table><tr>`
-          console.log(typeof data);
-          //for(let i=0; i < data.length; i++){
-            let _ultimoAdicionado = (data.length)-1;
-            console.log(data[_ultimoAdicionado].descricao,data[_ultimoAdicionado].codigo);
-          //}
+          var formData = {
+            categoria: $("#categoria").val(),
+            nomevideo: $("#nomevideo").val(),
+            codigoyt: $("#codigoyt").val(),
+          };
+          $.ajax({
+            type: "POST",
+            url: "recebe.php",
+            data: formData,
+            dataType: "json",
+            encode: true,
+          }).done(function (data) {
+            console.log(data);
+            //$('.texto').append(data);
+            //_texto.innerHTML = `<table><tr>`
+            console.log(typeof data);
+            //for(let i=0; i < data.length; i++){
+            let _ultimoAdicionado = data.length - 1;
+            console.log(
+              data[_ultimoAdicionado].descricao,
+              data[_ultimoAdicionado].codigo
+            );
+            //}
             /*for(let i=0; i < data.length; i++){*/
-              let _tr = document.createElement('tr');
-              let _td1 = document.createElement('td');
-              let _td2 = document.createElement('td');
-              let _td3 = document.createElement('td');
-              let _td4 = document.createElement('td');
-              let _td5 = document.createElement('td');
-              let _nodeText1 = document.createTextNode(data[_ultimoAdicionado].id);
-              let _nodeText2 = document.createTextNode(data[_ultimoAdicionado].descricao);
-              let _nodeText3 = document.createTextNode(data[_ultimoAdicionado].codigo);
-              _td1.appendChild(_nodeText1);
-              _td2.appendChild(_nodeText2);
-              let texto_t2 = _td2.textContent;
-              _td2.textContent = texto_t2;
-              _td2.innerHTML = '<i class="fa-brands fa-youtube"></i> '+texto_t2;
-              _td3.appendChild(_nodeText3);
-              _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
-              _td5.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
-              _tr.appendChild(_td1);
-              _tr.appendChild(_td2);
-              _tr.appendChild(_td3);
-              _tr.appendChild(_td4);
-              _tr.appendChild(_td5);
-              _listaVideos.appendChild(_tr);
+            let _tr = document.createElement("tr");
+            let _td1 = document.createElement("td");
+            let _td2 = document.createElement("td");
+            let _td3 = document.createElement("td");
+            let _td4 = document.createElement("td");
+            let _td5 = document.createElement("td");
+            let _nodeText1 = document.createTextNode(
+              data[_ultimoAdicionado].id
+            );
+            let _nodeText2 = document.createTextNode(
+              data[_ultimoAdicionado].descricao
+            );
+            let _nodeText3 = document.createTextNode(
+              data[_ultimoAdicionado].codigo
+            );
+            _td1.appendChild(_nodeText1);
+            _td2.appendChild(_nodeText2);
+            let texto_t2 = _td2.textContent;
+            _td2.textContent = texto_t2;
+            _td2.innerHTML =
+              '<i class="fa-brands fa-youtube youtube-icon"></i> ' + texto_t2;
+            _td3.appendChild(_nodeText3);
+            _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
+            _td5.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
+            _tr.appendChild(_td1);
+            _tr.appendChild(_td2);
+            _tr.appendChild(_td3);
+            _tr.appendChild(_td4);
+            _tr.appendChild(_td5);
+            _listaVideos.appendChild(_tr);
             /*}*/
-            _select_categoria.value = '';
-            _nomevideo.value = '';
-            _codigoyt.value = '';
+            _select_categoria.value = "";
+            _nomevideo.value = "";
+            _codigoyt.value = "";
+          });
+          event.preventDefault();
         });
-        event.preventDefault();
       });
-    });
-     // fim do código ajax envio - cadastro de vídeo avulso
+      // fim do código ajax envio - cadastro de vídeo avulso
 
+      const _select_categoria = document.querySelector("#categoria");
+      const _nomevideo = document.querySelector("#nomevideo");
+      const _codigoyt = document.querySelector("#codigoyt");
+      const _form = document.querySelector("form");
+      const _buttonSubmit = document.querySelector(".submit");
 
-
-        const _select_categoria = document.querySelector('#categoria');
-        const _nomevideo = document.querySelector('#nomevideo');
-        const _codigoyt = document.querySelector('#codigoyt');
-        const _form = document.querySelector('form');
-        const _buttonSubmit = document.querySelector('.submit');
-
-
-
-
-        const arrDivRow     = ['','','','','','','','','','',''];
+      /*const arrDivRow     = ['','','','','','','','','','',''];
         const arrDivCol_1   = ['','','','','','','','','','',''];
         const arrDivCol_2   = ['','','','','','','','','','',''];
         const arrLabel_1      = ['','','','','','','','','','',''];
@@ -222,29 +313,23 @@
         const arrLabelText_1  = ['','','','','','','','','','',''];
         const arrLabelText_2  = ['','','','','','','','','','',''];
         const arrInput_1      = ['','','','','','','','','','',''];
-        const arrInput_2      = ['','','','','','','','','','',''];
+        const arrInput_2      = ['','','','','','','','','','',''];*/
 
-        let quantidadeCampos = 1;
-
+      let quantidadeCampos = 1;
 
       const _videos = document.querySelectorAll(".video");
       const _tipo = document.querySelector("#tipo");
       _tipo_escolhido = "video";
-
-      
 
       /*_tipo.addEventListener("change", function (e) {
         console.log(e.target.value);
         if (e.target.value === "playlist") {
           _tipo_escolhido = "playlist";
         } else {
-          _tipo_escolhido = "video";          
+          _tipo_escolhido = "video";
           geraCampos(1);
         }
       });*/
-
-
-
 
       /*function geraCampos(quantidade){
         arrLabelText_1[quantidade] = document.createTextNode('Nome do vídeo');
@@ -252,25 +337,25 @@
         arrLabel_1[quantidade] = document.createElement('label');
         arrLabel_1[quantidade].appendChild(arrLabelText_1[quantidade]);
         arrLabel_1[quantidade].setAttribute('for', 'nomevideo'+1);
-        arrLabel_1[quantidade].classList.add('form-label');        
+        arrLabel_1[quantidade].classList.add('form-label');
         arrLabel_2[quantidade] = document.createElement('label');
         arrLabel_2[quantidade].appendChild(arrLabelText_2[quantidade]);
         arrLabel_2[quantidade].setAttribute('for', 'linkyt'+1);
         arrLabel_2[quantidade].classList.add('form-label');
         arrInput_1[quantidade] = document.createElement('input');
-        arrInput_1[quantidade].setAttribute('type','text');        
-        arrInput_1[quantidade].classList.add('form-control');        
-        arrInput_1[quantidade].setAttribute('id','nomevideo'+1);        
-        arrInput_1[quantidade].setAttribute('required','');       
-        arrInput_1[quantidade].setAttribute('name','nomevideo'+1); 
+        arrInput_1[quantidade].setAttribute('type','text');
+        arrInput_1[quantidade].classList.add('form-control');
+        arrInput_1[quantidade].setAttribute('id','nomevideo'+1);
+        arrInput_1[quantidade].setAttribute('required','');
+        arrInput_1[quantidade].setAttribute('name','nomevideo'+1);
         arrInput_1[quantidade].setAttribute('placeholder','');
         arrInput_2[quantidade] = document.createElement('input');
-        arrInput_2[quantidade].setAttribute('type','text');        
-        arrInput_2[quantidade].classList.add('form-control');        
-        arrInput_2[quantidade].setAttribute('id','linkyt'+1);        
-        arrInput_2[quantidade].setAttribute('required','');       
-        arrInput_2[quantidade].setAttribute('name','linkyt'+1);  
-        arrInput_2[quantidade].setAttribute('placeholder',''); 
+        arrInput_2[quantidade].setAttribute('type','text');
+        arrInput_2[quantidade].classList.add('form-control');
+        arrInput_2[quantidade].setAttribute('id','linkyt'+1);
+        arrInput_2[quantidade].setAttribute('required','');
+        arrInput_2[quantidade].setAttribute('name','linkyt'+1);
+        arrInput_2[quantidade].setAttribute('placeholder','');
         arrDivCol_1[quantidade] = document.createElement('div');
         arrDivCol_1[quantidade].classList.add('col-md-6');
         arrDivCol_2[quantidade] = document.createElement('div');
@@ -293,7 +378,7 @@
         console.log(arrLabelText_1);
         console.log(arrLabelText_2);
         console.log(arrInput_1);
-        console.log(arrInput_2);             
+        console.log(arrInput_2);
       }*/
     </script>
   </body>
