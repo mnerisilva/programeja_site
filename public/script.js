@@ -5,6 +5,7 @@ $(document).ready(function () {
     const _copy = document.querySelector(".copy");
     const _youtubeLinkTester = document.querySelector(".youtube-link-tester");
     const _modalContent = document.querySelector('._modal-content');
+    const _modalCancel = document.querySelector('._modal-cancel');
 
     //for (let i=0; i > _trash_icon_delete_all.length; i++){
         //console.log(_trash_icon_delete_all[0]);
@@ -93,9 +94,10 @@ $(document).ready(function () {
                 console.log(e.target)
                 console.log(_modalContent)
                 //console.log(_modalDeleteBodyModalContent.textContent)
+                e.target.parentNode.parentNode.style.backgroundColor = 'gold';
                 _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
             });
-        });        
+        }); 
       }
     });
     // fim do código ajax listagem inicial - cadastro de vídeo avulso
@@ -161,6 +163,7 @@ $(document).ready(function () {
                   console.log(e.target)
                   console.log(_modalContent)
                   //console.log(_modalDeleteBodyModalContent.textContent)
+                  e.target.parentNode.parentNode.style.backgroundColor = 'gold';
                   _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
               });
           });           
