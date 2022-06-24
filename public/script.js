@@ -93,7 +93,7 @@ $(document).ready(function () {
                 console.log(e.target)
                 console.log(_modalContent)
                 //console.log(_modalDeleteBodyModalContent.textContent)
-                _modalContent.innerHTML = `<span>${e.target.dataset.id} </span><span>${e.target.dataset.descricao} </span><span>${e.target.dataset.codigo} </span>`;
+                _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
             });
         });        
       }
@@ -141,8 +141,7 @@ $(document).ready(function () {
           _td2.appendChild(_nodeText2);
           let texto_t2 = _td2.textContent;
           _td2.textContent = texto_t2;
-          _td2.innerHTML =
-            '<i class="fa-brands fa-youtube youtube-icon"></i> ' + texto_t2;
+          _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${data[_ultimoAdicionado].codigo}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
           _td3.appendChild(_nodeText3);
           _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
           _td5.innerHTML =  `<i class="fa-solid fa-trash-can trash-icon-delete" data-bs-toggle="modal" data-bs-toggle="modal" data-id="${data[_ultimoAdicionado].id}" data-id_conteudo_indice="${data[_ultimoAdicionado].id_conteudo_indice}" data-descricao="${data[_ultimoAdicionado].descricao}" data-codigo="${data[_ultimoAdicionado].codigo}" data-bs-target="#deleteModal"></i>`;
@@ -152,6 +151,19 @@ $(document).ready(function () {
           _tr.appendChild(_td4);
           _tr.appendChild(_td5);
           _listaVideos.appendChild(_tr);
+          const _trash_icon_delete_all = document.querySelectorAll(".trash-icon-delete");
+          console.log(_modalContent)
+  
+  
+  
+          _trash_icon_delete_all.forEach(function(trash){
+              trash.addEventListener('click', function(e){
+                  console.log(e.target)
+                  console.log(_modalContent)
+                  //console.log(_modalDeleteBodyModalContent.textContent)
+                  _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
+              });
+          });           
           /*}*/
           _select_categoria.value = "";
           _nomevideo.value = "";
