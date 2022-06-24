@@ -1,4 +1,5 @@
 $(document).ready(function () {
+
     const _listaVideos = document.querySelector(".lista-videos tbody");
     const _normalize = document.querySelector(".normalize");
     const _rubber = document.querySelector(".rubber");
@@ -6,6 +7,8 @@ $(document).ready(function () {
     const _youtubeLinkTester = document.querySelector(".youtube-link-tester");
     const _modalContent = document.querySelector('._modal-content');
     const _modalCancel = document.querySelector('._modal-cancel');
+
+    listarVideos();
 
     //for (let i=0; i > _trash_icon_delete_all.length; i++){
         //console.log(_trash_icon_delete_all[0]);
@@ -23,7 +26,7 @@ $(document).ready(function () {
         console.log("campo codigo está vazio");
         return;
       } else {
-        let link = codigoyt.value;
+        let link = _codigoyt.value;
         if (!link.includes("watch?v=")) {
           return;
         } else {
@@ -87,18 +90,18 @@ $(document).ready(function () {
         const _trash_icon_delete_all = document.querySelectorAll(".trash-icon-delete");
         console.log(_modalContent)
 
-
-
         _trash_icon_delete_all.forEach(function(trash){
             trash.addEventListener('click', function(e){
                 console.log(e.target)
                 console.log(_modalContent)
-                //console.log(_modalDeleteBodyModalContent.textContent)
                 e.target.parentNode.parentNode.style.backgroundColor = 'gold';
                 _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
             });
-        }); 
+        });
       }
+      
+
+
     });
     // fim do código ajax listagem inicial - cadastro de vídeo avulso
 
@@ -157,16 +160,16 @@ $(document).ready(function () {
           console.log(_modalContent)
   
   
-  
           _trash_icon_delete_all.forEach(function(trash){
-              trash.addEventListener('click', function(e){
-                  console.log(e.target)
-                  console.log(_modalContent)
-                  //console.log(_modalDeleteBodyModalContent.textContent)
-                  e.target.parentNode.parentNode.style.backgroundColor = 'gold';
-                  _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
-              });
-          });           
+            trash.addEventListener('click', function(e){
+                console.log(e.target)
+                console.log(_modalContent)
+                //console.log(_modalDeleteBodyModalContent.textContent)
+                e.target.parentNode.parentNode.style.backgroundColor = 'gold';
+                _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
+            });
+        }); 
+          
           /*}*/
           _select_categoria.value = "";
           _nomevideo.value = "";
@@ -190,4 +193,33 @@ $(document).ready(function () {
     _tipo_escolhido = "video";
 
 
-    });
+
+
+
+
+    ////////////////////////// FUNÇOES GERAIS ///////////////////////////////////////////////////////////////////////////////
+    function listarVideos(){
+        $.ajax({
+            type: "POST",
+            url: "lista.php",
+            dataType: "json",
+            encode: true,
+          }).done(function (data) {
+            console.log('entrou na function listar', data);
+          })         
+    }
+
+    function bindTrashIconDelete(){
+        _trash_icon_delete_all.forEach(function(trash){
+            trash.addEventListener('click', function(e){
+                console.log(e.target)
+                console.log(_modalContent)
+                //console.log(_modalDeleteBodyModalContent.textContent)
+                e.target.parentNode.parentNode.style.backgroundColor = 'gold';
+                _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
+            });
+        });         
+    }
+    /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+});
