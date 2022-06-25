@@ -189,8 +189,17 @@ $(document).ready(function () {
           "td:nth-child(3)"
         ).style.textDecoration = "line-through";
         _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
-        //e.target.style.pointerEvents = "none";
-        e.target.style = 0;
+        e.target.style.pointerEvents = "none";
+        e.target.style.opacity = 0;
+        e.target.parentNode.querySelector(".delete-cancel").style.opacity = 1;
+        e.target.parentNode.querySelector(
+          ".delete-cancel"
+        ).style.pointerEvents = "all";
+        e.target.parentNode.querySelector(".delete-confirm").style.opacity = 1;
+        e.target.parentNode.querySelector(
+          ".delete-confirm"
+        ).style.pointerEvents = "all";
+        e.target.style.pointerEvents = "none";
       });
     });
   }
