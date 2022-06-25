@@ -6,6 +6,8 @@ $(document).ready(function () {
   const _youtubeLinkTester = document.querySelector(".youtube-link-tester");
   const _modalContent = document.querySelector("._modal-content");
   const _modalCancel = document.querySelector("._modal-cancel");
+  const _deleteCancel = document.querySelector(".delete-cancel");
+  const _deleteConfirm = document.querySelector(".delete-confirm");
   let trash_icon_delete_all;
 
   listarVideos();
