@@ -189,6 +189,8 @@ $(document).ready(function () {
           "td:nth-child(3)"
         ).style.textDecoration = "line-through";
         _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
+        //e.target.style.pointerEvents = "none";
+        e.target.style = 0;
       });
     });
   }
