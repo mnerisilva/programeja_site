@@ -27,14 +27,18 @@
 
       .youtube-icon,
       .fa-pencil,
-      .fa-trash-can {
+      .fa-trash-can,
+      .delete-cancel,
+      .delete-confirm {
         color: gray;
         cursor: pointer;
       }
 
       .youtube-icon:hover,
       .fa-pencil:hover,
-      .fa-trash-can:hover {
+      .fa-trash-can:hover,
+      .delete-cancel:hover,
+      .delete-confirm:hover {
         transition: all 0.2s ease;
         transform: scale(1.2);
       }
@@ -72,10 +76,26 @@
       .link-youtube:hover {
         color: #212529;
       }
-      
+
       .lista-videos tbody tr td:nth-child(3) {
         text-align: right;
       }
+
+      .tdlink:hover {
+        cursor: pointer;
+        background-color: whitesmoke !important;
+      }
+
+      @media screen and (max-width: 1400px) {
+        .lista-videos tbody tr td:nth-child(5) {
+          min-width: 78px;
+        }
+      }
+
+      /*.delete-cancel,
+      .delete-confirm {
+        opacity: 0;
+      }*/
     </style>
   </head>
   <body>
@@ -144,7 +164,7 @@
         </button>
       </form>
       <div class="row">
-        <div class="col-md-7">
+        <div class="col-md-7 col-sm-12 col-xs-12">
           <table class="table lista-videos">
             <thead>
               <tr>
@@ -181,7 +201,10 @@
             ></button>
           </div>
           <div class="modal-body">
-            <table class="table" style="border-bottom-color: transparent !important;">
+            <table
+              class="table"
+              style="border-bottom-color: transparent !important"
+            >
               <thead>
                 <tr>
                   <th>#</th>
@@ -190,7 +213,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr class="_modal-content"></tr>               
+                <tr class="_modal-content"></tr>
               </tbody>
             </table>
             <!--<div class="_modal-content">...</div>-->

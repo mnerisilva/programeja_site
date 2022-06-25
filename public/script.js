@@ -72,12 +72,13 @@ $(document).ready(function () {
       let _nodeText3 = document.createTextNode(data[i].codigo);
       _td1.appendChild(_nodeText1);
       _td2.appendChild(_nodeText2);
+      _td2.classList.add("tdlink");
       let texto_t2 = _td2.textContent;
       _td2.textContent = texto_t2;
       _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${data[i].codigo}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
       _td3.appendChild(_nodeText3);
       _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
-      _td5.innerHTML = `<i class="fa-solid fa-trash-can trash-icon-delete" data-bs-toggle="modal" data-bs-toggle="modal" data-id="${data[i].id}" data-id_conteudo_indice="${data[i].id_conteudo_indice}" data-descricao="${data[i].descricao}" data-codigo="${data[i].codigo}" data-bs-target="#deleteModal"></i>`;
+      _td5.innerHTML = `<i class="fa-solid fa-trash-can trash-icon-delete" data-bs-toggle="" data-bs-toggle="modal" data-id="${data[i].id}" data-id_conteudo_indice="${data[i].id_conteudo_indice}" data-descricao="${data[i].descricao}" data-codigo="${data[i].codigo}" data-bs-target="#deleteModal"></i>&nbsp;<i class="fa-solid fa-xmark delete-cancel"></i>&nbsp;<i class="fa-solid fa-check delete-confirm"></i>`;
       _tr.appendChild(_td1);
       _tr.appendChild(_td2);
       _tr.appendChild(_td3);
@@ -181,7 +182,12 @@ $(document).ready(function () {
         console.log(e.target);
         console.log(_modalContent);
         //console.log(_modalDeleteBodyModalContent.textContent)
-        e.target.parentNode.parentNode.style.backgroundColor = "gold";
+        e.target.parentNode.parentNode.querySelector(
+          "td:nth-child(2)"
+        ).style.textDecoration = "line-through";
+        e.target.parentNode.parentNode.querySelector(
+          "td:nth-child(3)"
+        ).style.textDecoration = "line-through";
         _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
       });
     });
