@@ -189,6 +189,11 @@ $(document).ready(function () {
         e.target.parentNode.parentNode.querySelector(
           "td:nth-child(2)"
         ).style.textDecoration = "line-through";
+
+        e.target.parentNode.parentNode.querySelector(
+          "td:nth-child(2)"
+        ).style.pointerEvents = "none";
+
         e.target.parentNode.parentNode.querySelector(
           "td:nth-child(3)"
         ).style.textDecoration = "line-through";
@@ -210,9 +215,7 @@ $(document).ready(function () {
   }
 
   function bindIconDeleteCancel() {
-
-    _trash_icon_delete_all.forEach(function (trash) {}
-
+    //_trash_icon_delete_all.forEach(function (trash) {}
   }
 
   function exclui() {
