@@ -143,7 +143,6 @@ $(document).ready(function () {
       _icon_delete_cancal_all = document.querySelectorAll(".delete-cancel");
       _icon_delete_confirm_all = document.querySelectorAll(".delete-confirme");
       console.log(_modalContent);
-
       bindTrashIconDelete();
 
       /*}*/
@@ -199,7 +198,14 @@ $(document).ready(function () {
         ).style.textDecoration = "line-through";
         _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
         e.target.style.pointerEvents = "none";
-        //e.target.style.opacity = 0;
+
+        let _deleteCancelDestaTD =
+          e.target.parentNode.querySelector(".delete-cancel");
+        console.log(_deleteCancelDestaTD);
+
+        bindIconDeleteCancel();
+        bindIconDeleteConfirm();
+
         e.target.style.display = "none";
         e.target.parentNode.querySelector(".delete-cancel").style.opacity = 1;
         e.target.parentNode.querySelector(
@@ -215,6 +221,10 @@ $(document).ready(function () {
   }
 
   function bindIconDeleteCancel() {
+    //_trash_icon_delete_all.forEach(function (trash) {}
+  }
+
+  function bindIconDeleteConfirm() {
     //_trash_icon_delete_all.forEach(function (trash) {}
   }
 
