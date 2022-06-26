@@ -80,7 +80,7 @@ $(document).ready(function () {
       _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${data[i].codigo}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
       _td3.appendChild(_nodeText3);
       _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
-      _td5.innerHTML = `<i class="fa-solid fa-trash-can trash-icon-delete" data-bs-toggle="" data-bs-toggle="modal" data-id="${data[i].id}" data-id_conteudo_indice="${data[i].id_conteudo_indice}" data-descricao="${data[i].descricao}" data-codigo="${data[i].codigo}" data-bs-target="#deleteModal"></i>&nbsp;<i class="fa-solid fa-xmark delete-cancel"></i>&nbsp;<i class="fa-solid fa-check delete-confirm"></i>`;
+      _td5.innerHTML = `<form class="form-delete"><input type="hidden" name="id" value="5" /><button type="submit"><i class="fa-solid fa-trash-can trash-icon-delete id-delete" data-bs-toggle="" data-bs-toggle="modal" data-id="${data[i].id}" data-id_conteudo_indice="${data[i].id_conteudo_indice}" data-descricao="${data[i].descricao}" data-codigo="${data[i].codigo}" data-bs-target="#deleteModal"></i>&nbsp;<i class="fa-solid fa-xmark delete-cancel"></i>&nbsp;<i class="fa-solid fa-check delete-confirm"></i></button></form>`;
       _tr.appendChild(_td1);
       _tr.appendChild(_td2);
       _tr.appendChild(_td3);
@@ -132,7 +132,7 @@ $(document).ready(function () {
       _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${data[_ultimoAdicionado].codigo}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
       _td3.appendChild(_nodeText3);
       _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
-      _td5.innerHTML = `<i class="fa-solid fa-trash-can trash-icon-delete" data-bs-toggle="modal" data-bs-toggle="modal" data-id="${data[_ultimoAdicionado].id}" data-id_conteudo_indice="${data[_ultimoAdicionado].id_conteudo_indice}" data-descricao="${data[_ultimoAdicionado].descricao}" data-codigo="${data[_ultimoAdicionado].codigo}" data-bs-target="#deleteModal"></i>`;
+      _td5.innerHTML = `<form><input type="hidden" name="id" value="5" /><i class="fa-solid fa-trash-can trash-icon-delete" data-bs-toggle="modal" data-bs-toggle="modal" data-id="${data[_ultimoAdicionado].id}" data-id_conteudo_indice="${data[_ultimoAdicionado].id_conteudo_indice}" data-descricao="${data[_ultimoAdicionado].descricao}" data-codigo="${data[_ultimoAdicionado].codigo}" data-bs-target="#deleteModal"></i></form>`;
       _tr.appendChild(_td1);
       _tr.appendChild(_td2);
       _tr.appendChild(_td3);
@@ -184,58 +184,92 @@ $(document).ready(function () {
       trash.addEventListener("click", function (e) {
         console.log(e.target);
         console.log(_modalContent);
-        //console.log(_modalDeleteBodyModalContent.textContent)
-        e.target.parentNode.parentNode.querySelector(
-          "td:nth-child(2)"
-        ).style.textDecoration = "line-through";
-
-        e.target.parentNode.parentNode.querySelector(
-          "td:nth-child(2)"
-        ).style.pointerEvents = "none";
-
-        e.target.parentNode.parentNode.querySelector(
-          "td:nth-child(3)"
-        ).style.textDecoration = "line-through";
+        e.target.parentNode.parentNode.querySelector("td:nth-child(2)").style.textDecoration = "line-through";
+        e.target.parentNode.parentNode.querySelector("td:nth-child(2)").style.pointerEvents = "none";
+        e.target.parentNode.parentNode.querySelector("td:nth-child(3)").style.textDecoration = "line-through";
         _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
         e.target.style.pointerEvents = "none";
+        let _deleteCancelDestaTD = e.target.parentNode.querySelector(".delete-cancel");
+        let _deleteConfirmDestaTD = e.target.parentNode.querySelector(".delete-confirm");
+        let _etarget = e.target;
 
-        let _deleteCancelDestaTD =
-          e.target.parentNode.querySelector(".delete-cancel");
-        console.log(_deleteCancelDestaTD);
-
-        bindIconDeleteCancel();
-        bindIconDeleteConfirm();
+        bindIconDeleteCancel(_etarget, _deleteCancelDestaTD, _deleteConfirmDestaTD);
+        bindIconDeleteConfirm(_etarget, _deleteCancelDestaTD, _deleteConfirmDestaTD);
 
         e.target.style.display = "none";
         e.target.parentNode.querySelector(".delete-cancel").style.opacity = 1;
-        e.target.parentNode.querySelector(
-          ".delete-cancel"
-        ).style.pointerEvents = "all";
+        e.target.parentNode.querySelector(".delete-cancel").style.pointerEvents = "all";
         e.target.parentNode.querySelector(".delete-confirm").style.opacity = 1;
-        e.target.parentNode.querySelector(
-          ".delete-confirm"
-        ).style.pointerEvents = "all";
+        e.target.parentNode.querySelector(".delete-confirm").style.pointerEvents = "all";
         e.target.style.pointerEvents = "none";
       });
     });
   }
 
-  function bindIconDeleteCancel() {
-    //_trash_icon_delete_all.forEach(function (trash) {}
-  }
 
-  function bindIconDeleteConfirm() {
-    //_trash_icon_delete_all.forEach(function (trash) {}
-  }
 
-  function exclui() {
+
+
+  $(".form-delete").submit(function (event) {
+    // inicio do código ajax envio - cadastro de vídeo avulso
+    console.log('estrou no form delete');
+    var formData = {
+      id: $("#id-delete").val()
+    };
     $.ajax({
       type: "POST",
-      url: "recebe.php",
+      url: "exclui.php",
       data: formData,
       dataType: "json",
       encode: true,
-    }).done(function (data) {});
+    }).done(function (data) {
+      console.log('voltando do excluir.php');
+    });
+    event.preventDefault();
+  });
+
+
+
+
+
+
+
+
+  function bindIconDeleteCancel(_etarget, _iconDeleteCancelAtual, _iconDeleteConfirmAtual) {
+    _iconDeleteCancelAtual.style.color = "red";
+
+    _iconDeleteCancelAtual.addEventListener('click', function(e){
+      _iconDeleteCancelAtual.style.opacity = 0;
+      _iconDeleteCancelAtual.style.pointerEvents = 'none';
+      _iconDeleteConfirmAtual.style.opacity = 0;
+      _iconDeleteConfirmAtual.style.pointerEvents = 'none';
+      setTimeout(function(){_etarget.style.display = 'inline-block'; _etarget.style.pointerEvents = 'auto'}, 300);
+      _etarget.parentNode.parentNode.querySelector('td:nth-child(2)').style.textDecoration = 'auto';
+      _etarget.parentNode.parentNode.querySelector('td:nth-child(3)').style.textDecoration = 'auto';
+      _etarget.parentNode.parentNode.style.opacity = 0;
+      setTimeout(function(){_etarget.parentNode.parentNode.style.display = 'none';}, 200);
+      //_idExcluir = e.target.dataset.id;
+      //exclui(_idExcluir);
+      
+      console.log(_etarget);
+    });
+  }
+
+  function bindIconDeleteConfirm(_etarget, _iconDeleteConfirmAtual, _iconDeleteConfirmAtual) {
+    _iconDeleteConfirmAtual.style.color = "#5dc15d";
+    //_trash_icon_delete_all.forEach(function (trash) {}
+  }
+
+  function exclui(_id) {
+    /*$.ajax({
+      type: "POST",
+      url: "exclui.php",
+       data: {'id':_id},
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {});*/
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 });
