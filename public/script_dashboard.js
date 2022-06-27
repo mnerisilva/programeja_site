@@ -14,14 +14,17 @@ $.ajax({
         const _td1 = document.createElement('td');
         const _td2 = document.createElement('td');
         const _td3 = document.createElement('td');
+        const _td4 = document.createElement('td');
         const _nodeText1 = document.createTextNode(userItem.user_id);
         const _nodeText2 = document.createTextNode(userItem.user_name);
-        _td1.appendChild(_nodeText1);
-        _td2.appendChild(_nodeText2);
-        _td3.innerHTML = `<i class="fa-solid fa-gear user-course-manager" data-bs-toggle="modal" data-bs-target="#exampleModal" data-userId="${userItem.user_id}" data-userName="${userItem.user_name}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
+        _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
+        _td2.appendChild(_nodeText1);
+        _td3.appendChild(_nodeText2);
+        _td4.innerHTML = `<i class="fa-solid fa-gear user-course-manager" data-bs-toggle="modal" data-bs-target="#exampleModal" data-userId="${userItem.user_id}" data-userName="${userItem.user_name}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
         _tr.appendChild(_td1);
         _tr.appendChild(_td2);
         _tr.appendChild(_td3);
+        _tr.appendChild(_td4);
         _tbody.appendChild(_tr);
     }
 

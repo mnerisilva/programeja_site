@@ -6,3 +6,8 @@
     transition: all .4s ease;
     transform: scale(1.1);
 }
+
+.user-avatar {
+    width: 45px;
+    border-radius: 50%;    
+}

@@ -34,6 +34,7 @@
           <table class="table lista-user">
             <thead>
               <tr>
+                <th></th>
                 <th>#</th>
                 <th>Nome do usuário</th>
                 <th></th>
@@ -54,7 +55,7 @@
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Vinculação de vídeo || <span class="modal-user-id"></span><span class="modal-user-name"></span></h5>
+            <h5 class="modal-title" id="exampleModalLabel"><span class="modal-user-id"></span><span class="modal-user-name"></span></h5>
             <!--<h5 class="modal-title" id="exampleModalLabel"></h5>-->
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
