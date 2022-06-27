@@ -54,7 +54,8 @@
     <div class="modal-dialog modal-fullscreen">
         <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Vinculação aluno/vídeo</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Vinculação de vídeo || <span class="modal-user-id"></span><span class="modal-user-name"></span></h5>
+            <!--<h5 class="modal-title" id="exampleModalLabel"></h5>-->
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
