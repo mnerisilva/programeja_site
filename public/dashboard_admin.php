@@ -20,9 +20,10 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link rel="stylesheet" href="dashboard_admin.css" />
   </head>
   <body>
-    <div class="container">
+    <div class="container container-fluid">
       <div class="row">
         <div class="col-md-12 d-flex justify-content-center mt-2">
           <h1>Dashboard Admin</h1>
@@ -30,11 +31,12 @@
       </div>
       <div class="row">
         <div class="col-md-7 col-sm-12 col-xs-12">
-          <table class="table lista-videos">
+          <table class="table lista-user">
             <thead>
               <tr>
                 <th>#</th>
                 <th>Nome do usuário</th>
+                <th></th>
               </tr>
             </thead>
             <tbody></tbody>
@@ -43,6 +45,28 @@
       </div>
     </div>
 
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Vinculação aluno/vídeo</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            ...
+        </div>
+        <div class="modal-footer">
+            <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+        </div>
+        </div>
+    </div>
+    </div>    
 
 
 

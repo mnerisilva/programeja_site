@@ -1,0 +1,8 @@
+.user-course-manager, .user-manager {
+    cursor: pointer;
+}
+
+.user-course-manager:hover, .user-manager:hover {
+    transition: all .4s ease;
+    transform: scale(1.1);
+}

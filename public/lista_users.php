@@ -5,7 +5,7 @@ include('connect.php');
 
 
 		
-		$sql = "SELECT * FROM user";
+		$sql = "SELECT * FROM user ORDER BY user_name";
 		$result = mysqli_query($conn, $sql);
 		
 
@@ -15,7 +15,7 @@ include('connect.php');
 
 		if($result){
 			while($row = mysqli_fetch_array($result)){
-				$arr_json[$contador] = ['id' => $row["id_conteudo"], 'id_conteudo_indice' => $row["id_conteudo_indice"],'descricao' => $row["conteudo_descricao"], 'codigo' => $row["conteudo_codigoyoutube"]];
+				$arr_json[$contador] = ['user_id' => $row["user_id"], 'user_name' => $row["user_name"],'user_date' => $row["user_date"]];
 				$contador++;			
 			}
 	
