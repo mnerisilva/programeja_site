@@ -8,9 +8,17 @@ $(document).ready(function () {
   const _modalCancel = document.querySelector("._modal-cancel");
   const _deleteCancel = document.querySelector(".delete-cancel");
   const _deleteConfirm = document.querySelector(".delete-confirm");
+  const _delete_button_confirm = document.querySelector(".delete-button-confirm");
+  const _formModalConfimDeleteId = document.querySelector("#modalConfirmDeleteId");
+  const _form_cadastro_video = document.querySelector("#cadastro_video");
+  const _input_confirm_id_modal_delete = document.querySelector("#input_confirm_id_modal_delete");
+  const _deleteModal = document.querySelector("#deleteModal");
   let trash_icon_delete_all;
 
+ 
+
   listarVideos();
+  
 
   _copy.addEventListener("click", function () {
     navigator.clipboard.writeText(_codigoyt.value);
@@ -80,7 +88,7 @@ $(document).ready(function () {
       _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${data[i].codigo}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
       _td3.appendChild(_nodeText3);
       _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
-      _td5.innerHTML = `<form class="form-delete"><input type="hidden" name="id" value="5" /><button type="submit"><i class="fa-solid fa-trash-can trash-icon-delete id-delete" data-bs-toggle="" data-bs-toggle="modal" data-id="${data[i].id}" data-id_conteudo_indice="${data[i].id_conteudo_indice}" data-descricao="${data[i].descricao}" data-codigo="${data[i].codigo}" data-bs-target="#deleteModal"></i>&nbsp;<i class="fa-solid fa-xmark delete-cancel"></i>&nbsp;<i class="fa-solid fa-check delete-confirm"></i></button></form>`;
+      _td5.innerHTML = `<i class="fa-solid fa-trash-can trash-icon-delete id-delete" data-id="${data[i].id}" data-id_conteudo_indice="${data[i].id_conteudo_indice}" data-descricao="${data[i].descricao}" data-codigo="${data[i].codigo}" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>&nbsp;<i class="fa-solid fa-xmark delete-cancel"></i>&nbsp;<i class="fa-solid fa-check delete-confirm"></i>`;
       _tr.appendChild(_td1);
       _tr.appendChild(_td2);
       _tr.appendChild(_td3);
@@ -93,7 +101,7 @@ $(document).ready(function () {
     bindTrashIconDelete();
   }); // fim do código ajax listagem inicial - cadastro de vídeo avulso
 
-  $("form").submit(function (event) {
+  $(_form_cadastro_video).submit(function (event) {
     // inicio do código ajax envio - cadastro de vídeo avulso
     var formData = {
       categoria: $("#categoria").val(),
@@ -132,7 +140,7 @@ $(document).ready(function () {
       _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${data[_ultimoAdicionado].codigo}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
       _td3.appendChild(_nodeText3);
       _td4.innerHTML = '<i class="fa-solid fa-pencil"></i>';
-      _td5.innerHTML = `<form><input type="hidden" name="id" value="5" /><i class="fa-solid fa-trash-can trash-icon-delete" data-bs-toggle="modal" data-bs-toggle="modal" data-id="${data[_ultimoAdicionado].id}" data-id_conteudo_indice="${data[_ultimoAdicionado].id_conteudo_indice}" data-descricao="${data[_ultimoAdicionado].descricao}" data-codigo="${data[_ultimoAdicionado].codigo}" data-bs-target="#deleteModal"></i></form>`;
+      _td5.innerHTML = `<i class="fa-solid fa-trash-can trash-icon-delete" data-id="${data[_ultimoAdicionado].id}" data-id_conteudo_indice="${data[_ultimoAdicionado].id_conteudo_indice}" data-descricao="${data[_ultimoAdicionado].descricao}" data-codigo="${data[_ultimoAdicionado].codigo}" data-bs-toggle="modal" data-bs-target="#deleteModal"></i>`;
       _tr.appendChild(_td1);
       _tr.appendChild(_td2);
       _tr.appendChild(_td3);
@@ -184,24 +192,28 @@ $(document).ready(function () {
       trash.addEventListener("click", function (e) {
         console.log(e.target);
         console.log(_modalContent);
-        e.target.parentNode.parentNode.querySelector("td:nth-child(2)").style.textDecoration = "line-through";
+        /*e.target.parentNode.parentNode.querySelector("td:nth-child(2)").style.textDecoration = "line-through";
         e.target.parentNode.parentNode.querySelector("td:nth-child(2)").style.pointerEvents = "none";
-        e.target.parentNode.parentNode.querySelector("td:nth-child(3)").style.textDecoration = "line-through";
+        e.target.parentNode.parentNode.querySelector("td:nth-child(3)").style.textDecoration = "line-through";*/
         _modalContent.innerHTML = `<td>${e.target.dataset.id} </td><td>${e.target.dataset.descricao} </td><td>${e.target.dataset.codigo} </td>`;
-        e.target.style.pointerEvents = "none";
+        _delete_button_confirm.dataset.id = e.target.dataset.id;
+        _delete_button_confirm.dataset.descricao = e.target.dataset.descricao;
+        _delete_button_confirm.dataset.codigo = e.target.dataset.codigo;
+        _input_confirm_id_modal_delete.value = e.target.dataset.id;
+        /*e.target.style.pointerEvents = "none";
         let _deleteCancelDestaTD = e.target.parentNode.querySelector(".delete-cancel");
         let _deleteConfirmDestaTD = e.target.parentNode.querySelector(".delete-confirm");
-        let _etarget = e.target;
+        let _etarget = e.target;*/
 
-        bindIconDeleteCancel(_etarget, _deleteCancelDestaTD, _deleteConfirmDestaTD);
-        bindIconDeleteConfirm(_etarget, _deleteCancelDestaTD, _deleteConfirmDestaTD);
+        //bindIconDeleteCancel(_etarget, _deleteCancelDestaTD, _deleteConfirmDestaTD);
+        //bindIconDeleteConfirm(_etarget, _deleteCancelDestaTD, _deleteConfirmDestaTD);
 
-        e.target.style.display = "none";
+        /*e.target.style.display = "none";
         e.target.parentNode.querySelector(".delete-cancel").style.opacity = 1;
         e.target.parentNode.querySelector(".delete-cancel").style.pointerEvents = "all";
         e.target.parentNode.querySelector(".delete-confirm").style.opacity = 1;
         e.target.parentNode.querySelector(".delete-confirm").style.pointerEvents = "all";
-        e.target.style.pointerEvents = "none";
+        e.target.style.pointerEvents = "none";*/
       });
     });
   }
@@ -210,23 +222,6 @@ $(document).ready(function () {
 
 
 
-  $(".form-delete").submit(function (event) {
-    // inicio do código ajax envio - cadastro de vídeo avulso
-    console.log('estrou no form delete');
-    var formData = {
-      id: $("#id-delete").val()
-    };
-    $.ajax({
-      type: "POST",
-      url: "exclui.php",
-      data: formData,
-      dataType: "json",
-      encode: true,
-    }).done(function (data) {
-      console.log('voltando do excluir.php');
-    });
-    event.preventDefault();
-  });
 
 
 
@@ -236,6 +231,7 @@ $(document).ready(function () {
 
 
   function bindIconDeleteCancel(_etarget, _iconDeleteCancelAtual, _iconDeleteConfirmAtual) {
+    return;
     _iconDeleteCancelAtual.style.color = "red";
 
     _iconDeleteCancelAtual.addEventListener('click', function(e){
@@ -256,6 +252,7 @@ $(document).ready(function () {
   }
 
   function bindIconDeleteConfirm(_etarget, _iconDeleteConfirmAtual, _iconDeleteConfirmAtual) {
+    return;
     _iconDeleteConfirmAtual.style.color = "#5dc15d";
     //_trash_icon_delete_all.forEach(function (trash) {}
   }
@@ -270,6 +267,28 @@ $(document).ready(function () {
     }).done(function (data) {});*/
   }
   /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+  $(_formModalConfimDeleteId).submit(function (event) {
+    // inicio do código ajax envio - cadastro de vídeo avulso
+    console.log('entrou aqui')
+    var formData = {
+      id: $("#input_confirm_id_modal_delete").val()
+    };
+    $.ajax({
+      type: "POST",
+      url: "exclui.php",
+      data: formData,
+      dataType: "json",
+      encode: true,
+    }).done(function (data) {
+      console.log('O vídeo foi excluído!!!');
+      _deleteModal.classList.add('fade');
+    });
+    event.preventDefault();
+  });
+
+
 
 
 });

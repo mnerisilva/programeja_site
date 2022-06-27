@@ -194,23 +194,12 @@
     </div>
 
     <!-- Modal -->
-    <div
-      class="modal fade"
-      id="deleteModal"
-      tabindex="-1"
-      aria-labelledby="deleteModalLabel"
-      aria-hidden="true"
-    >
+    <div class="modal fade" id="deleteModal"tabindex="-1"aria-labelledby="deleteModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="deleteModalLabel">Excluir vídeo</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
+            <h5 class="modal-title" id="deleteModalLabel">[EXCLUIR] Tem certeza que deseja excluir este vídeo?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <table
@@ -231,18 +220,17 @@
             <!--<div class="_modal-content">...</div>-->
           </div>
           <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary _modal-cancel"
-              data-bs-dismiss="modal"
-            >
-              Cancela
-            </button>
-            <button type="button" class="btn btn-primary">Confirma</button>
+            <button type="button" class="btn btn-secondary _modal-cancel" data-bs-dismiss="modal">Cancela</button>
+            <form id="modalConfirmDeleteId">
+              <input type="hidden" id="input_confirm_id_modal_delete" name="modal_confirm_delete_id" value="5" />
+              <button type="submit" class="btn btn-primary delete-button-confirm">Confirma</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
+
+
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"

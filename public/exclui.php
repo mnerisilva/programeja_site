@@ -2,13 +2,12 @@
 
 include('connect.php');
 
-var_dump($_POST);
-die();
 
 
-//if(count($_POST) > 0){
+
+if(count($_POST) > 0){
 	
-        $id    = 4;
+        $id    = $_POST["id"];
 
 		$sql = "DELETE FROM `conteudo` WHERE id_conteudo='$id'"; 
 		if (mysqli_query($conn, $sql)) {
@@ -22,7 +21,7 @@ die();
 
 		mysqli_close($conn);
 	
-//}
+}
 
 
 ?>
