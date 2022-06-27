@@ -14,6 +14,7 @@ $(document).ready(function () {
   const _input_confirm_id_modal_delete = document.querySelector("#input_confirm_id_modal_delete");
   const _deleteModal = document.querySelector("#deleteModal");
   let trash_icon_delete_all;
+  let _linha_da_listagem;
 
  
 
@@ -200,6 +201,8 @@ $(document).ready(function () {
         _delete_button_confirm.dataset.descricao = e.target.dataset.descricao;
         _delete_button_confirm.dataset.codigo = e.target.dataset.codigo;
         _input_confirm_id_modal_delete.value = e.target.dataset.id;
+        _linha_da_listagem = e.target.parentNode.parentNode;
+        console.log(e.target.parentNode.parentNode);
         /*e.target.style.pointerEvents = "none";
         let _deleteCancelDestaTD = e.target.parentNode.querySelector(".delete-cancel");
         let _deleteConfirmDestaTD = e.target.parentNode.querySelector(".delete-confirm");
@@ -283,7 +286,10 @@ $(document).ready(function () {
       encode: true,
     }).done(function (data) {
       console.log('O vídeo foi excluído!!!');
-      _deleteModal.classList.add('fade');
+      //_deleteModal.classList.remove('show');
+      _deleteModal.classList.remove('show');
+      document.body.querySelector('.modal-backdrop').classList.remove('show');
+      _linha_da_listagem.style.display = "none";
     });
     event.preventDefault();
   });
