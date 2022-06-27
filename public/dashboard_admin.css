@@ -11,3 +11,31 @@
     width: 45px;
     border-radius: 50%;    
 }
+
+.link-youtube {
+text-decoration: none;
+color: #212529;
+}
+
+.link-youtube:hover {
+color: #212529;
+}
+
+.lista-videos-geral tbody tr td:nth-child(3) {
+text-align: right;
+}
+
+.tdlink:hover {
+cursor: pointer;
+background-color: whitesmoke !important;
+}
+
+@media screen and (max-width: 1400px) {
+.lista-videos-geral tbody tr td:nth-child(5) {
+    min-width: 78px;
+}
+}
+
+.lista-videos-geral tbody tr td:nth-child(5) {
+min-width: 78px;
+}
