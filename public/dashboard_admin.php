@@ -77,7 +77,7 @@
                     </table>                  
                 </div>
                 <div class="col-md-6">
-                    <table class="table">
+                    <table class="table lista-videos-atribuidos">
                       <thead>
                         <tr>
                           <th>#</th>
