@@ -8,34 +8,52 @@
 }
 
 .user-avatar {
-    width: 45px;
-    border-radius: 50%;    
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 99999px;
+    border: solid 2px #fff;
+    -webkit-box-shadow: 0px 1px 0px 1px #000000; 
+    box-shadow: 0px 1px 0px 1px #000000;
 }
 
 .link-youtube {
 text-decoration: none;
-color: #212529;
+    color: #212529;
 }
 
 .link-youtube:hover {
-color: #212529;
+    color: #212529;
 }
 
 .lista-videos-geral tbody tr td:nth-child(3) {
 text-align: right;
 }
 
+table tr td {
+    vertical-align: middle;
+}
+
 .tdlink:hover {
-cursor: pointer;
-background-color: whitesmoke !important;
+        cursor: pointer;
+    background-color: whitesmoke !important;
 }
 
 @media screen and (max-width: 1400px) {
-.lista-videos-geral tbody tr td:nth-child(5) {
-    min-width: 78px;
-}
+    .lista-videos-geral tbody tr td:nth-child(5) {
+        min-width: 78px;
+    }
 }
 
 .lista-videos-geral tbody tr td:nth-child(5) {
-min-width: 78px;
+            min-width: 78px;
+}
+
+.esconde {
+    transition: opacity .5s ease;
+    opacity: 0;
+}
+
+.mostra {
+    transition: opacity .5s ease;
+    opacity: 1 !important;
 }

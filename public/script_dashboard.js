@@ -82,7 +82,7 @@ const _listaVideosAtribuidos = document.querySelector(".lista-videos-atribuidos 
         _td2.textContent = texto_t2;
         _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
         _td3.appendChild(_nodeText3);
-        _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Atribui</button>`;
+        _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Atribuir</button>`;
         _tr.appendChild(_td1);
         _tr.appendChild(_td2);
         _tr.appendChild(_td3);
@@ -94,19 +94,22 @@ const _listaVideosAtribuidos = document.querySelector(".lista-videos-atribuidos 
         //console.log('entrou aqui');
         console.log(_btnAtribui);
         _btnAtribui.forEach(function(btnAtribui){
-            btnAtribui.addEventListener('click', function(e){
-                let _trVideosGerais = e.target.parentNode.parentNode;
-                console.log(_trVideosGerais);
-                _trVideosGerais.querySelector('.btn-atribui').textContent = 'Remove';
-                _listaVideosAtribuidos.appendChild(_trVideosGerais);
-            });
+            btnAtribui.addEventListener('click', ouveAtribui);
         })
 
 
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
 
 
-
+function ouveAtribui(e){
+                let _trVideosGerais = e.target.parentNode.parentNode;
+                console.log(_trVideosGerais);
+                e.target.classList.remove('btn-atribui');
+                e.target.classList.add('btn-remove');
+                e.target.textContent = 'Remover';
+                e.target.removeEventListener('click', ouveAtribui, false);               
+                _listaVideosAtribuidos.appendChild(_trVideosGerais);
+            }
 
 
 

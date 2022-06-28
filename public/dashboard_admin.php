@@ -36,7 +36,7 @@
               <tr>
                 <th></th>
                 <th>#</th>
-                <th>Nome do usuário</th>
+                <th>Usuário</th>
                 <th></th>
               </tr>
             </thead>
@@ -67,7 +67,7 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Título</th>
+                          <th>Vídeo</th>
                           <th>Código</th>
                           <th></th>
                           <th></th>
@@ -81,7 +81,7 @@
                       <thead>
                         <tr>
                           <th>#</th>
-                          <th>Título</th>
+                          <th>Vídeo</th>
                           <th>Código</th>
                           <th></th>
                           <th></th>
