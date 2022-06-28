@@ -12,8 +12,8 @@
     height: 2.5rem;
     border-radius: 99999px;
     border: solid 2px #fff;
-    -webkit-box-shadow: 0px 1px 0px 1px #000000; 
-    box-shadow: 0px 1px 0px 1px #000000;
+    -webkit-box-shadow: 0px 2px 0px 1px #ddcab9; 
+    box-shadow: 0px 1px 0px 2px #ddcab9;
 }
 
 .link-youtube {
@@ -33,8 +33,9 @@ table tr td {
     vertical-align: middle;
 }
 
+
 .tdlink:hover {
-        cursor: pointer;
+    cursor: pointer;
     background-color: whitesmoke !important;
 }
 
@@ -56,4 +57,14 @@ table tr td {
 .mostra {
     transition: opacity .5s ease;
     opacity: 1 !important;
+}
+
+.modal-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-title span:nth-child(2) {
+    margin-left: 15px;
 }

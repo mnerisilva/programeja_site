@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cadastro de conteúdo - [vídeo]</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css"
+      integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+
+      .youtube-icon,
+      .fa-pencil,
+      .fa-trash-can,
+      .delete-cancel,
+      .delete-confirm {
+        color: gray;
+        cursor: pointer;
+      }
+
+      .youtube-icon:hover,
+      .fa-pencil:hover,
+      .fa-trash-can:hover,
+      .delete-cancel:hover,
+      .delete-confirm:hover {
+        transition: all 0.2s ease;
+        transform: scale(1.2);
+      }
+
+      .delete-cancel,
+      .delete-confirm {
+        transition: all 0.3s ease;
+        opacity: 0;
+        pointer-events: none;
+        font-size: 1.3em;
+      }
+
+      .youtube-tester:hover {
+        transition: all 0.2s ease;
+        transform: scale(1.2);
+      }
+
+      .div-label-normalize {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .normalize {
+        cursor: pointer;
+      }
+
+      .ferramentas-right i {
+        color: #726d6d;
+        margin-left: 8px;
+      }
+
+      .ferramentas-right .rubber,
+      .copy,
+      .youtube-tester {
+        cursor: pointer;
+      }
+
+      .link-youtube {
+        text-decoration: none;
+        color: #212529;
+      }
+
+      .link-youtube:hover {
+        color: #212529;
+      }
+
+      .lista-videos tbody tr td:nth-child(3) {
+        text-align: right;
+      }
+
+      .tdlink:hover {
+        cursor: pointer;
+        background-color: whitesmoke !important;
+      }
+
+      @media screen and (max-width: 1400px) {
+        .lista-videos tbody tr td:nth-child(5) {
+          min-width: 78px;
+        }
+      }
+
+      .lista-videos tbody tr td:nth-child(5) {
+        min-width: 78px;
+      }
+
+      /*.delete-cancel,
+      .delete-confirm {
+        opacity: 0;
+      }*/
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 d-flex justify-content-center mt-2">
+          <h1>Cadastro de trilha</h1>
+        </div>
+      </div>
+      <form id="cadastro_video">
+        <div class="row g-3 mt-1">
+          <div class="col-md-2">
+            <label for="categoria" class="form-label">Categoria</label>
+            <select class="form-select" id="categoria" required=""  name="categoria">
+              <option value=""> ...</option>
+              <option value="1">Css</option>
+              <option value="2">Html</option>
+              <option value="3">Javascript</option>
+              <option value="4">Sem categoria</option>
+            </select>
+          </div>
+        </div>
+
+
+        <div class="row g-3 mt-1">
+            <div class="col-md-2">
+              <label for="categoria" class="form-label">Tipo</label>
+              <select class="form-select" id="categoria" required=""  name="categoria">
+                <option value=""> ...</option>
+                <option value="1">geral</option>
+                <option value="2">provisória</option>
+              </select>
+            </div>
+          </div>        
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-5">
+            <label for="nomevideo" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nomevideo" required="" name="nomevideo" placeholder="" />
+          </div>
+        </div>
+
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-5">
+            <label for="nomevideo" class="form-label">Descrição</label>
+            <textarea type="text" class="form-control" id="nomevideo" required="" name="nomevideo" placeholder=""></textarea>
+          </div>
+        </div>      
+        
+
+        <div class="row g-3 mt-1">
+          <div class="col-md-5">
+            <label for="nomevideo" class="form-label">Nome amigável</label>
+            <input type="text" class="form-control" id="nomevideo" required="" name="nomevideo" placeholder="" />
+          </div>
+        </div>        
+
+        <button class="btn btn-primary submit mt-2" type="submit">
+          Salvar
+        </button>
+      </form>
+      <div class="row">
+        <div class="col-md-7 col-sm-12 col-xs-12">
+          <table class="table lista-videos">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>nome</th>
+                <th>tipo</th>
+                <th>descrição</th>
+                <th>nome amigável</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal"tabindex="-1"aria-labelledby="deleteModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="deleteModalLabel">[EXCLUIR] Tem certeza que deseja excluir este vídeo?</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <table
+              class="table"
+              style="border-bottom-color: transparent !important"
+            >
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Título</th>
+                  <th>Código</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="_modal-content"></tr>
+              </tbody>
+            </table>
+            <!--<div class="_modal-content">...</div>-->
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary _modal-cancel" data-bs-dismiss="modal">Cancela</button>
+            <form id="modalConfirmDeleteId">
+              <input type="hidden" id="input_confirm_id_modal_delete" name="modal_confirm_delete_id" value="5" />
+              <button type="submit" class="btn btn-primary delete-button-confirm">Confirma</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js"
+      integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <!--<script src="script.js"></script>-->
+  </body>
+</html>

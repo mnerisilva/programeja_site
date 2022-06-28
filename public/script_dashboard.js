@@ -23,7 +23,7 @@ const _listaVideosAtribuidos = document.querySelector(".lista-videos-atribuidos 
             _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
             _td2.appendChild(_nodeText1);
             _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-gear user-course-manager" data-bs-toggle="modal" data-bs-target="#modalGerenciarAtribuidos" data-userId="${userItem.user_id}" data-userName="${userItem.user_name}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
+            _td4.innerHTML = `<i class="fa-solid fa-gear user-course-manager" data-bs-toggle="modal" data-bs-target="#modalGerenciarAtribuidos" data-userid="${userItem.user_id}" data-username="${userItem.user_name}" data-userphoto="${userItem.user_photo}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
             _tr.appendChild(_td1);
             _tr.appendChild(_td2);
             _tr.appendChild(_td3);
@@ -33,19 +33,19 @@ const _listaVideosAtribuidos = document.querySelector(".lista-videos-atribuidos 
 
         const _userCourseManager = document.querySelectorAll('.user-course-manager');
         const _userManager = document.querySelectorAll('.user-manager');
-        const _modalUserId = document.querySelector('.modal-user-id');
+        const _modalUserPhoto = document.querySelector('.modal-user-photo');
         const _modalUserName = document.querySelector('.modal-user-name');
 
         _userCourseManager.forEach(function(item){
             item.addEventListener('click', function(e){
-                _modalUserId.innerHTML = `${e.target.dataset.userid} - `;
+                _modalUserPhoto.innerHTML = `<img class="user-avatar" src="${e.target.dataset.userphoto}" />`;
                 _modalUserName.innerHTML = e.target.dataset.username;
             });
         })
 
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
-                _modalUserId.innerHTML = `${e.target.dataset.userid} - `;
+                _modalUserId.innerHTML = `${e.target.dataset.userid}`;
                 _modalUserName.innerHTML = e.target.dataset.username;
             });
         })
@@ -107,7 +107,7 @@ function ouveAtribui(e){
                 e.target.classList.remove('btn-atribui');
                 e.target.classList.add('btn-remove');
                 e.target.textContent = 'Remover';
-                e.target.removeEventListener('click', ouveAtribui, false);               
+                e.target.removeEventListener('click', ouveAtribui, false);
                 _listaVideosAtribuidos.appendChild(_trVideosGerais);
             }
 
