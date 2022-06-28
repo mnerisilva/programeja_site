@@ -68,3 +68,7 @@ table tr td {
 .modal-title span:nth-child(2) {
     margin-left: 15px;
 }
+
+#categoria {
+    font-weight: bold;
+}
