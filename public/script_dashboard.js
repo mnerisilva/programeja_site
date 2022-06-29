@@ -1,10 +1,13 @@
 
 const _listaVideosGeral = document.querySelector(".lista-videos-geral tbody");
 const _listaVideosAtribuidos = document.querySelector(".lista-videos-atribuidos tbody");
+const _selectIdCategoria = document.querySelector('#categoria');
+let _btnAtribui;
+
 
 
     $.ajax({
-        // inicio do código ajax listagem inicial - cadastro de vídeo avulso
+        // inicio do código ajax listagem inicial - lista users
         type: "POST",
         url: "lista_users.php",
         dataType: "json",
@@ -82,36 +85,62 @@ const _listaVideosAtribuidos = document.querySelector(".lista-videos-atribuidos 
         _td2.textContent = texto_t2;
         _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
         _td3.appendChild(_nodeText3);
-        _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Atribuir</button>`;
+        _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Atribuir</button>`;
         _tr.appendChild(_td1);
         _tr.appendChild(_td2);
         _tr.appendChild(_td3);
         _tr.appendChild(_td4);
         _listaVideosGeral.appendChild(_tr);
         } // fim do for
-        const _btnAtribui = document.querySelectorAll(".btn-atribui");
+        _btnAtribui = document.querySelectorAll(".btn-atribui");
 
         //console.log('entrou aqui');
         console.log(_btnAtribui);
         _btnAtribui.forEach(function(btnAtribui){
-            btnAtribui.addEventListener('click', ouveAtribui);
+            btnAtribui.addEventListener('click', listenerDoAtribui);
         })
+
+    _selectIdCategoria.addEventListener('change', function(e){
+        console.log(e.target.value, typeof e.target.value);
+        if(e.target.value === '1'){
+            removeDisabledBtnAtribui(_btnAtribui);
+        } else if(e.target.value != '1') {
+            adicionaDisabledBtnAtribui(_btnAtribui)
+        }
+    });        
 
 
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
 
 
-function ouveAtribui(e){
+function listenerDoAtribui(e){
                 let _trVideosGerais = e.target.parentNode.parentNode;
                 console.log(_trVideosGerais);
                 e.target.classList.remove('btn-atribui');
                 e.target.classList.add('btn-remove');
                 e.target.textContent = 'Remover';
-                e.target.removeEventListener('click', ouveAtribui, false);
+                e.target.removeEventListener('click', listenerDoAtribui, false);
                 _listaVideosAtribuidos.appendChild(_trVideosGerais);
             }
 
 
 
 
-  
+  function escutaMudancaEstadoSelect() {
+    console.log('mudou estado select');
+    console.log(_btnAtribui);
+    removeDisabledBtnAtribui(_btnAtribui);
+  }
+
+  function removeDisabledBtnAtribui(elemento){
+    for (btn of elemento) {
+        console.log(btn);
+        btn.removeAttribute('disabled');
+    }
+  }
+
+  function adicionaDisabledBtnAtribui(elemento){
+    for (btn of elemento) {
+        btn.setAttribute('disabled', true);
+    }    
+  }
