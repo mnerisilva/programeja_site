@@ -3,8 +3,9 @@
     const _listaVideosAtribuidos = document.querySelector(".lista-videos-atribuidos tbody");
     const _selectIdTrilhaEscolhida = document.querySelector('#trilha_escolhida');
     const _btnCarregaTrilha = document.querySelector('.btn-carrega-trilha');
-    const _formFiltraTrilha = document.querySelector('form');
-    console.log(_formFiltraTrilha);
+    const _formFiltraTrilha = document.querySelector('.filtra-trilha');
+    const _listaVideosDaTrilha = document.querySelector('.lista-videos-da-trilha tbody')
+    console.log(_listaVideosDaTrilha);
 
 let _btnAtribui;
 
@@ -112,9 +113,10 @@ let _btnAtribui;
                     removeDisabledBtnAtribui(_btnAtribui);
                 }
             });
-    _formFiltraTrilha.addEventListener('submit', function(e){
-                    e.preventDefault();
+    $(_formFiltraTrilha).submit(function(event){
+                    event.preventDefault();
                     console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.value);
+                    listaVideosDaTrilha();
                 });
 
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
@@ -149,6 +151,42 @@ let _btnAtribui;
                     for (btn of elemento) {
                         btn.setAttribute('disabled', true);
                     }    
+                }
+
+    function listaVideosDaTrilha(){
+                    console.log($("#trilha_escolhida").val());
+                    var formData = {
+                        trilha_escolhida: $("#trilha_escolhida").val()
+                    };
+                    $.ajax({
+                        type: "POST",
+                        url: "lista_videos_da_trilha.php",
+                        data: formData,
+                        dataType: "json",
+                        encode: true,
+                    }).done(function (data) {
+                        console.log(data);
+                        for (trilha of data) {
+                            let _tr = document.createElement("tr");
+                            let _td1 = document.createElement("td");
+                            let _td2 = document.createElement("td");
+                            let _td3 = document.createElement("td");
+                            let _nodeText1 = document.createTextNode(trilha.trilha_id);
+                            let _nodeText2 = document.createTextNode(trilha.trilha_name);
+                            let _nodeText3 = document.createTextNode(trilha.trilha_descricao);
+                            _td1.appendChild(_nodeText1);
+                            _td2.appendChild(_nodeText2);
+                            let texto_t2 = _td2.textContent;
+                            _td2.textContent = texto_t2;
+                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                            _td3.appendChild(_nodeText3);
+                            _tr.appendChild(_td1);
+                            _tr.appendChild(_td2);
+                            _tr.appendChild(_td3);
+                            _listaVideosDaTrilha.appendChild(_tr);
+                          }                        
+                    });        
+
                 }
 
 
