@@ -102,7 +102,7 @@ let _btnAtribui;
         console.log(_btnAtribui);
         _btnAtribui.forEach(function(btnAtribui){
             btnAtribui.addEventListener('click', listenerDoAtribui);
-        })
+                })
 
     _selectIdTrilhaEscolhida.addEventListener('change', function(e){
                 //if(e.target.value === '1'){
@@ -114,9 +114,10 @@ let _btnAtribui;
                 }
             });
     _formFiltraTrilha.addEventListener('submit', function(e){
-        e.target.preventDefault();
-        console.log('entrou no form FiltraTrilha');
-            });
+                    e.target.preventDefault();
+                    console.log('entrou no form FiltraTrilha');
+                });
+
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
 
 
@@ -140,19 +141,19 @@ let _btnAtribui;
                 }
 
   function removeDisabledBtnAtribui(elemento){
-    for (btn of elemento) {
-        console.log(btn);
-        btn.removeAttribute('disabled');
-    }
-  }
+                    for (btn of elemento) {
+                        console.log(btn);
+                        btn.removeAttribute('disabled');
+                    }
+                }
 
   function adicionaDisabledBtnAtribui(elemento){
-    for (btn of elemento) {
-        btn.setAttribute('disabled', true);
-    }    
-  }
+                    for (btn of elemento) {
+                        btn.setAttribute('disabled', true);
+                    }    
+                }
 
   function listaVideosDaTrilha(){
-    console.log('entrou no listaVideosDaTrilha');
-  }
+                    console.log('entrou no listaVideosDaTrilha');
+                }
 
