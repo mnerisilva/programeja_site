@@ -6,7 +6,8 @@ include('connect.php');
         //die();
         $trilha_escolhida = $_POST["trilha_escolhida"];
 		
-		$sql = "SELECT * FROM trilha WHERE trilha_id = '$trilha_escolhida'";
+        $sql = "SELECT trilha.ttrilha_videos.id_conteudo, conteudo.id_conteudo FROM trilha_videos, conteudo WHERE trilha_videos.id_conteudo = conteudo.id_conteudo ORDER BY trilha_videos.id_conteudo"
+		//$sql = "SELECT * FROM trilha WHERE trilha_id = '$trilha_escolhida'";
 		$result = mysqli_query($conn, $sql);
 		
 
@@ -16,7 +17,7 @@ include('connect.php');
 
 		if($result){
 			while($row = mysqli_fetch_array($result)){
-				$arr_json[$contador] = ['trilha_id' => $row["trilha_id"], 'trilha_name' => $row["trilha_name"],'trilha_type' => $row["trilha_type"], 'trilha_descricao' => $row["trilha_descricao"]];
+				$arr_json[$contador] = ['video_id' => $row["conteudo.id_conteudo"]];
 				$contador++;			
 			}
 	

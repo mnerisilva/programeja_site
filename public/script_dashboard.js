@@ -166,7 +166,7 @@ let _btnAtribui;
                         encode: true,
                     }).done(function (data) {
                         console.log(data);
-                        for (trilha of data) {
+                        /*for (trilha of data) {
                             let _tr = document.createElement("tr");
                             let _td1 = document.createElement("td");
                             let _td2 = document.createElement("td");
@@ -184,7 +184,7 @@ let _btnAtribui;
                             _tr.appendChild(_td2);
                             _tr.appendChild(_td3);
                             _listaVideosDaTrilha.appendChild(_tr);
-                          }                        
+                          }*/                        
                     });        
 
                 }
