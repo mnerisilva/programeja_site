@@ -101,15 +101,12 @@ let _btnAtribui;
         })
 
     _selectIdCategoria.addEventListener('change', function(e){
-        console.log(e.target.value, typeof e.target.value);
-        if(e.target.value === '1'){
-            removeDisabledBtnAtribui(_btnAtribui);
-        } else if(e.target.value != '1') {
-            adicionaDisabledBtnAtribui(_btnAtribui)
-        }
-    });        
-
-
+                if(e.target.value === '1'){
+                    removeDisabledBtnAtribui(_btnAtribui);
+                } else if(e.target.value != '1') {
+                    adicionaDisabledBtnAtribui(_btnAtribui)
+                }
+            }); 
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
 
 
