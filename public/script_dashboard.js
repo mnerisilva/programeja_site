@@ -3,7 +3,7 @@
     const _listaVideosAtribuidos = document.querySelector(".lista-videos-atribuidos tbody");
     const _selectIdTrilhaEscolhida = document.querySelector('#trilha_escolhida');
     const _btnCarregaTrilha = document.querySelector('.btn-carrega-trilha');
-    const _formFiltraTrilha = document.querySelector('.filtra-trilha');
+    const _formFiltraTrilha = document.querySelector('form');
     console.log(_formFiltraTrilha);
 
 let _btnAtribui;
@@ -68,9 +68,9 @@ let _btnAtribui;
         dataType: "json",
         encode: true,
     }).done(function (data) {
-        console.log(data);
+        //console.log(data);
         for (videoItem of data) {
-        console.log(videoItem.descricao, videoItem.codigo);
+        //console.log(videoItem.descricao, videoItem.codigo);
         }
         for (videoItem of data) {
         let _tr = document.createElement("tr");
@@ -99,7 +99,7 @@ let _btnAtribui;
         _btnAtribui = document.querySelectorAll(".btn-atribui");
 
         //console.log('entrou aqui');
-        console.log(_btnAtribui);
+        //console.log(_btnAtribui);
         _btnAtribui.forEach(function(btnAtribui){
             btnAtribui.addEventListener('click', listenerDoAtribui);
                 })
@@ -110,12 +110,11 @@ let _btnAtribui;
                     adicionaDisabledBtnAtribui(_btnAtribui)
                 } else if(parseInt(e.target.value) > 0){
                     removeDisabledBtnAtribui(_btnAtribui);
-                    listaVideosDaTrilha();
                 }
             });
     _formFiltraTrilha.addEventListener('submit', function(e){
-                    e.target.preventDefault();
-                    console.log('entrou no form FiltraTrilha');
+                    e.preventDefault();
+                    console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.value);
                 });
 
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
@@ -123,7 +122,7 @@ let _btnAtribui;
 
     function listenerDoAtribui(e){
                     let _trVideosGerais = e.target.parentNode.parentNode;
-                    console.log(_trVideosGerais);
+                    //console.log(_trVideosGerais);
                     e.target.classList.remove('btn-atribui');
                     e.target.classList.add('btn-remove');
                     e.target.textContent = 'Remover';
@@ -132,20 +131,19 @@ let _btnAtribui;
                 }
 
 
-
-
   function escutaMudancaEstadoSelect() {
-                    console.log('mudou estado select');
-                    console.log(_btnAtribui);
+                    //console.log('mudou estado select');
+                    //console.log(_btnAtribui);
                     removeDisabledBtnAtribui(_btnAtribui);
                 }
 
   function removeDisabledBtnAtribui(elemento){
                     for (btn of elemento) {
-                        console.log(btn);
+                        //console.log(btn);
                         btn.removeAttribute('disabled');
                     }
                 }
+
 
   function adicionaDisabledBtnAtribui(elemento){
                     for (btn of elemento) {
@@ -153,7 +151,5 @@ let _btnAtribui;
                     }    
                 }
 
-  function listaVideosDaTrilha(){
-                    console.log('entrou no listaVideosDaTrilha');
-                }
+
 
