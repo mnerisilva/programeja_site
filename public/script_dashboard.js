@@ -101,10 +101,12 @@ let _btnAtribui;
         })
 
     _selectIdCategoria.addEventListener('change', function(e){
-                if(e.target.value === '1'){
-                    removeDisabledBtnAtribui(_btnAtribui);
-                } else if(e.target.value != '1') {
+                //if(e.target.value === '1'){
+                if(e.target.value == '') {
                     adicionaDisabledBtnAtribui(_btnAtribui)
+                } else if(parseInt(e.target.value) > 0){
+                    removeDisabledBtnAtribui(_btnAtribui);
+                    listaVideosDaTrilha();
                 }
             }); 
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
