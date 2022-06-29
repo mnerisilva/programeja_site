@@ -65,12 +65,15 @@
                 <div class="col-md-12">
                     <div class="row g-3 mt-1">
                       <div class="col-md-2">
-                        <label for="categoria" class="form-label">Escolha a Trilha</label>
-                        <select class="form-select" id="categoria" required="" name="categoria">
-                          <option value=""> ...</option>
-                          <option value="1">Html nível básico trilha 1</option>
-                          <option value="2">Html nível intermediário trilha 2</option>
-                        </select>
+                        <form class="filtra-trilha">
+                          <label for="categoria" class="form-label">Escolha a Trilha</label>
+                          <select class="form-select" id="trilha_escolhida" required="" name="id_trilha_escolhida">
+                            <option value=""> ...</option>
+                            <option value="1">Html nível básico trilha 1</option>
+                            <option value="2">Html nível intermediário trilha 2</option>
+                          </select>
+                          <button type="button" class="btn btn-primary btn-carrega-trilha">Carrega trilha</button>
+                        </form>
                       </div>
                     </div>               
                 </div>

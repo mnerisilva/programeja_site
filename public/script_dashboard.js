@@ -1,7 +1,11 @@
 
-const _listaVideosGeral = document.querySelector(".lista-videos-geral tbody");
-const _listaVideosAtribuidos = document.querySelector(".lista-videos-atribuidos tbody");
-const _selectIdCategoria = document.querySelector('#categoria');
+    const _listaVideosGeral = document.querySelector(".lista-videos-geral tbody");
+    const _listaVideosAtribuidos = document.querySelector(".lista-videos-atribuidos tbody");
+    const _selectIdTrilhaEscolhida = document.querySelector('#trilha_escolhida');
+    const _btnCarregaTrilha = document.querySelector('.btn-carrega-trilha');
+    const _formFiltraTrilha = document.querySelector('.filtra-trilha');
+    console.log(_formFiltraTrilha);
+
 let _btnAtribui;
 
 
@@ -100,7 +104,7 @@ let _btnAtribui;
             btnAtribui.addEventListener('click', listenerDoAtribui);
         })
 
-    _selectIdCategoria.addEventListener('change', function(e){
+    _selectIdTrilhaEscolhida.addEventListener('change', function(e){
                 //if(e.target.value === '1'){
                 if(e.target.value == '') {
                     adicionaDisabledBtnAtribui(_btnAtribui)
@@ -108,28 +112,32 @@ let _btnAtribui;
                     removeDisabledBtnAtribui(_btnAtribui);
                     listaVideosDaTrilha();
                 }
-            }); 
+            });
+    _formFiltraTrilha.addEventListener('submit', function(e){
+        e.target.preventDefault();
+        console.log('entrou no form FiltraTrilha');
+            });
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
 
 
-function listenerDoAtribui(e){
-                let _trVideosGerais = e.target.parentNode.parentNode;
-                console.log(_trVideosGerais);
-                e.target.classList.remove('btn-atribui');
-                e.target.classList.add('btn-remove');
-                e.target.textContent = 'Remover';
-                e.target.removeEventListener('click', listenerDoAtribui, false);
-                _listaVideosAtribuidos.appendChild(_trVideosGerais);
-            }
+    function listenerDoAtribui(e){
+                    let _trVideosGerais = e.target.parentNode.parentNode;
+                    console.log(_trVideosGerais);
+                    e.target.classList.remove('btn-atribui');
+                    e.target.classList.add('btn-remove');
+                    e.target.textContent = 'Remover';
+                    e.target.removeEventListener('click', listenerDoAtribui, false);
+                    _listaVideosAtribuidos.appendChild(_trVideosGerais);
+                }
 
 
 
 
   function escutaMudancaEstadoSelect() {
-    console.log('mudou estado select');
-    console.log(_btnAtribui);
-    removeDisabledBtnAtribui(_btnAtribui);
-  }
+                    console.log('mudou estado select');
+                    console.log(_btnAtribui);
+                    removeDisabledBtnAtribui(_btnAtribui);
+                }
 
   function removeDisabledBtnAtribui(elemento){
     for (btn of elemento) {
@@ -143,3 +151,8 @@ function listenerDoAtribui(e){
         btn.setAttribute('disabled', true);
     }    
   }
+
+  function listaVideosDaTrilha(){
+    console.log('entrou no listaVideosDaTrilha');
+  }
+
