@@ -91,7 +91,7 @@ let _btnAtribui;
         _td2.textContent = texto_t2;
         _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
         _td3.appendChild(_nodeText3);
-        _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Atribuir</button>`;
+        _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Adiciona</button>`;
         _tr.appendChild(_td1);
         _tr.appendChild(_td2);
         _tr.appendChild(_td3);
@@ -124,9 +124,8 @@ let _btnAtribui;
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
 
 
-    function listenerDoAtribui(e){
+    function listenerDoAtribui(e){ // listner dos botões ADICIONAR
                     let _trVideosGerais = e.target.parentNode.parentNode;
-                    //console.log(_trVideosGerais);
                     e.target.classList.remove('btn-atribui');
                     e.target.classList.add('btn-remove');
                     e.target.textContent = 'Remover';
@@ -136,8 +135,6 @@ let _btnAtribui;
 
 
   function escutaMudancaEstadoSelect() {
-                    //console.log('mudou estado select');
-                    //console.log(_btnAtribui);
                     removeDisabledBtnAtribui(_btnAtribui);
                 }
 
@@ -172,19 +169,32 @@ let _btnAtribui;
                             let _tr = document.createElement("tr");
                             let _td1 = document.createElement("td");
                             let _td2 = document.createElement("td");
+                            let _td3 = document.createElement("td");
+                            let _td4 = document.createElement("td");
                             let _nodeText1 = document.createTextNode(trilha.id_conteudo);
                             let _nodeText2 = document.createTextNode(trilha.conteudo_descricao);
+                            let _nodeText3 = document.createTextNode(trilha.conteudo_codigoyoutube);
+                            let _nodeText4 = document.createTextNode('');
                             _td1.appendChild(_nodeText1);
                             _td2.appendChild(_nodeText2);
+                            _td2.classList.add("tdlink");
                             let texto_t2 = _td2.textContent;
                             _td2.textContent = texto_t2;
-                            //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
-                            //_td3.appendChild(_nodeText3);
+                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                            _td3.appendChild(_nodeText3);
+                            ////////////////////////////// PEGAR DA TABELA: trilha_videos, O CAMPO: trilha_videos_id
+                            _td4.innerHTML = '<button class="btn btn-secondary btn-atribui" >Remover</button>';
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
-                            //_tr.appendChild(_td3);
+                            _tr.appendChild(_td3);
+                            _tr.appendChild(_td4);
                             _listaVideosDaTrilha.appendChild(_tr);
-                          }                        
+                            _listaVideosDaTrilha.style.opacity = 0;
+                            _listaVideosDaTrilha.style.transition = 'all .5s ease';
+                            setTimeout(function(){
+                                _listaVideosDaTrilha.style.opacity = 1;
+                            }, 500);
+                          }                       
                     });        
 
                 }
@@ -192,43 +202,26 @@ let _btnAtribui;
 
 
 function povoaSelectTrilhas(){
-    $.ajax({
-        // inicio do código ajax listagem inicial - lista users
-        type: "POST",
-        url: "lista_trilhas.php",
-        dataType: "json",
-        encode: true,
-    }).done(function (data) {
-        console.log(data);
+                    $.ajax({
+                        // inicio do código ajax listagem inicial - lista users
+                        type: "POST",
+                        url: "lista_trilhas.php",
+                        dataType: "json",
+                        encode: true,
+                    }).done(function (data) {
+                        console.log(data);
 
-        const _optionVazio = document.createElement('option');        
-        _optionVazio.value = "";
-        _optionVazio.textContent = " ...";
-        _selectIdTrilhaEscolhida.appendChild(_optionVazio);
+                        const _optionVazio = document.createElement('option');        
+                        _optionVazio.value = "";
+                        _optionVazio.textContent = " ...";
+                        _selectIdTrilhaEscolhida.appendChild(_optionVazio);
 
-        for (trilha of data){
-            let _option = document.createElement('option');
-            _option.value = trilha.trilha_id;
-            console.log(_option);
-            _option.textContent = trilha.trilha_name;
-            _selectIdTrilhaEscolhida.appendChild(_option);
-            /*const _tr = document.createElement('tr');
-            const _td1 = document.createElement('td');
-            const _td2 = document.createElement('td');
-            const _td3 = document.createElement('td');
-            const _td4 = document.createElement('td');
-            const _nodeText1 = document.createTextNode(userItem.user_id);
-            const _nodeText2 = document.createTextNode(userItem.user_name);
-            _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
-            _td2.appendChild(_nodeText1);
-            _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-gear user-course-manager" data-bs-toggle="modal" data-bs-target="#modalGerenciarAtribuidos" data-userid="${userItem.user_id}" data-username="${userItem.user_name}" data-userphoto="${userItem.user_photo}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
-            _tr.appendChild(_td1);
-            _tr.appendChild(_td2);
-            _tr.appendChild(_td3);
-            _tr.appendChild(_td4);
-            _tbody.appendChild(_tr);*/
-        }
-    });    
-
-}
+                        for (trilha of data){
+                            let _option = document.createElement('option');
+                            _option.value = trilha.trilha_id;
+                            console.log(_option);
+                            _option.textContent = trilha.trilha_name;
+                            _selectIdTrilhaEscolhida.appendChild(_option);
+                        }
+                    });
+            }
