@@ -1,0 +1,46 @@
+////////*SELECT a.trilha_id, b.trilha_id FROM trilha as a INNER JOIN trilha_videos as b ON a.trilha_id = b.trilha_id
+
+SELECT a.trilha_id, b.trilha_name FROM trilha_videos as a INNER JOIN trilha as b ON a.trilha_id = b.trilha_id
+
+SELECT a.trilha_id, b.trilha_name, a.id_conteudo FROM trilha_videos as a INNER JOIN trilha as b ON a.trilha_id = b.trilha_id
+
+SELECT a.trilha_id, b.trilha_name, a.id_conteudo FROM trilha_videos as a INNER JOIN trilha as b ON a.trilha_id = b.trilha_id WHERE a.trilha_id = 1 ORDER BY b.trilha_id, a.id_conteudo
+
+
+SELECT a.trilha_id, b.trilha_name, a.id_conteudo, c.conteudo FROM trilha_videos as a INNER JOIN trilha as b ON a.trilha_id = b.trilha_id WHERE a.trilha_id = 1 AND c.conteudo ORDER BY b.trilha_id, a.id_conteudo ***** ///////////////
+
+
+
+
+
+
+
+
+
+SELECT trilha.trilha_id, trilha.trilha_name, trilha_videos.trilha_id, conteudo.id_conteudo, conteudo.conteudo_descricao FROM trilha, trilha_videos, conteudo WHERE trilha.trilha_id = trilha_videos.trilha_id AND trilha_videos.id_conteudo = conteudo.id_conteudo
+
+SELECT trilha.trilha_id, conteudo.id_conteudo, conteudo.conteudo_descricao FROM trilha, trilha_videos, conteudo WHERE trilha.trilha_id = trilha_videos.trilha_id AND trilha_videos.id_conteudo = conteudo.id_conteudo
+
+
+[[[[[[[[[[[[[   SELECT trilha.trilha_id, conteudo.id_conteudo, conteudo.conteudo_descricao FROM trilha, trilha_videos, conteudo WHERE trilha.trilha_id = trilha_videos.trilha_id AND trilha_videos.id_conteudo = conteudo.id_conteudo ORDER BY trilha.trilha_id, conteudo.id_conteudo   ]]]]]]]]]]]]
+
+
+SELECT trilha.trilha_id, conteudo.id_conteudo, conteudo.conteudo_descricao FROM trilha, trilha_videos, conteudo WHERE trilha.trilha_id = trilha_videos.trilha_id AND trilha_videos.id_conteudo = conteudo.id_conteudo ORDER BY trilha.trilha_id, conteudo.id_conteudo
+
+
+SELECT trilha.trilha_id, conteudo.id_conteudo, conteudo.conteudo_descricao FROM trilha, trilha_videos, conteudo WHERE trilha.trilha_id = trilha_videos.trilha_id AND trilha_videos.id_conteudo = conteudo.id_conteudo ORDER BY trilha.trilha_id, conteudo.conteudo_descricao
+
+
+
+
+VERSÃO FINAL
+
+SELECT id_conteudo, conteudo_descricao FROM (SELECT trilha.trilha_id, conteudo.id_conteudo, conteudo.conteudo_descricao FROM trilha, trilha_videos, conteudo WHERE trilha.trilha_id = trilha_videos.trilha_id AND trilha_videos.id_conteudo = conteudo.id_conteudo ORDER BY trilha.trilha_id, conteudo.conteudo_descricao) x WHERE trilha_id = 1 ORDER BY conteudo_descricao
+
+
+
+css 93 94 95 96
+
+html 5 6 84 85 86 87 88 
+
+javascript 89 90 91 92

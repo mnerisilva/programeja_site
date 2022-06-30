@@ -73,6 +73,6 @@ table tr td {
     font-weight: bold;
 }
 
-.lista-videos-geral thead tr th:nth-child(1), .lista-videos-geral tbody tr td:nth-child(1), .lista-videos-atribuidos thead tr th:nth-child(1), .lista-videos-atribuidos tbody tr td:nth-child(1) {
+.lista-videos-geral thead tr th:nth-child(1), .lista-videos-geral tbody tr td:nth-child(1), .lista-videos-atribuidos thead tr th:nth-child(1), .lista-videos-atribuidos tbody tr td:nth-child(1), .lista-videos-da-trilha thead tr th:nth-child(1), .lista-videos-da-trilha tbody tr td:nth-child(1) {
     text-align: right;
 }

@@ -9,6 +9,7 @@
 
 let _btnAtribui;
 
+    povoaSelectTrilhas();
 
 
     $.ajax({
@@ -116,6 +117,7 @@ let _btnAtribui;
     $(_formFiltraTrilha).submit(function(event){
                     event.preventDefault();
                     console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.value);
+                    _listaVideosDaTrilha.innerHTML = '';
                     listaVideosDaTrilha();
                 });
 
@@ -166,28 +168,67 @@ let _btnAtribui;
                         encode: true,
                     }).done(function (data) {
                         console.log(data);
-                        /*for (trilha of data) {
+                        for (trilha of data) {
                             let _tr = document.createElement("tr");
                             let _td1 = document.createElement("td");
                             let _td2 = document.createElement("td");
-                            let _td3 = document.createElement("td");
-                            let _nodeText1 = document.createTextNode(trilha.trilha_id);
-                            let _nodeText2 = document.createTextNode(trilha.trilha_name);
-                            let _nodeText3 = document.createTextNode(trilha.trilha_descricao);
+                            let _nodeText1 = document.createTextNode(trilha.id_conteudo);
+                            let _nodeText2 = document.createTextNode(trilha.conteudo_descricao);
                             _td1.appendChild(_nodeText1);
                             _td2.appendChild(_nodeText2);
                             let texto_t2 = _td2.textContent;
                             _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
-                            _td3.appendChild(_nodeText3);
+                            //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                            //_td3.appendChild(_nodeText3);
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
-                            _tr.appendChild(_td3);
+                            //_tr.appendChild(_td3);
                             _listaVideosDaTrilha.appendChild(_tr);
-                          }*/                        
+                          }                        
                     });        
 
                 }
 
 
 
+function povoaSelectTrilhas(){
+    $.ajax({
+        // inicio do código ajax listagem inicial - lista users
+        type: "POST",
+        url: "lista_trilhas.php",
+        dataType: "json",
+        encode: true,
+    }).done(function (data) {
+        console.log(data);
+
+        const _optionVazio = document.createElement('option');        
+        _optionVazio.value = "";
+        _optionVazio.textContent = " ...";
+        _selectIdTrilhaEscolhida.appendChild(_optionVazio);
+
+        for (trilha of data){
+            let _option = document.createElement('option');
+            _option.value = trilha.trilha_id;
+            console.log(_option);
+            _option.textContent = trilha.trilha_name;
+            _selectIdTrilhaEscolhida.appendChild(_option);
+            /*const _tr = document.createElement('tr');
+            const _td1 = document.createElement('td');
+            const _td2 = document.createElement('td');
+            const _td3 = document.createElement('td');
+            const _td4 = document.createElement('td');
+            const _nodeText1 = document.createTextNode(userItem.user_id);
+            const _nodeText2 = document.createTextNode(userItem.user_name);
+            _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
+            _td2.appendChild(_nodeText1);
+            _td3.appendChild(_nodeText2);
+            _td4.innerHTML = `<i class="fa-solid fa-gear user-course-manager" data-bs-toggle="modal" data-bs-target="#modalGerenciarAtribuidos" data-userid="${userItem.user_id}" data-username="${userItem.user_name}" data-userphoto="${userItem.user_photo}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
+            _tr.appendChild(_td1);
+            _tr.appendChild(_td2);
+            _tr.appendChild(_td3);
+            _tr.appendChild(_td4);
+            _tbody.appendChild(_tr);*/
+        }
+    });    
+
+}
