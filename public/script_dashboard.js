@@ -22,7 +22,6 @@
         encode: true,
     }).done(function (data) {
         const _tbody =  document.querySelector('table.lista-user tbody');
-
         for (userItem of data){
             const _tr = document.createElement('tr');
             const _td1 = document.createElement('td');
@@ -184,19 +183,20 @@
                             _td2.textContent = texto_t2;
                             _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                             _td3.appendChild(_nodeText3);
-                            ////////////////////////////// PEGAR DA TABELA: trilha_videos, O CAMPO: trilha_videos_id
                             _td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary">Remover</button></form>`;
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
                             _tr.appendChild(_td3);
                             _tr.appendChild(_td4);
                             _listaVideosDaTrilha.appendChild(_tr);
-                          } 
+                          }
+
                           const _formRemoveVideoDaTrilha = document.querySelectorAll('.form-remove-video-da-trilha');
                           _formRemoveVideoDaTrilha.forEach(function(item){
                             $(item).submit(function(event){
                                 event.preventDefault();
                                 console.log(item.dataset.trilha_videos_id);
+                                console.log(item.querySelector('input').value);
                             })
                           });
 
