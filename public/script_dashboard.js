@@ -195,19 +195,23 @@
                           _formRemoveVideoDaTrilha.forEach(function(item){
                             $(item).submit(function(event){
                                 event.preventDefault();
-                                console.log(item.dataset.trilha_videos_id);
-                                console.log(item.querySelector('input').value);
+                                
+                                var formData_ = {
+                                    trilha_escolhida: item.querySelector('.input-form-remove-video-trilha').value
+                                };
+                                console.log(formData_);
+
+                                $.ajax({
+                                    type: "POST",
+                                    url: "lista_videos_da_trilha.php",
+                                    data: formData_,
+                                    dataType: "json",
+                                    encode: true,
+                                }).done(function (data) {
+                                    console.log(data);
+                                });                                
                             })
                           });
-
-
-                          /*for (let i = 0; i < _formRemoveVideoDaTrilha; i++ ){
-                            $(_formRemoveVideoDaTrilha[i]).submit(function(event){
-                                event.preventDefault();
-                                console.log('formContext');
-                            }); 
-
-                          }*/
                     });        
 
                 }
