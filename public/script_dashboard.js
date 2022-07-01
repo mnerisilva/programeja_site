@@ -111,6 +111,7 @@
                 //if(e.target.value === '1'){
                 if(e.target.value == '') {
                     adicionaDisabledBtnAtribui(_btnAtribui)
+                    _listaVideosDaTrilha.innerHTML = ''; // limpa body da table que lista os vídeos da trilha - table da direita 
                 } else if(parseInt(e.target.value) > 0){
                     removeDisabledBtnAtribui(_btnAtribui);
                 }
@@ -197,13 +198,13 @@
                                 event.preventDefault();
                                 
                                 var formData_ = {
-                                    trilha_escolhida: item.querySelector('.input-form-remove-video-trilha').value
+                                    video_a_excluir: item.querySelector('.input-form-remove-video-trilha').value
                                 };
                                 console.log(formData_);
 
                                 $.ajax({
                                     type: "POST",
-                                    url: "lista_videos_da_trilha.php",
+                                    url: "exclui_video_da_trilha.php",
                                     data: formData_,
                                     dataType: "json",
                                     encode: true,
