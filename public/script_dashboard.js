@@ -201,7 +201,10 @@
                                     video_a_excluir: item.querySelector('.input-form-remove-video-trilha').value
                                 };
                                 console.log(formData_);
-                                document.querySelector()
+                                item.parentNode.parentNode.style.opacity = 0;
+                                setTimeout(function(){
+                                    item.parentNode.parentNode.remove();
+                                }, 1000);
                                /*$.ajax({
                                     type: "POST",
                                     url: "exclui_video_da_trilha.php",
