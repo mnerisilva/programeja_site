@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, .modal, .modal-body, .modal-content {
+    background-color: #F7F7F7;
+}
+
+.user-course-manager, .user-manager {
+    cursor: pointer;
+}
+
+.user-course-manager:hover, .user-manager:hover {
+    transition: all .4s ease;
+    transform: scale(1.1);
+}
+
+.user-avatar {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 99999px;
+    border: solid 2px #fff;
+    -webkit-box-shadow: 0px 2px 0px 1px #ddcab9; 
+    box-shadow: 0px 1px 0px 2px #ddcab9;
+}
+
+.link-youtube {
+text-decoration: none;
+    color: #212529;
+}
+
+.link-youtube:hover {
+    color: #212529;
+}
+
+.lista-videos-geral tbody tr td:nth-child(3) {
+text-align: right;
+}
+
+table tr td {
+    vertical-align: middle;
+}
+
+
+.tdlink:hover {
+    cursor: pointer;
+    background-color: whitesmoke !important;
+}
+
+@media screen and (max-width: 1400px) {
+    .lista-videos-geral tbody tr td:nth-child(5) {
+        min-width: 78px;
+    }
+}
+
+.lista-videos-geral tbody tr td:nth-child(5) {
+            min-width: 78px;
+}
+
+.esconde {
+    transition: opacity .5s ease;
+    opacity: 0;
+}
+
+.mostra {
+    transition: opacity .5s ease;
+    opacity: 1 !important;
+}
+
+.modal-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-title span:nth-child(2) {
+    margin-left: 15px;
+}
+
+#categoria {
+    font-weight: bold;
+}
+
+.lista-videos-geral thead tr th:nth-child(1), .lista-videos-geral tbody tr td:nth-child(1), .lista-videos-atribuidos thead tr th:nth-child(1), .lista-videos-atribuidos tbody tr td:nth-child(1), .lista-videos-da-trilha thead tr th:nth-child(1), .lista-videos-da-trilha tbody tr td:nth-child(1) {
+    text-align: right;
+}
+
+.lista-videos-da-trilha tbody tr {
+    transition: all .3s ease;
+}
+
+
+
+
+.tile-stats {
+    position: relative;
+    display: block;
+    margin-bottom: 12px;
+    border: 1px solid #E4E4E4;
+    -webkit-border-radius: 5px;
+    overflow: hidden;
+    padding-bottom: 5px;
+    -webkit-background-clip: padding-box;
+    -moz-border-radius: 5px;
+    -moz-background-clip: padding;
+    border-radius: 5px;
+    background-clip: padding-box;
+    background: #FFF;
+    -webkit-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+}
+
+.tile-stats {
+    padding: 2rem;
+}
+
+.tile-stats .count, .tile-stats h3, .tile-stats p {
+    position: relative;
+    margin: 0;
+    margin-left: 10px;
+    z-index: 5;
+    padding: 0;
+}
+
+.tile-stats .count {
+    color: #73879C;
+    font-size: 38px;
+    font-weight: bold;
+    line-height: 1.65857143;
+}
+
+.widget {
+    min-width: 250px;
+    max-width: 310px;
+}
+
+
+
+
+
+
+.btn-carrega-trilha {
+    margin-top: 2rem !important;
+}
