@@ -33,7 +33,7 @@
             _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
             _td2.appendChild(_nodeText1);
             _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-gear user-course-manager" data-bs-toggle="modal" data-bs-target="#modalGerenciarAtribuidos" data-userid="${userItem.user_id}" data-username="${userItem.user_name}" data-userphoto="${userItem.user_photo}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
+            _td4.innerHTML = `<i class="fa-solid fa-gear user-course-manager" data-toggle="modal" data-target="#modalGerenciarAtribuidos" data-userid="${userItem.user_id}" data-username="${userItem.user_name}" data-userphoto="${userItem.user_photo}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
             _tr.appendChild(_td1);
             _tr.appendChild(_td2);
             _tr.appendChild(_td3);
@@ -108,10 +108,9 @@
                 })
 
     _selectIdTrilhaEscolhida.addEventListener('change', function(e){
-                //if(e.target.value === '1'){
+                _listaVideosDaTrilha.innerHTML = ''; // limpa body da table que lista os vídeos da trilha - table da direita 
                 if(e.target.value == '') {
                     adicionaDisabledBtnAtribui(_btnAtribui)
-                    _listaVideosDaTrilha.innerHTML = ''; // limpa body da table que lista os vídeos da trilha - table da direita 
                 } else if(parseInt(e.target.value) > 0){
                     removeDisabledBtnAtribui(_btnAtribui);
                 }
@@ -191,6 +190,9 @@
                             _tr.appendChild(_td4);
                             _listaVideosDaTrilha.appendChild(_tr);
                           }
+                          setTimeout(function(){
+                            _listaVideosDaTrilha.style.opacity = 1;
+                          }, 300)
 
                           const _formRemoveVideoDaTrilha = document.querySelectorAll('.form-remove-video-da-trilha');
                           _formRemoveVideoDaTrilha.forEach(function(item){
