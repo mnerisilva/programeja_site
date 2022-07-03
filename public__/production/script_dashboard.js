@@ -128,13 +128,16 @@
                 });
                 
     const _linkYoutube = document.querySelectorAll('.link-youtube');
+
     _linkYoutube.forEach(function(link){
                         link.addEventListener('click', function(e){
                                         e.preventDefault();
                                         console.log(e.target.dataset.youtube_code);
                                         let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
                                         _iframeYoutube.setAttribute('src', src);
-                                        _iframeYoutube.getAttribute('src')
+                                        _iframeYoutube.getAttribute('src');
+                                        removeClassActive(_linkYoutube);
+                                        e.target.parentNode.parentNode.classList.add('active');
                                     })
                 });
 
@@ -256,3 +259,10 @@ function povoaSelectTrilhas(){
                         }
                     });
             }
+
+function removeClassActive(nodeListLinks){
+                    nodeListLinks.forEach(function(link){
+                        link.parentNode.parentNode.classList.remove('active');
+                    })   
+
+}
