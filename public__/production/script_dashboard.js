@@ -246,7 +246,7 @@ function povoaSelectTrilhas(){
                             _selectIdTrilhaEscolhida.appendChild(_option);
                         }
                     });
-            }
+                }
 
 
 
@@ -259,7 +259,7 @@ function removeClassActive(nodeListLinks){
                         link.querySelector('i').style.color = '#212529';
                     })   
 
-            }
+                }
 
 
 
@@ -319,7 +319,7 @@ function atualizaListaDeVideosGeral(nodeList){
                             if(!_arrIdConteudoVideosDaTrilha.includes(videoItem.id)){_listaVideosGeral.appendChild(_tr);}
                         }                         
                     }
-            }
+                }
 
 
 
@@ -352,7 +352,7 @@ function montaListaDeVideosGeral(nodeList){
                         _tr.appendChild(_td4);
                         _listaVideosGeral.appendChild(_tr);
                     } // fim do for
-            }
+                }
 
 
 
@@ -388,4 +388,4 @@ function montaListaDeVideosDaTrilha(nodeList){
                         _listaVideosDaTrilha.appendChild(_tr);
                         _arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
                         }
-            }            
+                }            
