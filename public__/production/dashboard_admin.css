@@ -209,3 +209,7 @@ table tr td {
 table.lista-videos-geral tbody tr {
     font-size: 1.2em;
 }
+
+.youtube-icon {
+    margin-right: 15px;
+}

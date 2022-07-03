@@ -13,16 +13,19 @@
 
     let _btnAtribui;
 
+    let _dataListaDeVideosGeral     = '';
+    let _dataListaDeVideosDaTrilha  = '';
+
     povoaSelectTrilhas();
 
 
     $.ajax({
-        // inicio do código ajax listagem inicial - lista users
+        // lista users
         type: "POST",
         url: "lista_users.php",
         dataType: "json",
         encode: true,
-    }).done(function (data) {
+    }).done(function (data) {        
         const _tbody =  document.querySelector('table.lista-user tbody');
         for (userItem of data){
             const _tr = document.createElement('tr');
@@ -60,7 +63,6 @@
 
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
-                _modalUserId.innerHTML = e.target.dataset.userid;
                 _modalUserName.innerHTML = e.target.dataset.username;
             });
         })
@@ -70,16 +72,13 @@
 
 
     $.ajax({
-        // inicio do código ajax listagem inicial - cadastro de vídeo avulso
+        // lista de vídeo geral
         type: "POST",
         url: "lista.php",
         dataType: "json",
         encode: true,
     }).done(function (data) {
-        //console.log(data);
-        for (videoItem of data) {
-        //console.log(videoItem.descricao, videoItem.codigo);
-        }
+        _dataListaDeVideosGeral = data;
         for (videoItem of data) {
         let _tr = document.createElement("tr");
         let _td1 = document.createElement("td");
@@ -87,10 +86,6 @@
         let _td3 = document.createElement("td");
         let _td4 = document.createElement("td");
         let _td5 = document.createElement("td");
-        let _a = document.createElement("a");
-        _a.setAttribute('href', 'https://google.com.br');
-        _a.setAttribute('target', '_blank');
-        _a.classList.add('link-solto');
         let _nodeText1 = document.createTextNode(videoItem.id);
         let _nodeText2 = document.createTextNode(videoItem.descricao);
         let _nodeText3 = document.createTextNode(videoItem.codigo);
@@ -100,30 +95,13 @@
         let texto_t2 = _td2.textContent;
         _td2.textContent = texto_t2;
         _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
-        _td2.style.textAlign = 'left';
         _td3.appendChild(_nodeText3);
         _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
-
-        _tr.style.position = 'relative';
-
-        _a.style.position = 'absolute';
-        _a.style.zIndex = '9999';
-        _a.style.top = 0;
-        _a.style.right = 0;
-        _a.style.width = 100+'%';
-        _a.style.height = 100+'%';
-
-        _tr.appendChild(_a);
-
         _tr.appendChild(_td1);
         _tr.appendChild(_td2);
         _tr.appendChild(_td3);
         _tr.appendChild(_td4);
-
-
-        
         _listaVideosGeral.appendChild(_tr);
-
         } // fim do for
         _btnAtribui = document.querySelectorAll(".btn-atribui");
 
@@ -159,6 +137,7 @@
                                         _iframeYoutube.getAttribute('src');
                                         removeClassActive(_linkYoutube);
                                         e.target.parentNode.parentNode.classList.add('active');
+                                        e.target.querySelector('i').style.color = 'red';
                                     })
                 });
 
@@ -205,7 +184,7 @@
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        console.log(data);
+                        _dataListaDeVideosDaTrilha = data;
                         for (trilha of data) {
                             let _tr = document.createElement("tr");
                             let _td1 = document.createElement("td");
@@ -284,6 +263,11 @@ function povoaSelectTrilhas(){
 function removeClassActive(nodeListLinks){
                     nodeListLinks.forEach(function(link){
                         link.parentNode.parentNode.classList.remove('active');
+                        link.querySelector('i').style.color = '#212529';
                     })   
+
+            }
+
+function atualizaListaDeVideosGeral(){
 
 }

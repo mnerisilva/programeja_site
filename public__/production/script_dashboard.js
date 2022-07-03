@@ -8,21 +8,25 @@
     const _iframeYoutube = document.querySelector('iframe.embed-responsive-item');
     const _videoPanel = document.querySelector('.video-panel');
 
-
-    console.log(_listaVideosDaTrilha);
-
     let _btnAtribui;
+
+    let _dataListaDeVideosGeral     = '';
+    let _dataListaDeVideosDaTrilha  = '';
+
+    let _arrIdConteudoVideosDaTrilha = [];
 
     povoaSelectTrilhas();
 
 
+
+
+    /////////// USUÁRIOS NA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
     $.ajax({
-        // inicio do código ajax listagem inicial - lista users
         type: "POST",
         url: "lista_users.php",
         dataType: "json",
         encode: true,
-    }).done(function (data) {
+    }).done(function (data) {        
         const _tbody =  document.querySelector('table.lista-user tbody');
         for (userItem of data){
             const _tr = document.createElement('tr');
@@ -60,54 +64,30 @@
 
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
-                _modalUserId.innerHTML = e.target.dataset.userid;
                 _modalUserName.innerHTML = e.target.dataset.username;
             });
         })
 
-    });    
+    }); 
+    /////////// USUÁRIOS NA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////   
 
 
 
+
+
+
+
+
+    /////////// VÍDEOS NA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
     $.ajax({
-        // inicio do código ajax listagem inicial - cadastro de vídeo avulso
         type: "POST",
         url: "lista.php",
         dataType: "json",
         encode: true,
     }).done(function (data) {
-        //console.log(data);
-        for (videoItem of data) {
-        //console.log(videoItem.descricao, videoItem.codigo);
-        }
-        for (videoItem of data) {
-        let _tr = document.createElement("tr");
-        let _td1 = document.createElement("td");
-        let _td2 = document.createElement("td");
-        let _td3 = document.createElement("td");
-        let _td4 = document.createElement("td");
-        let _td5 = document.createElement("td");
-        let _nodeText1 = document.createTextNode(videoItem.id);
-        let _nodeText2 = document.createTextNode(videoItem.descricao);
-        let _nodeText3 = document.createTextNode(videoItem.codigo);
-        _td1.appendChild(_nodeText1);
-        _td2.appendChild(_nodeText2);
-        _td2.classList.add("tdlink");
-        let texto_t2 = _td2.textContent;
-        _td2.textContent = texto_t2;
-        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
-        _td3.appendChild(_nodeText3);
-        _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
-        _tr.appendChild(_td1);
-        _tr.appendChild(_td2);
-        _tr.appendChild(_td3);
-        _tr.appendChild(_td4);
-        _listaVideosGeral.appendChild(_tr);
-        } // fim do for
+        _dataListaDeVideosGeral = data;
+            montaListaDeVideosGeral(data); // manda para o "for" para montar tr td da tabela lista geral de vídeos
         _btnAtribui = document.querySelectorAll(".btn-atribui");
-
-        //console.log('entrou aqui');
-        //console.log(_btnAtribui);
         _btnAtribui.forEach(function(btnAtribui){
             btnAtribui.addEventListener('click', listenerDoAtribui);
                 })
@@ -142,7 +122,15 @@
                                     })
                 });
 
-    }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
+    });
+    /////////// VÍDEOS NA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
+
+
+
+
+
+
+
 
 
     function listenerDoAtribui(e){ // listner dos botões ADICIONAR
@@ -155,9 +143,17 @@
                 }
 
 
+
+
+
+
   function escutaMudancaEstadoSelect() {
                     removeDisabledBtnAtribui(_btnAtribui);
                 }
+
+
+
+
 
   function removeDisabledBtnAtribui(elemento){
                     for (btn of elemento) {
@@ -167,11 +163,17 @@
                 }
 
 
+
+
+
   function adicionaDisabledBtnAtribui(elemento){
                     for (btn of elemento) {
                         btn.setAttribute('disabled', true);
                     }    
                 }
+
+
+
 
     function listaVideosDaTrilha(){
                     console.log($("#trilha_escolhida").val());
@@ -186,30 +188,12 @@
                         encode: true,
                     }).done(function (data) {
                         console.log(data);
-                        for (trilha of data) {
-                            let _tr = document.createElement("tr");
-                            let _td1 = document.createElement("td");
-                            let _td2 = document.createElement("td");
-                            let _td3 = document.createElement("td");
-                            let _td4 = document.createElement("td");
-                            let _nodeText1 = document.createTextNode(trilha.id_conteudo);
-                            let _nodeText2 = document.createTextNode(trilha.conteudo_descricao);
-                            let _nodeText3 = document.createTextNode(trilha.conteudo_codigoyoutube);
-                            let _nodeText4 = document.createTextNode('');
-                            _td1.appendChild(_nodeText1);
-                            _td2.appendChild(_nodeText2);
-                            _td2.classList.add("tdlink");
-                            let texto_t2 = _td2.textContent;
-                            _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
-                            _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary">Desvincula</button></form>`;
-                            _tr.appendChild(_td1);
-                            _tr.appendChild(_td2);
-                            _tr.appendChild(_td3);
-                            _tr.appendChild(_td4);
-                            _listaVideosDaTrilha.appendChild(_tr);
-                          }
+                        _dataListaDeVideosDaTrilha = data;
+                        montaListaDeVideosDaTrilha(data);
+                        _listaVideosGeral.innerHTML = '';
+                        atualizaListaDeVideosGeral(_dataListaDeVideosGeral);
+                        _arrIdConteudoVideosDaTrilha = [];
+                          console.log(_arrIdConteudoVideosDaTrilha);
                           setTimeout(function(){
                             _listaVideosDaTrilha.style.opacity = 1;
                           }, 300)
@@ -232,6 +216,9 @@
                     });        
 
                 }
+
+
+
 
 
 
@@ -261,10 +248,144 @@ function povoaSelectTrilhas(){
                     });
             }
 
+
+
+
+
+
 function removeClassActive(nodeListLinks){
                     nodeListLinks.forEach(function(link){
                         link.parentNode.parentNode.classList.remove('active');
                         link.querySelector('i').style.color = '#212529';
                     })   
 
-}
+            }
+
+
+
+
+function atualizaListaDeVideosGeral(nodeList){   
+                    console.log(_arrIdConteudoVideosDaTrilha);
+                    console.log(nodeList);
+                    if(_arrIdConteudoVideosDaTrilha.length === 0){
+                        for (videoItem of nodeList) {
+                            let _tr = document.createElement("tr");
+                            let _td1 = document.createElement("td");
+                            let _td2 = document.createElement("td");
+                            let _td3 = document.createElement("td");
+                            let _td4 = document.createElement("td");
+                            let _td5 = document.createElement("td");
+                            let _nodeText1 = document.createTextNode(videoItem.id);
+                            let _nodeText2 = document.createTextNode(videoItem.descricao);
+                            let _nodeText3 = document.createTextNode(videoItem.codigo);
+                            _td1.appendChild(_nodeText1);
+                            _td2.appendChild(_nodeText2);
+                            _td2.classList.add("tdlink");
+                            let texto_t2 = _td2.textContent;
+                            _td2.textContent = texto_t2;
+                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                            _td3.appendChild(_nodeText3);
+                            _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                            _tr.appendChild(_td1);
+                            _tr.appendChild(_td2);
+                            _tr.appendChild(_td3);
+                            _tr.appendChild(_td4);
+                            _listaVideosGeral.appendChild(_tr);
+                        } 
+                    } else if(_arrIdConteudoVideosDaTrilha.length > 0){
+                        console.log('entrou aqui');
+                        for (videoItem of nodeList) {
+                            let _tr = document.createElement("tr");
+                            let _td1 = document.createElement("td");
+                            let _td2 = document.createElement("td");
+                            let _td3 = document.createElement("td");
+                            let _td4 = document.createElement("td");
+                            let _td5 = document.createElement("td");
+                            let _nodeText1 = document.createTextNode(videoItem.id);
+                            let _nodeText2 = document.createTextNode(videoItem.descricao);
+                            let _nodeText3 = document.createTextNode(videoItem.codigo);
+                            _td1.appendChild(_nodeText1);
+                            _td2.appendChild(_nodeText2);
+                            _td2.classList.add("tdlink");
+                            let texto_t2 = _td2.textContent;
+                            _td2.textContent = texto_t2;
+                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                            _td3.appendChild(_nodeText3);
+                            _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                            _tr.appendChild(_td1);
+                            _tr.appendChild(_td2);
+                            _tr.appendChild(_td3);
+                            _tr.appendChild(_td4);
+                            if(!_arrIdConteudoVideosDaTrilha.includes(videoItem.id)){_listaVideosGeral.appendChild(_tr);}
+                        }                         
+                    }
+            }
+
+
+
+
+
+
+
+function montaListaDeVideosGeral(nodeList){    
+                    for (videoItem of nodeList) {
+                        let _tr = document.createElement("tr");
+                        let _td1 = document.createElement("td");
+                        let _td2 = document.createElement("td");
+                        let _td3 = document.createElement("td");
+                        let _td4 = document.createElement("td");
+                        let _td5 = document.createElement("td");
+                        let _nodeText1 = document.createTextNode(videoItem.id);
+                        let _nodeText2 = document.createTextNode(videoItem.descricao);
+                        let _nodeText3 = document.createTextNode(videoItem.codigo);
+                        _td1.appendChild(_nodeText1);
+                        _td2.appendChild(_nodeText2);
+                        _td2.classList.add("tdlink");
+                        let texto_t2 = _td2.textContent;
+                        _td2.textContent = texto_t2;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                        _td3.appendChild(_nodeText3);
+                        _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                        _tr.appendChild(_td1);
+                        _tr.appendChild(_td2);
+                        _tr.appendChild(_td3);
+                        _tr.appendChild(_td4);
+                        _listaVideosGeral.appendChild(_tr);
+                    } // fim do for
+            }
+
+
+
+            
+
+
+            
+
+
+function montaListaDeVideosDaTrilha(nodeList){
+                    for (trilha of nodeList) {
+                        let _tr = document.createElement("tr");
+                        let _td1 = document.createElement("td");
+                        let _td2 = document.createElement("td");
+                        let _td3 = document.createElement("td");
+                        let _td4 = document.createElement("td");
+                        let _nodeText1 = document.createTextNode(trilha.id_conteudo);
+                        let _nodeText2 = document.createTextNode(trilha.conteudo_descricao);
+                        let _nodeText3 = document.createTextNode(trilha.conteudo_codigoyoutube);
+                        let _nodeText4 = document.createTextNode('');
+                        _td1.appendChild(_nodeText1);
+                        _td2.appendChild(_nodeText2);
+                        _td2.classList.add("tdlink");
+                        let texto_t2 = _td2.textContent;
+                        _td2.textContent = texto_t2;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                        _td3.appendChild(_nodeText3);
+                        _td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary">Desvincula</button></form>`;
+                        _tr.appendChild(_td1);
+                        _tr.appendChild(_td2);
+                        _tr.appendChild(_td3);
+                        _tr.appendChild(_td4);
+                        _listaVideosDaTrilha.appendChild(_tr);
+                        _arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
+                        }
+            }            

@@ -5,7 +5,7 @@ include('connect.php');
 
 
 		
-		$sql = "SELECT * FROM conteudo";
+		$sql = "SELECT * FROM conteudo ORDER BY conteudo_descricao";
 		$result = mysqli_query($conn, $sql);
 		
 
