@@ -5,6 +5,8 @@
     const _btnCarregaTrilha = document.querySelector('.btn-carrega-trilha');
     const _formFiltraTrilha = document.querySelector('.filtra-trilha');
     const _listaVideosDaTrilha = document.querySelector('.lista-videos-da-trilha tbody');
+    const _iframeYoutube = document.querySelector('iframe.embed-responsive-item');
+    const _videoPanel = document.querySelector('.video-panel');
 
 
     console.log(_listaVideosDaTrilha);
@@ -50,6 +52,9 @@
             item.addEventListener('click', function(e){
                 _modalUserPhoto.innerHTML = `<img class="user-avatar" src="${e.target.dataset.userphoto}" />`;
                 _modalUserName.innerHTML = e.target.dataset.username;
+                setTimeout(function(){
+                    _videoPanel.style.opacity = 1;
+                }, 900);
             });
         })
 
@@ -90,7 +95,7 @@
         _td2.classList.add("tdlink");
         let texto_t2 = _td2.textContent;
         _td2.textContent = texto_t2;
-        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
         _td3.appendChild(_nodeText3);
         _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
         _tr.appendChild(_td1);
@@ -120,6 +125,17 @@
                     console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.value);
                     _listaVideosDaTrilha.innerHTML = '';
                     listaVideosDaTrilha();
+                });
+                
+    const _linkYoutube = document.querySelectorAll('.link-youtube');
+    _linkYoutube.forEach(function(link){
+                        link.addEventListener('click', function(e){
+                                        e.preventDefault();
+                                        console.log(e.target.dataset.youtube_code);
+                                        let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
+                                        _iframeYoutube.setAttribute('src', src);
+                                        _iframeYoutube.getAttribute('src')
+                                    })
                 });
 
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
@@ -181,7 +197,7 @@
                             _td2.classList.add("tdlink");
                             let texto_t2 = _td2.textContent;
                             _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube" target="_blank"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                             _td3.appendChild(_nodeText3);
                             _td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary">Desvincula</button></form>`;
                             _tr.appendChild(_td1);
@@ -207,16 +223,6 @@
                                 setTimeout(function(){
                                     item.parentNode.parentNode.remove();
                                 }, 1000);
-                               /*$.ajax({
-                                    type: "POST",
-                                    url: "exclui_video_da_trilha.php",
-                                    data: formData_,
-                                    dataType: "json",
-                                    encode: true,
-                                }).done(function (data) {
-                                    console.log(data);
-                                });*/
-
                             })
                           });
                     });        
