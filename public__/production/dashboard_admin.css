@@ -41,6 +41,7 @@ body, .modal, .modal-body, .modal-content {
 .link-youtube {
 text-decoration: none;
     color: #212529;
+    font-size: 1.3em;
 }
 
 /*.link-youtube:hover {
@@ -203,4 +204,8 @@ table tr td {
 
 .active {
     background-color: #f0faf8;
+}
+
+table.lista-videos-geral tbody tr {
+    font-size: 1.2em;
 }
