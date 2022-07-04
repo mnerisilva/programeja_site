@@ -7,11 +7,14 @@
     const _listaVideosDaTrilha = document.querySelector('.lista-videos-da-trilha tbody');
 
 
+    
+
     console.log(_listaVideosDaTrilha);
 
     let _btnAtribui;
 
     povoaSelectTrilhas();
+
 
 
     $.ajax({
@@ -61,6 +64,9 @@
         })
 
     });    
+
+
+
 
 
 
@@ -126,6 +132,10 @@
     }); // fim do código ajax listagem inicial - cadastro de vídeo avulso }
 
 
+
+
+
+
     function listenerDoAtribui(e){ // listner dos botões ADICIONAR
                     let _trVideosGerais = e.target.parentNode.parentNode;
                     e.target.classList.remove('btn-atribui');
@@ -136,9 +146,16 @@
                 }
 
 
+
+
+
   function escutaMudancaEstadoSelect() {
                     removeDisabledBtnAtribui(_btnAtribui);
                 }
+
+
+
+
 
   function removeDisabledBtnAtribui(elemento){
                     for (btn of elemento) {
@@ -148,11 +165,18 @@
                 }
 
 
+
+
+
   function adicionaDisabledBtnAtribui(elemento){
                     for (btn of elemento) {
                         btn.setAttribute('disabled', true);
                     }    
                 }
+
+
+
+
 
     function listaVideosDaTrilha(){
                     console.log($("#trilha_escolhida").val());
@@ -223,6 +247,8 @@
 
 
 
+
+
 function povoaSelectTrilhas(){
                     $.ajax({
                         // inicio do código ajax listagem inicial - lista users
@@ -247,4 +273,4 @@ function povoaSelectTrilhas(){
                             _selectIdTrilhaEscolhida.appendChild(_option);
                         }
                     });
-            }
+                }
