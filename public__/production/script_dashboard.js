@@ -292,6 +292,21 @@ function atualizaListaDeVideosGeral(nodeList){
                             _tr.appendChild(_td4);
                             _listaVideosGeral.appendChild(_tr);
                         } 
+                                        
+                            const _linkYoutube = document.querySelectorAll('.link-youtube');
+
+                            _linkYoutube.forEach(function(link){
+                                                link.addEventListener('click', function(e){
+                                                                e.preventDefault();
+                                                                console.log(e.target.dataset.youtube_code);
+                                                                let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
+                                                                _iframeYoutube.setAttribute('src', src);
+                                                                _iframeYoutube.getAttribute('src');
+                                                                removeClassActive(_linkYoutube);
+                                                                e.target.parentNode.parentNode.classList.add('active');
+                                                                e.target.querySelector('i').style.color = 'red';
+                                                            })
+                                        });
                     } else if(_arrIdConteudoVideosDaTrilha.length > 0){
                         console.log('entrou aqui');
                         for (videoItem of nodeList) {
@@ -317,7 +332,22 @@ function atualizaListaDeVideosGeral(nodeList){
                             _tr.appendChild(_td3);
                             _tr.appendChild(_td4);
                             if(!_arrIdConteudoVideosDaTrilha.includes(videoItem.id)){_listaVideosGeral.appendChild(_tr);}
-                        }                         
+                        }
+                                        
+                            const _linkYoutube = document.querySelectorAll('.link-youtube');
+
+                            _linkYoutube.forEach(function(link){
+                                                link.addEventListener('click', function(e){
+                                                                e.preventDefault();
+                                                                console.log(e.target.dataset.youtube_code);
+                                                                let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
+                                                                _iframeYoutube.setAttribute('src', src);
+                                                                _iframeYoutube.getAttribute('src');
+                                                                removeClassActive(_linkYoutube);
+                                                                e.target.parentNode.parentNode.classList.add('active');
+                                                                e.target.querySelector('i').style.color = 'red';
+                                                            })
+                                        });                       
                     }
                 }
 
