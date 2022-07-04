@@ -7,6 +7,8 @@
     const _listaVideosDaTrilha = document.querySelector('.lista-videos-da-trilha tbody');
     const _iframeYoutube = document.querySelector('iframe.embed-responsive-item');
     const _videoPanel = document.querySelector('.video-panel');
+    const _totalVideosGeralDoMomento = document.querySelector('.lista-videos-geral thead th:nth-child(2)');
+    const _totalVideosDestaTrilha = document.querySelector('.lista-videos-da-trilha thead th:nth-child(2)');
 
     let _btnAtribui;
 
@@ -292,6 +294,7 @@ function atualizaListaDeVideosGeral(nodeList){
                             _tr.appendChild(_td4);
                             _listaVideosGeral.appendChild(_tr);
                         } 
+                            _totalVideosGeralDoMomento.textContent = `Video - [ ${nodeList.length} ]`;                        
                                         
                             const _linkYoutube = document.querySelectorAll('.link-youtube');
 
@@ -333,6 +336,7 @@ function atualizaListaDeVideosGeral(nodeList){
                             _tr.appendChild(_td4);
                             if(!_arrIdConteudoVideosDaTrilha.includes(videoItem.id)){_listaVideosGeral.appendChild(_tr);}
                         }
+                            _totalVideosGeralDoMomento.textContent = `Video - [ ${_listaVideosGeral.childElementCount} ]`;                            
                                         
                             const _linkYoutube = document.querySelectorAll('.link-youtube');
 
@@ -382,6 +386,7 @@ function montaListaDeVideosGeral(nodeList){
                         _tr.appendChild(_td4);
                         _listaVideosGeral.appendChild(_tr);
                     } // fim do for
+                    _totalVideosGeralDoMomento.textContent = `Video - [ ${nodeList.length} ]`;
                 }
 
 
@@ -418,4 +423,5 @@ function montaListaDeVideosDaTrilha(nodeList){
                         _listaVideosDaTrilha.appendChild(_tr);
                         _arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
                         }
+                        _totalVideosDestaTrilha.textContent = `Video - [ ${nodeList.length} ]`;
                 }            
