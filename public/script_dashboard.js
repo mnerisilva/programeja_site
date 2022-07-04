@@ -7,7 +7,7 @@
     const _listaVideosDaTrilha = document.querySelector('.lista-videos-da-trilha tbody');
 
 
-    
+
 
     console.log(_listaVideosDaTrilha);
 
@@ -69,7 +69,7 @@
 
 
 
-
+    ///////  AJAX DE LISTAGEM GERAL DE VÍDEOS DA PLATAFORMA
     $.ajax({
         // inicio do código ajax listagem inicial - cadastro de vídeo avulso
         type: "POST",
