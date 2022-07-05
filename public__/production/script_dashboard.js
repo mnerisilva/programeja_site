@@ -121,14 +121,19 @@
                 });
                 
     const _linkYoutube = document.querySelectorAll('.link-youtube');
+    console.log(_linkYoutube);
 
     _linkYoutube.forEach(function(link){
                         link.addEventListener('click', function(e){
                                         e.preventDefault();
-                                        console.log(e.target.dataset.youtube_code);
+                                        console.log(e.target);
                                         let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
+                                        console.log(e.target);
                                         _iframeYoutube.setAttribute('src', src);
                                         _iframeYoutube.getAttribute('src');
+                                        setTimeout(function(){
+                                            _tituloVideoPanelEmExecucao.innerHTML = e.target.dataset.descricao.substring(0,30);
+                                        }, 800);
                                         removeClassActive(_linkYoutube);
                                         e.target.parentNode.parentNode.classList.add('active');
                                         e.target.querySelector('i').style.color = 'red';
@@ -298,7 +303,7 @@ function atualizaListaDeVideosGeral(nodeList){
                             _td2.classList.add("tdlink");
                             let texto_t2 = _td2.textContent;
                             _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
+                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> >${texto_t2}</a>`;
                             _td3.appendChild(_nodeText3);
                             _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button>`;
                             _tr.appendChild(_td1);
@@ -340,7 +345,7 @@ function atualizaListaDeVideosGeral(nodeList){
                             _td2.classList.add("tdlink");
                             let texto_t2 = _td2.textContent;
                             _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
+                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                             _td3.appendChild(_nodeText3);
                             _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button>`;
                             _tr.appendChild(_td1);
@@ -390,7 +395,7 @@ function loopingDeMontagemAjaxListaVideosGeral(nodeList){
                         _td2.classList.add("tdlink");
                         let texto_t2 = _td2.textContent;
                         _td2.textContent = texto_t2;
-                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                         _td3.appendChild(_nodeText3);
                         _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button>`;
                         _tr.appendChild(_td1);
