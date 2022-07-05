@@ -226,7 +226,7 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     padding: 2px 15px 2px 18px;
 }
 
-.barra {
+.barra1 {
     width: 8px;
     background-color: #405467;
     height: 8px;
@@ -234,4 +234,22 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     margin-top: 6px;
     margin-left: -21px;
     border-radius: 50%;
+}
+
+.barra2 {
+    width: 8px;
+    background-color: #405467;
+    height: 8px;
+    position: absolute;
+    margin-top: 6px;
+    margin-left: -21px;
+    border-radius: 50%;
+}
+
+.btn-vincula {
+    display: flex; justify-content: center; align-items: center;
+}
+
+.btn-vincula i {
+    margin-right: 5px;
 }

@@ -10,6 +10,7 @@
     const _totalVideosGeralDoMomento = document.querySelector('.lista-videos-geral thead th:nth-child(4)');
     const _thTituloDestaTrilha = document.querySelector('.lista-videos-da-trilha thead th:nth-child(2)');
     const _totalVideosDestaTrilha = document.querySelector('.lista-videos-da-trilha thead th:nth-child(4)');
+    const _tituloVideoPanelEmExecucao = document.querySelector('.video-panel .x_panel span');
 
     let _THtituloDaTrilha = '';
 
@@ -22,7 +23,10 @@
 
     let _arrPovoSelect = [];
 
-    povoaSelectTrilhas();
+    povoaSelectDasTrilhas();
+
+
+
 
 
 
@@ -93,7 +97,7 @@
         encode: true,
     }).done(function (data) {
         _dataListaDeVideosGeral = data;
-        loopingDeMontagemAjaxListaVideosGeral(data); // manda para o "for" para montar tr td da tabela lista geral de vídeos
+        loopingDeMontagemAjaxListaVideosGeral(data); // manda para o "for" montar tr td da tabela lista geral de vídeos
         _btnVincula = document.querySelectorAll(".btn-vincula");
         _btnVincula.forEach(function(btnAtribui){
             btnAtribui.addEventListener('click', listenerDoAtribui);
@@ -231,7 +235,7 @@
 
 
 
-function povoaSelectTrilhas(){
+function povoaSelectDasTrilhas(){
                     $.ajax({
                         // inicio do código ajax listagem inicial - lista users
                         type: "POST",
@@ -294,9 +298,9 @@ function atualizaListaDeVideosGeral(nodeList){
                             _td2.classList.add("tdlink");
                             let texto_t2 = _td2.textContent;
                             _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                             _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                            _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button>`;
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
                             _tr.appendChild(_td3);
@@ -336,9 +340,9 @@ function atualizaListaDeVideosGeral(nodeList){
                             _td2.classList.add("tdlink");
                             let texto_t2 = _td2.textContent;
                             _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                             _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                            _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button>`;
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
                             _tr.appendChild(_td3);
@@ -386,9 +390,9 @@ function loopingDeMontagemAjaxListaVideosGeral(nodeList){
                         _td2.classList.add("tdlink");
                         let texto_t2 = _td2.textContent;
                         _td2.textContent = texto_t2;
-                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         _td3.appendChild(_nodeText3);
-                        _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                        _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button>`;
                         _tr.appendChild(_td1);
                         _tr.appendChild(_td2);
                         _tr.appendChild(_td3);
@@ -422,7 +426,7 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         _td2.classList.add("tdlink");
                         let texto_t2 = _td2.textContent;
                         _td2.textContent = texto_t2;
-                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         _td3.appendChild(_nodeText3);
                         _td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary">Desvincula</button></form>`;
                         _tr.appendChild(_td1);
@@ -433,5 +437,5 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         _arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
                         }
                         _thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra"></span>${_THtituloDaTrilha}</span> `;
-                        _totalVideosDestaTrilha.innerHTML = `          Total: ${nodeList.length} vídeos`;
+                        _totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                 }            
