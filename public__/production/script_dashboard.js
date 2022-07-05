@@ -441,6 +441,6 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         _listaVideosDaTrilha.appendChild(_tr);
                         _arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
                         }
-                        _thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra"></span>${_THtituloDaTrilha}</span> `;
+                        _thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         _totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                 }            

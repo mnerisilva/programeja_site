@@ -224,15 +224,27 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     background-color: white;
     color: #212529;
     padding: 2px 15px 2px 18px;
+    -webkit-box-shadow: 0px 9px 5px 5px rgb(120 120 120 / 65%);
+    box-shadow: 0px 2px 8px 3px rgb(14 6 6 / 65%);
 }
 
-.barra {
+.barra1 {
     width: 8px;
-    background-color: #405467;
+    background-color: #313538;
     height: 8px;
     position: absolute;
     margin-top: 6px;
     margin-left: -21px;
+    border-radius: 50%;
+}
+
+.barra2 {
+    width: 8px;
+    background-color: #313538;
+    height: 8px;
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 10px;
     border-radius: 50%;
 }
 
