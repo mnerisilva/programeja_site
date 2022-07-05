@@ -213,3 +213,13 @@ table.lista-videos-geral tbody tr {
 .youtube-icon {
     margin-right: 15px;
 }
+
+table.lista-videos-da-trilha thead th:nth-child(2) {
+    text-align: center;
+}
+
+.th-titulo-da-trilha {
+    font-size: 1.1em;
+    background-color: white;
+    color: #212529;
+}

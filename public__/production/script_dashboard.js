@@ -10,12 +10,16 @@
     const _totalVideosGeralDoMomento = document.querySelector('.lista-videos-geral thead th:nth-child(2)');
     const _totalVideosDestaTrilha = document.querySelector('.lista-videos-da-trilha thead th:nth-child(2)');
 
+    let _THtituloDaTrilha = '';
+
     let _btnAtribui;
 
     let _dataListaDeVideosGeral     = '';
     let _dataListaDeVideosDaTrilha  = '';
 
     let _arrIdConteudoVideosDaTrilha = [];
+
+    let _arrPovoSelect = [];
 
     povoaSelectTrilhas();
 
@@ -94,7 +98,8 @@
             btnAtribui.addEventListener('click', listenerDoAtribui);
                 })
 
-    _selectIdTrilhaEscolhida.addEventListener('change', function(e){
+    _selectIdTrilhaEscolhida.addEventListener('change', function(e){                
+                console.log(_THtituloDaTrilha);
                 if(e.target.value === '') {
                     adicionaDisabledBtnAtribui(_btnAtribui);
                 }
@@ -102,6 +107,9 @@
     $(_formFiltraTrilha).submit(function(event){
                     event.preventDefault();
                     console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.value);
+                    _THtituloDaTrilha = _arrPovoSelect[_selectIdTrilhaEscolhida.value];
+                    console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.textContent);
+                    console.log(event.target)
                     _listaVideosDaTrilha.innerHTML = '';                    
                     removeDisabledBtnAtribui(_btnAtribui);
                     listaVideosDaTrilha();
@@ -244,7 +252,9 @@ function povoaSelectTrilhas(){
                             console.log(_option);
                             _option.textContent = trilha.trilha_name;
                             _selectIdTrilhaEscolhida.appendChild(_option);
+                            _arrPovoSelect[trilha.trilha_id] = trilha.trilha_name;
                         }
+                        console.log(_arrPovoSelect);
                     });
                 }
 
@@ -421,5 +431,6 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         _listaVideosDaTrilha.appendChild(_tr);
                         _arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
                         }
-                        _totalVideosDestaTrilha.textContent = `Video - [ ${nodeList.length} ]`;
+                        _totalVideosDestaTrilha.querySelector('.total-videos-trilha').textContent = `Videos - [ ${nodeList.length} ] `;
+                        _totalVideosDestaTrilha.querySelector('.th-titulo-da-trilha').textContent = `          Trilha: ${_THtituloDaTrilha}`;
                 }            
