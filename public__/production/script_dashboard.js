@@ -31,7 +31,7 @@
 
 
 
-    /////////// USUÁRIOS NA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
+    /////////// USUÁRIOS DA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
     $.ajax({
         type: "POST",
         url: "lista_users.php",
@@ -50,7 +50,7 @@
             _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
             _td2.appendChild(_nodeText1);
             _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-gear user-course-manager" data-toggle="modal" data-target="#modalGerenciarAtribuidos" data-userid="${userItem.user_id}" data-username="${userItem.user_name}" data-userphoto="${userItem.user_photo}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
+            _td4.innerHTML = `<i class="fa-solid fa-gears user-course-manager" data-toggle="modal" data-target="#modalGerenciarAtribuidos" data-userid="${userItem.user_id}" data-username="${userItem.user_name}" data-userphoto="${userItem.user_photo}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
             _tr.appendChild(_td1);
             _tr.appendChild(_td2);
             _tr.appendChild(_td3);
@@ -80,7 +80,7 @@
         })
 
     }); 
-    /////////// USUÁRIOS NA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////   
+    /////////// USUÁRIOS DA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////   
 
 
 
@@ -89,7 +89,7 @@
 
 
 
-    /////////// VÍDEOS NA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
+    /////////// VÍDEOS DA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
     $.ajax({
         type: "POST",
         url: "lista.php",
@@ -141,7 +141,7 @@
                 });
 
     });
-    /////////// VÍDEOS NA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
+    /////////// VÍDEOS DA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
 
 
 
