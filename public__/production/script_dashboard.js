@@ -95,17 +95,15 @@
                 })
 
     _selectIdTrilhaEscolhida.addEventListener('change', function(e){
-                _listaVideosDaTrilha.innerHTML = ''; // limpa body da table que lista os vídeos da trilha - table da direita 
-                if(e.target.value == '') {
-                    adicionaDisabledBtnAtribui(_btnAtribui)
-                } else if(parseInt(e.target.value) > 0){
-                    removeDisabledBtnAtribui(_btnAtribui);
+                if(e.target.value === '') {
+                    adicionaDisabledBtnAtribui(_btnAtribui);
                 }
             });
     $(_formFiltraTrilha).submit(function(event){
                     event.preventDefault();
                     console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.value);
-                    _listaVideosDaTrilha.innerHTML = '';
+                    _listaVideosDaTrilha.innerHTML = '';                    
+                    removeDisabledBtnAtribui(_btnAtribui);
                     listaVideosDaTrilha();
                 });
                 
@@ -191,7 +189,7 @@
                     }).done(function (data) {
                         console.log(data);
                         _dataListaDeVideosDaTrilha = data;
-                        montaListaDeVideosDaTrilha(data);
+                        loopingDeMontagemAjaxListaVideosDaTrilha(data);
                         _listaVideosGeral.innerHTML = '';
                         atualizaListaDeVideosGeral(_dataListaDeVideosGeral);
                         _arrIdConteudoVideosDaTrilha = [];
@@ -287,7 +285,7 @@ function atualizaListaDeVideosGeral(nodeList){
                             _td2.textContent = texto_t2;
                             _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                             _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                            _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
                             _tr.appendChild(_td3);
@@ -329,7 +327,7 @@ function atualizaListaDeVideosGeral(nodeList){
                             _td2.textContent = texto_t2;
                             _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                             _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                            _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
                             _tr.appendChild(_td3);
@@ -397,7 +395,7 @@ function montaListaDeVideosGeral(nodeList){
             
 
 
-function montaListaDeVideosDaTrilha(nodeList){
+function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                     for (trilha of nodeList) {
                         let _tr = document.createElement("tr");
                         let _td1 = document.createElement("td");
