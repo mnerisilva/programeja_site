@@ -7,12 +7,13 @@
     const _listaVideosDaTrilha = document.querySelector('.lista-videos-da-trilha tbody');
     const _iframeYoutube = document.querySelector('iframe.embed-responsive-item');
     const _videoPanel = document.querySelector('.video-panel');
-    const _totalVideosGeralDoMomento = document.querySelector('.lista-videos-geral thead th:nth-child(2)');
-    const _totalVideosDestaTrilha = document.querySelector('.lista-videos-da-trilha thead th:nth-child(2)');
+    const _totalVideosGeralDoMomento = document.querySelector('.lista-videos-geral thead th:nth-child(4)');
+    const _thTituloDestaTrilha = document.querySelector('.lista-videos-da-trilha thead th:nth-child(2)');
+    const _totalVideosDestaTrilha = document.querySelector('.lista-videos-da-trilha thead th:nth-child(4)');
 
     let _THtituloDaTrilha = '';
 
-    let _btnAtribui;
+    let _btnVincula;
 
     let _dataListaDeVideosGeral     = '';
     let _dataListaDeVideosDaTrilha  = '';
@@ -92,16 +93,16 @@
         encode: true,
     }).done(function (data) {
         _dataListaDeVideosGeral = data;
-            montaListaDeVideosGeral(data); // manda para o "for" para montar tr td da tabela lista geral de vídeos
-        _btnAtribui = document.querySelectorAll(".btn-atribui");
-        _btnAtribui.forEach(function(btnAtribui){
+        loopingDeMontagemAjaxListaVideosGeral(data); // manda para o "for" para montar tr td da tabela lista geral de vídeos
+        _btnVincula = document.querySelectorAll(".btn-vincula");
+        _btnVincula.forEach(function(btnAtribui){
             btnAtribui.addEventListener('click', listenerDoAtribui);
                 })
 
     _selectIdTrilhaEscolhida.addEventListener('change', function(e){                
                 console.log(_THtituloDaTrilha);
                 if(e.target.value === '') {
-                    adicionaDisabledBtnAtribui(_btnAtribui);
+                    adicionaDisabledBtnAtribui(_btnVincula);
                 }
             });
     $(_formFiltraTrilha).submit(function(event){
@@ -111,7 +112,7 @@
                     console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.textContent);
                     console.log(event.target)
                     _listaVideosDaTrilha.innerHTML = '';                    
-                    removeDisabledBtnAtribui(_btnAtribui);
+                    removeDisabledBtnAtribui(_btnVincula);
                     listaVideosDaTrilha();
                 });
                 
@@ -143,7 +144,7 @@
 
     function listenerDoAtribui(e){ // listner dos botões ADICIONAR
                     let _trVideosGerais = e.target.parentNode.parentNode;
-                    e.target.classList.remove('btn-atribui');
+                    e.target.classList.remove('btn-vincula');
                     e.target.classList.add('btn-remove');
                     e.target.textContent = 'Remover';
                     e.target.removeEventListener('click', listenerDoAtribui, false);
@@ -156,7 +157,7 @@
 
 
   function escutaMudancaEstadoSelect() {
-                    removeDisabledBtnAtribui(_btnAtribui);
+                    removeDisabledBtnAtribui(_btnVincula);
                 }
 
 
@@ -295,14 +296,14 @@ function atualizaListaDeVideosGeral(nodeList){
                             _td2.textContent = texto_t2;
                             _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                             _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                            _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
                             _tr.appendChild(_td3);
                             _tr.appendChild(_td4);
                             _listaVideosGeral.appendChild(_tr);
                         } 
-                            _totalVideosGeralDoMomento.textContent = `Video - [ ${nodeList.length} ]`;                        
+                            _totalVideosGeralDoMomento.textContent = `Total - [ ${nodeList.length} ]`;                        
                                         
                             const _linkYoutube = document.querySelectorAll('.link-youtube');
 
@@ -337,14 +338,14 @@ function atualizaListaDeVideosGeral(nodeList){
                             _td2.textContent = texto_t2;
                             _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                             _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                            _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
                             _tr.appendChild(_td3);
                             _tr.appendChild(_td4);
                             if(!_arrIdConteudoVideosDaTrilha.includes(videoItem.id)){_listaVideosGeral.appendChild(_tr);}
                         }
-                            _totalVideosGeralDoMomento.textContent = `Video - [ ${_listaVideosGeral.childElementCount} ]`;                            
+                            _totalVideosGeralDoMomento.textContent = `Total: [ ${_listaVideosGeral.childElementCount} ]`;                            
                                         
                             const _linkYoutube = document.querySelectorAll('.link-youtube');
 
@@ -369,7 +370,7 @@ function atualizaListaDeVideosGeral(nodeList){
 
 
 
-function montaListaDeVideosGeral(nodeList){    
+function loopingDeMontagemAjaxListaVideosGeral(nodeList){    
                     for (videoItem of nodeList) {
                         let _tr = document.createElement("tr");
                         let _td1 = document.createElement("td");
@@ -387,14 +388,14 @@ function montaListaDeVideosGeral(nodeList){
                         _td2.textContent = texto_t2;
                         _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                         _td3.appendChild(_nodeText3);
-                        _td4.innerHTML = `<button class="btn btn-secondary btn-atribui" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
+                        _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}">Vincula</button>`;
                         _tr.appendChild(_td1);
                         _tr.appendChild(_td2);
                         _tr.appendChild(_td3);
                         _tr.appendChild(_td4);
                         _listaVideosGeral.appendChild(_tr);
                     } // fim do for
-                    _totalVideosGeralDoMomento.textContent = `Video - [ ${nodeList.length} ]`;
+                    _totalVideosGeralDoMomento.textContent = `Total: [ ${nodeList.length} ]`;
                 }
 
 
@@ -431,6 +432,6 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         _listaVideosDaTrilha.appendChild(_tr);
                         _arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
                         }
-                        _totalVideosDestaTrilha.querySelector('.total-videos-trilha').textContent = `Videos - [ ${nodeList.length} ] `;
-                        _totalVideosDestaTrilha.querySelector('.th-titulo-da-trilha').textContent = `          Trilha: ${_THtituloDaTrilha}`;
+                        _thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra"></span>${_THtituloDaTrilha}</span> `;
+                        _totalVideosDestaTrilha.innerHTML = `          Total: ${nodeList.length} vídeos`;
                 }            
