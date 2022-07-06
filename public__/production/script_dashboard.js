@@ -23,6 +23,8 @@
 
     let _arrPovoSelect = [];
 
+    let _idDaTrilhaEscolhida = '';
+
     povoaSelectDasTrilhas();
 
 
@@ -194,7 +196,8 @@
 
 
     function listaVideosDaTrilha(){
-                    console.log($("#trilha_escolhida").val());
+                    console.log($("#trilha_escolhida").val());                    
+                    _idDaTrilhaEscolhida = $("#trilha_escolhida").val();
                     var formData = {
                         trilha_escolhida: $("#trilha_escolhida").val()
                     };
@@ -305,7 +308,7 @@ function atualizaListaDeVideosGeral(nodeList){
                             _td2.textContent = texto_t2;
                             _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> >${texto_t2}</a>`;
                             _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button>`;
+                            _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button></form>`;
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
                             _tr.appendChild(_td3);
@@ -347,7 +350,7 @@ function atualizaListaDeVideosGeral(nodeList){
                             _td2.textContent = texto_t2;
                             _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                             _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button>`;
+                            _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button></form>`;
                             _tr.appendChild(_td1);
                             _tr.appendChild(_td2);
                             _tr.appendChild(_td3);
@@ -397,7 +400,7 @@ function loopingDeMontagemAjaxListaVideosGeral(nodeList){
                         _td2.textContent = texto_t2;
                         _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
                         _td3.appendChild(_nodeText3);
-                        _td4.innerHTML = `<button class="btn btn-secondary btn-vincula" disabled data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button>`;
+                        _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincula</button></form>`;
                         _tr.appendChild(_td1);
                         _tr.appendChild(_td2);
                         _tr.appendChild(_td3);
@@ -405,6 +408,22 @@ function loopingDeMontagemAjaxListaVideosGeral(nodeList){
                         _listaVideosGeral.appendChild(_tr);
                     } // fim do for
                     _totalVideosGeralDoMomento.textContent = `Total: [ ${nodeList.length} ]`;
+                    
+                    const _formVinculaVideoATrilha = document.querySelectorAll('.form-vincula-video-a-trilha');
+                    _formVinculaVideoATrilha.forEach(function(item){
+                      $(item).submit(function(event){
+                          event.preventDefault();
+                          
+                          var formData_ = {
+                              video_a_excluir: item.querySelector('.input-form-vincula-video-a-trilha').value
+                          };
+                          console.log(formData_);
+                          item.parentNode.parentNode.style.opacity = 0;
+                          setTimeout(function(){
+                              item.parentNode.parentNode.remove();
+                          }, 1000);
+                      })
+                    });                    
                 }
 
 
@@ -443,4 +462,5 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         }
                         _thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         _totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
+                        console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
                 }            
