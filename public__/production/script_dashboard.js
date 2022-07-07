@@ -33,6 +33,8 @@
 
 
 
+
+
     /////////// USUÁRIOS DA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
     $.ajax({
         type: "POST",
@@ -103,10 +105,19 @@
         _btnVincula = document.querySelectorAll(".btn-vincula");
         _btnVincula.forEach(function(btnAtribui){
             btnAtribui.addEventListener('click', listenerDoAtribui);
-                })
+        })
+
+        
+        _btnVincula = document.querySelectorAll(".btn-vincula");    // desabilita todos os botões "Vincula",
+        _btnVincula.forEach(function(btnAtribui){                   // quando ainda não há uma trilha carregada           
+            btnAtribui.setAttribute('disabled', true);              //
+        }) //                                                       //
+
+
 
     _selectIdTrilhaEscolhida.addEventListener('change', function(e){                
-                console.log(_THtituloDaTrilha);
+                //console.log(_THtituloDaTrilha);
+                console.log(e.target.value);
                 if(e.target.value === '') {
                     adicionaDisabledBtnAtribui(_btnVincula);
                 }
@@ -161,6 +172,7 @@
                     //e.target.removeEventListener('click', listenerDoAtribui, false);
                     //_listaVideosAtribuidos.appendChild(_trVideosGerais);
                     console.log('entrou na function listenerDoAtribui()');
+                    console.log(e.target);
                 }
 
 
@@ -226,12 +238,14 @@
                                 event.preventDefault();
                                 
                                 var formData_ = {
+                                    trilha_escolhida: _idDaTrilhaEscolhida,
                                     video_a_desvincular: item.querySelector('.input-form-remove-video-trilha').value
                                 };
                                 console.log(formData_);
                                 item.parentNode.parentNode.style.opacity = 0;
                                 setTimeout(function(){
                                     item.parentNode.parentNode.remove();
+                                    desvinculaVideo(formData_);
                                 }, 1000);
                             })
                           });
@@ -340,12 +354,14 @@ function atualizaListaDeVideosGeral(nodeList){
                                     event.preventDefault();
                                     
                                     var formData_ = {
+                                        trilha_escolhida: _idDaTrilhaEscolhida,
                                         video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
                                     };
                                     console.log(formData_);
                                     item.parentNode.parentNode.style.opacity = 0;
                                     setTimeout(function(){
                                         item.parentNode.parentNode.remove();
+                                        vinculaVideo(formData_);
                                     }, 1000);
                                 })
                             });
@@ -399,12 +415,14 @@ function atualizaListaDeVideosGeral(nodeList){
                                     event.preventDefault();
                                     
                                     var formData_ = {
+                                        trilha_escolhida: _idDaTrilhaEscolhida,
                                         video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
                                     };
                                     console.log(formData_);
                                     item.parentNode.parentNode.style.opacity = 0;
                                     setTimeout(function(){
                                         item.parentNode.parentNode.remove();
+                                        vinculaVideo(formData_);
                                     }, 1000);
                                 })
                             });                                                               
@@ -450,13 +468,17 @@ function loopingDeMontagemAjaxListaVideosGeral(nodeList){
                           event.preventDefault();
                           
                           var formData_ = {
+                            trilha_escolhida: _idDaTrilhaEscolhida,
                               video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
                           };
                           console.log(formData_);
-                          item.parentNode.parentNode.style.opacity = 0;
-                          setTimeout(function(){
-                              item.parentNode.parentNode.remove();
-                          }, 1000);
+                          if(formData_.trilha_escolhida != ''){
+                            item.parentNode.parentNode.style.opacity = 0;
+                            setTimeout(function(){
+                                item.parentNode.parentNode.remove();
+                                vinculaVideo(formData_);
+                            }, 1000);                            
+                          }
                       })
                     });                    
                 }
@@ -499,3 +521,31 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         _totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
                 }            
+
+
+    
+
+function vinculaVideo(formData){
+                    $.ajax({
+                        type: "POST",
+                        url: "vincula_video_a_trilha.php",
+                        data: formData,
+                        dataType: "json",
+                        encode: true,
+                    }).done(function (data) {
+                        console.log(data);
+                    });    
+                    console.log('entrou na function vinculaVideo');
+                    console.log(formData);
+                }
+
+
+
+
+
+
+function desvinculaVideo(formData){
+                    console.log('entrou na function desvinculaVideo');
+                    console.log(formData);
+                    return;
+                }
