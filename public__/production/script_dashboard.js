@@ -534,6 +534,9 @@ function vinculaVideo(formData){
                         encode: true,
                     }).done(function (data) {
                         console.log(data);
+                        _listaVideosGeral.innerHTML = '';
+                        _listaVideosDaTrilha.innerHTML = '';
+                        listaVideosDaTrilha();
                     });    
                     console.log('entrou na function vinculaVideo');
                     console.log(formData);
