@@ -11,6 +11,7 @@ $(document).ready(function () {
   const _delete_button_confirm = document.querySelector(".delete-button-confirm");
   const _formModalConfimDeleteId = document.querySelector("#modalConfirmDeleteId");
   const _form_cadastro_video = document.querySelector("#cadastro_video");
+  const _form_cadastro_de_trilha = document.querySelector("#cadastro_de_trilha");
   const _input_confirm_id_modal_delete = document.querySelector("#input_confirm_id_modal_delete");
   const _deleteModal = document.querySelector("#deleteModal");
   let trash_icon_delete_all;
