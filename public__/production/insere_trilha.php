@@ -6,6 +6,9 @@ include('connect.php');
 if(count($_POST) > 0){
 	
      
+		var_dump($_POST);
+		die();
+
         $trilha_name            = addslashes($_POST['trilha_name']);
         $trilha_type            = $_POST['trilha_type'];
         $trilha_descricao       = $_POST['trilha_descricao'];
