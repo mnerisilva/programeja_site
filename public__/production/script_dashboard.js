@@ -155,11 +155,12 @@
 
     function listenerDoAtribui(e){ // listner dos botões ADICIONAR
                     let _trVideosGerais = e.target.parentNode.parentNode;
-                    e.target.classList.remove('btn-vincula');
-                    e.target.classList.add('btn-remove');
-                    e.target.textContent = 'Remover';
-                    e.target.removeEventListener('click', listenerDoAtribui, false);
-                    _listaVideosAtribuidos.appendChild(_trVideosGerais);
+                    //e.target.classList.remove('btn-vincula');
+                    //e.target.classList.add('btn-remove');
+                    //e.target.textContent = 'Remover';
+                    //e.target.removeEventListener('click', listenerDoAtribui, false);
+                    //_listaVideosAtribuidos.appendChild(_trVideosGerais);
+                    console.log('entrou na function listenerDoAtribui()');
                 }
 
 
@@ -225,7 +226,7 @@
                                 event.preventDefault();
                                 
                                 var formData_ = {
-                                    video_a_excluir: item.querySelector('.input-form-remove-video-trilha').value
+                                    video_a_desvincular: item.querySelector('.input-form-remove-video-trilha').value
                                 };
                                 console.log(formData_);
                                 item.parentNode.parentNode.style.opacity = 0;
@@ -331,6 +332,24 @@ function atualizaListaDeVideosGeral(nodeList){
                                                                 e.target.querySelector('i').style.color = 'red';
                                                             })
                                         });
+
+                        
+                            const _formVinculaVideoATrilha = document.querySelectorAll('.form-vincula-video-a-trilha');
+                            _formVinculaVideoATrilha.forEach(function(item){
+                                $(item).submit(function(event){
+                                    event.preventDefault();
+                                    
+                                    var formData_ = {
+                                        video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
+                                    };
+                                    console.log(formData_);
+                                    item.parentNode.parentNode.style.opacity = 0;
+                                    setTimeout(function(){
+                                        item.parentNode.parentNode.remove();
+                                    }, 1000);
+                                })
+                            });
+
                     } else if(_arrIdConteudoVideosDaTrilha.length > 0){
                         console.log('entrou aqui');
                         for (videoItem of nodeList) {
@@ -372,7 +391,23 @@ function atualizaListaDeVideosGeral(nodeList){
                                                                 e.target.parentNode.parentNode.classList.add('active');
                                                                 e.target.querySelector('i').style.color = 'red';
                                                             })
-                                        });                       
+                                        });
+    
+                            const _formVinculaVideoATrilha = document.querySelectorAll('.form-vincula-video-a-trilha');
+                            _formVinculaVideoATrilha.forEach(function(item){
+                                $(item).submit(function(event){
+                                    event.preventDefault();
+                                    
+                                    var formData_ = {
+                                        video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
+                                    };
+                                    console.log(formData_);
+                                    item.parentNode.parentNode.style.opacity = 0;
+                                    setTimeout(function(){
+                                        item.parentNode.parentNode.remove();
+                                    }, 1000);
+                                })
+                            });                                                               
                     }
                 }
 
@@ -415,7 +450,7 @@ function loopingDeMontagemAjaxListaVideosGeral(nodeList){
                           event.preventDefault();
                           
                           var formData_ = {
-                              video_a_excluir: item.querySelector('.input-form-vincula-video-a-trilha').value
+                              video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
                           };
                           console.log(formData_);
                           item.parentNode.parentNode.style.opacity = 0;
