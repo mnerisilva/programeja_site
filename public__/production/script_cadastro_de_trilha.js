@@ -39,10 +39,10 @@
                                     encode: true,
                                 }).done(function (data) {
                                     console.log(data);
-                                    _id_categoria.value = '';
-                                    _trilha_type.value = '';
-                                    _trilha_name.value = '';
-                                    _trilha_descricao.value = '';
-                                    _trilha_nomeamigavel.value = '';
+                                    _formCadastroDeTrilha.querySelector('#id_categoria').value = '';
+                                    _formCadastroDeTrilha.querySelector('#trilha_type').value = '';
+                                    _formCadastroDeTrilha.querySelector('#trilha_name').value = '';
+                                    _formCadastroDeTrilha.querySelector('#trilha_descricao').value = '';
+                                    _formCadastroDeTrilha.querySelector('#trilha_nomeamigavel').value = '';                                    
                                 });                        
                           });
