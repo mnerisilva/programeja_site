@@ -271,9 +271,13 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
 
 .ferramentas-codigo-video {
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
     align-items: center;
     transform: scale(1.1);
+}
+
+.ferramentas-codigo-video i {
+    margin-left: 5px;
 }
 
 .ferramentas-codigo-video i:hover {
