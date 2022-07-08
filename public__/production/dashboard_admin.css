@@ -267,3 +267,17 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     font-weight: 800;
     font-size: 1.6em;
 }
+
+
+.ferramentas-codigo-video {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: scale(1.1);
+}
+
+.ferramentas-codigo-video i:hover {
+    transition: all .3s ease;
+    cursor: pointer;
+    transform: scale(1.2);
+}
