@@ -12,6 +12,16 @@
     const _totalVideosDestaTrilha = document.querySelector('.lista-videos-da-trilha thead th:nth-child(4)');
     const _tituloVideoPanelEmExecucao = document.querySelector('.video-panel .x_panel span');
 
+
+
+
+                const _collapse_link = document.querySelector('.video-run .collapse-link i');////////////////////
+                setTimeout(() => {
+                    $(_collapse_link).trigger( "click" );
+                }, 3000);/////////////////////////
+
+
+
     let _THtituloDaTrilha = '';
 
     let _btnVincula;
@@ -101,7 +111,7 @@
         encode: true,
     }).done(function (data) {
         _dataListaDeVideosGeral = data;
-        loopingDeMontagemAjaxListaVideosGeral(data); // manda para o "for" montar tr td da tabela lista geral de vídeos
+        loopingDeMontagemAjaxListaVideosGeral(data); // manda para o "for" montar tr td no tbody da tabela .lista-geral-de-vídeos
         _btnVincula = document.querySelectorAll(".btn-vincula");
         _btnVincula.forEach(function(btnAtribui){
             btnAtribui.addEventListener('click', listenerDoAtribui);
@@ -251,7 +261,7 @@ function listaVideosDaTrilha(){
                                 }, 1000);
                             })
                           });
-                    });        
+                    }); // .done        
 
                 }
 
