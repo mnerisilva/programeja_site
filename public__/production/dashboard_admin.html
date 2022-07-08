@@ -183,17 +183,18 @@
 
                         <div class="form-group">
                           <div class="col-md-9 col-sm-9  offset-md-3">
-                          <button type="submit" class="btn btn-secondary">Salvar</button>
+                          <button type="submit" class="btn btn-secondary">Salvar trilha</button>
                           </div>
                         </div>                  
                       </form>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-4 video-panel">
-                  <div class="x_panel video-run">
+
+                <div class="col-md-4">
+                  <div class="x_panel cadastrar">
                     <div class="x_title">
-                      <h2><i class="fa fa-video-camera"></i> <span>Vídeo</span> <small>execução</small></h2>
+                      <h2><i class="fa-solid fa-folder-plus"></i> Trilha de estudo <small>Cadastrar</small></h2>
                       <ul class="nav navbar-right panel_toolbox">
                         <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                         </li>
@@ -210,35 +211,74 @@
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                      
-                      <!--
-                      <ul class="list-unstyled msg_list">
-                        <li>
-                          <a>
-                            <span class="image">
-                              <img src="images/img.jpg" alt="img">
-                            </span>
-                            <span>
-                              <span>John Smith</span>
-                              <span class="time">3 mins ago</span>
-                            </span>
-                            <span class="message">
-                              Film festivals used to be do-or-die moments for movie makers. They were where you met the producers that
-                            </span>
-                          </a>
-                        </li>
-                      </ul>
-                      -->
-                                
-                                          
-                      <div class="embed-responsive embed-responsive-16by9">
-                          <iframe class="embed-responsive-item" width="640" height="360" src="" autoplay="1" allowfullscreen=""></iframe>
-                      </div>
-                                      
-                                                                            
+                      <form class="form-cadastro-de-trilha form-horizontal form-label-left">
+
+
+                        <div class="form-group row">
+                          <label class="control-label col-md-3 col-sm-3 ">Categoria</label>
+                          <div class="col-md-9 col-sm-9 ">
+                            <select class="form-control" id="id_categoria" required="" name="id_categoria">
+                              <option value=""> ...</option>
+                              <option value="1">Css</option>
+                              <option value="2">Html</option>
+                              <option value="3">Javascript</option>
+                              <option value="4">Sem categoria</option>
+                              <option value="6">Lógica</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        
+                        <div class="form-group row">
+                          <label class="control-label col-md-3 col-sm-3 ">Tipo</label>
+                          <div class="col-md-9 col-sm-9 ">
+                            <select class="form-control" id="trilha_type" required="" name="trilha_type">
+                              <option value=""> ...</option>
+                              <option value="1">geral</option>
+                              <option value="2">provisória</option>
+                            </select>
+                          </div>
+                        </div>
+
+
+                        <div class="form-group row ">
+                          <label class="control-label col-md-3 col-sm-3 ">Nome</label>
+                          <div class="col-md-9 col-sm-9 ">
+                          <input type="text" class="form-control" id="trilha_name" required="" name="trilha_name" placeholder="" placeholder="">
+                          </div>
+                        </div>    
+                        
+                        
+                        <div class="form-group row">
+                          <label class="control-label col-md-3 col-sm-3 ">Descrição <span class="required">*</span>
+                          </label>
+                          <div class="col-md-9 col-sm-9 ">
+                          <textarea class="form-control" rows="3" id="trilha_descricao" required="" name="trilha_descricao" placeholder=""></textarea>
+                          </div>
+                        </div> 
+                        
+
+                        <div class="form-group row ">
+                          <label class="control-label col-md-3 col-sm-3 ">Nome amigável</label>
+                          <div class="col-md-9 col-sm-9 ">
+                          <input type="text" class="form-control" id="trilha_nomeamigavel" required="" name="trilha_nomeamigavel" placeholder="">
+                          </div>
+                        </div>  
+                        
+                        <div class="ln_solid"></div>
+
+                        <div class="form-group">
+                          <div class="col-md-9 col-sm-9  offset-md-3">
+                          <button type="submit" class="btn btn-secondary">Salvar vídeo</button>
+                          </div>
+                        </div>                  
+                      </form>
                     </div>
                   </div>
-                </div>
+                </div>                
+
+
+
               </div>
 
 
@@ -296,6 +336,36 @@
                     </div>
                 </div>
               </div>        
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-md-4 video-panel">
+              <div class="x_panel video-run">
+                <div class="x_title">
+                  <h2><i class="fa fa-video-camera"></i> <span>Vídeo</span> <small>player</small></h2>
+                  <ul class="nav navbar-right panel_toolbox">
+                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                    </li>
+                    <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" href="#">Settings 1</a>
+                          <a class="dropdown-item" href="#">Settings 2</a>
+                        </div>
+                    </li>
+                    <li><a class="close-link"><i class="fa fa-close"></i></a>
+                    </li>
+                  </ul>
+                  <div class="clearfix"></div>
+                </div>
+                <div class="x_content"> 
+                  <div class="embed-responsive embed-responsive-16by9">
+                      <iframe class="embed-responsive-item" width="640" height="360" src="" autoplay="1" allowfullscreen=""></iframe>
+                  </div>                                               
+                </div>
+              </div>
             </div>
           </div>
 
