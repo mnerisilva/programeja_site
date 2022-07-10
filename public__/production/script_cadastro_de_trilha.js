@@ -36,13 +36,25 @@
                                     url: "insere_trilha.php",
                                     data: formData_,
                                     dataType: "json",
-                                    encode: true,
+                                    encode: true // precisei remover a vírgula após o true, pois a requisião não estava retornando - "vai entender?!?!?"
                                 }).done(function (data) {
-                                    console.log(data);
-                                    _formCadastroDeTrilha.querySelector('#id_categoria').value = '';
-                                    _formCadastroDeTrilha.querySelector('#trilha_type').value = '';
-                                    _formCadastroDeTrilha.querySelector('#trilha_name').value = '';
-                                    _formCadastroDeTrilha.querySelector('#trilha_descricao').value = '';
-                                    _formCadastroDeTrilha.querySelector('#trilha_nomeamigavel').value = '';                                    
+                                    _divMessageTrilhaSalva.innerHTML = `<img src="images/spinner.gif" />`;
+                                    _btnSubmitCadastroDeTrilha.setAttribute('disabled', true);
+                                    setTimeout(function(){
+                                        _formCadastroDeTrilha.querySelector('#id_categoria').value = '';
+                                        _formCadastroDeTrilha.querySelector('#trilha_type').value = '';
+                                        _formCadastroDeTrilha.querySelector('#trilha_name').value = '';
+                                        _formCadastroDeTrilha.querySelector('#trilha_descricao').value = '';
+                                        _formCadastroDeTrilha.querySelector('#trilha_nomeamigavel').value = '';
+                                        _divMessageTrilhaSalva.innerHTML = '';
+                                        povoaSelectDasTrilhas(); 
+                                    }, 800);
+                                    setTimeout(function(){
+                                        _divMessageTrilhaSalva.innerHTML = `Trilha adicionada com sucesso!`;
+                                    }, 900);
+                                    setTimeout(function(){
+                                        _divMessageTrilhaSalva.innerHTML = ``;
+                                        _btnSubmitCadastroDeTrilha.removeAttribute('disabled');
+                                    }, 2300);                                    
                                 });                        
                           });

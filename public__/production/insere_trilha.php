@@ -7,6 +7,9 @@ if(count($_POST) > 0){
 	
      
 		
+
+		//var_dump($_POST);
+
         $trilha_name            = addslashes($_POST['trilha_name']);
         $trilha_type            = $_POST['trilha_type'];
         $trilha_descricao       = $_POST['trilha_descricao'];
@@ -14,13 +17,13 @@ if(count($_POST) > 0){
         $id_categoria           = $_POST['id_categoria'];
         $trilha_status          = 1;
 
-		$sql = "INSERT INTO `trilha`( `trilha_name`, `trilha_type`, `trilha_descricao`, `trilha_nomeamigavel`, `id_categoria`, `trilha_status`) VALUES ('$trilha_name', '$trilha_type', '$trilha_descricao', '$trilha_nomeamigavel', '$id_categoria', '$trilha_status')";
-		if (mysqli_query($conn, $sql)) {
+		//$sql = "INSERT INTO `trilha`( `trilha_name`, `trilha_type`, `trilha_descricao`, `trilha_nomeamigavel`, `id_categoria`, `trilha_status`) VALUES ('$trilha_name', '$trilha_type', '$trilha_descricao', '$trilha_nomeamigavel', '$id_categoria', '$trilha_status')";
+		//if (mysqli_query($conn, $sql)) {
 			//echo json_encode(array("statusCode"=>200));
-		} 
-		else {
+		//} 
+		//else {
 			//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
+		//}
  
         
         //echo "New record has id: " . mysqli_insert_id($conn);

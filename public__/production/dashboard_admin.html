@@ -126,9 +126,7 @@
                     </div>
                     <div class="x_content">
                       <form class="form-cadastro-de-trilha form-horizontal form-label-left">
-
-
-                        <div class="form-group row">
+                        <div class="form-group row"> <!-- -->
                           <label class="control-label col-md-3 col-sm-3 ">Categoria</label>
                           <div class="col-md-9 col-sm-9 ">
                             <select class="form-control" id="id_categoria" required="" name="id_categoria">
@@ -140,10 +138,8 @@
                               <option value="6">Lógica</option>
                             </select>
                           </div>
-                        </div>
-
-                        
-                        <div class="form-group row">
+                        </div>                        
+                        <div class="form-group row"><!-- -->
                           <label class="control-label col-md-3 col-sm-3 ">Tipo</label>
                           <div class="col-md-9 col-sm-9 ">
                             <select class="form-control" id="trilha_type" required="" name="trilha_type">
@@ -153,37 +149,33 @@
                             </select>
                           </div>
                         </div>
-
-
-                        <div class="form-group row ">
+                        <div class="form-group row "><!-- -->
                           <label class="control-label col-md-3 col-sm-3 ">Nome</label>
                           <div class="col-md-9 col-sm-9 ">
                           <input type="text" class="form-control" id="trilha_name" required="" name="trilha_name" placeholder="" placeholder="">
                           </div>
-                        </div>    
-                        
-                        
-                        <div class="form-group row">
+                        </div>                            
+                        <div class="form-group row"><!-- -->
                           <label class="control-label col-md-3 col-sm-3 ">Descrição <span class="required">*</span>
                           </label>
                           <div class="col-md-9 col-sm-9 ">
                           <textarea class="form-control" rows="3" id="trilha_descricao" required="" name="trilha_descricao" placeholder=""></textarea>
                           </div>
-                        </div> 
-                        
-
-                        <div class="form-group row ">
+                        </div>
+                        <div class="form-group row "><!-- -->
                           <label class="control-label col-md-3 col-sm-3 ">Nome amigável</label>
                           <div class="col-md-9 col-sm-9 ">
                           <input type="text" class="form-control" id="trilha_nomeamigavel" required="" name="trilha_nomeamigavel" placeholder="">
                           </div>
-                        </div>  
-                        
-                        <div class="ln_solid"></div>
-
-                        <div class="form-group">
-                          <div class="col-md-9 col-sm-9  offset-md-3">
-                          <button type="submit" class="btn btn-secondary">Salvar trilha</button>
+                        </div>                          
+                        <div class="ln_solid"></div><!-- -->
+                        <div class="form-group">    <!-- -->
+                          <!--<div class="col-md-9 col-sm-9  offset-md-3">-->
+                          <div class="col-md-3 col-sm-3">
+                            <button type="submit" class="btn btn-secondary submit-cadastro-de-trilha">Salvar trilha</button>
+                          </div>
+                          <div class="col-md-9 col-sm-9">
+                            <div class="trilha-save-message text-success"></div>
                           </div>
                         </div>                  
                       </form>
@@ -439,6 +431,7 @@
 
    
     <script src="script_dashboard.js"></script>
+    <script src="script_cadastro_de_trilha.js"></script>
   </body>
 </html>
 

@@ -285,3 +285,14 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     cursor: pointer;
     transform: scale(1.2);
 }
+
+.trilha-save-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3em;        
+}
+
+.trilha-save-message img {
+    width: 45px;
+}
