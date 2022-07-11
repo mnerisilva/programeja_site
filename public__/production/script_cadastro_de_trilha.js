@@ -38,6 +38,9 @@
                                     dataType: "json",
                                     encode: true // precisei remover a vírgula após o true, pois a requisião não estava retornando - "vai entender?!?!?"
                                 }).done(function (data) {
+                                    console.log(data);
+                                    console.log(data[0].ultimo_indice_inserido);
+                                    _indiceDaTrilhaInseridaNoBancoDeDados = data[0].ultimo_indice_inserido;
                                     _divMessageTrilhaSalva.innerHTML = `<img src="images/spinner.gif" />`;
                                     _btnSubmitCadastroDeTrilha.setAttribute('disabled', true);
                                     setTimeout(function(){
@@ -47,6 +50,7 @@
                                         _formCadastroDeTrilha.querySelector('#trilha_descricao').value = '';
                                         _formCadastroDeTrilha.querySelector('#trilha_nomeamigavel').value = '';
                                         _divMessageTrilhaSalva.innerHTML = '';
+                                        _selectIdTrilhaEscolhida.style.backgroundColor = 'red';
                                         povoaSelectDasTrilhas(); 
                                     }, 800);
                                     setTimeout(function(){
@@ -55,6 +59,8 @@
                                     setTimeout(function(){
                                         _divMessageTrilhaSalva.innerHTML = ``;
                                         _btnSubmitCadastroDeTrilha.removeAttribute('disabled');
+                                        _selectIdTrilhaEscolhida.style.backgroundColor = 'gainsboro';
+                                        $(_selectIdTrilhaEscolhida).val(_indiceDaTrilhaInseridaNoBancoDeDados).trigger( "change" );
                                     }, 2300);                                    
                                 });                        
                           });

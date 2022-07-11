@@ -13,6 +13,7 @@
     const _tituloVideoPanelEmExecucao = document.querySelector('.video-panel .x_panel span');
     const _divMessageTrilhaSalva = document.querySelector('.trilha-save-message');
     const _btnSubmitCadastroDeTrilha = document.querySelector('.submit-cadastro-de-trilha');
+    const _form_cadastro_video = document.querySelector("#cadastro_video");
 
 
 

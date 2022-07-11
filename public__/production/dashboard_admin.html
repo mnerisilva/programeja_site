@@ -99,8 +99,9 @@
                             <form class="filtra-trilha">
                               <label for="trilha_escolhida" class="form-label control-label"><i class="fa fa-arrow-down"></i> Listagem das trilhas cadastradas</label>
                               <select class="form-select form-control" id="trilha_escolhida" required="" name="trilha_escolhida">                            
-                              </select>
-                              <button type="submit" class="btn btn-secondary btn-carrega-trilha mb-4">Carrega trilha</button>
+                              </select>                       
+                              <div class="ln_solid"></div>
+                              <button type="submit" class="btn btn-secondary btn-carrega-trilha">Carrega trilha</button>
                             </form>
                       </div>
                     </div>
@@ -135,7 +136,8 @@
                               <option value="2">Html</option>
                               <option value="3">Javascript</option>
                               <option value="4">Sem categoria</option>
-                              <option value="6">Lógica</option>
+                              <option value="5">Lógica</option>
+                              <option value="6">Banco de dados</option>
                             </select>
                           </div>
                         </div>                        
@@ -203,13 +205,72 @@
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content">
-                      <form class="form-cadastro-de-trilha form-horizontal form-label-left">
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      
+                      <form id="cadastro_video" class="form-cadastro-de-trilha form-horizontal form-label-left">
                         <div class="form-group row">
                           <label class="control-label col-md-3 col-sm-3 ">Categoria</label>
                           <div class="col-md-9 col-sm-9 ">
-                            <select class="form-control" id="id_categoria" required="" name="id_categoria">
+                            <select class="form-control" id="categoria" required="" name="categoria">
                               <option value=""> ...</option>
                               <option value="1">Css</option>
                               <option value="2">Html</option>
@@ -218,26 +279,17 @@
                               <option value="6">Lógica</option>
                             </select>
                           </div>
-                        </div>
-
-                        
-
-
-
+                        </div> 
                         <div class="form-group row ">
                           <label class="control-label col-md-3 col-sm-3 ">Video</label>
                           <div class="col-md-9 col-sm-9 ">
-                          <input type="text" class="form-control" id="trilha_name" required="" name="trilha_name" placeholder="" placeholder="">
+                          <input type="text" class="form-control" id="nomevideo" required="" name="nomevideo" placeholder="">
                           </div>
-                        </div>    
-                        
-
-                        
-
+                        </div>  
                         <div class="form-group row ">
                           <label class="control-label col-md-3 col-sm-3 ">Código</label>
                           <div class="col-md-6 col-sm-6 ">
-                            <input type="text" class="form-control" id="trilha_nomeamigavel" required="" name="trilha_nomeamigavel" placeholder="">
+                            <input type="text" class="form-control" id="codigoyt" required="" name="codigoyt" placeholder="">
                           </div>
                           <div class="col-md-3 col-sm-3 ferramentas-codigo-video">
                             <i class="fa-solid fa-eraser rubber"></i> 
@@ -245,16 +297,27 @@
                             <i class="fa-solid fa-screwdriver-wrench normalize"></i>
                             <i class="fa-brands fa-youtube-square youtube-tester"></i>
                           </div>
-                        </div>  
-                        
+                        </div>                         
                         <div class="ln_solid"></div>
-
                         <div class="form-group">
                           <div class="col-md-9 col-sm-9  offset-md-3">
-                          <button type="submit" class="btn btn-secondary">Salvar vídeo</button>
+                          <button type="submit" class="btn btn-secondary submit">Salvar vídeo</button>
                           </div>
                         </div>                  
                       </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
                     </div>
                   </div>
                 </div>                
@@ -432,6 +495,7 @@
    
     <script src="script_dashboard.js"></script>
     <script src="script_cadastro_de_trilha.js"></script>
+    <script src="script_cadastro_de_videos.js"></script>
   </body>
 </html>
 

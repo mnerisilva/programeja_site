@@ -17,16 +17,20 @@ if(count($_POST) > 0){
         $id_categoria           = $_POST['id_categoria'];
         $trilha_status          = 1;
 
-		//$sql = "INSERT INTO `trilha`( `trilha_name`, `trilha_type`, `trilha_descricao`, `trilha_nomeamigavel`, `id_categoria`, `trilha_status`) VALUES ('$trilha_name', '$trilha_type', '$trilha_descricao', '$trilha_nomeamigavel', '$id_categoria', '$trilha_status')";
-		//if (mysqli_query($conn, $sql)) {
+		$sql = "INSERT INTO `trilha`( `trilha_name`, `trilha_type`, `trilha_descricao`, `trilha_nomeamigavel`, `id_categoria`, `trilha_status`) VALUES ('$trilha_name', '$trilha_type', '$trilha_descricao', '$trilha_nomeamigavel', '$id_categoria', '$trilha_status')";
+		if (mysqli_query($conn, $sql)) {
 			//echo json_encode(array("statusCode"=>200));
-		//} 
-		//else {
+			$id_doIndice = mysqli_insert_id($conn);
+		} 
+		else {
 			//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		//}
+		}
  
         
         //echo "New record has id: " . mysqli_insert_id($conn);
+
+		
+
 
 
 		
@@ -35,16 +39,16 @@ if(count($_POST) > 0){
 
 		$arr_json = [];
 		$contador = 0;
+		$arr_json[$contador] = ['ultimo_indice_inserido' => $id_doIndice];
+		echo json_encode($arr_json);
 
-		if($result){
+		/*if($result){
 			while($row = mysqli_fetch_array($result)){
-				$arr_json[$contador] = ['trilha_name' => $row["trilha_name"], 'trilha_type' => $row["trilha_type"],'trilha_descricao' => $row["trilha_descricao"], 'trilha_nomeamigavel' => $row["trilha_nomeamigavel"], '$id_categoria' => $row["id_categoria"], 'trilha_status' => $row["trilha_status"]];
+				$arr_json[$contador] = ['trilha_name' => $row["trilha_name"], 'trilha_type' => $row["trilha_type"],'trilha_descricao' => $row["trilha_descricao"], 'trilha_nomeamigavel' => $row["trilha_nomeamigavel"], '$id_categoria' => $row["id_categoria"], 'trilha_status' => $row["trilha_status"]];			
 				$contador++;			
-			}
-	
-			
+			}			
 			echo json_encode($arr_json);               
-		}		
+		}*/		
 
 		mysqli_close($conn);
 	
