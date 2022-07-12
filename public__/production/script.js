@@ -17,6 +17,8 @@ $(document).ready(function () {
   let trash_icon_delete_all;
   let _linha_da_listagem;
 
+
+  
  
 
   listarVideos();
@@ -42,17 +44,11 @@ $(document).ready(function () {
         if (partes[1].length > 11) {
           console.log("é uma playlist");
           _codigoyt.value = partes[1].substring(0, 11);
-          _youtubeLinkTester.setAttribute(
-            "href",
-            `https://www.youtube.com/watch?v=${_codigoyt.value}`
-          );
+          _youtubeLinkTester.setAttribute("href",`https://www.youtube.com/watch?v=${_codigoyt.value}`);
         } else {
           console.log("é um vídeo simples");
           _codigoyt.value = partes[1];
-          _youtubeLinkTester.setAttribute(
-            "href",
-            `https://www.youtube.com/watch?v=${_codigoyt.value}`
-          );
+          _youtubeLinkTester.setAttribute("href",`https://www.youtube.com/watch?v=${_codigoyt.value}`);
         }
         return;
       }
@@ -102,6 +98,10 @@ $(document).ready(function () {
     console.log(_modalContent);
     bindTrashIconDelete();
   }); // fim do código ajax listagem inicial - cadastro de vídeo avulso
+
+
+
+
 
   $(_form_cadastro_video).submit(function (event) {
     // inicio do código ajax envio - cadastro de vídeo avulso
