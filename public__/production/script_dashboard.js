@@ -49,7 +49,11 @@
 
     let _idDaTrilhaEscolhida = '';
 
-    povoaSelectDasTrilhas();
+    povoaSelectDoFiltrarTrilhas();
+
+    //povoaSelectDaCategoriaDoCadastrarTrilhas();
+
+    //povoaSelectDaCategoriaDoCadastrarVideo();
 
     console.log('_idDaTrilhaEscolhida: '+_idDaTrilhaEscolhida);
 
@@ -315,7 +319,7 @@ function listaVideosDaTrilha(){
 
 
 
-function povoaSelectDasTrilhas(){ // chamado quando a aplicação inicia
+function povoaSelectDoFiltrarTrilhas(){ // chamado quando a aplicação inicia
                     _selectIdTrilhaEscolhida.innerHTML = '';
                     $.ajax({
                         // inicio do código ajax listagem inicial - lista users
