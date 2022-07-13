@@ -300,3 +300,12 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
 .desabilita-evento-mouse {
     pointer-events: none !important;
 } 
+
+.config-geral {
+    font-size: 1.3rem;
+    margin-left: 1rem;
+}
+
+.config-geral:hover {
+    cursor: pointer;
+}

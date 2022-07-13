@@ -102,7 +102,7 @@
             _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
             _td2.appendChild(_nodeText1);
             _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-gears user-course-manager" data-toggle="modal" data-target="#modalGerenciarAtribuidos" data-userid="${userItem.user_id}" data-username="${userItem.user_name}" data-userphoto="${userItem.user_photo}"></i>&nbsp;<i class="fa-solid fa-user-gear user-manager"></i>`;
+            _td4.innerHTML = `<i class="fa-solid fa-user-gear user-manager"></i>`;
             _tr.appendChild(_td1);
             _tr.appendChild(_td2);
             _tr.appendChild(_td3);
@@ -117,8 +117,10 @@
 
         _userCourseManager.forEach(function(item){
             item.addEventListener('click', function(e){
-                _modalUserPhoto.innerHTML = `<img class="user-avatar" src="${e.target.dataset.userphoto}" />`;
-                _modalUserName.innerHTML = e.target.dataset.username;
+                //_modalUserPhoto.innerHTML = `<img class="user-avatar" src="${e.target.dataset.userphoto}" />`;
+                _modalUserPhoto.innerHTML = '<img class="user-avatar" src="images/users/foto_marcelo.jpg" />';
+                //_modalUserName.innerHTML = e.target.dataset.username;
+                _modalUserName.innerHTML = 'Marcelo Neri';
                 setTimeout(function(){
                     _videoPanel.style.opacity = 1;
                 }, 900);
