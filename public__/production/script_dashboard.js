@@ -17,6 +17,8 @@
     const _spanTotalVideosTrilha = document.querySelector('.total-videos-trilha');
     const _thTituloDaTrilha = document.querySelector('.th-titulo-da-trilha');
 
+    const _modalGerenciamentoTrilhasUsers = document.querySelector('#modalGerenciarTrilhasUsers .modal-body');
+
 
                 // esconde título e quantidade de vídeo da trilha - enquanto ainda não for escolhida uma trilha
                 _spanTotalVideosTrilha.style.opacity = 0;
@@ -102,7 +104,7 @@
             _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
             _td2.appendChild(_nodeText1);
             _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-user-gear user-manager"></i>`;
+            _td4.innerHTML = `<i class="fa-solid fa-user-gear user-manager" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
             _tr.appendChild(_td1);
             _tr.appendChild(_td2);
             _tr.appendChild(_td3);
@@ -129,7 +131,8 @@
 
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
-                _modalUserName.innerHTML = e.target.dataset.username;
+                //_modalUserName.innerHTML = e.target.dataset.username;
+                _modalGerenciamentoTrilhasUsers.innerHTML = e.target.dataset.user_name;
             });
         })
 

@@ -177,394 +177,417 @@
 
     <!-- Modal/Painel gerendiamento de recursos para o usuário (trilhas, vídeos)-->
     <div class="modal fade bd-example-modal-xl" id="modalGerenciarAtribuidos" tabindex="-1" role="dialog" aria-labelledby="modalGerenciarAtribuidosLabel" aria-hidden="true">
-    <div class="modal-dialog modal-xl">
-        <div class="modal-content">
-        <div class="modal-header">
-          <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-          <img src="images/users/foto_marcelo.jpg" alt="">Marcelo Neri
-        </a>
-            <h5 class="modal-title" style="display: none;" id="modalGerenciarAtribuidosLabel"><span class="modal-user-photo user-profile"></span><span class="modal-user-name"></span></h5>
-            <!--<h5 class="modal-title" id="exampleModalLabel"></h5>-->
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-        </div>
-    <div class="modal-body">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="row g-3 mt-1">
-                  <div class="col-md-4">
-                    <div class="x_panel">
-                      <div class="x_title">
-                        <h2><i class="fa fa-list"></i> Trilha de estudos <small>Filtrar</small></h2>
-                        <ul class="nav navbar-right panel_toolbox">
-                          <li><a class=""><i class="fa-solid fa-circle-question"></i></a></li>
-                          <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                          </li>
-                          <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+              <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+              <img src="images/users/foto_marcelo.jpg" alt="">Marcelo Neri
+            </a>
+                <h5 class="modal-title" style="display: none;" id="modalGerenciarAtribuidosLabel"><span class="modal-user-photo user-profile"></span><span class="modal-user-name"></span></h5>
+                <!--<h5 class="modal-title" id="exampleModalLabel"></h5>-->
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row g-3 mt-1">
+                          <div class="col-md-4">
+                            <div class="x_panel"> <!-- // painel filtrar trilhas  -->
+                              <div class="x_title">
+                                <h2><i class="fa fa-list"></i> Trilha de estudos <small>Filtrar</small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                  <li><a class=""><i class="fa-solid fa-circle-question"></i></a></li>
+                                  <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                  </li>
+                                  <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#">Settings 1</a>
+                                        <a class="dropdown-item" href="#">Settings 2</a>
+                                      </div>
+                                  </li>
+                                  <li><a class="close-link desabilita-evento-mouse"><i class="fa fa-close"></i></a>
+                                  </li>
+                                </ul>
+                                <div class="clearfix"></div>
+                              </div>
+                              <div class="x_content">
+                                    <form class="filtra-trilha">
+                                      <label for="trilha_escolhida" class="form-label control-label"><i class="fa fa-arrow-down"></i> Listagem das trilhas cadastradas</label>
+                                      <select class="form-select form-control" id="trilha_escolhida" required="" name="trilha_escolhida">                            
+                                      </select>                       
+                                      <div class="ln_solid"></div>
+                                      <button type="submit" class="btn btn-secondary btn-carrega-trilha">Carregar trilha</button>
+                                    </form>
+                              </div>
+                            </div>
+                          </div>  
+                        <div class="col-md-4">
+                          <div class="x_panel cadastrar"><!-- // painel cadastrar trilhas  -->
+                            <div class="x_title">
+                              <h2><i class="fa-solid fa-folder-plus"></i> Trilha de estudos <small>Cadastrar</small></h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class=""><i class="fa-solid fa-circle-question"></i></a></li>
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      <a class="dropdown-item" href="#">Settings 1</a>
+                                      <a class="dropdown-item" href="#">Settings 2</a>
+                                    </div>
+                                </li>
+                                <li><a class="close-link desabilita-evento-mouse"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+                              <form class="form-cadastro-de-trilha form-horizontal form-label-left">
+                                <div class="form-group row"> <!-- -->
+                                  <label class="control-label col-md-3 col-sm-3 ">Categoria</label>
+                                  <div class="col-md-9 col-sm-9 ">
+                                    <select class="form-control" id="id_categoria" required="" name="id_categoria">
+                                      <option value=""> ...</option>
+                                      <option value="1">Css</option>
+                                      <option value="2">Html</option>
+                                      <option value="3">Javascript</option>
+                                      <option value="4">Sem categoria</option>
+                                      <option value="5">Lógica</option>
+                                      <option value="6">Banco de dados</option>
+                                    </select>
+                                  </div>
+                                </div>                        
+                                <div class="form-group row"><!-- -->
+                                  <label class="control-label col-md-3 col-sm-3 ">Tipo</label>
+                                  <div class="col-md-9 col-sm-9 ">
+                                    <select class="form-control" id="trilha_type" required="" name="trilha_type">
+                                      <option value=""> ...</option>
+                                      <option value="1">geral</option>
+                                      <option value="2">provisória</option>
+                                    </select>
+                                  </div>
+                                </div>
+                                <div class="form-group row "><!-- -->
+                                  <label class="control-label col-md-3 col-sm-3 ">Nome</label>
+                                  <div class="col-md-9 col-sm-9 ">
+                                  <input type="text" class="form-control" id="trilha_name" required="" name="trilha_name" placeholder="" placeholder="">
+                                  </div>
+                                </div>                            
+                                <div class="form-group row"><!-- -->
+                                  <label class="control-label col-md-3 col-sm-3 ">Descrição <span class="required">*</span>
+                                  </label>
+                                  <div class="col-md-9 col-sm-9 ">
+                                  <textarea class="form-control" rows="3" id="trilha_descricao" required="" name="trilha_descricao" placeholder=""></textarea>
+                                  </div>
+                                </div>
+                                <div class="form-group row "><!-- -->
+                                  <label class="control-label col-md-3 col-sm-3 ">Nome amigável</label>
+                                  <div class="col-md-9 col-sm-9 ">
+                                  <input type="text" class="form-control" id="trilha_nomeamigavel" required="" name="trilha_nomeamigavel" placeholder="">
+                                  </div>
+                                </div>                          
+                                <div class="ln_solid"></div><!-- -->
+                                <div class="form-group">    <!-- -->
+                                  <!--<div class="col-md-9 col-sm-9  offset-md-3">-->
+                                  <div class="col-md-3 col-sm-3">
+                                    <button type="submit" class="btn btn-secondary submit-cadastro-de-trilha">Salvar trilha</button>
+                                  </div>
+                                  <div class="col-md-9 col-sm-9">
+                                    <div class="trilha-save-message text-success"></div>
+                                  </div>
+                                </div>                  
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col-md-4">
+                          <div class="x_panel cadastrar"><!-- // painel cadastrar video  -->
+                            <div class="x_title">
+                              <h2><i class="fa-solid fa-file-video"></i> Vídeo <small>Cadastrar</small></h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class=""><i class="fa-solid fa-circle-question"></i></a></li>
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      <a class="dropdown-item" href="#">Settings 1</a>
+                                      <a class="dropdown-item" href="#">Settings 2</a>
+                                    </div>
+                                </li>
+                                <li><a class="close-link  desabilita-evento-mouse"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                              
+                              <form id="cadastro_video" class="form-cadastro-de-trilha form-horizontal form-label-left">
+                                <div class="form-group row">
+                                  <label class="control-label col-md-3 col-sm-3 ">Categoria</label>
+                                  <div class="col-md-9 col-sm-9 ">
+                                    <select class="form-control" id="categoria" required="" name="categoria">
+                                      <option value=""> ...</option>
+                                      <option value="1">Css</option>
+                                      <option value="2">Html</option>
+                                      <option value="3">Javascript</option>
+                                      <option value="4">Sem categoria</option>
+                                      <option value="6">Lógica</option>
+                                    </select>
+                                  </div>
+                                </div> 
+                                <div class="form-group row ">
+                                  <label class="control-label col-md-3 col-sm-3 ">Video</label>
+                                  <div class="col-md-9 col-sm-9 ">
+                                    <input type="text" class="form-control" id="nomevideo" required="" name="nomevideo" placeholder="">
+                                  </div>
+                                </div>  
+                                <div class="form-group row ">
+                                  <label class="control-label col-md-3 col-sm-3 ">Código</label>
+                                  <div class="col-md-6 col-sm-6 ">
+                                    <input type="text" class="form-control" id="codigoyt" required="" name="codigoyt" placeholder="">
+                                  </div>
+                                  <div class="col-md-3 col-sm-3 ferramentas-codigo-video">
+                                    <i class="fa-solid fa-eraser rubber"></i> 
+                                    <i class="fa-solid fa-copy copy"></i>
+                                    <i class="fa-solid fa-screwdriver-wrench normalize"></i>
+                                    <i class="fa-brands fa-youtube-square youtube-link-tester"></i>
+                                  </div>
+                                </div>                         
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                  <div class="col-md-9 col-sm-9  offset-md-3">
+                                  <button type="submit" class="btn btn-secondary submit">Salvar vídeo</button>
+                                  </div>
+                                </div>                  
+                              </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-md-12 col-sm-12  ">
+                          <div class="x_panel"><!-- // painel lista geral de vídeos  -->
+                                <div class="x_title">
+                                <h2><i class="fa-solid fa-arrow-right-to-bracket"></i> Trilha<small>Vincular   <i class="fa fa-video-camera"></i></small></h2>
+                                <ul class="nav navbar-right panel_toolbox">
+                                  <li><a class=""><i class="fa-solid fa-circle-question"></i></a></li>
+                                <li><a class="collapse-link desabilita-evento-mouse"><i class="fa fa-chevron-up"></i></a>
+                                </li>
+                                <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href="#">Settings 1</a>
                                 <a class="dropdown-item" href="#">Settings 2</a>
-                              </div>
-                          </li>
-                          <li><a class="close-link desabilita-evento-mouse"><i class="fa fa-close"></i></a>
-                          </li>
-                        </ul>
-                        <div class="clearfix"></div>
-                      </div>
-                      <div class="x_content">
-                            <form class="filtra-trilha">
-                              <label for="trilha_escolhida" class="form-label control-label"><i class="fa fa-arrow-down"></i> Listagem das trilhas cadastradas</label>
-                              <select class="form-select form-control" id="trilha_escolhida" required="" name="trilha_escolhida">                            
-                              </select>                       
-                              <div class="ln_solid"></div>
-                              <button type="submit" class="btn btn-secondary btn-carrega-trilha">Carregar trilha</button>
-                            </form>
-                      </div>
-                    </div>
-                  </div>  
-                <div class="col-md-4">
-                  <div class="x_panel cadastrar">
-                    <div class="x_title">
-                      <h2><i class="fa-solid fa-folder-plus"></i> Trilha de estudos <small>Cadastrar</small></h2>
-                      <ul class="nav navbar-right panel_toolbox">
-                        <li><a class=""><i class="fa-solid fa-circle-question"></i></a></li>
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Settings 1</a>
-                              <a class="dropdown-item" href="#">Settings 2</a>
+                                </div>
+                                </li>
+                                <li><a class="close-link desabilita-evento-mouse"><i class="fa fa-close" style="pointer-events: none !important;"></i></a>
+                                </li>
+                                </ul>
+                                <div class="clearfix"></div>
                             </div>
-                        </li>
-                        <li><a class="close-link desabilita-evento-mouse"><i class="fa fa-close"></i></a>
-                        </li>
-                      </ul>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-                      <form class="form-cadastro-de-trilha form-horizontal form-label-left">
-                        <div class="form-group row"> <!-- -->
-                          <label class="control-label col-md-3 col-sm-3 ">Categoria</label>
-                          <div class="col-md-9 col-sm-9 ">
-                            <select class="form-control" id="id_categoria" required="" name="id_categoria">
-                              <option value=""> ...</option>
-                              <option value="1">Css</option>
-                              <option value="2">Html</option>
-                              <option value="3">Javascript</option>
-                              <option value="4">Sem categoria</option>
-                              <option value="5">Lógica</option>
-                              <option value="6">Banco de dados</option>
-                            </select>
-                          </div>
-                        </div>                        
-                        <div class="form-group row"><!-- -->
-                          <label class="control-label col-md-3 col-sm-3 ">Tipo</label>
-                          <div class="col-md-9 col-sm-9 ">
-                            <select class="form-control" id="trilha_type" required="" name="trilha_type">
-                              <option value=""> ...</option>
-                              <option value="1">geral</option>
-                              <option value="2">provisória</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="form-group row "><!-- -->
-                          <label class="control-label col-md-3 col-sm-3 ">Nome</label>
-                          <div class="col-md-9 col-sm-9 ">
-                          <input type="text" class="form-control" id="trilha_name" required="" name="trilha_name" placeholder="" placeholder="">
-                          </div>
-                        </div>                            
-                        <div class="form-group row"><!-- -->
-                          <label class="control-label col-md-3 col-sm-3 ">Descrição <span class="required">*</span>
-                          </label>
-                          <div class="col-md-9 col-sm-9 ">
-                          <textarea class="form-control" rows="3" id="trilha_descricao" required="" name="trilha_descricao" placeholder=""></textarea>
-                          </div>
-                        </div>
-                        <div class="form-group row "><!-- -->
-                          <label class="control-label col-md-3 col-sm-3 ">Nome amigável</label>
-                          <div class="col-md-9 col-sm-9 ">
-                          <input type="text" class="form-control" id="trilha_nomeamigavel" required="" name="trilha_nomeamigavel" placeholder="">
-                          </div>
-                        </div>                          
-                        <div class="ln_solid"></div><!-- -->
-                        <div class="form-group">    <!-- -->
-                          <!--<div class="col-md-9 col-sm-9  offset-md-3">-->
-                          <div class="col-md-3 col-sm-3">
-                            <button type="submit" class="btn btn-secondary submit-cadastro-de-trilha">Salvar trilha</button>
-                          </div>
-                          <div class="col-md-9 col-sm-9">
-                            <div class="trilha-save-message text-success"></div>
-                          </div>
-                        </div>                  
-                      </form>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="col-md-4">
-                  <div class="x_panel cadastrar">
-                    <div class="x_title">
-                      <h2><i class="fa-solid fa-file-video"></i> Vídeo <small>Cadastrar</small></h2>
-                      <ul class="nav navbar-right panel_toolbox">
-                        <li><a class=""><i class="fa-solid fa-circle-question"></i></a></li>
-                        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                        </li>
-                        <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Settings 1</a>
-                              <a class="dropdown-item" href="#">Settings 2</a>
+                            <div class="x_content">      
+                                <div class="col-md-6">
+                                    <table class="table jambo_table table-responsive-sm table-responsive-md lista-videos-geral">
+                                      <thead>
+                                        <tr>
+                                          <th>#</th>
+                                          <th>Vídeo</th>
+                                          <th>Código</th>
+                                          <th></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody></tbody>
+                                    </table>                  
+                                </div>
+                                <div class="col-md-6">
+                                    <table class="table jambo_table table-responsive-sm table-responsive-md lista-videos-da-trilha">
+                                      <thead>
+                                        <tr>
+                                          <th>#</th>
+                                          <th>Vídeo<span class="total-videos-trilha">Vídeo</span><span class="th-titulo-da-trilha"></span></th>
+                                          <th>Código</th>
+                                          <th></th>
+                                        </tr>
+                                      </thead>
+                                      <tbody></tbody>
+                                    </table>
+                                </div>
                             </div>
-                        </li>
-                        <li><a class="close-link  desabilita-evento-mouse"><i class="fa fa-close"></i></a>
-                        </li>
-                      </ul>
-                      <div class="clearfix"></div>
-                    </div>
-                    <div class="x_content">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                      
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                      
-                      <form id="cadastro_video" class="form-cadastro-de-trilha form-horizontal form-label-left">
-                        <div class="form-group row">
-                          <label class="control-label col-md-3 col-sm-3 ">Categoria</label>
-                          <div class="col-md-9 col-sm-9 ">
-                            <select class="form-control" id="categoria" required="" name="categoria">
-                              <option value=""> ...</option>
-                              <option value="1">Css</option>
-                              <option value="2">Html</option>
-                              <option value="3">Javascript</option>
-                              <option value="4">Sem categoria</option>
-                              <option value="6">Lógica</option>
-                            </select>
-                          </div>
-                        </div> 
-                        <div class="form-group row ">
-                          <label class="control-label col-md-3 col-sm-3 ">Video</label>
-                          <div class="col-md-9 col-sm-9 ">
-                            <input type="text" class="form-control" id="nomevideo" required="" name="nomevideo" placeholder="">
-                          </div>
-                        </div>  
-                        <div class="form-group row ">
-                          <label class="control-label col-md-3 col-sm-3 ">Código</label>
-                          <div class="col-md-6 col-sm-6 ">
-                            <input type="text" class="form-control" id="codigoyt" required="" name="codigoyt" placeholder="">
-                          </div>
-                          <div class="col-md-3 col-sm-3 ferramentas-codigo-video">
-                            <i class="fa-solid fa-eraser rubber"></i> 
-                            <i class="fa-solid fa-copy copy"></i>
-                            <i class="fa-solid fa-screwdriver-wrench normalize"></i>
-                            <i class="fa-brands fa-youtube-square youtube-link-tester"></i>
-                          </div>
-                        </div>                         
-                        <div class="ln_solid"></div>
-                        <div class="form-group">
-                          <div class="col-md-9 col-sm-9  offset-md-3">
-                          <button type="submit" class="btn btn-secondary submit">Salvar vídeo</button>
-                          </div>
-                        </div>                  
-                      </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    </div>
-                  </div>
-                </div>                
-
-
-
-              </div>
-
-
-
-
-
-
-
-          <div class="row">
-            <div class="col-md-12 col-sm-12  ">
-              <div class="x_panel">
-                    <div class="x_title">
-                    <h2><i class="fa-solid fa-arrow-right-to-bracket"></i> Trilha<small>Vincular   <i class="fa fa-video-camera"></i></small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class=""><i class="fa-solid fa-circle-question"></i></a></li>
-                    <li><a class="collapse-link desabilita-evento-mouse"><i class="fa fa-chevron-up"></i></a>
-                    </li>
-                    <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="#">Settings 1</a>
-                    <a class="dropdown-item" href="#">Settings 2</a>
-                    </div>
-                    </li>
-                    <li><a class="close-link desabilita-evento-mouse"><i class="fa fa-close" style="pointer-events: none !important;"></i></a>
-                    </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-                <div class="x_content">      
-                    <div class="col-md-6">
-                        <table class="table jambo_table table-responsive-sm table-responsive-md lista-videos-geral">
-                          <thead>
-                            <tr>
-                              <th>#</th>
-                              <th>Vídeo</th>
-                              <th>Código</th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody></tbody>
-                        </table>                  
-                    </div>
-                    <div class="col-md-6">
-                        <table class="table jambo_table table-responsive-sm table-responsive-md lista-videos-da-trilha">
-                          <thead>
-                            <tr>
-                              <th>#</th>
-                              <th>Vídeo<span class="total-videos-trilha">Vídeo</span><span class="th-titulo-da-trilha"></span></th>
-                              <th>Código</th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody></tbody>
-                        </table>
-                    </div>
-                </div>
-              </div>        
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col-md-4 video-panel">
-              <div class="x_panel video-run">
-                <div class="x_title">
-                  <h2><i class="fa-brands fa-youtube"></i> <span>Vídeo</span> <small>player</small></h2>
-                  <ul class="nav navbar-right panel_toolbox">
-                    <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
-                    <li class="dropdown">
-                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          <a class="dropdown-item" href="#">Settings 1</a>
-                          <a class="dropdown-item" href="#">Settings 2</a>
+                          </div>        
                         </div>
-                    </li>
-                    <li><a class="close-link desabilita-evento-mouse"><i class="fa fa-close"></i></a>
-                    </li>
-                  </ul>
-                  <div class="clearfix"></div>
+                      </div>
+                      <div class="row">
+                        <div class="col-md-4 video-panel"><!-- // painel player de vídeo  -->
+                          <div class="x_panel video-run">
+                            <div class="x_title">
+                              <h2><i class="fa-brands fa-youtube"></i> <span>Vídeo</span> <small>player</small></h2>
+                              <ul class="nav navbar-right panel_toolbox">
+                                <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a></li>
+                                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      <a class="dropdown-item" href="#">Settings 1</a>
+                                      <a class="dropdown-item" href="#">Settings 2</a>
+                                    </div>
+                                </li>
+                                <li><a class="close-link desabilita-evento-mouse"><i class="fa fa-close"></i></a>
+                                </li>
+                              </ul>
+                              <div class="clearfix"></div>
+                            </div>
+                            <div class="x_content"> 
+                              <div class="embed-responsive embed-responsive-16by9">
+                                  <iframe class="embed-responsive-item" width="640" height="360" src="" autoplay="1" allowfullscreen=""></iframe>
+                              </div>                                               
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
-                <div class="x_content"> 
-                  <div class="embed-responsive embed-responsive-16by9">
-                      <iframe class="embed-responsive-item" width="640" height="360" src="" autoplay="1" allowfullscreen=""></iframe>
-                  </div>                                               
+                <div class="modal-footer">
+                    <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+                    <!--<button type="button" class="btn btn-primary">Save changes</button>-->
                 </div>
-              </div>
+                </div><!-- container-fluid  -->
             </div>
-          </div>
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-            </div>
-        </div>
-        <div class="modal-footer">
-            <!--<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
-            <!--<button type="button" class="btn btn-primary">Save changes</button>-->
-        </div>
+          </div> 
         </div>
     </div>
-    </div>  
 
     
     
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       <!-- Modal/Painel gerendiamento de recursos para o usuário (trilhas, vídeos)-->
+       <div class="modal fade bd-example-modal-xl" id="modalGerenciarTrilhasUsers" tabindex="-1" role="dialog" aria-labelledby="modalGerenciarTrilhasUsersLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+            <div class="modal-header">
+              <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+              <img src="images/users/foto_marcelo.jpg" alt="">Marcelo Neri
+            </a>
+                <h5 class="modal-title" style="display: none;" id="modalGerenciarAtribuidosLabel"><span class="modal-user-photo user-profile"></span><span class="modal-user-name"></span></h5>
+                <!--<h5 class="modal-title" id="exampleModalLabel"></h5>-->
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                </div><!-- container-fluid  -->
+            </div>
+          </div> 
+        </div>
+    </div>
 
 
 
