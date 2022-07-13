@@ -88,7 +88,7 @@
     /////////// USUÁRIOS DA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
     $.ajax({
         type: "POST",
-        url: "lista_users.php",
+        url: "php/lista_users.php",
         dataType: "json",
         encode: true,
     }).done(function (data) {        
@@ -149,7 +149,7 @@
     /////////// VÍDEOS DA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
     $.ajax({
         type: "POST",
-        url: "lista.php",
+        url: "php/lista.php",
         dataType: "json",
         encode: true,
     }).done(function (data) {
@@ -273,7 +273,7 @@ function listaVideosDaTrilha(){
                     };
                     $.ajax({
                         type: "POST",
-                        url: "lista_videos_da_trilha.php",
+                        url: "php/lista_videos_da_trilha.php",
                         data: formData,
                         dataType: "json",
                         encode: true,
@@ -315,12 +315,12 @@ function listaVideosDaTrilha(){
 
 
 
-function povoaSelectDasTrilhas(){
+function povoaSelectDasTrilhas(){ // chamado quando a aplicação inicia
                     _selectIdTrilhaEscolhida.innerHTML = '';
                     $.ajax({
                         // inicio do código ajax listagem inicial - lista users
                         type: "POST",
-                        url: "lista_trilhas.php",
+                        url: "php/lista_trilhas.php",
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
@@ -586,7 +586,7 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
 function vinculaVideo(formData){
                     $.ajax({
                         type: "POST",
-                        url: "vincula_video_a_trilha.php",
+                        url: "php/vincula_video_a_trilha.php",
                         data: formData,
                         dataType: "json",
                         encode: true,
@@ -608,7 +608,7 @@ function vinculaVideo(formData){
 function desvinculaVideo(formData){
                     $.ajax({
                         type: "POST",
-                        url: "desvincula_video_da_trilha.php",
+                        url: "php/desvincula_video_da_trilha.php",
                         data: formData,
                         dataType: "json",
                         encode: true,
@@ -658,38 +658,30 @@ function desvinculaVideo(formData){
 
 
 
-function listaTabelaDaEsquerda () {
+/*function listaTabelaDaEsquerda () {
                 $.ajax({
                     type: "POST",
-                    url: "lista.php",
+                    url: "php/lista.php",
                     dataType: "json",
                     encode: true,
                 }).done(function (data) {
-                    //return data;
                     console.log(data, typeof data);
                 });
             }
-
-
-
-
-
-
 function listaTabelaDaDireita ( _idDaTrilhaEscolhida ) {
                 var formData = {
                     trilha_escolhida: _idDaTrilhaEscolhida
                 };
                 $.ajax({
                     type: "POST",
-                    url: "lista_videos_da_trilha.php",
+                    url: "php/lista_videos_da_trilha.php",
                     data: formData,
                     dataType: "json",
                     encode: true,
                 }).done(function (data) {
-                    //return data;
                     console.log(data, typeof data);
                 });
-            }                
+            }*/                
 
 
 
@@ -704,8 +696,8 @@ function listaTabelaDaDireita ( _idDaTrilhaEscolhida ) {
 function atualizaListaDeVideosGeral(nodeList){   
                 console.log(_arrIdConteudoVideosDaTrilha);
                 console.log(nodeList);
-                //if(_arrIdConteudoVideosDaTrilha.length === 0){
-                if(_idDaTrilhaEscolhida === ''){
+                if(_arrIdConteudoVideosDaTrilha.length === 0){
+                //if(_idDaTrilhaEscolhida === ''){
                     for (videoItem of nodeList) {
                         let _tr = document.createElement("tr");
                         let _td1 = document.createElement("td");
