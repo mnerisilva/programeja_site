@@ -18,16 +18,16 @@
     const _thTituloDaTrilha = document.querySelector('.th-titulo-da-trilha');
 
 
-    
-    _spanTotalVideosTrilha.style.opacity = 0;
-    _thTituloDaTrilha.style.opacity = 0;
+                // esconde título e quantidade de vídeo da trilha - enquanto ainda não for escolhida uma trilha
+                _spanTotalVideosTrilha.style.opacity = 0;
+                _thTituloDaTrilha.style.opacity = 0; ////////////////////
 
 
     
 
 
 
-
+                // recolhe panel-video (player) após 3 segundos do carregamento da aplicação
                 const _collapse_link = document.querySelector('.video-run .collapse-link i');////////////////////
                 setTimeout(() => {
                     $(_collapse_link).trigger( "click" );
@@ -59,8 +59,8 @@
 
 
 
-    listaTabelaDaEsquerda();
-    listaTabelaDaDireita(1);
+    //listaTabelaDaEsquerda();
+    //listaTabelaDaDireita(1);
 
 
 
@@ -189,7 +189,6 @@
 
                 
     const _linkYoutube = document.querySelectorAll('.link-youtube');
-    //console.log(_linkYoutube);
 
     _linkYoutube.forEach(function(link){
                         link.addEventListener('click', function(e){
