@@ -8,9 +8,6 @@ body {
     overflow: scroll;
 }
 
-.container {
-    overflow: scroll;
-}
 
 .modal {
     overflow:scroll;
@@ -191,7 +188,7 @@ table tr td {
     transition: opacity .5s ease;
     position: fixed;
     top: 0;
-    right: 5px;
+    right: 4em;
     z-index: 999999;
     background-color: white !important;
     opacity: 0;
@@ -249,7 +246,7 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     display: flex; justify-content: center; align-items: center;
 }
 
-.btn-vincula i {
+.btn-vincula i, .btn-desvincula i {
     margin-right: 5px;
 }
 
@@ -300,3 +297,6 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     width: 45px;
 }
 
+.desabilita-evento-mouse {
+    pointer-events: none !important;
+} 

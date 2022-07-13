@@ -14,6 +14,16 @@
     const _divMessageTrilhaSalva = document.querySelector('.trilha-save-message');
     const _btnSubmitCadastroDeTrilha = document.querySelector('.submit-cadastro-de-trilha');
     const _form_cadastro_video = document.querySelector("#cadastro_video");
+    const _spanTotalVideosTrilha = document.querySelector('.total-videos-trilha');
+    const _thTituloDaTrilha = document.querySelector('.th-titulo-da-trilha');
+
+
+    
+    _spanTotalVideosTrilha.style.opacity = 0;
+    _thTituloDaTrilha.style.opacity = 0;
+
+
+    
 
 
 
@@ -172,6 +182,8 @@
                     _listaVideosDaTrilha.innerHTML = '';                    
                     removeDisabledBtnAtribui(_btnVincula);
                     listaVideosDaTrilha();
+                    _spanTotalVideosTrilha.style.opacity = 1;
+                    _thTituloDaTrilha.style.opacity = 1;
                     console.log('_idDaTrilhaEscolhida: '+_idDaTrilhaEscolhida);
                 });
 
@@ -551,7 +563,7 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         _td2.textContent = texto_t2;
                         _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         _td3.appendChild(_nodeText3);
-                        _td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary">Desvincula</button></form>`;
+                        _td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary btn-desvincula"><i class="fa-solid fa-xmark"></i> Desvincular</button></form>`;
                         _tr.appendChild(_td1);
                         _tr.appendChild(_td2);
                         _tr.appendChild(_td3);
@@ -590,9 +602,20 @@ function vinculaVideo(formData){
 
 
 function desvinculaVideo(formData){
-                    //console.log('entrou na function desvinculaVideo');
+                    $.ajax({
+                        type: "POST",
+                        url: "desvincula_video_da_trilha.php",
+                        data: formData,
+                        dataType: "json",
+                        encode: true,
+                    }).done(function (data) {
+                        //console.log(data);
+                        _listaVideosGeral.innerHTML = '';
+                        _listaVideosDaTrilha.innerHTML = '';
+                        listaVideosDaTrilha();
+                    });    
+                    //console.log('entrou na function vinculaVideo');
                     //console.log(formData);
-                    return;
                 }
 
 
@@ -674,130 +697,130 @@ function listaTabelaDaDireita ( _idDaTrilhaEscolhida ) {
 
 
 
-                function atualizaListaDeVideosGeral(nodeList){   
-                    console.log(_arrIdConteudoVideosDaTrilha);
-                    console.log(nodeList);
-                    //if(_arrIdConteudoVideosDaTrilha.length === 0){
-                    if(_idDaTrilhaEscolhida === ''){
-                        for (videoItem of nodeList) {
-                            let _tr = document.createElement("tr");
-                            let _td1 = document.createElement("td");
-                            let _td2 = document.createElement("td");
-                            let _td3 = document.createElement("td");
-                            let _td4 = document.createElement("td");
-                            let _td5 = document.createElement("td");
-                            let _nodeText1 = document.createTextNode(videoItem.id);
-                            let _nodeText2 = document.createTextNode(videoItem.descricao);
-                            let _nodeText3 = document.createTextNode(videoItem.codigo);
-                            _td1.appendChild(_nodeText1);
-                            _td2.appendChild(_nodeText2);
-                            _td2.classList.add("tdlink");
-                            let texto_t2 = _td2.textContent;
-                            _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i>${texto_t2}</a>`;
-                            _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincular</button></form>`;
-                            _tr.appendChild(_td1);
-                            _tr.appendChild(_td2);
-                            _tr.appendChild(_td3);
-                            _tr.appendChild(_td4);
-                            _listaVideosGeral.appendChild(_tr);
-                        } 
-                            _totalVideosGeralDoMomento.textContent = `Total - [ ${nodeList.length} ]`;                        
-                                        
-                            const _linkYoutube = document.querySelectorAll('.link-youtube');
-
-                            _linkYoutube.forEach(function(link){
-                                                link.addEventListener('click', function(e){
-                                                                e.preventDefault();
-                                                                console.log(e.target.dataset.youtube_code);
-                                                                let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
-                                                                _iframeYoutube.setAttribute('src', src);
-                                                                _iframeYoutube.getAttribute('src');
-                                                                removeClassActive(_linkYoutube);
-                                                                e.target.parentNode.parentNode.classList.add('active');
-                                                                e.target.querySelector('i').style.color = 'red';
-                                                            })
-                                        });
-
-                        
-                            const _formVinculaVideoATrilha = document.querySelectorAll('.form-vincula-video-a-trilha');
-                            _formVinculaVideoATrilha.forEach(function(item){
-                                $(item).submit(function(event){
-                                    event.preventDefault();
+function atualizaListaDeVideosGeral(nodeList){   
+                console.log(_arrIdConteudoVideosDaTrilha);
+                console.log(nodeList);
+                //if(_arrIdConteudoVideosDaTrilha.length === 0){
+                if(_idDaTrilhaEscolhida === ''){
+                    for (videoItem of nodeList) {
+                        let _tr = document.createElement("tr");
+                        let _td1 = document.createElement("td");
+                        let _td2 = document.createElement("td");
+                        let _td3 = document.createElement("td");
+                        let _td4 = document.createElement("td");
+                        let _td5 = document.createElement("td");
+                        let _nodeText1 = document.createTextNode(videoItem.id);
+                        let _nodeText2 = document.createTextNode(videoItem.descricao);
+                        let _nodeText3 = document.createTextNode(videoItem.codigo);
+                        _td1.appendChild(_nodeText1);
+                        _td2.appendChild(_nodeText2);
+                        _td2.classList.add("tdlink");
+                        let texto_t2 = _td2.textContent;
+                        _td2.textContent = texto_t2;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i>${texto_t2}</a>`;
+                        _td3.appendChild(_nodeText3);
+                        _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincular</button></form>`;
+                        _tr.appendChild(_td1);
+                        _tr.appendChild(_td2);
+                        _tr.appendChild(_td3);
+                        _tr.appendChild(_td4);
+                        _listaVideosGeral.appendChild(_tr);
+                    } 
+                        _totalVideosGeralDoMomento.textContent = `Total - [ ${nodeList.length} ]`;                        
                                     
-                                    var formData_ = {
-                                        trilha_escolhida: _idDaTrilhaEscolhida,
-                                        video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
-                                    };
-                                    console.log(formData_);
-                                    item.parentNode.parentNode.style.opacity = 0;
-                                    setTimeout(function(){
-                                        item.parentNode.parentNode.remove();
-                                        vinculaVideo(formData_);
-                                    }, 1000);
-                                })
-                            });
+                        const _linkYoutube = document.querySelectorAll('.link-youtube');
 
-                    } else if(_arrIdConteudoVideosDaTrilha.length > 0){
-                        console.log('entrou aqui');
-                        for (videoItem of nodeList) {
-                            let _tr = document.createElement("tr");
-                            let _td1 = document.createElement("td");
-                            let _td2 = document.createElement("td");
-                            let _td3 = document.createElement("td");
-                            let _td4 = document.createElement("td");
-                            let _td5 = document.createElement("td");
-                            let _nodeText1 = document.createTextNode(videoItem.id);
-                            let _nodeText2 = document.createTextNode(videoItem.descricao);
-                            let _nodeText3 = document.createTextNode(videoItem.codigo);
-                            _td1.appendChild(_nodeText1);
-                            _td2.appendChild(_nodeText2);
-                            _td2.classList.add("tdlink");
-                            let texto_t2 = _td2.textContent;
-                            _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
-                            _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincular</button></form>`;
-                            _tr.appendChild(_td1);
-                            _tr.appendChild(_td2);
-                            _tr.appendChild(_td3);
-                            _tr.appendChild(_td4);
-                            if(!_arrIdConteudoVideosDaTrilha.includes(videoItem.id)){_listaVideosGeral.appendChild(_tr);}
-                        }
-                            _totalVideosGeralDoMomento.textContent = `Total: [ ${_listaVideosGeral.childElementCount} ]`;                            
-                                        
-                            const _linkYoutube = document.querySelectorAll('.link-youtube');
+                        _linkYoutube.forEach(function(link){
+                                            link.addEventListener('click', function(e){
+                                                            e.preventDefault();
+                                                            console.log(e.target.dataset.youtube_code);
+                                                            let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
+                                                            _iframeYoutube.setAttribute('src', src);
+                                                            _iframeYoutube.getAttribute('src');
+                                                            removeClassActive(_linkYoutube);
+                                                            e.target.parentNode.parentNode.classList.add('active');
+                                                            e.target.querySelector('i').style.color = 'red';
+                                                        })
+                                    });
 
-                            _linkYoutube.forEach(function(link){
-                                                link.addEventListener('click', function(e){
-                                                                e.preventDefault();
-                                                                console.log(e.target.dataset.youtube_code);
-                                                                let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
-                                                                _iframeYoutube.setAttribute('src', src);
-                                                                _iframeYoutube.getAttribute('src');
-                                                                removeClassActive(_linkYoutube);
-                                                                e.target.parentNode.parentNode.classList.add('active');
-                                                                e.target.querySelector('i').style.color = 'red';
-                                                            })
-                                        });
-    
-                            const _formVinculaVideoATrilha = document.querySelectorAll('.form-vincula-video-a-trilha');
-                            _formVinculaVideoATrilha.forEach(function(item){
-                                $(item).submit(function(event){
-                                    event.preventDefault();
-                                    
-                                    var formData_ = {
-                                        trilha_escolhida: _idDaTrilhaEscolhida,
-                                        video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
-                                    };
-                                    console.log(formData_);
-                                    item.parentNode.parentNode.style.opacity = 0;
-                                    setTimeout(function(){
-                                        item.parentNode.parentNode.remove();
-                                        vinculaVideo(formData_);
-                                    }, 1000);
-                                })
-                            });                                                               
+                    
+                        const _formVinculaVideoATrilha = document.querySelectorAll('.form-vincula-video-a-trilha');
+                        _formVinculaVideoATrilha.forEach(function(item){
+                            $(item).submit(function(event){
+                                event.preventDefault();
+                                
+                                var formData_ = {
+                                    trilha_escolhida: _idDaTrilhaEscolhida,
+                                    video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
+                                };
+                                console.log(formData_);
+                                item.parentNode.parentNode.style.opacity = 0;
+                                setTimeout(function(){
+                                    item.parentNode.parentNode.remove();
+                                    vinculaVideo(formData_);
+                                }, 1000);
+                            })
+                        });
+
+                } else if(_arrIdConteudoVideosDaTrilha.length > 0){
+                    console.log('entrou aqui');
+                    for (videoItem of nodeList) {
+                        let _tr = document.createElement("tr");
+                        let _td1 = document.createElement("td");
+                        let _td2 = document.createElement("td");
+                        let _td3 = document.createElement("td");
+                        let _td4 = document.createElement("td");
+                        let _td5 = document.createElement("td");
+                        let _nodeText1 = document.createTextNode(videoItem.id);
+                        let _nodeText2 = document.createTextNode(videoItem.descricao);
+                        let _nodeText3 = document.createTextNode(videoItem.codigo);
+                        _td1.appendChild(_nodeText1);
+                        _td2.appendChild(_nodeText2);
+                        _td2.classList.add("tdlink");
+                        let texto_t2 = _td2.textContent;
+                        _td2.textContent = texto_t2;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                        _td3.appendChild(_nodeText3);
+                        _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincular</button></form>`;
+                        _tr.appendChild(_td1);
+                        _tr.appendChild(_td2);
+                        _tr.appendChild(_td3);
+                        _tr.appendChild(_td4);
+                        if(!_arrIdConteudoVideosDaTrilha.includes(videoItem.id)){_listaVideosGeral.appendChild(_tr);}
                     }
-                }                
+                        _totalVideosGeralDoMomento.textContent = `Total: [ ${_listaVideosGeral.childElementCount} ]`;                            
+                                    
+                        const _linkYoutube = document.querySelectorAll('.link-youtube');
+
+                        _linkYoutube.forEach(function(link){
+                                            link.addEventListener('click', function(e){
+                                                            e.preventDefault();
+                                                            console.log(e.target.dataset.youtube_code);
+                                                            let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
+                                                            _iframeYoutube.setAttribute('src', src);
+                                                            _iframeYoutube.getAttribute('src');
+                                                            removeClassActive(_linkYoutube);
+                                                            e.target.parentNode.parentNode.classList.add('active');
+                                                            e.target.querySelector('i').style.color = 'red';
+                                                        })
+                                    });
+
+                        const _formVinculaVideoATrilha = document.querySelectorAll('.form-vincula-video-a-trilha');
+                        _formVinculaVideoATrilha.forEach(function(item){
+                            $(item).submit(function(event){
+                                event.preventDefault();
+                                
+                                var formData_ = {
+                                    trilha_escolhida: _idDaTrilhaEscolhida,
+                                    video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
+                                };
+                                console.log(formData_);
+                                item.parentNode.parentNode.style.opacity = 0;
+                                setTimeout(function(){
+                                    item.parentNode.parentNode.remove();
+                                    vinculaVideo(formData_);
+                                }, 1000);
+                            })
+                        });                                                               
+                }
+            }                
