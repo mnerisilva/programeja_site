@@ -309,3 +309,7 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
 .config-geral:hover {
     cursor: pointer;
 }
+
+.container-user-modal-trilha {
+    max-width: 1200px;
+}

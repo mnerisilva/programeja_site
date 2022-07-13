@@ -132,7 +132,7 @@
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
                 //_modalUserName.innerHTML = e.target.dataset.username;
-                _modalGerenciamentoTrilhasUsers.innerHTML = e.target.dataset.user_name;
+                _modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
             });
         })
 
