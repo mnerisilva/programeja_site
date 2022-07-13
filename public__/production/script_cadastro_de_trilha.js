@@ -33,7 +33,7 @@
                                 console.log(formData_);
                                 $.ajax({
                                     type: "POST",
-                                    url: "insere_trilha.php",
+                                    url: "php/insere_trilha.php",
                                     data: formData_,
                                     dataType: "json",
                                     encode: true // precisei remover a vírgula após o true, pois a requisião não estava retornando - "vai entender?!?!?"

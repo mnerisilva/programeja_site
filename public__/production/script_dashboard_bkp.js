@@ -22,7 +22,7 @@
     $.ajax({
         // lista users
         type: "POST",
-        url: "lista_users.php",
+        url: "php/lista_users.php",
         dataType: "json",
         encode: true,
     }).done(function (data) {        
@@ -74,7 +74,7 @@
     $.ajax({
         // lista de vídeo geral
         type: "POST",
-        url: "lista.php",
+        url: "php/lista.php",
         dataType: "json",
         encode: true,
     }).done(function (data) {
@@ -179,7 +179,7 @@
                     };
                     $.ajax({
                         type: "POST",
-                        url: "lista_videos_da_trilha.php",
+                        url: "php/lista_videos_da_trilha.php",
                         data: formData,
                         dataType: "json",
                         encode: true,
@@ -234,11 +234,11 @@
 
 
 
-function povoaSelectTrilhas(){
+function povoaSelectTrilhas(){ // EM DESUSO. NÃO É CHAMADO EM MOMENTO ALGUM
                     $.ajax({
                         // inicio do código ajax listagem inicial - lista users
                         type: "POST",
-                        url: "lista_trilhas.php",
+                        url: "php/lista_trilhas.php",
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
