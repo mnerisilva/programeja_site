@@ -22,7 +22,7 @@
 
     const _listaTrilhasDoUser = document.querySelector('table.lista-trilhas-do-user tbody');
 
-    const _listaTrilhasDisponiveisTelaUserManager = document.querySelector('.lista-trilhas-disponiveis-user-manager');
+    const _listaTrilhasDisponiveisTelaUserManager = document.querySelector('.lista-trilhas-disponiveis-user-manager tbody');
 
 
                 // esconde título e quantidade de vídeo da trilha - enquanto ainda não for escolhida uma trilha
@@ -1018,6 +1018,7 @@ function listaTrilhasDoUser(user_id){
                         encode: true,
                     }).done(function (data) {
                         console.log(data);
+                        _listaTrilhasDoUser.innerHTML = '';
                         _trilhasDoUser = data;
                         let cont = 0;
                         for (item of _trilhasDoUser){
@@ -1193,7 +1194,8 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
 
 
 
-
+                //_listaTrilhasDoUser
+                //_listaTrilhasDisponiveisTelaUserManager
 
 function listaTrilhasDisponiveisUserManager(){  
                     $.ajax({
@@ -1205,6 +1207,7 @@ function listaTrilhasDisponiveisUserManager(){
                         console.log(data);
                         console.log(typeof data);
                         console.log(data[0]);
+                        _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
                         console.log(_arrayIDsTrilhasDoUser);
                         loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(data);
                         /*
