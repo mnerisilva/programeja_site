@@ -999,7 +999,7 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         //_tr.appendChild(_td4);
                         _listaTrilhasDoUser.appendChild(_tr);
                         //_arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
-                        }
+                    }
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
@@ -1193,7 +1193,7 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                             _listaTrilhasDisponiveisTelaUserManager.appendChild(_tr);
                         }
                         //_arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
-                        }
+                    }
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
