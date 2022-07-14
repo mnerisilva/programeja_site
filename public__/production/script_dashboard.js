@@ -969,6 +969,7 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         let _td3 = document.createElement("td");
                         let _td4 = document.createElement("td");
                         let _td5 = document.createElement("td");
+                        let _td6 = document.createElement("td");
                         let _nodeText1 = document.createTextNode(trilhaUser.trilha_id);
                         let _nodeText2 = document.createTextNode(trilhaUser.trilha_name);
                         let _nodeText3 = document.createTextNode(trilhaUser.trilha_type_name);
@@ -986,12 +987,13 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         //_td2.textContent = texto_t2;
                         //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         //_td3.appendChild(_nodeText3);
-                        //_td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary btn-desvincula"><i class="fa-solid fa-xmark"></i> Desvincular</button></form>`;
+                        //_td6.innerHTML = `<form class="form-remove-video-trilha" data-trilha_user_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha-xxx" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-xmark"></i></button></form>`;
                         _tr.appendChild(_td1);
                         _tr.appendChild(_td2);
                         _tr.appendChild(_td3);
                         _tr.appendChild(_td4);
                         _tr.appendChild(_td5);
+                        _tr.appendChild(_td6);
                         //_tr.appendChild(_td3);
                         //_tr.appendChild(_td4);
                         _listaTrilhasDoUser.appendChild(_tr);
@@ -1021,6 +1023,7 @@ function listaTrilhasDoUser(user_id){
                         _listaTrilhasDoUser.innerHTML = '';
                         _trilhasDoUser = data;
                         let cont = 0;
+                        _arrayIDsTrilhasDoUser = [];
                         for (item of _trilhasDoUser){
                             _arrayIDsTrilhasDoUser[cont] = item.trilha_id;
                             cont++;
@@ -1157,6 +1160,7 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         let _td3 = document.createElement("td");
                         let _td4 = document.createElement("td");
                         let _td5 = document.createElement("td");
+                        let _td6 = document.createElement("td");
                         let _nodeText1 = document.createTextNode(trilhaUser.trilha_id);
                         let _nodeText2 = document.createTextNode(trilhaUser.trilha_name);
                         let _nodeText3 = document.createTextNode(trilhaUser.trilha_type_name);
@@ -1174,12 +1178,13 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         //_td2.textContent = texto_t2;
                         //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         //_td3.appendChild(_nodeText3);
-                        //_td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary btn-desvincula"><i class="fa-solid fa-xmark"></i> Desvincular</button></form>`;
+                        //_td6.innerHTML = `<form class="form-remove-video-da-trilha" data-trilhas_disponiveis_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-form-remove-trilha-xxx" name="input-form-remove-trilha-xxx" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-plus"></i></button></form>`;
                         _tr.appendChild(_td1);
                         _tr.appendChild(_td2);
                         _tr.appendChild(_td3);
                         _tr.appendChild(_td4);
                         _tr.appendChild(_td5);
+                        _tr.appendChild(_td6);
                         //_tr.appendChild(_td3);
                         //_tr.appendChild(_td4);
                         if(!_arrayIDsTrilhasDoUser.includes(trilhaUser.trilha_id)){

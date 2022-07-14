@@ -319,3 +319,12 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     font-size: 1.5rem;
     font-weight: 600;
 } 
+
+.lista-trilhas-do-user td:nth-child(2), .lista-trilhas-disponiveis-user-manager td:nth-child(2) {
+    width: 50% !important;
+}
+
+
+
+
+
