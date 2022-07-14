@@ -183,8 +183,7 @@
               <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
               <img src="images/users/foto_marcelo.jpg" alt="">Marcelo Neri
             </a>
-                <h5 class="modal-title" style="display: none;" id="modalGerenciarAtribuidosLabel"><span class="modal-user-photo user-profile"></span><span class="modal-user-name"></span></h5>
-                <!--<h5 class="modal-title" id="exampleModalLabel"></h5>-->
+                <h5 class="modal-title" id="modalGerenciarAtribuidosLabel">OPERAÇÕES COM TRILHAS E VÍDEOS</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -603,7 +602,7 @@
                     <div class="col-md-12 col-sm-12  ">
                       <div class="x_panel"><!-- // painel lista geral de vídeos  -->
                             <div class="x_title">
-                            <h2><i class="fa-solid fa-arrow-right-to-bracket"></i> Trilhas do usuário<small>Listar   <i class="fa fa-video-camera"></i></small></h2>
+                            <h2><i class="fa-solid fa-arrow-right-to-bracket"></i> Trilhas vinculadas a este usuário<small>Listar   <i class="fa fa-video-camera"></i></small></h2>
                             <ul class="nav navbar-right panel_toolbox">
                               <li><a class=""><i class="fa-solid fa-circle-question"></i></a></li>
                             <li><a class="collapse-link desabilita-evento-mouse"><i class="fa fa-chevron-up"></i></a>
@@ -639,6 +638,48 @@
                       </div>        
                     </div>
                   </div>
+
+
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12  ">
+                      <div class="x_panel"><!-- // painel lista geral trilhas disponíveis  -->
+                            <div class="x_title">
+                            <h2><i class="fa-solid fa-arrow-right-to-bracket"></i> Trilhas disponíveis<small>Listar   <i class="fa fa-video-camera"></i></small></h2>
+                            <ul class="nav navbar-right panel_toolbox">
+                              <li><a class=""><i class="fa-solid fa-circle-question"></i></a></li>
+                            <li><a class="collapse-link desabilita-evento-mouse"><i class="fa fa-chevron-up"></i></a>
+                            </li>
+                            <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Settings 1</a>
+                            <a class="dropdown-item" href="#">Settings 2</a>
+                            </div>
+                            </li>
+                            <li><a class="close-link desabilita-evento-mouse"><i class="fa fa-close" style="pointer-events: none !important;"></i></a>
+                            </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="x_content">      
+                            <div class="col-md-12">
+                                <table class="table jambo_table table-responsive-sm table-responsive-md lista-trilhas-disponiveis-user-manager">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>nome da trilha</th>
+                                      <th>tipo</th>
+                                      <th>categoria</th>
+                                      <th>status</th>
+                                    </tr>
+                                  </thead>
+                                  <tbody></tbody>
+                                </table>                  
+                            </div>
+                        </div>
+                      </div>        
+                    </div>
+                  </div>                  
 
 
 

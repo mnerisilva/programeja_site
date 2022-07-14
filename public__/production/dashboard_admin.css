@@ -313,3 +313,9 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
 .container-user-modal-trilha {
     max-width: 1200px;
 }
+
+#modalGerenciarAtribuidosLabel {
+    width: 100%;
+    font-size: 1.5rem;
+    font-weight: 600;
+} 

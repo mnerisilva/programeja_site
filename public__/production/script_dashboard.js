@@ -22,14 +22,12 @@
 
     const _listaTrilhasDoUser = document.querySelector('table.lista-trilhas-do-user tbody');
 
+    const _listaTrilhasDisponiveisTelaUserManager = document.querySelector('.lista-trilhas-disponiveis-user-manager');
+
 
                 // esconde título e quantidade de vídeo da trilha - enquanto ainda não for escolhida uma trilha
                 _spanTotalVideosTrilha.style.opacity = 0;
                 _thTituloDaTrilha.style.opacity = 0; ////////////////////
-
-
-    
-
 
 
                 // recolhe panel-video (player) após 3 segundos do carregamento da aplicação
@@ -51,6 +49,15 @@
     let _arrPovoSelect = [];
 
     let _idDaTrilhaEscolhida = '';
+
+    let _trilhasDoUser = '';
+
+    
+    let _arrayIDsTrilhasDoUser = [];
+
+
+
+
 
     povoaSelectDoFiltrarTrilhas();
 
@@ -141,6 +148,7 @@
                 //_modalUserName.innerHTML = e.target.dataset.username;
                 _modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
                 listaTrilhasDoUser(e.target.dataset.user_id);
+                listaTrilhasDisponiveisUserManager();
 
             });
         })
@@ -1010,7 +1018,195 @@ function listaTrilhasDoUser(user_id){
                         encode: true,
                     }).done(function (data) {
                         console.log(data);
+                        _trilhasDoUser = data;
+                        let cont = 0;
+                        for (item of _trilhasDoUser){
+                            _arrayIDsTrilhasDoUser[cont] = item.trilha_id;
+                            cont++;
+                        }
+                        console.log(_trilhasDoUser);
                         loopingDeMontagemAjaxListaTrilhasDoUser(data);
+                        /*
+                        _dataListaDeVideosDaTrilha = data;
+                        loopingDeMontagemAjaxListaVideosDaTrilha(data);
+                        _listaVideosGeral.innerHTML = '';
+                        atualizaListaDeVideosGeral(_dataListaDeVideosGeral);
+                        _arrIdConteudoVideosDaTrilha = [];
+                          setTimeout(function(){
+                            _listaVideosDaTrilha.style.opacity = 1;
+                          }, 300)
+                          const _formRemoveVideoDaTrilha = document.querySelectorAll('.form-remove-video-da-trilha');
+                          _formRemoveVideoDaTrilha.forEach(function(item){
+                            $(item).submit(function(event){
+                                event.preventDefault();                                
+                                var formData_ = {
+                                    trilha_escolhida: _idDaTrilhaEscolhida,
+                                    video_a_desvincular: item.querySelector('.input-form-remove-video-trilha').value
+                                };
+                                //console.log(formData_);
+                                item.parentNode.parentNode.style.opacity = 0;
+                                setTimeout(function(){
+                                    item.parentNode.parentNode.remove();
+                                    desvinculaVideo(formData_);
+                                }, 1000);
+                            })
+                          });
+                          */
+                    }); // .done        
+
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
+                    for (trilhaUser of nodeList) {
+                        let _tr = document.createElement("tr");
+                        let _td1 = document.createElement("td");
+                        let _td2 = document.createElement("td");
+                        let _td3 = document.createElement("td");
+                        let _td4 = document.createElement("td");
+                        let _td5 = document.createElement("td");
+                        let _nodeText1 = document.createTextNode(trilhaUser.trilha_id);
+                        let _nodeText2 = document.createTextNode(trilhaUser.trilha_name);
+                        let _nodeText3 = document.createTextNode(trilhaUser.trilha_type_name);
+                        let _nodeText4 = document.createTextNode(trilhaUser.abrev_categoria);
+                        let _nodeText5 = document.createTextNode(trilhaUser.trilha_status_name);
+                        //let _nodeText3 = document.createTextNode(trilhaUser.conteudo_codigoyoutube);
+                        //let _nodeText4 = document.createTextNode('');
+                        _td1.appendChild(_nodeText1);
+                        _td2.appendChild(_nodeText2);
+                        _td3.appendChild(_nodeText3);
+                        _td4.appendChild(_nodeText4);
+                        _td5.appendChild(_nodeText5);
+                        //_td2.classList.add("tdlink");
+                        //let texto_t2 = _td2.textContent;
+                        //_td2.textContent = texto_t2;
+                        //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
+                        //_td3.appendChild(_nodeText3);
+                        //_td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary btn-desvincula"><i class="fa-solid fa-xmark"></i> Desvincular</button></form>`;
+                        _tr.appendChild(_td1);
+                        _tr.appendChild(_td2);
+                        _tr.appendChild(_td3);
+                        _tr.appendChild(_td4);
+                        _tr.appendChild(_td5);
+                        //_tr.appendChild(_td3);
+                        //_tr.appendChild(_td4);
+                        if(!_arrayIDsTrilhasDoUser.includes(trilhaUser.trilha_id)){
+                            _listaTrilhasDisponiveisTelaUserManager.appendChild(_tr);
+                        }
+                        //_arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
+                        }
+                        //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
+                        //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
+                        //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
+                }   
+
+
+
+
+
+function listaTrilhasDisponiveisUserManager(){  
+                    $.ajax({
+                        type: "POST",
+                        url: "php/lista_trilhas.php",
+                        dataType: "json",
+                        encode: true,
+                    }).done(function (data) {
+                        console.log(data);
+                        console.log(typeof data);
+                        console.log(data[0]);
+                        console.log(_arrayIDsTrilhasDoUser);
+                        loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(data);
                         /*
                         _dataListaDeVideosDaTrilha = data;
                         loopingDeMontagemAjaxListaVideosDaTrilha(data);
