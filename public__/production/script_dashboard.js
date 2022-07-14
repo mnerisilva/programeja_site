@@ -963,9 +963,9 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         let _td5 = document.createElement("td");
                         let _nodeText1 = document.createTextNode(trilhaUser.trilha_id);
                         let _nodeText2 = document.createTextNode(trilhaUser.trilha_name);
-                        let _nodeText3 = document.createTextNode(trilhaUser.trilha_type);
-                        let _nodeText4 = document.createTextNode(trilhaUser.id_categoria);
-                        let _nodeText5 = document.createTextNode(trilhaUser.trilha_status);
+                        let _nodeText3 = document.createTextNode(trilhaUser.trilha_type_name);
+                        let _nodeText4 = document.createTextNode(trilhaUser.abrev_categoria);
+                        let _nodeText5 = document.createTextNode(trilhaUser.trilha_status_name);
                         //let _nodeText3 = document.createTextNode(trilhaUser.conteudo_codigoyoutube);
                         //let _nodeText4 = document.createTextNode('');
                         _td1.appendChild(_nodeText1);
