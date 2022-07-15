@@ -19,8 +19,8 @@
     const _spanTotalVideosTrilha = document.querySelector('.total-videos-trilha');
     const _thTituloDaTrilha = document.querySelector('.th-titulo-da-trilha');
     const _modalGerenciamentoTrilhasUsers = document.querySelector('#modalGerenciarTrilhasUsers .modal-body');
-    const _formX = document.querySelectorAll('.form-x');
-    const _formY = document.querySelector('.form-y');
+
+
 
     const _listaTrilhasDoUser = document.querySelector('table.lista-trilhas-do-user tbody');
 
@@ -1016,7 +1016,13 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
-                        console.log(_arrayIDsTrilhasDoUser);
+                        const _formx = document.querySelectorAll('.form-x');
+                        _formx.forEach(function(item){
+                            $(item).submit(function(event){
+                                event.preventDefault();
+                                console.log('clicou no botão');
+                            })
+                        });
                 }   
 
 
@@ -1224,6 +1230,14 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
+                        const _formy = document.querySelectorAll('.form-y');
+                        _formy.forEach(function(item){
+                            $(item).submit(function(event){
+                                event.preventDefault();
+                                console.log('clicou no botão');
+                            })
+                        });
+    
                 }   
 
 
@@ -1319,10 +1333,5 @@ function listaTrilhasDisponiveisUserManager(){
 
 
 
-                
-_formX.forEach(function(item){
-                    $(item).submit(function(event){
-                        event.preventDefault();
-                        console.log('clicou no botão');
-                    })
-                });            
+     
+  
