@@ -992,9 +992,11 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         //let _nodeText4 = document.createTextNode('');
                         _td1.appendChild(_nodeText1);
                         _td2.appendChild(_nodeText2);
+                        _td2.innerHTML = `<i class="fa-solid fa-list-ul"></i>&nbsp;&nbsp;&nbsp;${trilhaUser.trilha_name}`;
                         _td3.appendChild(_nodeText3);
                         _td4.appendChild(_nodeText4);
                         _td5.appendChild(_nodeText5);
+                        _td5.innerHTML = trilhaUser.trilha_status_name === 'on' ? `<i class="fa-solid fa-circle icon-on"></i>` : `<i class="fas fa-dot-circle icon-off"></i>`;
                         //_td2.classList.add("tdlink");
                         //let texto_t2 = _td2.textContent;
                         //_td2.textContent = texto_t2;
@@ -1198,9 +1200,11 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         //let _nodeText4 = document.createTextNode('');
                         _td1.appendChild(_nodeText1);
                         _td2.appendChild(_nodeText2);
+                        _td2.innerHTML = `<i class="fa-solid fa-list-ul"></i>&nbsp;&nbsp;&nbsp;${trilhaUser.trilha_name}`;
                         _td3.appendChild(_nodeText3);
                         _td4.appendChild(_nodeText4);
                         _td5.appendChild(_nodeText5);
+                        _td5.innerHTML = trilhaUser.trilha_status_name === 'on' ? `<i class="fa-solid fa-circle icon-on"></i>` : `<i class="fas fa-dot-circle icon-off"></i>`;
                         //_td2.classList.add("tdlink");
                         //let texto_t2 = _td2.textContent;
                         //_td2.textContent = texto_t2;

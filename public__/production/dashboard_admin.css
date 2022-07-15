@@ -333,6 +333,19 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     padding: 0.05rem 0.32rem !important;
 }
 
+.icon-on {
+    color: gold;
+    color: lightseagreen;
+    transform: scale(.7);
+}
+
+.icon-off {
+    color: #dedede;
+    color: antiquewhite;
+    color: darkgray;
+    transform: scale(.7);
+}
+
 
 
 
