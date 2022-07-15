@@ -993,7 +993,18 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         _formx.forEach(function(item){
                             $(item).submit(function(event){
                                 event.preventDefault();
-                                console.log('clicou no botão');
+                                console.log('clicou no botão');  
+                                var formData_ = {
+                                  trilha_escolhida: _idDaTrilhaEscolhida,
+                                    video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
+                                };
+                                // console.log(formData_);                                
+                                  item.parentNode.parentNode.style.opacity = 0;
+                                  setTimeout(function(){
+                                      item.parentNode.parentNode.remove();
+                                      //vinculaVideo(formData_);
+                                  }, 1000);                            
+                                
                             })
                         });
                 }   
