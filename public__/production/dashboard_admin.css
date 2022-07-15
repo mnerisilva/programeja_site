@@ -324,6 +324,15 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     width: 50% !important;
 }
 
+.lista-trilhas-do-user td:nth-child(6), .lista-trilhas-disponiveis-user-manager td:nth-child(6) {
+    text-align: cemter;
+}
+
+.lista-trilhas-do-user td:nth-child(6) .form-x button, .lista-trilhas-disponiveis-user-manager td:nth-child(6) .form-y button {
+    font-size: .8rem !important;
+    padding: 0.05rem 0.32rem !important;
+}
+
 
 
 

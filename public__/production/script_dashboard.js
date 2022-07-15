@@ -24,6 +24,14 @@
 
     const _listaTrilhasDisponiveisTelaUserManager = document.querySelector('.lista-trilhas-disponiveis-user-manager tbody');
 
+    const _closeModalModalGerenciarAtribuidos = document.querySelector('#modalGerenciarAtribuidos .close span');
+    
+    let _arrayIDsTrilhasDoUser = [];
+
+                _closeModalModalGerenciarAtribuidos.addEventListener('click', function(){
+                    _listaTrilhasDoUser.innerHTML = '';
+                    _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';                    
+                });
 
                 // esconde título e quantidade de vídeo da trilha - enquanto ainda não for escolhida uma trilha
                 _spanTotalVideosTrilha.style.opacity = 0;
@@ -49,11 +57,10 @@
     let _arrPovoSelect = [];
 
     let _idDaTrilhaEscolhida = '';
-
-    let _trilhasDoUser = '';
-
     
-    let _arrayIDsTrilhasDoUser = [];
+
+    _listaTrilhasDoUser.innerHTML = '';
+    _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
 
 
 
@@ -65,7 +72,7 @@
 
     povoaSelectDaCategoriaDoCadastrarVideo();
 
-    console.log('_idDaTrilhaEscolhida: '+_idDaTrilhaEscolhida);
+    // console.log('_idDaTrilhaEscolhida: '+_idDaTrilhaEscolhida);
 
 
 
@@ -131,7 +138,7 @@
         const _modalUserPhoto = document.querySelector('.modal-user-photo');
         const _modalUserName = document.querySelector('.modal-user-name');
 
-        _userCourseManager.forEach(function(item){
+        /*_userCourseManager.forEach(function(item){
             item.addEventListener('click', function(e){
                 //_modalUserPhoto.innerHTML = `<img class="user-avatar" src="${e.target.dataset.userphoto}" />`;
                 _modalUserPhoto.innerHTML = '<img class="user-avatar" src="images/users/foto_marcelo.jpg" />';
@@ -141,13 +148,16 @@
                     _videoPanel.style.opacity = 1;
                 }, 900);
             });
-        })
+        })*/
+
+
 
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
                 //_modalUserName.innerHTML = e.target.dataset.username;
                 _modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
                 listaTrilhasDoUser(e.target.dataset.user_id);
+                console.log(_arrayIDsTrilhasDoUser);
                 listaTrilhasDisponiveisUserManager();
 
             });
@@ -206,7 +216,7 @@
                     listaVideosDaTrilha();
                     _spanTotalVideosTrilha.style.opacity = 1;
                     _thTituloDaTrilha.style.opacity = 1;
-                    console.log('_idDaTrilhaEscolhida: '+_idDaTrilhaEscolhida);
+                    // console.log('_idDaTrilhaEscolhida: '+_idDaTrilhaEscolhida);
                 });
 
                 
@@ -372,7 +382,7 @@ function povoaSelectDoFiltrarTrilhas(){ // chamado quando a aplicação inicia
 
 
 function povoaSelectDaCategoriaDoCadastrarTrilhas(){ // chamado quando a aplicação inicia
-                    console.log(_selectIdCategoriaCadastroDeTrilha.innerHTML);
+                    // console.log(_selectIdCategoriaCadastroDeTrilha.innerHTML);
                     _selectIdCategoriaCadastroDeTrilha.innerHTML = '';
                     $.ajax({
                         // inicio do código ajax listagem inicial - lista users
@@ -408,7 +418,7 @@ function povoaSelectDaCategoriaDoCadastrarTrilhas(){ // chamado quando a aplica�
 
                 
 function povoaSelectDaCategoriaDoCadastrarVideo(){ // chamado quando a aplicação inicia
-                    console.log(_selectCategoriaCatastroDeVideo.innerHTML);
+                    // console.log(_selectCategoriaCatastroDeVideo.innerHTML);
                     _selectCategoriaCatastroDeVideo.innerHTML = '';
                     $.ajax({
                         // inicio do código ajax listagem inicial - lista users
@@ -625,7 +635,7 @@ function loopingDeMontagemAjaxListaVideosGeral(nodeList){
                             trilha_escolhida: _idDaTrilhaEscolhida,
                               video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
                           };
-                          console.log(formData_);
+                          // console.log(formData_);
                           if(formData_.trilha_escolhida != ''){
                             item.parentNode.parentNode.style.opacity = 0;
                             setTimeout(function(){
@@ -673,7 +683,7 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         }
                         _thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         _totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
-                        console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
+                        //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
                 }            
 
 
@@ -690,7 +700,7 @@ function vinculaVideo(formData){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        //console.log(data);
+                        //// console.log(data);
                         _listaVideosGeral.innerHTML = '';
                         _listaVideosDaTrilha.innerHTML = '';
                         listaVideosDaTrilha();
@@ -764,8 +774,8 @@ function listaTabelaDaDireita ( _idDaTrilhaEscolhida ) {
 
 
 function atualizaListaDeVideosGeral(nodeList){   
-                console.log(_arrIdConteudoVideosDaTrilha);
-                console.log(nodeList);
+                // console.log(_arrIdConteudoVideosDaTrilha);
+                // console.log(nodeList);
                 if(_arrIdConteudoVideosDaTrilha.length === 0){
                 //if(_idDaTrilhaEscolhida === ''){
                     for (videoItem of nodeList) {
@@ -799,7 +809,7 @@ function atualizaListaDeVideosGeral(nodeList){
                         _linkYoutube.forEach(function(link){
                                             link.addEventListener('click', function(e){
                                                             e.preventDefault();
-                                                            console.log(e.target.dataset.youtube_code);
+                                                            // console.log(e.target.dataset.youtube_code);
                                                             let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
                                                             _iframeYoutube.setAttribute('src', src);
                                                             _iframeYoutube.getAttribute('src');
@@ -819,7 +829,7 @@ function atualizaListaDeVideosGeral(nodeList){
                                     trilha_escolhida: _idDaTrilhaEscolhida,
                                     video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
                                 };
-                                console.log(formData_);
+                                // console.log(formData_);
                                 item.parentNode.parentNode.style.opacity = 0;
                                 setTimeout(function(){
                                     item.parentNode.parentNode.remove();
@@ -829,7 +839,7 @@ function atualizaListaDeVideosGeral(nodeList){
                         });
 
                 } else if(_arrIdConteudoVideosDaTrilha.length > 0){
-                    console.log('entrou aqui');
+                    // console.log('entrou aqui');
                     for (videoItem of nodeList) {
                         let _tr = document.createElement("tr");
                         let _td1 = document.createElement("td");
@@ -861,7 +871,7 @@ function atualizaListaDeVideosGeral(nodeList){
                         _linkYoutube.forEach(function(link){
                                             link.addEventListener('click', function(e){
                                                             e.preventDefault();
-                                                            console.log(e.target.dataset.youtube_code);
+                                                            // console.log(e.target.dataset.youtube_code);
                                                             let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
                                                             _iframeYoutube.setAttribute('src', src);
                                                             _iframeYoutube.getAttribute('src');
@@ -880,7 +890,7 @@ function atualizaListaDeVideosGeral(nodeList){
                                     trilha_escolhida: _idDaTrilhaEscolhida,
                                     video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
                                 };
-                                console.log(formData_);
+                                // console.log(formData_);
                                 item.parentNode.parentNode.style.opacity = 0;
                                 setTimeout(function(){
                                     item.parentNode.parentNode.remove();
@@ -962,6 +972,7 @@ function atualizaListaDeVideosGeral(nodeList){
 
 
 function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
+                    _listaTrilhasDoUser.innerHTML = '';
                     for (trilhaUser of nodeList) {
                         let _tr = document.createElement("tr");
                         let _td1 = document.createElement("td");
@@ -987,7 +998,7 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         //_td2.textContent = texto_t2;
                         //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         //_td3.appendChild(_nodeText3);
-                        //_td6.innerHTML = `<form class="form-remove-video-trilha" data-trilha_user_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha-xxx" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-xmark"></i></button></form>`;
+                        _td6.innerHTML = `<form class="form-x" data-trilha_user_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-x" name="input-x" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-xmark"></i></button></form>`;
                         //_td6.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
                         _tr.appendChild(_td1);
                         _tr.appendChild(_td2);
@@ -1003,6 +1014,7 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
+                        console.log(_arrayIDsTrilhasDoUser);
                 }   
 
 
@@ -1013,6 +1025,7 @@ function listaTrilhasDoUser(user_id){
                     var formData = {
                         user_id: user_id
                     };
+                    //console.log(formData.user_id);
                     $.ajax({
                         type: "POST",
                         url: "php/lista_trilhas_do_user.php",
@@ -1020,17 +1033,23 @@ function listaTrilhasDoUser(user_id){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        console.log(data);
-                        _listaTrilhasDoUser.innerHTML = '';
+                        //console.log(data);
                         _trilhasDoUser = data;
+                        _arrayIDsTrilhasDoUser = []; 
                         let cont = 0;
-                        _arrayIDsTrilhasDoUser = [];
                         for (item of _trilhasDoUser){
                             _arrayIDsTrilhasDoUser[cont] = item.trilha_id;
                             cont++;
                         }
-                        console.log(_trilhasDoUser);
-                        loopingDeMontagemAjaxListaTrilhasDoUser(data);
+                        //console.log(_arrayIDsTrilhasDoUser);
+                        //console.log(_trilhasDoUser);
+                        loopingDeMontagemAjaxListaTrilhasDoUser(_trilhasDoUser);                        
+                        _arrayIDsTrilhasDoUser = []; 
+                        cont = 0;
+                        for (item of _trilhasDoUser){
+                            _arrayIDsTrilhasDoUser[cont] = item.trilha_id;
+                            cont++;
+                        }
                         /*
                         _dataListaDeVideosDaTrilha = data;
                         loopingDeMontagemAjaxListaVideosDaTrilha(data);
@@ -1060,8 +1079,7 @@ function listaTrilhasDoUser(user_id){
                     }); // .done        
 
                 }
-
-
+            
 
 
 
@@ -1154,6 +1172,7 @@ function listaTrilhasDoUser(user_id){
 
 
 function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
+                    _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
                     for (trilhaUser of nodeList) {
                         let _tr = document.createElement("tr");
                         let _td1 = document.createElement("td");
@@ -1179,8 +1198,9 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         //_td2.textContent = texto_t2;
                         //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         //_td3.appendChild(_nodeText3);
-                        //_td6.innerHTML = `<form class="form-remove-video-da-trilha" data-trilhas_disponiveis_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-form-remove-trilha-xxx" name="input-form-remove-trilha-xxx" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-plus"></i></button></form>`;
+                        _td6.innerHTML = `<form class="form-y" data-trilhas_disponiveis_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-y" name="input-y" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-vincula-y"><i class="fa-solid fa-plus"></i></button></form>`;
                         //_td6.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+                        //_td6.innerHTML = `<i class="fa-solid fa-plus"></i>`;
                         _tr.appendChild(_td1);
                         _tr.appendChild(_td2);
                         _tr.appendChild(_td3);
@@ -1189,11 +1209,16 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         _tr.appendChild(_td6);
                         //_tr.appendChild(_td3);
                         //_tr.appendChild(_td4);
-                        if(!_arrayIDsTrilhasDoUser.includes(trilhaUser.trilha_id)){
+                        //console.log(_arrayIDsTrilhasDoUser);
+                        //console.log(trilhaUser.trilha_id);
+                        //console.log(nodeList);
+                        if(!(_arrayIDsTrilhasDoUser.includes(trilhaUser.trilha_id))){
                             _listaTrilhasDisponiveisTelaUserManager.appendChild(_tr);
                         }
                         //_arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
-                    }
+                    }   
+                        // console.log(nodeList);
+                        // console.log(_arrayIDsTrilhasDoUser);
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
@@ -1201,8 +1226,7 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
 
 
 
-                //_listaTrilhasDoUser
-                //_listaTrilhasDisponiveisTelaUserManager
+               
 
 function listaTrilhasDisponiveisUserManager(){  
                     $.ajax({
@@ -1211,11 +1235,11 @@ function listaTrilhasDisponiveisUserManager(){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        console.log(data);
-                        console.log(typeof data);
-                        console.log(data[0]);
+                        // console.log(data);
+                        // console.log(typeof data);
+                        // console.log(data[0]);
                         _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
-                        console.log(_arrayIDsTrilhasDoUser);
+                        // console.log(_arrayIDsTrilhasDoUser);
                         loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(data);
                         /*
                         _dataListaDeVideosDaTrilha = data;
