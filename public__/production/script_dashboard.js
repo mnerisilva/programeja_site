@@ -19,6 +19,8 @@
     const _spanTotalVideosTrilha = document.querySelector('.total-videos-trilha');
     const _thTituloDaTrilha = document.querySelector('.th-titulo-da-trilha');
     const _modalGerenciamentoTrilhasUsers = document.querySelector('#modalGerenciarTrilhasUsers .modal-body');
+    const _formX = document.querySelectorAll('.form-x');
+    const _formY = document.querySelector('.form-y');
 
     const _listaTrilhasDoUser = document.querySelector('table.lista-trilhas-do-user tbody');
 
@@ -1270,3 +1272,57 @@ function listaTrilhasDisponiveisUserManager(){
                     }); // .done        
 
                 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+_formX.forEach(function(item){
+                    $(item).submit(function(event){
+                        event.preventDefault();
+                        console.log('clicou no botão');
+                    })
+                });            
