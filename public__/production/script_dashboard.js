@@ -74,32 +74,6 @@
 
     povoaSelectDaCategoriaDoCadastrarVideo();
 
-    // console.log('_idDaTrilhaEscolhida: '+_idDaTrilhaEscolhida);
-
-
-
-
-
-
-
-
-
-    //listaTabelaDaEsquerda();
-    //listaTabelaDaDireita(1);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -377,9 +351,6 @@ function povoaSelectDoFiltrarTrilhas(){ // chamado quando a aplicação inicia
 
 
 
-
-//_selectIdCategoriaCadastroDeTrilha
-//_selectCategoriaCatastroDeVideo/
 
 
 
