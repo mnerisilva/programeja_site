@@ -27,6 +27,8 @@
     const _listaTrilhasDisponiveisTelaUserManager = document.querySelector('.lista-trilhas-disponiveis-user-manager tbody');
 
     const _closeModalModalGerenciarAtribuidos = document.querySelector('#modalGerenciarAtribuidos .close span');
+
+    let _userIdDoUsurio = '';
     
     let _arrayIDsTrilhasDoUser = [];
 
@@ -130,6 +132,8 @@
 
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
+                console.log(item);
+                _userIdDoUsurio = item.dataset.user_id;
                 //_modalUserName.innerHTML = e.target.dataset.username;
                 _modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
                 listaTrilhasDoUser(e.target.dataset.user_id);
@@ -711,6 +715,53 @@ function desvinculaVideo(formData){
 
 
 
+function vinculaTrilhaAoUser(formData){
+                    $.ajax({
+                        type: "POST",
+                        url: "php/vincula_trilha_ao_user.php",
+                        data: formData,
+                        dataType: "json",
+                        encode: true,
+                    }).done(function (data) {
+                        console.log(data);
+                        _listaTrilhasDoUser.innerHTML = '';
+                        _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
+                        listaTrilhasDoUser();
+                        listaTrilhasDisponiveisUserManager();
+                    });    
+                }
+
+
+
+
+
+
+function desvinculaTrilhaDoUser(formData){
+                    $.ajax({
+                        type: "POST",
+                        url: "php/desvincula_trilha_do_user.php",
+                        data: formData,
+                        dataType: "json",
+                        encode: true,
+                    }).done(function (data) {
+                        //console.log(data);
+                        _listaVideosGeral.innerHTML = '';
+                        _listaVideosDaTrilha.innerHTML = '';
+                        listaVideosDaTrilha();
+                    });    
+                    //console.log('entrou na function vinculaVideo');
+                    //console.log(formData);
+                }
+
+
+
+
+
+
+
+
+
+
 /*function listaTabelaDaEsquerda () {
                 $.ajax({
                     type: "POST",
@@ -973,7 +1024,14 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         //_td2.textContent = texto_t2;
                         //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         //_td3.appendChild(_nodeText3);
-                        _td6.innerHTML = `<form class="form-desvincula-trilha-do-user" data-trilha_user_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-x input-form-desvincula-trilha-do-user" name="input-x" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-xmark"></i></button></form>`;
+                        _td6.innerHTML = 
+                                            `
+                                                <form class="form-desvincula-trilha-ao-user" data-trilha_user_id="${trilhaUser.trilha_id}">
+                                                    <input type="hidden" class="input-x input-form-desvincula-trilha-do-user-userid" name="userid" value="${_userIdDoUsurio}" />
+                                                    <input type="hidden" class="input-x input-form-desvincula-trilha-do-user-trilhaid" name="trilhaid" value="${trilhaUser.trilha_id}" />
+                                                    <button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-xmark"></i></button>
+                                                </form>
+                                            `;
                         //_td6.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
                         _tr.appendChild(_td1);
                         _tr.appendChild(_td2);
@@ -995,8 +1053,8 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                                 event.preventDefault();
                                 console.log('clicou no botão');  
                                 var formData_ = {
-                                  trilha_escolhida: _idDaTrilhaEscolhida,
-                                    video_a_vincular: item.querySelector('.input-form-desvincula-trilha-do-user').value
+                                    userid: item.querySelector('.input-form-desvincula-trilha-do-user-userid').value,
+                                    trilhaid: item.querySelector('.input-form-desvincula-trilha-do-user-trilhaid').value
                                 };
                                 // console.log(formData_);                                
                                   item.parentNode.parentNode.style.opacity = 0;
@@ -1192,7 +1250,13 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         //_td2.textContent = texto_t2;
                         //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         //_td3.appendChild(_nodeText3);
-                        _td6.innerHTML = `<form class="form-vincula-trilha-do-user" data-trilhas_disponiveis_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-y input-form-vincula-trilha-do-user" name="input-y" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-vincula-y"><i class="fa-solid fa-plus"></i></button></form>`;
+                        _td6.innerHTML = `
+                                            <form class="form-vincula-trilha-ao-user" data-trilhas_disponiveis_id="${trilhaUser.trilha_id}">
+                                                <input type="hidden" class="input-y input-form-vincula-trilha-ao-user-userid" name="input_form_vincula_trilha_ao_user_userid" value="${_userIdDoUsurio}" />
+                                                <input type="hidden" class="input-y input-form-vincula-trilha-ao-user-trilhaid" name="input_form_vincula_trilha_ao_user_trilhaid" value="${trilhaUser.trilha_id}" />
+                                                <button type="submit" class="btn btn-secondary btn-vincula-y"><i class="fa-solid fa-plus"></i></button>
+                                            </form>
+                                        `;
                         //_td6.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
                         //_td6.innerHTML = `<i class="fa-solid fa-plus"></i>`;
                         _tr.appendChild(_td1);
@@ -1216,20 +1280,21 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
-                        const _formVinculaTrilhaDoUser = document.querySelectorAll('.form-vincula-trilha-do-user');
-                        _formVinculaTrilhaDoUser.forEach(function(item){
+                        const _formVinculaTrilhaAoUser = document.querySelectorAll('.form-vincula-trilha-ao-user');
+                        _formVinculaTrilhaAoUser.forEach(function(item){
                             $(item).submit(function(event){
                                 event.preventDefault();
                                 console.log('clicou no botão'); 
                                 var formData_ = {
                                   trilha_escolhida: _idDaTrilhaEscolhida,
-                                    video_a_vincular: item.querySelector('.input-form-vincula-trilha-do-user').value
+                                    userid: item.querySelector('.input-form-vincula-trilha-ao-user-userid').value,
+                                    trilhaid: item.querySelector('.input-form-vincula-trilha-ao-user-trilhaid').value
                                 };
                                 // console.log(formData_);                                
                                   item.parentNode.parentNode.style.opacity = 0;
                                   setTimeout(function(){
                                       item.parentNode.parentNode.remove();
-                                      //vinculaVideo(formData_);
+                                      vinculaTrilhaAoUser(formData_)
                                   }, 1000);  
                             })
                         });
