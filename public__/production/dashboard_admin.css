@@ -328,7 +328,7 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
     text-align: cemter;
 }
 
-.lista-trilhas-do-user td:nth-child(6) .form-desvincula-trilha-ao-user button, .lista-trilhas-disponiveis-user-manager td:nth-child(6) .form-vincula-trilha-ao-user button {
+.lista-trilhas-do-user td:nth-child(6) .form-desvincula-trilha-do-user button, .lista-trilhas-disponiveis-user-manager td:nth-child(6) .form-vincula-trilha-ao-user button {
     font-size: .8rem !important;
     padding: 0.05rem 0.32rem !important;
 }

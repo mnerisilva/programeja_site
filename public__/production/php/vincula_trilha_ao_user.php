@@ -2,9 +2,6 @@
 
 include('connect.php');
 
-//var_dump($_POST);
-//die();
-
 
 if(count($_POST) > 0){
 	

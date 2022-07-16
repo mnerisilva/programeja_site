@@ -726,7 +726,7 @@ function vinculaTrilhaAoUser(formData){
                         console.log(data);
                         _listaTrilhasDoUser.innerHTML = '';
                         _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
-                        listaTrilhasDoUser();
+                        listaTrilhasDoUser(_userIdDoUsurio);
                         listaTrilhasDisponiveisUserManager();
                     });    
                 }
@@ -744,13 +744,12 @@ function desvinculaTrilhaDoUser(formData){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        //console.log(data);
-                        _listaVideosGeral.innerHTML = '';
-                        _listaVideosDaTrilha.innerHTML = '';
-                        listaVideosDaTrilha();
-                    });    
-                    //console.log('entrou na function vinculaVideo');
-                    //console.log(formData);
+                        console.log(data);
+                        _listaTrilhasDoUser.innerHTML = '';
+                        _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
+                        listaTrilhasDoUser(_userIdDoUsurio);
+                        listaTrilhasDisponiveisUserManager();
+                    });
                 }
 
 
@@ -1026,7 +1025,7 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         //_td3.appendChild(_nodeText3);
                         _td6.innerHTML = 
                                             `
-                                                <form class="form-desvincula-trilha-ao-user" data-trilha_user_id="${trilhaUser.trilha_id}">
+                                                <form class="form-desvincula-trilha-do-user" data-trilha_user_id="${trilhaUser.trilha_id}">
                                                     <input type="hidden" class="input-x input-form-desvincula-trilha-do-user-userid" name="userid" value="${_userIdDoUsurio}" />
                                                     <input type="hidden" class="input-x input-form-desvincula-trilha-do-user-trilhaid" name="trilhaid" value="${trilhaUser.trilha_id}" />
                                                     <button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-xmark"></i></button>
@@ -1060,7 +1059,7 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                                   item.parentNode.parentNode.style.opacity = 0;
                                   setTimeout(function(){
                                       item.parentNode.parentNode.remove();
-                                      //vinculaVideo(formData_);
+                                      desvinculaTrilhaDoUser(formData_);
                                   }, 1000);                            
                                 
                             })
