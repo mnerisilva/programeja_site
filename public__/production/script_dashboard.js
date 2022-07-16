@@ -28,6 +28,8 @@
 
     const _closeModalModalGerenciarAtribuidos = document.querySelector('#modalGerenciarAtribuidos .close span');
 
+    let _btnFormTrilhaUser = '';
+
     let _userIdDoUsurio = '';
     
     let _arrayIDsTrilhasDoUser = [];
@@ -138,8 +140,6 @@
                 _modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
                 listaTrilhasDoUser(e.target.dataset.user_id);
                 console.log(_arrayIDsTrilhasDoUser);
-                listaTrilhasDisponiveisUserManager();
-
             });
         })
 
@@ -726,8 +726,7 @@ function vinculaTrilhaAoUser(formData){
                         console.log(data);
                         _listaTrilhasDoUser.innerHTML = '';
                         _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
-                        listaTrilhasDoUser(_userIdDoUsurio);
-                        listaTrilhasDisponiveisUserManager();
+                        listaTrilhasDoUser(_userIdDoUsurio); 
                     });    
                 }
 
@@ -748,7 +747,6 @@ function desvinculaTrilhaDoUser(formData){
                         _listaTrilhasDoUser.innerHTML = '';
                         _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
                         listaTrilhasDoUser(_userIdDoUsurio);
-                        listaTrilhasDisponiveisUserManager();
                     });
                 }
 
@@ -1028,7 +1026,7 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                                                 <form class="form-desvincula-trilha-do-user" data-trilha_user_id="${trilhaUser.trilha_id}">
                                                     <input type="hidden" class="input-x input-form-desvincula-trilha-do-user-userid" name="userid" value="${_userIdDoUsurio}" />
                                                     <input type="hidden" class="input-x input-form-desvincula-trilha-do-user-trilhaid" name="trilhaid" value="${trilhaUser.trilha_id}" />
-                                                    <button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-xmark"></i></button>
+                                                    <button type="submit" class="btn btn-secondary btn-desvincula-trilha-do-user btn-form-trilha-user"><i class="fa-solid fa-xmark"></i></button>
                                                 </form>
                                             `;
                         //_td6.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
@@ -1057,9 +1055,12 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                                 };
                                 // console.log(formData_);                                
                                   item.parentNode.parentNode.style.opacity = 0;
+                                  DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser)
                                   setTimeout(function(){
                                       item.parentNode.parentNode.remove();
                                       desvinculaTrilhaDoUser(formData_);
+                                      _btnFormTrilhaUser = document.querySelectorAll('.btn-form-trilha-user');                                              
+                                      DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser);
                                   }, 1000);                            
                                 
                             })
@@ -1090,8 +1091,6 @@ function listaTrilhasDoUser(user_id){
                             _arrayIDsTrilhasDoUser[cont] = item.trilha_id;
                             cont++;
                         }
-                        //console.log(_arrayIDsTrilhasDoUser);
-                        //console.log(_trilhasDoUser);
                         loopingDeMontagemAjaxListaTrilhasDoUser(_trilhasDoUser);                        
                         _arrayIDsTrilhasDoUser = []; 
                         cont = 0;
@@ -1099,32 +1098,7 @@ function listaTrilhasDoUser(user_id){
                             _arrayIDsTrilhasDoUser[cont] = item.trilha_id;
                             cont++;
                         }
-                        /*
-                        _dataListaDeVideosDaTrilha = data;
-                        loopingDeMontagemAjaxListaVideosDaTrilha(data);
-                        _listaVideosGeral.innerHTML = '';
-                        atualizaListaDeVideosGeral(_dataListaDeVideosGeral);
-                        _arrIdConteudoVideosDaTrilha = [];
-                          setTimeout(function(){
-                            _listaVideosDaTrilha.style.opacity = 1;
-                          }, 300)
-                          const _formRemoveVideoDaTrilha = document.querySelectorAll('.form-remove-video-da-trilha');
-                          _formRemoveVideoDaTrilha.forEach(function(item){
-                            $(item).submit(function(event){
-                                event.preventDefault();                                
-                                var formData_ = {
-                                    trilha_escolhida: _idDaTrilhaEscolhida,
-                                    video_a_desvincular: item.querySelector('.input-form-remove-video-trilha').value
-                                };
-                                //console.log(formData_);
-                                item.parentNode.parentNode.style.opacity = 0;
-                                setTimeout(function(){
-                                    item.parentNode.parentNode.remove();
-                                    desvinculaVideo(formData_);
-                                }, 1000);
-                            })
-                          });
-                          */
+                        listaTrilhasDisponiveisUserManager();
                     }); // .done        
 
                 }
@@ -1253,7 +1227,7 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                                             <form class="form-vincula-trilha-ao-user" data-trilhas_disponiveis_id="${trilhaUser.trilha_id}">
                                                 <input type="hidden" class="input-y input-form-vincula-trilha-ao-user-userid" name="input_form_vincula_trilha_ao_user_userid" value="${_userIdDoUsurio}" />
                                                 <input type="hidden" class="input-y input-form-vincula-trilha-ao-user-trilhaid" name="input_form_vincula_trilha_ao_user_trilhaid" value="${trilhaUser.trilha_id}" />
-                                                <button type="submit" class="btn btn-secondary btn-vincula-y"><i class="fa-solid fa-plus"></i></button>
+                                                <button type="submit" class="btn btn-secondary btn-vincula-trilha-ao-user btn-form-trilha-user"><i class="fa-solid fa-plus"></i></button>
                                             </form>
                                         `;
                         //_td6.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
@@ -1279,6 +1253,7 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
+                        _btnFormTrilhaUser = document.querySelectorAll('.btn-form-trilha-user');
                         const _formVinculaTrilhaAoUser = document.querySelectorAll('.form-vincula-trilha-ao-user');
                         _formVinculaTrilhaAoUser.forEach(function(item){
                             $(item).submit(function(event){
@@ -1291,9 +1266,12 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                                 };
                                 // console.log(formData_);                                
                                   item.parentNode.parentNode.style.opacity = 0;
+                                  DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser)
                                   setTimeout(function(){
                                       item.parentNode.parentNode.remove();
-                                      vinculaTrilhaAoUser(formData_)
+                                      vinculaTrilhaAoUser(formData_);
+                                      _btnFormTrilhaUser = document.querySelectorAll('.btn-form-trilha-user');                                              
+                                      DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser);
                                   }, 1000);  
                             })
                         });
@@ -1354,44 +1332,9 @@ function listaTrilhasDisponiveisUserManager(){
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     
-  
+function DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser){
+    _btnFormTrilhaUser.forEach(function(item){
+        console.log('DESABILITOU OS BOTÕES DE VINCULA E DESVINCULA TRILHA')
+        item.setAttribute('disabled','');
+    });
+}  
