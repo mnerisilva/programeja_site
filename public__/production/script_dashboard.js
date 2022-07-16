@@ -973,7 +973,7 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         //_td2.textContent = texto_t2;
                         //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         //_td3.appendChild(_nodeText3);
-                        _td6.innerHTML = `<form class="form-x" data-trilha_user_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-x" name="input-x" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-xmark"></i></button></form>`;
+                        _td6.innerHTML = `<form class="form-desvincula-trilha-do-user" data-trilha_user_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-x input-form-desvincula-trilha-do-user" name="input-x" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-desvincula-trilha-user-manager"><i class="fa-solid fa-xmark"></i></button></form>`;
                         //_td6.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
                         _tr.appendChild(_td1);
                         _tr.appendChild(_td2);
@@ -989,14 +989,14 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
-                        const _formx = document.querySelectorAll('.form-x');
-                        _formx.forEach(function(item){
+                        const _formDesvinculaTrilhaDoUser = document.querySelectorAll('.form-desvincula-trilha-do-user');
+                        _formDesvinculaTrilhaDoUser.forEach(function(item){
                             $(item).submit(function(event){
                                 event.preventDefault();
                                 console.log('clicou no botão');  
                                 var formData_ = {
                                   trilha_escolhida: _idDaTrilhaEscolhida,
-                                    video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
+                                    video_a_vincular: item.querySelector('.input-form-desvincula-trilha-do-user').value
                                 };
                                 // console.log(formData_);                                
                                   item.parentNode.parentNode.style.opacity = 0;
@@ -1192,7 +1192,7 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         //_td2.textContent = texto_t2;
                         //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
                         //_td3.appendChild(_nodeText3);
-                        _td6.innerHTML = `<form class="form-y" data-trilhas_disponiveis_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-y" name="input-y" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-vincula-y"><i class="fa-solid fa-plus"></i></button></form>`;
+                        _td6.innerHTML = `<form class="form-vincula-trilha-do-user" data-trilhas_disponiveis_id="${trilhaUser.trilha_id}"><input type="hidden" class="input-y input-form-vincula-trilha-do-user" name="input-y" value="${trilhaUser.trilha_id}" /><button type="submit" class="btn btn-secondary btn-vincula-y"><i class="fa-solid fa-plus"></i></button></form>`;
                         //_td6.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
                         //_td6.innerHTML = `<i class="fa-solid fa-plus"></i>`;
                         _tr.appendChild(_td1);
@@ -1216,11 +1216,21 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
-                        const _formy = document.querySelectorAll('.form-y');
-                        _formy.forEach(function(item){
+                        const _formVinculaTrilhaDoUser = document.querySelectorAll('.form-vincula-trilha-do-user');
+                        _formVinculaTrilhaDoUser.forEach(function(item){
                             $(item).submit(function(event){
                                 event.preventDefault();
-                                console.log('clicou no botão');
+                                console.log('clicou no botão'); 
+                                var formData_ = {
+                                  trilha_escolhida: _idDaTrilhaEscolhida,
+                                    video_a_vincular: item.querySelector('.input-form-vincula-trilha-do-user').value
+                                };
+                                // console.log(formData_);                                
+                                  item.parentNode.parentNode.style.opacity = 0;
+                                  setTimeout(function(){
+                                      item.parentNode.parentNode.remove();
+                                      //vinculaVideo(formData_);
+                                  }, 1000);  
                             })
                         });
     
