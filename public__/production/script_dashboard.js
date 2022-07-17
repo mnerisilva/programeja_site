@@ -60,7 +60,8 @@
 
     let _arrIdConteudoVideosDaTrilha = [];
 
-    let _arrPovoSelect = [];
+    let _arrPovoaSelectFiltaTrilha = [];
+    let _arrPovoaSelect = [];
 
     let _idDaTrilhaEscolhida = '';
     
@@ -188,7 +189,8 @@
     $(_formFiltraTrilha).submit(function(event){
                     event.preventDefault();
                     //console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.value);
-                    _THtituloDaTrilha = _arrPovoSelect[_selectIdTrilhaEscolhida.value];
+                    console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
+                    _THtituloDaTrilha = _arrPovoaSelectFiltaTrilha[_selectIdTrilhaEscolhida.value];
                     //console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.textContent);
                     //console.log(event.target)
                     _listaVideosDaTrilha.innerHTML = '';                    
@@ -345,9 +347,9 @@ function povoaSelectDoFiltrarTrilhas(){ // chamado quando a aplica√ß√£o inicia
                             //console.log(_option);
                             _option.textContent = trilha.trilha_name;
                             _selectIdTrilhaEscolhida.appendChild(_option);
-                            _arrPovoSelect[trilha.trilha_id] = trilha.trilha_name;
+                            _arrPovoaSelectFiltaTrilha[trilha.trilha_id] = trilha.trilha_name;
                         }
-                        //console.log(_arrPovoSelect);
+                        console.log('_arrPovoaSelectFiltraTrilha: '+_arrPovoaSelectFiltaTrilha);
                     });
                 }
 
@@ -382,10 +384,10 @@ function povoaSelectDaCategoriaDoCadastrarTrilhas(){ // chamado quando a aplica√
                             //console.log(_option);
                             _option.textContent = categoria.abrev_categoria;
                             _selectIdCategoriaCadastroDeTrilha.appendChild(_option);
-                            _arrPovoSelect[categoria.id_categoria] = categoria.abrev_categoria;
+                            _arrPovoaSelect[categoria.id_categoria] = categoria.abrev_categoria;
                         }
-                        _arrPovoSelect = [];
-                        //console.log(_arrPovoSelect);
+                        _arrPovoaSelect = [];
+                        //console.log(_arrPovoaSelect);
                     });
                 }
 
@@ -418,10 +420,10 @@ function povoaSelectDaCategoriaDoCadastrarVideo(){ // chamado quando a aplica√ß√
                             //console.log(_option);
                             _option.textContent = categoria.abrev_categoria;
                             _selectCategoriaCatastroDeVideo.appendChild(_option);
-                            _arrPovoSelect[categoria.id_categoria] = categoria.abrev_categoria;
+                            _arrPovoaSelect[categoria.id_categoria] = categoria.abrev_categoria;
                         }
-                        _arrPovoSelect = [];
-                        //console.log(_arrPovoSelect);
+                        _arrPovoaSelect = [];
+                        //console.log(_arrPovoaSelect);
                     });
                 }                
 
