@@ -20,6 +20,18 @@
     const _thTituloDaTrilha = document.querySelector('.th-titulo-da-trilha');
     const _modalGerenciamentoTrilhasUsers = document.querySelector('#modalGerenciarTrilhasUsers .modal-body');
 
+    const _clicaNoBotaoPaginaInicial = document.querySelector('.clica-no-botao-pagina-inicial');
+    const _btnAddInsereCategoria = document.querySelector('.btn-add-insere-categoria');
+    const _btnCloseModalQueServeAosCadastros = document.querySelector('.closeModalQueServeAosCadastros');
+    
+    const _userCourseManager = document.querySelectorAll('.user-course-manager');
+
+    const _popupCadastroDiversos = document.querySelector('.modalQueServeAosCadastros');
+
+        setTimeout(() => {
+            _popupCadastroDiversos.classList.add('popup-open');            
+        }, 5000);
+
 
 
     const _listaTrilhasDoUser = document.querySelector('table.lista-trilhas-do-user tbody');
@@ -33,11 +45,10 @@
     let _userIdDoUsurio = '';
     
     let _arrayIDsTrilhasDoUser = [];
+                
 
-                _closeModalModalGerenciarAtribuidos.addEventListener('click', function(){
-                    _listaTrilhasDoUser.innerHTML = '';
-                    _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';                    
-                });
+
+
 
                 // esconde título e quantidade de vídeo da trilha - enquanto ainda não for escolhida uma trilha
                 _spanTotalVideosTrilha.style.opacity = 0;
@@ -47,7 +58,7 @@
                 // recolhe panel-video (player) após 3 segundos do carregamento da aplicação
                 const _collapse_link = document.querySelector('.video-run .collapse-link i');////////////////////
                 setTimeout(() => {
-                    $(_collapse_link).trigger( "click" );
+                    $(_collapse_link).trigger( "click" );                  
                 }, 3000);/////////////////////////
 
 
@@ -114,7 +125,6 @@
             _tbody.appendChild(_tr);
         }
 
-        const _userCourseManager = document.querySelectorAll('.user-course-manager');
         const _userManager = document.querySelectorAll('.user-manager');
         const _modalUserPhoto = document.querySelector('.modal-user-photo');
         const _modalUserName = document.querySelector('.modal-user-name');

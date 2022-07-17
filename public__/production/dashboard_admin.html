@@ -150,7 +150,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12 d-flex justify-content-around align-items-center titulo mt-2">
-            <h1>Dashboard Admin</h1>
+            <h1>Dashboard Admin</h1><span class="btn-secondary btn-add-insere-categoria" data-toggle="modal" data-target="#modalQueServeAosCadastros">Add</span>
             <div class="icon-user-titulo d-flex justify-content-center align-items-center">
               <div>
                <i class="fa fa-arrow-down"></i>&nbsp;<small>Operações com usuários</small>
@@ -231,7 +231,7 @@
                             </div>
                           </div>  
                         <div class="col-md-4">
-                          <div class="x_panel cadastrar"><!-- // painel cadastrar trilhas  -->
+                          <div class="x_panel cadastrar" style="position: relative;"><!-- // painel cadastrar trilhas  -->
                             <div class="x_title">
                               <h2><i class="fa-solid fa-folder-plus"></i> Trilha de estudos <small>Cadastrar</small></h2>
                               <ul class="nav navbar-right panel_toolbox">
@@ -330,6 +330,40 @@
                               </ul>
                               <div class="clearfix"></div>
                             </div>
+                            
+                            <!--<div class="popup">
+                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores sed natus velit omnis maiores numquam accusamus voluptatem sint? Vel aspernatur vero quis rem quidem repudiandae officiis architecto veritatis amet deserunt!</p>
+                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores sed natus velit omnis maiores numquam accusamus voluptatem sint? Vel aspernatur vero quis rem quidem repudiandae officiis architecto veritatis amet deserunt!</p>
+                            </div>-->
+
+                            <div class="modalQueServeAosCadastros">
+                                <button class="close">&times;</button>
+                                <h2>Cadastro da categoria</h2>
+                                <!--<p>
+                                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Expedita distinctio fugiat alias iure qui, commodi minima magni ullam aliquam dignissimos?
+                                </p>-->
+
+                              <form class="popup-que-serve-os-cadastros form-horizontal form-label-left">
+                                <div class="form-group row ">
+                                  <label class="control-label col-md-3 col-sm-3 ">Nome</label>
+                                  <div class="col-md-9 col-sm-9 ">
+                                    <input type="text" class="form-control" id="categoria_cadastro_nome" required="" name="categoria_cadastro_nome" placeholder="">
+                                  </div>
+                                </div>  
+                                <div class="form-group row ">
+                                  <label class="control-label col-md-3 col-sm-3 ">Nome curto</label>
+                                  <div class="col-md-9 col-sm-9 ">
+                                    <input type="text" class="form-control" id="categoria_cadastro_nome_curto" required="" name="categoria_cadastro_nome_curto" placeholder="">
+                                  </div>
+                                </div>                         
+                                <div class="ln_solid"></div>
+                                <div class="form-group">
+                                  <div class="col-md-9 col-sm-9  offset-md-3">
+                                  <button type="submit" class="btn btn-secondary submit">Salvar vídeo</button>
+                                  </div>
+                                </div>                  
+                              </form>    
+                            </div>                            
                             <div class="x_content">
 
 
@@ -394,7 +428,7 @@
                               
                               <form id="cadastro_video" class="form-cadastro-de-trilha form-horizontal form-label-left">
                                 <div class="form-group row">
-                                  <label class="control-label col-md-3 col-sm-3 label-categoria">Categoria <span class="btn-secondary btn-add-insere-categoria">Add</span></label>
+                                  <label class="control-label col-md-3 col-sm-3 label-categoria">Categoria <span class="btn-secondary clica-no-botao-pagina-inicial">Add</span></label>
                                   <div class="col-md-9 col-sm-9 ">
                                     <select class="form-control" id="categoria" required="" name="categoria">
                                       <option value=""> ...</option>
@@ -628,9 +662,9 @@
                         <div class="x_content">      
                             <div class="col-md-12">     
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalQueServeAosCadastros">
   Launch demo modal
-</button>                                                       
+</button>-->                                                       
                                 <table class="table jambo_table table-responsive-sm table-responsive-md lista-trilhas-do-user">
                                   <thead>
                                     <tr>
@@ -725,26 +759,22 @@
     
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

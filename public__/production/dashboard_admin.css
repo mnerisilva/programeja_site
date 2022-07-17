@@ -194,6 +194,7 @@ table tr td {
     position: fixed;
     top: 0;
     right: 4em;
+    left: 4em;
     z-index: 999999;
     background-color: white !important;
     /*opacity: 0;*/
@@ -412,4 +413,77 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
 .btn-add-insere-tipo:hover {
     cursor: pointer;
     transform: scale(1.02);
+}
+
+
+#modalQueServeAosCadastros {
+    margin-top: 3em !important;
+    padding-top: 5em !important;
+    z-index: 9999999999;
+}
+
+
+
+
+.x_panel.cadastrar {
+    overflow: hidden !important;
+}
+
+/*.popup {
+    transition: margin-top .3s ease;
+    position: absolute;
+    overflow: hidden;
+    background-color: #fff;
+    z-index: 999;
+    border: solid thin #dedede;
+    padding: 2em;
+    height: 75%;
+    width: 95%;
+    margin-top: -300px;
+    box-shadow: 1px 0px 2px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 0px 2px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 0px 2px 0px rgba(0,0,0,0.75);
+}
+
+.popup-open {
+    margin-top: 0px;
+}*/
+
+
+.modalQueServeAosCadastros {
+    transition: margin-top .3s ease;
+    background-color: #ffffff;
+    margin-top: -350px;
+    width: 95%;
+    padding: 30px 40px;
+    position: absolute;
+    transform: translate(-50%,-50%);
+    left: 50%;
+    top: 50%;
+    border: solid thin #dedede;
+    text-align: center;
+    z-index: 999;
+    -webkit-box-shadow: 0px 0px 6px 3px rgb(120 120 120 / 65%);
+    box-shadow: 0px 0px 6px 3px rgb(120 120 120 / 65%);
+}
+.modalQueServeAosCadastros button.close {
+    display: block;
+    margin:  0 0 20px auto;
+    background-color: transparent;
+    font-size: 30px;
+    color: #c5c5c5;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+.modalQueServeAosCadastros p {
+    font-size: 14px;
+    text-align: justify;
+    margin: 20px 0;
+    line-height: 25px;
+}
+
+
+.popup-open {
+    margin-top: 0;;
 }
