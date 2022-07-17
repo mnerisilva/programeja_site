@@ -5,15 +5,20 @@
 }
 
 body {
-    overflow: scroll;
+    /*overflow: scroll;*/
 }
 
 
 .modal {
-    overflow:scroll;
+    /*overflow:scroll;*/
 }
 
-body, .modal, .modal-body, .modal-content {
+body, #modalGerenciarAtribuidos, #modalGerenciarAtribuidos .modal-body, #modalGerenciarAtribuidos .modal-content {
+    background-color: #F7F7F7;
+}
+
+
+body, #modalGerenciarTrilhasUsers, #modalGerenciarTrilhasUsers .modal-body, #modalGerenciarTrilhasUsers .modal-content {
     background-color: #F7F7F7;
 }
 
@@ -85,7 +90,7 @@ table tr td {
 }
 
 .modal {
-    overflow: scroll;
+    /*overflow: scroll;*/
 }
 
 .modal-title {
@@ -162,7 +167,7 @@ table tr td {
 
 
 @media (min-width: 1200px) {
-    .modal-xl {
+    #modalGerenciarTrilhasUsers .modal-xl, #modalGerenciarAtribuidos .modal-xl {
         max-width: 100vw !important;
     }
 }
