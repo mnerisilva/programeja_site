@@ -26,10 +26,11 @@
     
     const _userCourseManager = document.querySelectorAll('.user-course-manager');
 
-    const _popupCadastroDiversos = document.querySelector('.modalQueServeAosCadastros');
+    //const _modalQueServeAosCadastros = document.querySelector('.modal-que-serve-aos-cadastros');
+    const _formModalQueServeAosCadastros = document.querySelector('.form-modal-que-serve-aos-cadastros');
 
         setTimeout(() => {
-            _popupCadastroDiversos.classList.add('popup-open');            
+            _formModalQueServeAosCadastros.classList.add('popup-open');            
         }, 5000);
 
 
