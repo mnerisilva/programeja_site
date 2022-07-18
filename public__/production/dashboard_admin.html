@@ -227,7 +227,7 @@
                                       <select class="form-select form-control" id="trilha_escolhida" required="" name="trilha_escolhida">                            
                                       </select>                       
                                       <div class="ln_solid"></div>
-                                      <button type="submit" class="btn btn-secondary btn-carrega-trilha">Carregar trilha</button>
+                                      <button type="submit" class="btn btn-secondary btn-salvar btn-carrega-trilha">Carregar trilha</button>
                                     </form>
                               </div>
                             </div>
@@ -255,7 +255,7 @@
                             <div class="x_content">
                               <form class="form-cadastro-de-trilha form-horizontal form-label-left">
                                 <div class="form-group row"> <!-- -->
-                                  <label class="control-label col-md-3 col-sm-3 label-categoria">Categoria <span class="btn-secondary btn-add-insere-categoria">Add</span></label>
+                                  <label class="control-label col-md-3 col-sm-3 label-categoria">Categoria <span class="btn-secondary button-4 btn-add-insere-categoria">Add</span></label>
                                   <div class="col-md-9 col-sm-9 ">
                                     <select class="form-control" id="id_categoria" required="" name="id_categoria">
                                       <option value=""> ...</option>
@@ -269,7 +269,7 @@
                                   </div>
                                 </div>                        
                                 <div class="form-group row"><!-- -->
-                                  <label class="control-label col-md-3 col-sm-3 label-tipo">Tipo <span class="btn-secondary btn-add-insere-tipo">Add</span></label>
+                                  <label class="control-label col-md-3 col-sm-3 label-tipo">Tipo <span class="btn-secondary button-4 btn-add-insere-tipo">Add</span></label>
                                   <div class="col-md-9 col-sm-9 ">
                                     <select class="form-control" id="trilha_type" required="" name="trilha_type">
                                       <option value=""> ...</option>
@@ -300,10 +300,13 @@
                                 <div class="ln_solid"></div><!-- -->
                                 <div class="form-group">    <!-- -->
                                   <!--<div class="col-md-9 col-sm-9  offset-md-3">-->
-                                  <div class="col-md-3 col-sm-3">
-                                    <button type="submit" class="btn btn-secondary submit-cadastro-de-trilha">Salvar trilha</button>
+                                  <div class="col-md-2 col-sm-2">
+                                    <button type="button" class="btn btn-secondary button-4">Cancelar</button>
                                   </div>
-                                  <div class="col-md-9 col-sm-9">
+                                  <div class="col-md-3 col-sm-3">
+                                    <button type="submit" class="btn btn-secondary btn-salvar submit-cadastro-de-trilha">Salvar trilha</button>
+                                  </div>
+                                  <div class="col-md-7 col-sm-7">
                                     <div class="trilha-save-message text-success"></div>
                                   </div>
                                 </div>                  
@@ -374,8 +377,8 @@
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
                                   <div class="col-md-9 col-sm-9">
-                                    <button type="button" class="btn btn-light cancela-modal-que-serve-aos-cadastros">Cancela</button>
-                                    <button type="submit" class="btn btn-secondary submit">Salvar categoria</button>
+                                    <button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-aos-cadastros">Cancela</button>
+                                    <button type="submit" class="btn btn-secondary btn-salvar submit">Salvar categoria</button>
                                   </div>
                                   <div class="col-md-2 col-sm-2">
                                     <div class="categoria-save-message text-success"></div>
@@ -446,7 +449,7 @@
                               
                               <form id="cadastro_video" class="form-cadastro-de-trilha form-horizontal form-label-left">
                                 <div class="form-group row">
-                                  <label class="control-label col-md-3 col-sm-3 label-categoria">Categoria <span class="btn-secondary btn-cadastro-de-categoria-janela-cadastro-de-video">Add</span></label>
+                                  <label class="control-label col-md-3 col-sm-3 label-categoria">Categoria <span class="btn-secondary button-4 btn-cadastro-de-categoria-janela-cadastro-de-video">Add</span></label>
                                   <div class="col-md-9 col-sm-9 ">
                                     <select class="form-control" id="categoria" required="" name="categoria">
                                       <option value=""> ...</option>
@@ -478,8 +481,14 @@
                                 </div>                         
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
-                                  <div class="col-md-9 col-sm-9  offset-md-3">
-                                  <button type="submit" class="btn btn-secondary submit">Salvar vídeo</button>
+                                  <div class="col-md-2 col-sm-4">
+                                    <button type="button" class="btn btn-secondary button-4">Cancelar</button>
+                                  </div>
+                                  <div class="col-md-5 col-sm-4">
+                                    <button type="submit" class="btn btn-secondary btn-salvar submit">Salvar vídeo</button>
+                                  </div>
+                                  <div class="col-md-7 col-sm-7">
+                                    
                                   </div>
                                 </div>                  
                               </form>
