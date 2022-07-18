@@ -23,15 +23,15 @@
     const _clicaNoBotaoPaginaInicial = document.querySelector('.clica-no-botao-pagina-inicial');
     const _btnAddInsereCategoria = document.querySelector('.btn-add-insere-categoria');
     const _btnCloseModalQueServeAosCadastros = document.querySelector('.closeModalQueServeAosCadastros');
+    const _btnCadastroDeCategoriaJanelaCadastroDeVideo = document.querySelector('.btn-cadastro-de-categoria-janela-cadastro-de-video');
     
     const _userCourseManager = document.querySelectorAll('.user-course-manager');
+
+    const _mask = document.querySelector('.mask');
 
     //const _modalQueServeAosCadastros = document.querySelector('.modal-que-serve-aos-cadastros');
     const _formModalQueServeAosCadastros = document.querySelector('.form-modal-que-serve-aos-cadastros');
 
-        setTimeout(() => {
-            _formModalQueServeAosCadastros.classList.add('popup-open');            
-        }, 5000);
 
 
 
@@ -47,7 +47,10 @@
     
     let _arrayIDsTrilhasDoUser = [];
                 
-
+                // abre modal que serve aos cadastros 
+                _btnCadastroDeCategoriaJanelaCadastroDeVideo.addEventListener('click', function(){
+                    abreModalQueServeAosCadastros();                    
+                }); 
 
 
 
@@ -1351,3 +1354,20 @@ function DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser){
         item.setAttribute('disabled','');
     });
 }  
+
+
+
+function abreModalQueServeAosCadastros() {
+
+        setTimeout(() => {
+            _formModalQueServeAosCadastros.classList.add('popup-open');            
+        }, 500);
+
+        setTimeout(() => {
+            _mask.classList.add('mask-view-height');            
+        }, 550);
+        
+        setTimeout(() => {
+            _mask.classList.add('mask-view-opacity');            
+        }, 650);    
+}
