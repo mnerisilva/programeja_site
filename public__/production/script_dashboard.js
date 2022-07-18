@@ -22,8 +22,10 @@
 
     const _clicaNoBotaoPaginaInicial = document.querySelector('.clica-no-botao-pagina-inicial');
     const _btnAddInsereCategoria = document.querySelector('.btn-add-insere-categoria');
-    const _btnCloseModalQueServeAosCadastros = document.querySelector('.closeModalQueServeAosCadastros');
+    //const _btnCloseModalQueServeAosCadastros = document.querySelector('.closeModalQueServeAosCadastros');
     const _btnCadastroDeCategoriaJanelaCadastroDeVideo = document.querySelector('.btn-cadastro-de-categoria-janela-cadastro-de-video');
+    const _btnCloseModalQueServeAosCadastros = document.querySelector('.close-modal-que-serve-aos-cadastros');
+    const _btnCancelaModalQueServeAosCadastros = document.querySelector('.cancela-modal-que-serve-aos-cadastros');
     
     const _userCourseManager = document.querySelectorAll('.user-course-manager');
 
@@ -51,6 +53,14 @@
                 _btnCadastroDeCategoriaJanelaCadastroDeVideo.addEventListener('click', function(){
                     abreModalQueServeAosCadastros();                    
                 }); 
+                // fecha modal que serve aos cadastros
+                _btnCloseModalQueServeAosCadastros.addEventListener('click', function(){
+                    fechaModalQueServeAosCadastros()
+                });
+                // fecha modal que serve aos cadastros
+                _btnCancelaModalQueServeAosCadastros.addEventListener('click', function(){
+                    fechaModalQueServeAosCadastros()
+                });
 
 
 
@@ -1361,13 +1371,29 @@ function abreModalQueServeAosCadastros() {
 
         setTimeout(() => {
             _formModalQueServeAosCadastros.classList.add('popup-open');            
-        }, 500);
+        }, 300);
 
         setTimeout(() => {
             _mask.classList.add('mask-view-height');            
-        }, 550);
+        }, 350);
         
         setTimeout(() => {
             _mask.classList.add('mask-view-opacity');            
-        }, 650);    
+        }, 400);    
+}
+
+function fechaModalQueServeAosCadastros() {
+
+        setTimeout(() => {
+            _formModalQueServeAosCadastros.classList.remove('popup-open');            
+        }, 300); 
+
+        setTimeout(() => {
+            _mask.classList.remove('mask-view-opacity');            
+        }, 500); 
+
+        setTimeout(() => {
+            _mask.classList.remove('mask-view-height');            
+        }, 550);
+           
 }
