@@ -1418,8 +1418,8 @@ function fechaModalQueServeAosCadastros() {
 }
 
 function cancelar_LimpaCamposCadastroDeTrilhas(){
-    _idCategoriaTrilha.value = ' ...';
-    _trilhaType.value = ' ...';
+    _idCategoriaTrilha.value = '';
+    _trilhaType.value = '';
     _trilhaName.value = '';
     _trilhaDescricao.value = '';
     _trilhaNomeAmigavel.value = '';
@@ -1427,7 +1427,7 @@ function cancelar_LimpaCamposCadastroDeTrilhas(){
 }
 
 function cancelar_LimpaCamposCadastroDeVideos(){
-    _categoriaVideo.value = ' ...';
+    _categoriaVideo.value = '';
     _nomeVideo.value = '';
     _codigoYt.value = '';
 }
