@@ -20,12 +20,23 @@
     const _thTituloDaTrilha = document.querySelector('.th-titulo-da-trilha');
     const _modalGerenciamentoTrilhasUsers = document.querySelector('#modalGerenciarTrilhasUsers .modal-body');
 
+    const _idCategoriaTrilha = document.querySelector('#id_categoria');
+    const _trilhaType = document.querySelector('#trilha_type');
+    const _trilhaName = document.querySelector('#trilha_name');
+    const _trilhaDescricao = document.querySelector('#trilha_descricao');
+    const _trilhaNomeAmigavel = document.querySelector('#trilha_nomeamigavel');
+    const _categoriaVideo = document.querySelector('#categoria')
+    const _nomeVideo = document.querySelector('#nomevideo');
+    const _codigoYt = document.querySelector('#codigoyt');
+
     const _clicaNoBotaoPaginaInicial = document.querySelector('.clica-no-botao-pagina-inicial');
     const _btnAddInsereCategoria = document.querySelector('.btn-add-insere-categoria');
     //const _btnCloseModalQueServeAosCadastros = document.querySelector('.closeModalQueServeAosCadastros');
     const _btnCadastroDeCategoriaJanelaCadastroDeVideo = document.querySelector('.btn-cadastro-de-categoria-janela-cadastro-de-video');
     const _btnCloseModalQueServeAosCadastros = document.querySelector('.close-modal-que-serve-aos-cadastros');
     const _btnCancelaModalQueServeAosCadastros = document.querySelector('.cancela-modal-que-serve-aos-cadastros');
+    const _btnCancelarDoSalvarTrilha = document.querySelector('.btn-cancelar-do-salvar-trilha');
+    const _btnCancelarDoSalvarVideo = document.querySelector('.btn-cancelar-do-salvar-video');
     
     const _userCourseManager = document.querySelectorAll('.user-course-manager');
 
@@ -48,6 +59,14 @@
     let _userIdDoUsurio = '';
     
     let _arrayIDsTrilhasDoUser = [];
+
+                // clique no botão "cancelar" do cadastro de trilha e do cadastro de trilha
+                _btnCancelarDoSalvarTrilha.addEventListener('click', function(){  
+                    cancelar_LimpaCamposCadastroDeTrilhas();                 
+                });
+                _btnCancelarDoSalvarVideo.addEventListener('click', function(){   
+                    cancelar_LimpaCamposCadastroDeVideos();                 
+                })
                 
                 // abre modal que serve aos cadastros 
                 _btnCadastroDeCategoriaJanelaCadastroDeVideo.addEventListener('click', function(){
@@ -1396,4 +1415,19 @@ function fechaModalQueServeAosCadastros() {
             _mask.classList.remove('mask-view-height');            
         }, 550);
            
+}
+
+function cancelar_LimpaCamposCadastroDeTrilhas(){
+    _idCategoriaTrilha.value = ' ...';
+    _trilhaType.value = ' ...';
+    _trilhaName.value = '';
+    _trilhaDescricao.value = '';
+    _trilhaNomeAmigavel.value = '';
+
+}
+
+function cancelar_LimpaCamposCadastroDeVideos(){
+    _categoriaVideo.value = ' ...';
+    _nomeVideo.value = '';
+    _codigoYt.value = '';
 }
