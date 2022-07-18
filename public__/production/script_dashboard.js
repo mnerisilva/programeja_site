@@ -32,6 +32,7 @@
     const _clicaNoBotaoPaginaInicial = document.querySelector('.clica-no-botao-pagina-inicial');
     const _btnAddInsereCategoria = document.querySelector('.btn-add-insere-categoria');
     //const _btnCloseModalQueServeAosCadastros = document.querySelector('.closeModalQueServeAosCadastros');
+    const _btnCadastroDeCategoriaJanelaCadastroDeTrilhas = document.querySelector('.btn-cadastro-de-categoria-janela-cadastro-de-trilhas');
     const _btnCadastroDeCategoriaJanelaCadastroDeVideo = document.querySelector('.btn-cadastro-de-categoria-janela-cadastro-de-video');
     const _btnCloseModalQueServeAosCadastros = document.querySelector('.close-modal-que-serve-aos-cadastros');
     const _btnCancelaModalQueServeAosCadastros = document.querySelector('.cancela-modal-que-serve-aos-cadastros');
@@ -69,6 +70,9 @@
                 })
                 
                 // abre modal que serve aos cadastros 
+                _btnCadastroDeCategoriaJanelaCadastroDeTrilhas.addEventListener('click', function(){
+                    abreModalQueServeAosCadastros();                    
+                });  
                 _btnCadastroDeCategoriaJanelaCadastroDeVideo.addEventListener('click', function(){
                     abreModalQueServeAosCadastros();                    
                 }); 

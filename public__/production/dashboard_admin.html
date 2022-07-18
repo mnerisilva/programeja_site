@@ -33,6 +33,44 @@
     <link rel="stylesheet" href="dashboard_admin.css" />
   </head>
   <body>
+    <div class="mask"></div>
+
+
+
+
+    <form class="form-modal-que-serve-aos-cadastros form-horizontal form-label-left">
+      <div class="x_title">
+        <h2><i class="fas fa-outdent"></i> Categoria <small>Cadastrar</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="close-modal-que-serve-aos-cadastros"><i class="fa fa-close"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Nome</label>
+        <div class="col-md-9 col-sm-9 ">
+          <input type="text" class="form-control" id="categoria_cadastro_nome" required="" name="categoria_cadastro_nome" placeholder="">
+        </div>
+      </div>  
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Nome curto</label>
+        <div class="col-md-9 col-sm-9 ">
+          <input type="text" class="form-control" id="categoria_cadastro_nome_curto" required="" name="categoria_cadastro_nome_curto" placeholder="">
+        </div>
+      </div>                         
+      <div class="ln_solid"></div>
+      <div class="form-group">
+        <div class="col-md-9 col-sm-9">
+          <button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-aos-cadastros">Cancela</button>
+          <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-categoria submit">Salvar categoria</button>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <div class="categoria-save-message text-success"></div>
+        </div>
+      </div>                  
+    </form>  
+    
     <div class="container">
     <!--<div class="mask"></div>-->
 
@@ -149,6 +187,32 @@
 
 
       <div class="container">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <div class="row">
           <div class="col-md-12 d-flex justify-content-around align-items-center titulo mt-2">
             <h1>Dashboard Admin</h1><span class="btn-secondary btn-add-insere-categoria" data-toggle="modal" data-target="#modalQueServeAosCadastros">Add</span>
@@ -197,7 +261,19 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-                  <div class="mask"></div>
+
+
+
+ 
+
+
+
+
+
+
+
+
+
                   <div class="row">
                     <div class="col-md-12">
                       <div class="row g-3 mt-1">
@@ -255,7 +331,7 @@
                             <div class="x_content">
                               <form class="form-cadastro-de-trilha form-horizontal form-label-left">
                                 <div class="form-group row"> <!-- -->
-                                  <label class="control-label col-md-3 col-sm-3 label-categoria">Categoria <span class="btn-secondary button-4 btn-add-insere-categoria">Add</span></label>
+                                  <label class="control-label col-md-3 col-sm-3 label-categoria">Categoria <span class="btn-secondary button-4 btn-cadastro-de-categoria-janela-cadastro-de-trilhas">Add</span></label>
                                   <div class="col-md-9 col-sm-9 ">
                                     <select class="form-control" id="id_categoria" required="" name="id_categoria">
                                       <option value=""> ...</option>
@@ -348,43 +424,7 @@
 
 
 
-                            
-                              <form class="form-modal-que-serve-aos-cadastros form-horizontal form-label-left">
-
-
-                                <div class="x_title">
-                                  <h2><i class="fa-solid fa-file-video"></i> Categoria <small>Cadastrar</small></h2>
-                                  <ul class="nav navbar-right panel_toolbox">
-                                    <li><a class="close-modal-que-serve-aos-cadastros"><i class="fa fa-close"></i></a>
-                                    </li>
-                                  </ul>
-                                  <div class="clearfix"></div>
-                                </div>
-
-
-                                <div class="form-group row ">
-                                  <label class="control-label col-md-3 col-sm-3 ">Nome</label>
-                                  <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" class="form-control" id="categoria_cadastro_nome" required="" name="categoria_cadastro_nome" placeholder="">
-                                  </div>
-                                </div>  
-                                <div class="form-group row ">
-                                  <label class="control-label col-md-3 col-sm-3 ">Nome curto</label>
-                                  <div class="col-md-9 col-sm-9 ">
-                                    <input type="text" class="form-control" id="categoria_cadastro_nome_curto" required="" name="categoria_cadastro_nome_curto" placeholder="">
-                                  </div>
-                                </div>                         
-                                <div class="ln_solid"></div>
-                                <div class="form-group">
-                                  <div class="col-md-9 col-sm-9">
-                                    <button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-aos-cadastros">Cancela</button>
-                                    <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-categoria submit">Salvar categoria</button>
-                                  </div>
-                                  <div class="col-md-2 col-sm-2">
-                                    <div class="categoria-save-message text-success"></div>
-                                  </div>
-                                </div>                  
-                              </form>                         
+                                                  
                             <div class="x_content">
 
 
@@ -805,6 +845,7 @@
 
 
 
+
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
     <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
 
@@ -855,6 +896,7 @@
     <script src="script_cadastro_de_trilha.js"></script>
     <script src="script_cadastro_de_videos.js"></script>
     <script src="script_precessa_tela_trilha_usuario.js"></script>
+
   </body>
 </html>
 
