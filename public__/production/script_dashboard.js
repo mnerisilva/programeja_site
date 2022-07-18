@@ -33,9 +33,12 @@
     const _btnAddInsereCategoria = document.querySelector('.btn-add-insere-categoria');
     //const _btnCloseModalQueServeAosCadastros = document.querySelector('.closeModalQueServeAosCadastros');
     const _btnCadastroDeCategoriaJanelaCadastroDeTrilhas = document.querySelector('.btn-cadastro-de-categoria-janela-cadastro-de-trilhas');
+    const _btnCadastroDeTipoJanelaCadastroDeTrilhas = document.querySelector('.btn-cadastro-de-tipo-janela-cadastro-de-trilhas');
     const _btnCadastroDeCategoriaJanelaCadastroDeVideo = document.querySelector('.btn-cadastro-de-categoria-janela-cadastro-de-video');
     const _btnCloseModalQueServeAosCadastros = document.querySelector('.close-modal-que-serve-aos-cadastros');
+    const _btnCloseModalQueServeAosCadastrosTipo = document.querySelector('.close-modal-que-serve-aos-cadastros-tipo');
     const _btnCancelaModalQueServeAosCadastros = document.querySelector('.cancela-modal-que-serve-aos-cadastros');
+    const _btnCancelaModalQueServeAosCadastrosTipo = document.querySelector('.cancela-modal-que-serve-aos-cadastros-tipo');
     const _btnCancelarDoSalvarTrilha = document.querySelector('.btn-cancelar-do-salvar-trilha');
     const _btnCancelarDoSalvarVideo = document.querySelector('.btn-cancelar-do-salvar-video');
     
@@ -43,8 +46,9 @@
 
     const _mask = document.querySelector('.mask');
 
-    //const _modalQueServeAosCadastros = document.querySelector('.modal-que-serve-aos-cadastros');
+
     const _formModalQueServeAosCadastros = document.querySelector('.form-modal-que-serve-aos-cadastros');
+    const _formModalQueServeAosCadastrosTipo = document.querySelector('.form-modal-que-serve-aos-cadastros-tipo');
 
 
 
@@ -61,7 +65,7 @@
     
     let _arrayIDsTrilhasDoUser = [];
 
-                // clique no botão "cancelar" do cadastro de trilha e do cadastro de trilha
+                // clique no botão "cancelar" do cadastro de trilha e do cadastro de videos
                 _btnCancelarDoSalvarTrilha.addEventListener('click', function(){  
                     cancelar_LimpaCamposCadastroDeTrilhas();                 
                 });
@@ -72,17 +76,29 @@
                 // abre modal que serve aos cadastros 
                 _btnCadastroDeCategoriaJanelaCadastroDeTrilhas.addEventListener('click', function(){
                     abreModalQueServeAosCadastros();                    
-                });  
+                });
+                _btnCadastroDeTipoJanelaCadastroDeTrilhas.addEventListener('click', function(){
+                    abreModalQueServeAosCadastrosTipo();                    
+                });    
                 _btnCadastroDeCategoriaJanelaCadastroDeVideo.addEventListener('click', function(){
                     abreModalQueServeAosCadastros();                    
                 }); 
-                // fecha modal que serve aos cadastros
+                // fecha modal que serve aos cadastros  _btnCloseModalQueServeAosCadastrosTipo
                 _btnCloseModalQueServeAosCadastros.addEventListener('click', function(){
                     fechaModalQueServeAosCadastros()
                 });
-                // fecha modal que serve aos cadastros
+                _btnCloseModalQueServeAosCadastrosTipo.addEventListener('click', function(){
+                    fechaModalQueServeAosCadastrosTipo()
+                });
+                // fecha modal que serve aos cadastros 
                 _btnCancelaModalQueServeAosCadastros.addEventListener('click', function(){
                     fechaModalQueServeAosCadastros()
+                });                
+                _btnCancelaModalQueServeAosCadastrosTipo.addEventListener('click', function(){
+                    fechaModalQueServeAosCadastros()
+                });
+                _btnCancelaModalQueServeAosCadastrosTipo.addEventListener('click', function(){
+                    fechaModalQueServeAosCadastrosTipo()
                 });
 
 
@@ -1419,6 +1435,53 @@ function fechaModalQueServeAosCadastros() {
             _mask.classList.remove('mask-view-height');            
         }, 550);
            
+}
+
+function fechaModalQueServeAosCadastrosTipo() {
+
+    setTimeout(() => {
+        _formModalQueServeAosCadastrosTipo.classList.remove('popup-open');            
+    }, 300); 
+
+    setTimeout(() => {
+        _mask.classList.remove('mask-view-opacity');            
+    }, 500); 
+
+    setTimeout(() => {
+        _mask.classList.remove('mask-view-height');            
+    }, 550);
+       
+}
+
+function abreModalQueServeAosCadastrosTipo() {
+
+    setTimeout(() => {
+        _formModalQueServeAosCadastrosTipo.classList.add('popup-open');            
+    }, 300);
+
+    setTimeout(() => {
+        _mask.classList.add('mask-view-height');            
+    }, 350);
+    
+    setTimeout(() => {
+        _mask.classList.add('mask-view-opacity');            
+    }, 400);    
+}
+
+function fechaModalQueServeAosCadastrosTipo() {
+
+    setTimeout(() => {
+        _formModalQueServeAosCadastrosTipo.classList.remove('popup-open');            
+    }, 300); 
+
+    setTimeout(() => {
+        _mask.classList.remove('mask-view-opacity');            
+    }, 500); 
+
+    setTimeout(() => {
+        _mask.classList.remove('mask-view-height');            
+    }, 550);
+       
 }
 
 function cancelar_LimpaCamposCadastroDeTrilhas(){
