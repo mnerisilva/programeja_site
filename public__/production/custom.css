@@ -1,15 +1,21 @@
-body {
+body, #modalGerenciarAtribuidos {
     overflow: hidden;
 }
 
 
 
+.modal#form_cadastro_de_user, .modal#form_cadastro_de_categoria {
+    background-color: rgb(2 2 2 / 65%);
+    z-index: 99999999;
+}
+
 @media (min-width: 1200px) {
-    #modalGerenciarAtribuidos .modal-xl {
+    #modalGerenciarAtribuidos .modal-xl, #modalGerenciarTrilhasUsers .modal-xl {
         max-width: 100vw;
         margin: 0;
     }
-    #modalGerenciarAtribuidos .modal-content {
+    #modalGerenciarAtribuidos .modal-content, #modalGerenciarTrilhasUsers .modal-content {
+        min-height: 100vh;
         border: none;
         border-radius: 0;
     }
@@ -93,7 +99,13 @@ footer {
     margin-right: 3em;
 }
 
-
+.btn-salvar {
+    font-size: 14px;
+    padding: 4px 12px !important;
+    line-height: 20px !important;
+    font-weight: 500 !important;
+    border-radius: 6px;  
+}
 
 .user-avatar {
     width: 29px;
