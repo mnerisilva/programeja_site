@@ -36,6 +36,38 @@
     <div class="mask"></div>
 
 
+    <form class="form-modal-que-serve-ao-cadastro-de-user form-horizontal form-label-left">
+      <div class="x_title">
+        <h2><i class="fa-solid fa-user-plus"></i> User <small>Cadastrar</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="close-modal-que-serve-ao-cadastro-de-user"><i class="fa fa-close"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Nome</label>
+        <div class="col-md-9 col-sm-9 ">
+          <input type="text" class="form-control" id="categoria_cadastro_nome" required="" name="categoria_cadastro_nome" placeholder="">
+        </div>
+      </div>  
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">E-mail</label>
+        <div class="col-md-9 col-sm-9 ">
+          <input type="email" class="form-control" id="categoria_cadastro_nome_curto" required="" name="categoria_cadastro_nome_curto" placeholder="">
+        </div>
+      </div>                         
+      <div class="ln_solid"></div>
+      <div class="form-group">
+        <div class="col-md-9 col-sm-9">
+          <button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-ao-cadastro-de-user">Cancela</button>
+          <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-categoria submit">Salvar categoria</button>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <div class="categoria-save-message text-success"></div>
+        </div>
+      </div>                  
+    </form>    
 
 
     <form class="form-modal-que-serve-aos-cadastros form-horizontal form-label-left">
@@ -99,15 +131,8 @@
     </form>
     
     <div class="container">
-    <!--<div class="mask"></div>-->
-
-
-
         <div class="top_nav">
           <div class="nav_menu">
-            <!--<div class="nav toggle">
-              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-            </div>-->
             <nav class="nav navbar-nav">
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" style="padding-left: 15px;">
@@ -124,125 +149,15 @@
                 <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 </div>
                 </li>
-                <!--<li role="presentation" class="nav-item dropdown open">
-                <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                <i class="fa fa-envelope-o"></i>
-                <span class="badge bg-green">6</span>
-                </a>
-                <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                <li class="nav-item">
-                <a class="dropdown-item">
-                <span class="image"><img src="images/img.jpg" alt="Profile Image"></span>
-                <span>
-                <span>John Smith</span>
-                <span class="time">3 mins ago</span>
-                </span>
-                <span class="message">
-                Film festivals used to be do-or-die moments for movie makers. They were where...
-                </span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="dropdown-item">
-                <span class="image"><img src="images/img.jpg" alt="Profile Image"></span>
-                <span>
-                <span>John Smith</span>
-                <span class="time">3 mins ago</span>
-                </span>
-                <span class="message">
-                Film festivals used to be do-or-die moments for movie makers. They were where...
-                </span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="dropdown-item">
-                <span class="image"><img src="images/img.jpg" alt="Profile Image"></span>
-                <span>
-                <span>John Smith</span>
-                <span class="time">3 mins ago</span>
-                </span>
-                <span class="message">
-                Film festivals used to be do-or-die moments for movie makers. They were where...
-                </span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <a class="dropdown-item">
-                <span class="image"><img src="images/img.jpg" alt="Profile Image"></span>
-                <span>
-                <span>John Smith</span>
-                <span class="time">3 mins ago</span>
-                </span>
-                <span class="message">
-                Film festivals used to be do-or-die moments for movie makers. They were where...
-                </span>
-                </a>
-                </li>
-                <li class="nav-item">
-                <div class="text-center">
-                <a class="dropdown-item">
-                <strong>See All Alerts</strong>
-                <i class="fa fa-angle-right"></i>
-                </a>
-                </div>
-                </li>
-                </ul>
-                </li>-->
               </ul>
             </nav>  
           </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       <div class="container">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         <div class="row">
           <div class="col-md-12 d-flex justify-content-around align-items-center titulo mt-2">
-            <h1>Dashboard Admin</h1><span class="btn-secondary btn-add-insere-categoria" data-toggle="modal" data-target="#modalQueServeAosCadastros">Add</span>
+            <h1>Dashboard Admin</h1>
             <div class="icon-user-titulo d-flex justify-content-center align-items-center">
               <div>
                <i class="fa fa-arrow-down"></i>&nbsp;<small>Operações com usuários</small>
@@ -288,19 +203,6 @@
             </div>
             <div class="modal-body">
                 <div class="container-fluid">
-
-
-
- 
-
-
-
-
-
-
-
-
-
                   <div class="row">
                     <div class="col-md-12">
                       <div class="row g-3 mt-1">
@@ -442,78 +344,8 @@
                             <!--<div class="popup">
                               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores sed natus velit omnis maiores numquam accusamus voluptatem sint? Vel aspernatur vero quis rem quidem repudiandae officiis architecto veritatis amet deserunt!</p>
                               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores sed natus velit omnis maiores numquam accusamus voluptatem sint? Vel aspernatur vero quis rem quidem repudiandae officiis architecto veritatis amet deserunt!</p>
-                            </div>-->
-
-
-
-
-
-
-
-
-                                                  
-                            <div class="x_content">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                              
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                              
+                            </div>-->                                                  
+                            <div class="x_content">                              
                               <form id="cadastro_video" class="form-cadastro-de-trilha form-horizontal form-label-left">
                                 <div class="form-group row">
                                   <label class="control-label col-md-3 col-sm-3 label-categoria">Categoria <span class="btn-secondary button-4 btn-cadastro-de-categoria-janela-cadastro-de-video">Add</span></label>
@@ -554,24 +386,10 @@
                                   <div class="col-md-5 col-sm-4">
                                     <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-video submit">Salvar vídeo</button>
                                   </div>
-                                  <div class="col-md-7 col-sm-7">
-                                    
+                                  <div class="col-md-7 col-sm-7">                                    
                                   </div>
                                 </div>                  
                               </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
                             </div>
                           </div>
                         </div>
@@ -717,21 +535,6 @@
             <div class="modal-body">
                 <div class="container container-user-modal-trilha">
                   <h3 class="userName d-flex justify-content-center"></h3>
-
-
-
-
-                  
-
-
-
-
-
-
-
-
-
-
                   <div class="row">
                     <div class="col-md-12 col-sm-12  ">
                       <div class="x_panel"><!-- // painel lista geral de vídeos  -->
@@ -754,11 +557,7 @@
                             <div class="clearfix"></div>
                         </div>
                         <div class="x_content">      
-                            <div class="col-md-12">     
-<!-- Button trigger modal -->
-<!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalQueServeAosCadastros">
-  Launch demo modal
-</button>-->                                                       
+                            <div class="col-md-12">    
                                 <table class="table jambo_table table-responsive-sm table-responsive-md lista-trilhas-do-user">
                                   <thead>
                                     <tr>
@@ -777,8 +576,6 @@
                       </div>        
                     </div>
                   </div>
-
-
                   <div class="row">
                     <div class="col-md-12 col-sm-12  ">
                       <div class="x_panel mt-3"><!-- // painel lista geral trilhas disponíveis  -->
@@ -819,29 +616,7 @@
                         </div>
                       </div>        
                     </div>
-                  </div>                  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                  </div> 
                 </div><!-- container-user-modal-trilha  -->
             </div>
           </div> 
@@ -873,10 +648,6 @@
 
 
 
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
-    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/js/bootstrap.min.js" integrity="sha512-EKWWs1ZcA2ZY9lbLISPz8aGR2+L7JVYqBAYTq5AXgBkSjRSuQEGqWx8R1zAX16KdXPaCjOCaKE8MCpU0wcHlHA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
-
-    
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->

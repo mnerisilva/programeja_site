@@ -35,20 +35,24 @@
     const _btnCadastroDeCategoriaJanelaCadastroDeTrilhas = document.querySelector('.btn-cadastro-de-categoria-janela-cadastro-de-trilhas');
     const _btnCadastroDeTipoJanelaCadastroDeTrilhas = document.querySelector('.btn-cadastro-de-tipo-janela-cadastro-de-trilhas');
     const _btnCadastroDeCategoriaJanelaCadastroDeVideo = document.querySelector('.btn-cadastro-de-categoria-janela-cadastro-de-video');
+    const _btnCloseModalQueServeAoCadastroDeUser = document.querySelector('.close-modal-que-serve-ao-cadastro-de-user');
     const _btnCloseModalQueServeAosCadastros = document.querySelector('.close-modal-que-serve-aos-cadastros');
     const _btnCloseModalQueServeAosCadastrosTipo = document.querySelector('.close-modal-que-serve-aos-cadastros-tipo');
+    const _btnCancelaModalQueServeAoCadastroDeUser = document.querySelector('.cancela-modal-que-serve-ao-cadastro-de-user');
     const _btnCancelaModalQueServeAosCadastros = document.querySelector('.cancela-modal-que-serve-aos-cadastros');
     const _btnCancelaModalQueServeAosCadastrosTipo = document.querySelector('.cancela-modal-que-serve-aos-cadastros-tipo');
     const _btnCancelarDoSalvarTrilha = document.querySelector('.btn-cancelar-do-salvar-trilha');
     const _btnCancelarDoSalvarVideo = document.querySelector('.btn-cancelar-do-salvar-video');
+    const _btnInsereUser = document.querySelector('.btn-insere-user');
     
-    const _userCourseManager = document.querySelectorAll('.user-course-manager');
+    const _userCourseManager = document.querySelectorAll('.btn-insere-user');
 
     const _mask = document.querySelector('.mask');
 
 
     const _formModalQueServeAosCadastros = document.querySelector('.form-modal-que-serve-aos-cadastros');
     const _formModalQueServeAosCadastrosTipo = document.querySelector('.form-modal-que-serve-aos-cadastros-tipo');
+    const _formModalQueServeAoCadastroDeUser = document.querySelector('.form-modal-que-serve-ao-cadastro-de-user');
 
 
 
@@ -74,6 +78,9 @@
                 })
                 
                 // abre modal que serve aos cadastros 
+                _btnInsereUser.addEventListener('click', function(){
+                    abreModalQueServeAoCadastroDeUser();                    
+                });
                 _btnCadastroDeCategoriaJanelaCadastroDeTrilhas.addEventListener('click', function(){
                     abreModalQueServeAosCadastros();                    
                 });
@@ -83,17 +90,23 @@
                 _btnCadastroDeCategoriaJanelaCadastroDeVideo.addEventListener('click', function(){
                     abreModalQueServeAosCadastros();                    
                 }); 
-                // fecha modal que serve aos cadastros  _btnCloseModalQueServeAosCadastrosTipo
+                // fecha modal que serve aos cadastros
+                _btnCloseModalQueServeAoCadastroDeUser.addEventListener('click', function(){
+                    fechaModalQueServeAoCadastroDeUser()
+                });
                 _btnCloseModalQueServeAosCadastros.addEventListener('click', function(){
                     fechaModalQueServeAosCadastros()
                 });
                 _btnCloseModalQueServeAosCadastrosTipo.addEventListener('click', function(){
                     fechaModalQueServeAosCadastrosTipo()
                 });
-                // fecha modal que serve aos cadastros 
+                // fecha modal que serve aos cadastros _btnCancelaModalQueServeAoCadastroDeUser
+                _btnCancelaModalQueServeAoCadastroDeUser.addEventListener('click', function(){
+                    fechaModalQueServeAoCadastroDeUser()
+                });
                 _btnCancelaModalQueServeAosCadastros.addEventListener('click', function(){
                     fechaModalQueServeAosCadastros()
-                });                
+                });                                
                 _btnCancelaModalQueServeAosCadastrosTipo.addEventListener('click', function(){
                     fechaModalQueServeAosCadastros()
                 });
@@ -1406,47 +1419,66 @@ function DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser){
 
 
 
-function abreModalQueServeAosCadastros() {
-
+function abreModalQueServeAoCadastroDeUser() {
         setTimeout(() => {
-            _formModalQueServeAosCadastros.classList.add('popup-open');            
+            _formModalQueServeAoCadastroDeUser.classList.add('popup-open');            
         }, 300);
-
         setTimeout(() => {
             _mask.classList.add('mask-view-height');            
-        }, 350);
-        
+        }, 350);        
         setTimeout(() => {
             _mask.classList.add('mask-view-opacity');            
         }, 400);    
 }
 
-function fechaModalQueServeAosCadastros() {
 
+
+function abreModalQueServeAosCadastros() {
         setTimeout(() => {
-            _formModalQueServeAosCadastros.classList.remove('popup-open');            
-        }, 300); 
+            _formModalQueServeAosCadastros.classList.add('popup-open');            
+        }, 300);
+        setTimeout(() => {
+            _mask.classList.add('mask-view-height');            
+        }, 350);        
+        setTimeout(() => {
+            _mask.classList.add('mask-view-opacity');            
+        }, 400);    
+}
 
+function fechaModalQueServeAoCadastroDeUser() {
+        setTimeout(() => {
+            _formModalQueServeAoCadastroDeUser.classList.remove('popup-open');            
+        }, 300); 
         setTimeout(() => {
             _mask.classList.remove('mask-view-opacity');            
         }, 500); 
-
         setTimeout(() => {
             _mask.classList.remove('mask-view-height');            
         }, 550);
            
 }
 
-function fechaModalQueServeAosCadastrosTipo() {
 
+function fechaModalQueServeAosCadastros() {
     setTimeout(() => {
-        _formModalQueServeAosCadastrosTipo.classList.remove('popup-open');            
+        _formModalQueServeAosCadastros.classList.remove('popup-open');            
     }, 300); 
-
     setTimeout(() => {
         _mask.classList.remove('mask-view-opacity');            
     }, 500); 
+    setTimeout(() => {
+        _mask.classList.remove('mask-view-height');            
+    }, 550);
+       
+}
 
+function fechaModalQueServeAosCadastrosTipo() {
+    setTimeout(() => {
+        _formModalQueServeAosCadastrosTipo.classList.remove('popup-open');            
+    }, 300); 
+    setTimeout(() => {
+        _mask.classList.remove('mask-view-opacity');            
+    }, 500); 
     setTimeout(() => {
         _mask.classList.remove('mask-view-height');            
     }, 550);
@@ -1454,30 +1486,24 @@ function fechaModalQueServeAosCadastrosTipo() {
 }
 
 function abreModalQueServeAosCadastrosTipo() {
-
     setTimeout(() => {
         _formModalQueServeAosCadastrosTipo.classList.add('popup-open');            
     }, 300);
-
     setTimeout(() => {
         _mask.classList.add('mask-view-height');            
-    }, 350);
-    
+    }, 350);    
     setTimeout(() => {
         _mask.classList.add('mask-view-opacity');            
     }, 400);    
 }
 
 function fechaModalQueServeAosCadastrosTipo() {
-
     setTimeout(() => {
         _formModalQueServeAosCadastrosTipo.classList.remove('popup-open');            
     }, 300); 
-
     setTimeout(() => {
         _mask.classList.remove('mask-view-opacity');            
     }, 500); 
-
     setTimeout(() => {
         _mask.classList.remove('mask-view-height');            
     }, 550);

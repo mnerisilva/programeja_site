@@ -450,7 +450,7 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
 }*/
 
 
-.form-modal-que-serve-aos-cadastros, .form-modal-que-serve-aos-cadastros-tipo {
+.form-modal-que-serve-ao-cadastro-de-user, .form-modal-que-serve-aos-cadastros, .form-modal-que-serve-aos-cadastros-tipo {
     transition: margin-top .3s ease;
     background-color: #ffffff;
     margin-top: -135%;
