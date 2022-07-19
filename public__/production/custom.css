@@ -209,3 +209,25 @@ footer {
 .mask-view-height {
     /*height: 100vh;*/
 }
+
+.user-course-manager, .user-manager {
+    cursor: pointer;
+}
+
+.user-course-manager:hover, .user-manager:hover {
+    transition: all .4s ease;
+    transform: scale(1.1);
+}
+
+.config-geral {
+    font-size: 1.3rem;
+    margin-left: 3rem;
+    margin-right: 3rem;
+    color: #000;
+    padding: 0 .5em;
+}
+
+.config-geral:hover {
+    cursor: pointer;
+    color: inherit;
+}
