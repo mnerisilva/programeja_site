@@ -1,402 +1,190 @@
 <!DOCTYPE html>
 <html lang="pt-br">
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Gentelella Alela! | </title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard Admin</title>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.1/css/bootstrap.min.css" integrity="sha512-Ez0cGzNzHR1tYAv56860NLspgUGuQw16GiOOp/I2LuTmpSK9xDXlgJz3XN4cnpXWDmkNBKXR/VDMTCnAaEooxA==" crossorigin="anonymous" referrerpolicy="no-referrer" />-->
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>-->
 
     <!-- Bootstrap -->
-    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">    
     <!-- Font Awesome -->
     <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <!-- NProgress -->
     <link href="../vendors/nprogress/nprogress.css" rel="stylesheet">
+    <!-- iCheck -->
+    <link href="../vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+	
+    <!-- bootstrap-progressbar -->
+    <link href="../vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+    <!-- JQVMap -->
+    <link href="../vendors/jqvmap/dist/jqvmap.min.css" rel="stylesheet"/>
+    <!-- bootstrap-daterangepicker -->
+    <link href="../vendors/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
     <link href="../build/css/custom.min.css" rel="stylesheet">
-    <link href="custom.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />   
+
+    <link rel="stylesheet" href="dashboard_admin.css" />
   </head>
-
   <body class="nav-md">
-    <div class="container body">
-      <div class="main_container">
+    <div class="mask"></div>
 
 
+    <form class="form-modal-que-serve-ao-cadastro-de-user form-horizontal form-label-left">
+      <div class="x_title">
+        <h2><i class="fa-solid fa-user-plus"></i> User <small>Cadastrar</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="close-modal-que-serve-ao-cadastro-de-user"><i class="fa fa-close"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Nome</label>
+        <div class="col-md-9 col-sm-9 ">
+          <input type="text" class="form-control" id="categoria_cadastro_nome" required="" name="categoria_cadastro_nome" placeholder="">
+        </div>
+      </div>  
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">E-mail</label>
+        <div class="col-md-9 col-sm-9 ">
+          <input type="email" class="form-control" id="categoria_cadastro_nome_curto" required="" name="categoria_cadastro_nome_curto" placeholder="">
+        </div>
+      </div>                         
+      <div class="ln_solid"></div>
+      <div class="form-group">
+        <div class="col-md-9 col-sm-9">
+          <button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-ao-cadastro-de-user">Cancela</button>
+          <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-categoria submit">Salvar categoria</button>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <div class="categoria-save-message text-success"></div>
+        </div>
+      </div>                  
+    </form>    
 
 
+    <form class="form-modal-que-serve-aos-cadastros form-horizontal form-label-left">
+      <div class="x_title">
+        <h2><i class="fas fa-outdent"></i> Categoria <small>Cadastrar</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="close-modal-que-serve-aos-cadastros"><i class="fa fa-close"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Nome</label>
+        <div class="col-md-9 col-sm-9 ">
+          <input type="text" class="form-control" id="categoria_cadastro_nome" required="" name="categoria_cadastro_nome" placeholder="">
+        </div>
+      </div>  
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Nome curto</label>
+        <div class="col-md-9 col-sm-9 ">
+          <input type="text" class="form-control" id="categoria_cadastro_nome_curto" required="" name="categoria_cadastro_nome_curto" placeholder="">
+        </div>
+      </div>                         
+      <div class="ln_solid"></div>
+      <div class="form-group">
+        <div class="col-md-9 col-sm-9">
+          <button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-aos-cadastros">Cancela</button>
+          <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-categoria submit">Salvar categoria</button>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <div class="categoria-save-message text-success"></div>
+        </div>
+      </div>                  
+    </form>
 
-
-
-
-        <div class="mask"></div>
-
-
-        <form class="form-modal-que-serve-ao-cadastro-de-user form-horizontal form-label-left">
-          <div class="x_title">
-            <h2><i class="fa-solid fa-user-plus"></i> User <small>Cadastrar</small></h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="close-modal-que-serve-ao-cadastro-de-user"><i class="fa fa-close"></i></a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
-          </div>
-          <div class="form-group row ">
-            <label class="control-label col-md-3 col-sm-3 ">Nome</label>
-            <div class="col-md-9 col-sm-9 ">
-              <input type="text" class="form-control" id="categoria_cadastro_nome" required="" name="categoria_cadastro_nome" placeholder="">
-            </div>
-          </div>  
-          <div class="form-group row ">
-            <label class="control-label col-md-3 col-sm-3 ">E-mail</label>
-            <div class="col-md-9 col-sm-9 ">
-              <input type="email" class="form-control" id="categoria_cadastro_nome_curto" required="" name="categoria_cadastro_nome_curto" placeholder="">
-            </div>
-          </div>                         
-          <div class="ln_solid"></div>
-          <div class="form-group">
-            <div class="col-md-9 col-sm-9">
-              <button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-ao-cadastro-de-user">Cancela</button>
-              <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-categoria submit">Salvar categoria</button>
-            </div>
-            <div class="col-md-2 col-sm-2">
-              <div class="categoria-save-message text-success"></div>
-            </div>
-          </div>                  
-        </form>    
+    <form class="form-modal-que-serve-aos-cadastros-tipo form-horizontal form-label-left">
+      <div class="x_title">
+        <h2><i class="fas fa-outdent"></i> Tipo <small>Cadastrar</small></h2>
+        <ul class="nav navbar-right panel_toolbox">
+          <li><a class="close-modal-que-serve-aos-cadastros-tipo"><i class="fa fa-close"></i></a>
+          </li>
+        </ul>
+        <div class="clearfix"></div>
+      </div>
+      <div class="form-group row ">
+        <label class="control-label col-md-3 col-sm-3 ">Nome</label>
+        <div class="col-md-9 col-sm-9 ">
+          <input type="text" class="form-control" id="tipo_cadastro_nome" required="" name="tipo_cadastro_nome" placeholder="">
+        </div>
+      </div>                         
+      <div class="ln_solid"></div>
+      <div class="form-group">
+        <div class="col-md-9 col-sm-9">
+          <button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-aos-cadastros-tipo">Cancela</button>
+          <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-categoria-tipo submit">Salvar tipo</button>
+        </div>
+        <div class="col-md-2 col-sm-2">
+          <div class="categoria-save-message text-success"></div>
+        </div>
+      </div>                  
+    </form>
     
-    
-        <form class="form-modal-que-serve-aos-cadastros form-horizontal form-label-left">
-          <div class="x_title">
-            <h2><i class="fas fa-outdent"></i> Categoria <small>Cadastrar</small></h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="close-modal-que-serve-aos-cadastros"><i class="fa fa-close"></i></a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
-          </div>
-          <div class="form-group row ">
-            <label class="control-label col-md-3 col-sm-3 ">Nome</label>
-            <div class="col-md-9 col-sm-9 ">
-              <input type="text" class="form-control" id="categoria_cadastro_nome" required="" name="categoria_cadastro_nome" placeholder="">
-            </div>
-          </div>  
-          <div class="form-group row ">
-            <label class="control-label col-md-3 col-sm-3 ">Nome curto</label>
-            <div class="col-md-9 col-sm-9 ">
-              <input type="text" class="form-control" id="categoria_cadastro_nome_curto" required="" name="categoria_cadastro_nome_curto" placeholder="">
-            </div>
-          </div>                         
-          <div class="ln_solid"></div>
-          <div class="form-group">
-            <div class="col-md-9 col-sm-9">
-              <button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-aos-cadastros">Cancela</button>
-              <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-categoria submit">Salvar categoria</button>
-            </div>
-            <div class="col-md-2 col-sm-2">
-              <div class="categoria-save-message text-success"></div>
-            </div>
-          </div>                  
-        </form>
-    
-        <form class="form-modal-que-serve-aos-cadastros-tipo form-horizontal form-label-left">
-          <div class="x_title">
-            <h2><i class="fas fa-outdent"></i> Tipo <small>Cadastrar</small></h2>
-            <ul class="nav navbar-right panel_toolbox">
-              <li><a class="close-modal-que-serve-aos-cadastros-tipo"><i class="fa fa-close"></i></a>
-              </li>
-            </ul>
-            <div class="clearfix"></div>
-          </div>
-          <div class="form-group row ">
-            <label class="control-label col-md-3 col-sm-3 ">Nome</label>
-            <div class="col-md-9 col-sm-9 ">
-              <input type="text" class="form-control" id="tipo_cadastro_nome" required="" name="tipo_cadastro_nome" placeholder="">
-            </div>
-          </div>                         
-          <div class="ln_solid"></div>
-          <div class="form-group">
-            <div class="col-md-9 col-sm-9">
-              <button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-aos-cadastros-tipo">Cancela</button>
-              <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-categoria-tipo submit">Salvar tipo</button>
-            </div>
-            <div class="col-md-2 col-sm-2">
-              <div class="categoria-save-message text-success"></div>
-            </div>
-          </div>                  
-        </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-        <!-- top navigation -->
+    <div class="container-body">
+      <div class="main-container">
         <div class="top_nav">
-            <div class="nav_menu">
-                <div class="nav toggle">
-                  <a id="menu_toggle"><i class="fa fa-bars"></i></a>
+          <div class="nav_menu">
+            <nav class="nav navbar-nav">
+              <ul class=" navbar-right">
+                <li class="nav-item dropdown open" style="padding-left: 15px;">
+                <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
+                  <img src="images/users/foto_marcelo.jpg" alt="">Marcelo Neri
+                </a><i class="fa-solid fa-gear config-geral user-course-manager" data-toggle="modal" data-target="#modalGerenciarAtribuidos"></i>
+                <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="javascript:;"> Profile</a>
+                <a class="dropdown-item" href="javascript:;">
+                <span class="badge bg-red pull-right">50%</span>
+                <span>Settings</span>
+                </a>
+                <a class="dropdown-item" href="javascript:;">Help</a>
+                <a class="dropdown-item" href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                 </div>
-                <nav class="nav navbar-nav">
-                <ul class=" navbar-right">
-                  <li class="nav-item dropdown open" style="padding-left: 15px;">
-                    <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                      <img src="images/img.jpg" alt="">John Doe
-                    </a>
-                    <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  href="javascript:;"> Profile</a>
-                        <a class="dropdown-item"  href="javascript:;">
-                          <span class="badge bg-red pull-right">50%</span>
-                          <span>Settings</span>
-                        </a>
-                    <a class="dropdown-item"  href="javascript:;">Help</a>
-                      <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
-                    </div>
-                  </li>
-  
-                  <li role="presentation" class="nav-item dropdown open">
-                    <a href="javascript:;" class="dropdown-toggle info-number" id="navbarDropdown1" data-toggle="dropdown" aria-expanded="false">
-                      <i class="fa fa-envelope-o"></i>
-                      <span class="badge bg-green">6</span>
-                    </a>
-                    <ul class="dropdown-menu list-unstyled msg_list" role="menu" aria-labelledby="navbarDropdown1">
-                      <li class="nav-item">
-                        <a class="dropdown-item">
-                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="dropdown-item">
-                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="dropdown-item">
-                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="dropdown-item">
-                          <span class="image"><img src="images/img.jpg" alt="Profile Image" /></span>
-                          <span>
-                            <span>John Smith</span>
-                            <span class="time">3 mins ago</span>
-                          </span>
-                          <span class="message">
-                            Film festivals used to be do-or-die moments for movie makers. They were where...
-                          </span>
-                        </a>
-                      </li>
-                      <li class="nav-item">
-                        <div class="text-center">
-                          <a class="dropdown-item">
-                            <strong>See All Alerts</strong>
-                            <i class="fa fa-angle-right"></i>
-                          </a>
-                        </div>
-                      </li>
-                    </ul>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </div>
-        <!-- /top navigation -->
-
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <div class="classX">
-            <div class="page-title">
-              <div class="title_left">
-                <h3>Dashboard Admin</h3>
-              </div>
-
-              <div class="title_right">
-                <div class="col-md-5 col-sm-5   form-group pull-right top_search">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search for...">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default" type="button">Go!</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="clearfix"></div>
-
-            <div class="row">
-              <div class="col-md-12 col-sm-12  ">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2><i class="fa fa-arrow-down"></i>&nbsp;Operações com usuários</h2>
-                    <ul class="nav navbar-right panel_toolbox"><button class="btn btn-secondary button-4 btn-insere-user"><i class="fa-solid fa-plus"></i>
-                        &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-plus"></i></button>
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item" href="#">Settings 1</a>
-                            <a class="dropdown-item" href="#">Settings 2</a>
-                          </div>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
-                      <!--Add content to the page ...-->
-
-
-
-
-
-
-                      <div class="row">
-                        <div class="col-md-12 d-flex justify-content-around align-items-center titulo mt-2">
-                          <div class="icon-user-titulo d-flex justify-content-center align-items-center">
-                                 
-                                           
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-12 d-flex justify-content-center mt-2">
-                            <div class="container d-flex justify-content-center">
-                                <div class="row"></div>
-                                <div class="col-md-6">
-                          <table class="table table-striped jambo_table lista-user">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>#</th>
-                                <th>Usuário</th>
-                                <th></th>
-                              </tr>
-                            </thead>
-                            <tbody></tbody>
-                          </table>
-                        </div>
-                        </div>
-                        </div>
-                        </div>
-                      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  </div>
-                </div>
-              </div>
-            </div>
+                </li>
+              </ul>
+            </nav>  
           </div>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <div class="pull-right">
-            Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 d-flex justify-content-around align-items-center titulo mt-2">
+            <h1>Dashboard Admin</h1>
+            <div class="icon-user-titulo d-flex justify-content-center align-items-center">
+              <div>
+               <i class="fa fa-arrow-down"></i>&nbsp;<small>Operações com usuários</small>
+               </div>
+                &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-plus btn-insere-user mr-4"></i>              
+            </div>
           </div>
-          <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
+        </div>
+        <div class="row">
+          <div class="col-md-12 d-flex justify-content-center mt-2">
+            <table class="table lista-user">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>#</th>
+                  <th>Usuário</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
-
 
 
 
@@ -700,6 +488,35 @@
         </div>
     </div>
 
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -810,24 +627,77 @@
 
 
 
-
-
-
-
-
-
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <!-- jQuery -->
     <script src="../vendors/jquery/dist/jquery.min.js"></script>
     <!-- Bootstrap -->
-   <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <!-- FastClick -->
     <script src="../vendors/fastclick/lib/fastclick.js"></script>
     <!-- NProgress -->
     <script src="../vendors/nprogress/nprogress.js"></script>
-    
+    <!-- Chart.js -->
+    <script src="../vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="../vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../vendors/iCheck/icheck.min.js"></script>
+    <!-- Skycons -->
+    <script src="../vendors/skycons/skycons.js"></script>
+    <!-- Flot -->
+    <script src="../vendors/Flot/jquery.flot.js"></script>
+    <script src="../vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="../vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../vendors/moment/min/moment.min.js"></script>
+    <script src="../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
+
+   
+    <script src="script_dashboard.js"></script>
+    <script src="script_cadastro_de_trilha.js"></script>
+    <script src="script_cadastro_de_videos.js"></script>
+    <script src="script_precessa_tela_trilha_usuario.js"></script>
+
   </body>
 </html>
+
+

@@ -9,9 +9,6 @@ body {
 }
 
 
-.modal {
-    /*overflow:scroll;*/
-}
 
 body, #modalGerenciarAtribuidos, #modalGerenciarAtribuidos .modal-body, #modalGerenciarAtribuidos .modal-content {
     background-color: #F7F7F7;
@@ -89,9 +86,6 @@ table tr td {
     opacity: 1 !important;
 }
 
-.modal {
-    /*overflow: scroll;*/
-}
 
 .modal-title {
     display: flex;
@@ -426,7 +420,7 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
 
 
 .x_panel.cadastrar {
-    overflow: hidden !important;
+    /*overflow: hidden !important;*/
 }
 
 /*.popup {
@@ -451,7 +445,7 @@ table.lista-videos-da-trilha thead th:nth-child(2) {
 
 
 .form-modal-que-serve-ao-cadastro-de-user, .form-modal-que-serve-aos-cadastros, .form-modal-que-serve-aos-cadastros-tipo {
-    transition: margin-top .3s ease;
+    transition: margin-top .9s linear;
     background-color: #ffffff;
     margin-top: -135%;
     width: 95%;
