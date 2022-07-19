@@ -4,7 +4,7 @@ body, #modalGerenciarAtribuidos {
 
 
 
-.modal#form_cadastro_de_user, .modal#form_cadastro_de_categoria {
+.modal#form_cadastro_de_user, .modal#form_cadastro_de_categoria, .modal#form_cadastro_de_tipo {
     background-color: rgb(2 2 2 / 65%);
     z-index: 99999999;
 }

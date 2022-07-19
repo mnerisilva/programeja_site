@@ -36,8 +36,8 @@
     const _btnCadastroDeTipoJanelaCadastroDeTrilhas = document.querySelector('.btn-cadastro-de-tipo-janela-cadastro-de-trilhas');
     const _btnCadastroDeCategoriaJanelaCadastroDeVideo = document.querySelector('.btn-cadastro-de-categoria-janela-cadastro-de-video');
     const _btnCloseModalQueServeAoCadastroDeUser = document.querySelector('.close-modal-que-serve-ao-cadastro-de-user');
-    const _btnCloseModalQueServeAosCadastros = document.querySelector('.close-modal-que-serve-aos-cadastros');
-    const _btnCloseModalQueServeAosCadastrosTipo = document.querySelector('.close-modal-que-serve-aos-cadastros-tipo');
+    //const _btnCloseModalQueServeAosCadastros = document.querySelector('.close-modal-que-serve-aos-cadastros');
+    //const _btnCloseModalQueServeAosCadastrosTipo = document.querySelector('.close-modal-que-serve-aos-cadastros-tipo');
     const _btnCancelaModalQueServeAoCadastroDeUser = document.querySelector('.cancela-modal-que-serve-ao-cadastro-de-user');
     const _btnCancelaModalQueServeAosCadastros = document.querySelector('.cancela-modal-que-serve-aos-cadastros');
     const _btnCancelaModalQueServeAosCadastrosTipo = document.querySelector('.cancela-modal-que-serve-aos-cadastros-tipo');
@@ -94,12 +94,12 @@
                 /*_btnCloseModalQueServeAoCadastroDeUser.addEventListener('click', function(){
                     fechaModalQueServeAoCadastroDeUser()
                 });*/
-                _btnCloseModalQueServeAosCadastros.addEventListener('click', function(){
+                /*_btnCloseModalQueServeAosCadastros.addEventListener('click', function(){
                     fechaModalQueServeAosCadastros()
-                });
-                _btnCloseModalQueServeAosCadastrosTipo.addEventListener('click', function(){
+                });*/
+                /*_btnCloseModalQueServeAosCadastrosTipo.addEventListener('click', function(){
                     fechaModalQueServeAosCadastrosTipo()
-                });
+                });*/
                 // fecha modal que serve aos cadastros _btnCancelaModalQueServeAoCadastroDeUser
                 _btnCancelaModalQueServeAoCadastroDeUser.addEventListener('click', function(){
                     fechaModalQueServeAoCadastroDeUser()
