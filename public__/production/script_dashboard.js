@@ -69,6 +69,16 @@
     
     let _arrayIDsTrilhasDoUser = [];
 
+
+
+
+
+
+
+
+
+
+
                 // clique no botão "cancelar" do cadastro de trilha e do cadastro de videos
                 _btnCancelarDoSalvarTrilha.addEventListener('click', function(){  
                     cancelar_LimpaCamposCadastroDeTrilhas();                 

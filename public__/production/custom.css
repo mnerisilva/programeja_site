@@ -1,5 +1,13 @@
-body, #modalGerenciarAtribuidos {
+
+
+body {
+    overflow-x: hidden;
+    overflow-y: scroll !important;
+}
+
+body.modal-open {
     overflow: hidden;
+    position: fixed;
 }
 
 
