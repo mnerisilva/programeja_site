@@ -91,9 +91,9 @@
                     abreModalQueServeAosCadastros();                    
                 }); 
                 // fecha modal que serve aos cadastros
-                _btnCloseModalQueServeAoCadastroDeUser.addEventListener('click', function(){
+                /*_btnCloseModalQueServeAoCadastroDeUser.addEventListener('click', function(){
                     fechaModalQueServeAoCadastroDeUser()
-                });
+                });*/
                 _btnCloseModalQueServeAosCadastros.addEventListener('click', function(){
                     fechaModalQueServeAosCadastros()
                 });
