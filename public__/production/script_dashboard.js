@@ -54,6 +54,21 @@
     const _formModalQueServeAosCadastrosTipo = document.querySelector('.form-modal-que-serve-aos-cadastros-tipo');
     const _formModalQueServeAoCadastroDeUser = document.querySelector('.form-modal-que-serve-ao-cadastro-de-user');
 
+    const _formModalCadastroDeUser = document.querySelector('.form_cadastro_de_user');
+
+            //$(form_cadastro_de_user).modal('show'); // ABRE MODAL BOOTSTRAP ASSIM QUE A PÁGINA CARREGA
+
+            // EXECUTA "alert('modal fechou')" ASSIM QUE A MODAL FOR FECHADA
+            $(form_cadastro_de_user).on('hide.bs.modal', function (event) {
+                //alert('modal fechou');
+            });
+
+            
+            // EXECUTA "alert('modal abriu')" ASSIM QUE A MODAL FOR aberta
+            $(form_cadastro_de_user).on('shown.bs.modal', function (event) {
+                //alert('modal abriu');
+            });
+
 
 
 
