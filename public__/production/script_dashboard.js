@@ -44,6 +44,7 @@
     const _btnCancelarDoSalvarTrilha = document.querySelector('.btn-cancelar-do-salvar-trilha');
     const _btnCancelarDoSalvarVideo = document.querySelector('.btn-cancelar-do-salvar-video');
     const _btnInsereUser = document.querySelector('.btn-insere-user');
+    const _btnSalvarUser = document.querySelector('.btn-salvar-user');
     
     const _userCourseManager = document.querySelectorAll('.btn-insere-user');
 
@@ -53,8 +54,10 @@
     const _formModalQueServeAosCadastros = document.querySelector('.form-modal-que-serve-aos-cadastros');
     const _formModalQueServeAosCadastrosTipo = document.querySelector('.form-modal-que-serve-aos-cadastros-tipo');
     const _formModalQueServeAoCadastroDeUser = document.querySelector('.form-modal-que-serve-ao-cadastro-de-user');
+    const _formModalCadastroDeUser = document.querySelector('#form_cadastro_de_user');
+    const _formModalCadastroDeCategoria = document.querySelector('#form_cadastro_de_categoria');
+    const _formModalCadastroDeTipo = document.querySelector('#form_cadastro_de_tipo');
 
-    const _formModalCadastroDeUser = document.querySelector('.form_cadastro_de_user');
 
             //$(form_cadastro_de_user).modal('show'); // ABRE MODAL BOOTSTRAP ASSIM QUE A PÁGINA CARREGA
 
@@ -184,6 +187,42 @@
 
 
 
+    $(_formModalCadastroDeUser).submit(function(event){
+                    event.preventDefault();
+                    console.log('clicou no button submit da modal de cadastro de usuário')
+                    /*console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
+                    _THtituloDaTrilha = _arrPovoaSelectFiltaTrilha[_selectIdTrilhaEscolhida.value];
+                    _listaVideosDaTrilha.innerHTML = '';                    
+                    removeDisabledBtnAtribui(_btnVincula);
+                    listaVideosDaTrilha();
+                    _spanTotalVideosTrilha.style.opacity = 1;
+                    _thTituloDaTrilha.style.opacity = 1;*/
+                });
+
+                
+    $(_formModalCadastroDeCategoria).submit(function(event){
+                    event.preventDefault();
+                    console.log('clicou no button submit da modal de cadastro de categoria')
+                    /*console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
+                    _THtituloDaTrilha = _arrPovoaSelectFiltaTrilha[_selectIdTrilhaEscolhida.value];
+                    _listaVideosDaTrilha.innerHTML = '';                    
+                    removeDisabledBtnAtribui(_btnVincula);
+                    listaVideosDaTrilha();
+                    _spanTotalVideosTrilha.style.opacity = 1;
+                    _thTituloDaTrilha.style.opacity = 1;*/
+                });
+
+    $(_formModalCadastroDeTipo).submit(function(event){
+                    event.preventDefault();
+                    console.log('clicou no button submit da modal de cadastro de tipo')
+                    /*console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
+                    _THtituloDaTrilha = _arrPovoaSelectFiltaTrilha[_selectIdTrilhaEscolhida.value];
+                    _listaVideosDaTrilha.innerHTML = '';                    
+                    removeDisabledBtnAtribui(_btnVincula);
+                    listaVideosDaTrilha();
+                    _spanTotalVideosTrilha.style.opacity = 1;
+                    _thTituloDaTrilha.style.opacity = 1;*/
+                });                
 
 
 
@@ -247,7 +286,6 @@
 
     }); 
     /////////// USUÁRIOS DA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////   
-
 
 
 
