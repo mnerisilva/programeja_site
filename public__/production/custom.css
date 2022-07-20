@@ -125,7 +125,7 @@ footer {
 .user-manager, .user-manager-trash {
     cursor: pointer;
     padding: 5px;
-    border: solid thin #dedede;
+    border: solid thin #dedede47;
 }
 
 .form-modal-que-serve-ao-cadastro-de-user, .form-modal-que-serve-aos-cadastros, .form-modal-que-serve-aos-cadastros-tipo {
@@ -226,7 +226,9 @@ footer {
 
 .user-course-manager:hover, .user-manager:hover, .user-manager-trash:hover {
     transition: all .4s ease;
-    transform: scale(1.1);
+    /*transform: scale(1.1); */
+    color: white;
+    background: cadetblue;
 }
 
 .config-geral {
