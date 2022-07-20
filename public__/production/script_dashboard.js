@@ -790,14 +790,16 @@ function salvaUser(formData){
                             _userMessageSaved.classList.add('success');
                         }, 1000);
                         setTimeout(function(){
-                            _userMessageSaved.classList.remove('success');
                         }, 2500);
                         setTimeout(() => {
                             _btnSalvarUser.removeAttribute('disabled');
                             _btnCancelarSalvarUser.removeAttribute('disabled');
                             $(_btnCancelarSalvarUser).trigger('click');
-                        }, 3000);
-                        listaGeralDeUsuarios();
+                            listaGeralDeUsuarios();
+                            _formModalCadastroDeUser.querySelector('#user_name').value;
+                            _formModalCadastroDeUser.querySelector('#user_email').value;
+                            _userMessageSaved.classList.remove('success');
+                        }, 5000);
                     });    
                     //console.log('entrou na function vinculaVideo');
                     //console.log(formData);
@@ -1619,16 +1621,25 @@ function listaGeralDeUsuarios(){
             const _td2 = document.createElement('td');
             const _td3 = document.createElement('td');
             const _td4 = document.createElement('td');
+            const _td5 = document.createElement('td');
+            const _td6 = document.createElement('td');
+            const _td7 = document.createElement('td');
             const _nodeText1 = document.createTextNode(userItem.user_id);
             const _nodeText2 = document.createTextNode(userItem.user_name);
             _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
             _td2.appendChild(_nodeText1);
             _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-user-gear user-manager" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
+            _td4.innerHTML = `<i class="fa-solid fa-pencil"></i>`;
+            _td5.innerHTML = `<i class="fa-solid fa-user-gear user-manager" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
+            _td6.innerHTML = `<i class="fa-solid fa-diagram-project"></i>`;
+            _td7.innerHTML = `<i class="fa-solid fa-trash-can user-manager-trash" data-toggle="modal" data-target="#xxx" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
             _tr.appendChild(_td1);
             _tr.appendChild(_td2);
             _tr.appendChild(_td3);
             _tr.appendChild(_td4);
+            _tr.appendChild(_td5);
+            _tr.appendChild(_td6);
+            _tr.appendChild(_td7);
             _tbody.appendChild(_tr);
         }
 
