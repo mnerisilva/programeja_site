@@ -85,7 +85,7 @@
 
     let _btnFormTrilhaUser = '';
 
-    let _userIdDoUsurio = '';
+    let _userIdDoUsuario = '';
     
     let _arrayIDsTrilhasDoUser = [];
 
@@ -205,20 +205,6 @@
                     salvaUser(formData_);
                     
                 });
-
-    /*_btnSalvarUser.addEventListener('click', function(){
-        console.log('clicou no botão salvar user da modal de cadastro de usuarios');
-        _userMessageSaved.classList.add('success');
-        _btnSalvarUser.setAttribute('disabled', '');
-        setTimeout(() => {            
-            _userMessageSaved.classList.remove('success');
-            _btnSalvarUser.removeAttribute('disabled');
-        }, 2000);
-
-        setTimeout(function(){
-            $(_btnCancelarSalvarUser).trigger('click');
-        }, 1500);
-    });*/
 
                 
     $(_formModalCadastroDeCategoria).submit(function(event){
@@ -800,10 +786,14 @@ function salvaUser(formData){
                             _formModalCadastroDeUser.querySelector('#user_email').value;
                             _userMessageSaved.classList.remove('success');
                         }, 5000);
-                    });    
-                    //console.log('entrou na function vinculaVideo');
-                    //console.log(formData);
+                    });  
                 }
+
+
+
+function excluiUser(user_id){
+
+}
                 
 
 
@@ -868,7 +858,7 @@ function vinculaTrilhaAoUser(formData){
                         console.log(data);
                         _listaTrilhasDoUser.innerHTML = '';
                         _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
-                        listaTrilhasDoUser(_userIdDoUsurio); 
+                        listaTrilhasDoUser(_userIdDoUsuario); 
                     });    
                 }
 
@@ -888,7 +878,7 @@ function desvinculaTrilhaDoUser(formData){
                         console.log(data);
                         _listaTrilhasDoUser.innerHTML = '';
                         _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
-                        listaTrilhasDoUser(_userIdDoUsurio);
+                        listaTrilhasDoUser(_userIdDoUsuario);
                     });
                 }
 
@@ -1166,7 +1156,7 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                         _td6.innerHTML = 
                                             `
                                                 <form class="form-desvincula-trilha-do-user" data-trilha_user_id="${trilhaUser.trilha_id}">
-                                                    <input type="hidden" class="input-x input-form-desvincula-trilha-do-user-userid" name="userid" value="${_userIdDoUsurio}" />
+                                                    <input type="hidden" class="input-x input-form-desvincula-trilha-do-user-userid" name="userid" value="${_userIdDoUsuario}" />
                                                     <input type="hidden" class="input-x input-form-desvincula-trilha-do-user-trilhaid" name="trilhaid" value="${trilhaUser.trilha_id}" />
                                                     <button type="submit" class="btn btn-secondary btn-desvincula-trilha-do-user btn-form-trilha-user"><i class="fa-solid fa-xmark"></i></button>
                                                 </form>
@@ -1367,7 +1357,7 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         //_td3.appendChild(_nodeText3);
                         _td6.innerHTML = `
                                             <form class="form-vincula-trilha-ao-user" data-trilhas_disponiveis_id="${trilhaUser.trilha_id}">
-                                                <input type="hidden" class="input-y input-form-vincula-trilha-ao-user-userid" name="input_form_vincula_trilha_ao_user_userid" value="${_userIdDoUsurio}" />
+                                                <input type="hidden" class="input-y input-form-vincula-trilha-ao-user-userid" name="input_form_vincula_trilha_ao_user_userid" value="${_userIdDoUsuario}" />
                                                 <input type="hidden" class="input-y input-form-vincula-trilha-ao-user-trilhaid" name="input_form_vincula_trilha_ao_user_trilhaid" value="${trilhaUser.trilha_id}" />
                                                 <button type="submit" class="btn btn-secondary btn-vincula-trilha-ao-user btn-form-trilha-user"><i class="fa-solid fa-plus"></i></button>
                                             </form>
@@ -1644,18 +1634,27 @@ function listaGeralDeUsuarios(){
         }
 
         const _userManager = document.querySelectorAll('.user-manager');
+        const _userManagerTrash = document.querySelectorAll('.user-manager-trash');
         const _modalUserPhoto = document.querySelector('.modal-user-photo');
         const _modalUserName = document.querySelector('.modal-user-name');
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
                 console.log(item);
-                _userIdDoUsurio = item.dataset.user_id;
+                _userIdDoUsuario = item.dataset.user_id;
                 //_modalUserName.innerHTML = e.target.dataset.username;
                 _modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
                 listaTrilhasDoUser(e.target.dataset.user_id);
                 console.log(_arrayIDsTrilhasDoUser);
             });
         })
+
+
+        _userManagerTrash.forEach(function(item){
+            item.addEventListener('click', function(e){
+                console.log(item);
+                _userIdDoUsuario = item.dataset.user_id;
+            });
+        })        
 
     });     
 }

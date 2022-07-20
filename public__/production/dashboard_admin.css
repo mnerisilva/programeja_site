@@ -19,11 +19,11 @@ body, #modalGerenciarTrilhasUsers, #modalGerenciarTrilhasUsers .modal-body, #mod
     background-color: #F7F7F7;
 }
 
-.user-course-manager, .user-manager {
+.user-course-manager, .user-manager, .user-manager-trash {
     cursor: pointer;
 }
 
-.user-course-manager:hover, .user-manager:hover {
+.user-course-manager:hover, .user-manager:hover, .user-manager-trash:hover {
     transition: all .4s ease;
     transform: scale(1.1);
 }
