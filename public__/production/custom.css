@@ -239,3 +239,11 @@ footer {
     cursor: pointer;
     color: inherit;
 }
+
+
+
+.user-message-saved {
+    transition: opacity .5s linear;
+    height: 5em;
+}
+

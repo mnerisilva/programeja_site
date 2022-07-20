@@ -5,17 +5,16 @@ include('connect.php');
 
 if(count($_POST) > 0){
 	
-        $id_conteudotipo    = 2;
-        $conteudo_titulo    = addslashes($_POST['nomevideo']);
-        $id_categoria       = $_POST['categoria'];
-        $id_codigoyt        = $_POST['codigoyt'];
+        $user_name    = $_POST['user_name'];
+        $user_email   = $_POST['user_email'];
+        $user_photo   = $_POST['user_photo'];
 
-		$sql = "INSERT INTO `conteudo_indice`( `id_conteudotipo`, `conteudo_titulo`, `id_categoria`) VALUES ('$id_conteudotipo', '$conteudo_titulo', '$id_categoria')";
+		$sql = "INSERT INTO `user`( `user_name`, `user_email`, `user_photo`) VALUES ('$user_name', '$user_email', '$user_photo')";
 		if (mysqli_query($conn, $sql)) {
-			//echo json_encode(array("statusCode"=>200));
+			echo json_encode(array("statusCode"=>200));
 		} 
 		else {
-			//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
  
         

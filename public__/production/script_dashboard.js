@@ -87,6 +87,10 @@
     
     let _arrayIDsTrilhasDoUser = [];
 
+    const _userManager      = '';
+    const _modalUserPhoto   = '';
+    const _modalUserName    = '';   
+
 
 
 
@@ -190,6 +194,15 @@
     $(_formModalCadastroDeUser).submit(function(event){
                     event.preventDefault();
                     console.log('clicou no button submit da modal de cadastro de usuário')
+                    var formData_ = {
+                                        user_name: _formModalCadastroDeUser.querySelector('#user_name').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_email').value,
+                                        user_photo: 'https://userstock.io/data/wp-content/uploads/2017/09/michael-dam-258165-scaled.jpg'
+                                    };
+                    console.log('Campos que irão para o grava_user.php', formData_);
+                    salvaUser(formData_);
+                    listaGeralDeUsuarios();
+
                     /*console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
                     _THtituloDaTrilha = _arrPovoaSelectFiltaTrilha[_selectIdTrilhaEscolhida.value];
                     _listaVideosDaTrilha.innerHTML = '';                    
@@ -229,62 +242,7 @@
 
 
     /////////// USUÁRIOS DA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////
-    $.ajax({
-        type: "POST",
-        url: "php/lista_users.php",
-        dataType: "json",
-        encode: true,
-    }).done(function (data) {        
-        const _tbody =  document.querySelector('table.lista-user tbody');
-        for (userItem of data){
-            const _tr = document.createElement('tr');
-            const _td1 = document.createElement('td');
-            const _td2 = document.createElement('td');
-            const _td3 = document.createElement('td');
-            const _td4 = document.createElement('td');
-            const _nodeText1 = document.createTextNode(userItem.user_id);
-            const _nodeText2 = document.createTextNode(userItem.user_name);
-            _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
-            _td2.appendChild(_nodeText1);
-            _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-user-gear user-manager" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
-            _tr.appendChild(_td1);
-            _tr.appendChild(_td2);
-            _tr.appendChild(_td3);
-            _tr.appendChild(_td4);
-            _tbody.appendChild(_tr);
-        }
-
-        const _userManager = document.querySelectorAll('.user-manager');
-        const _modalUserPhoto = document.querySelector('.modal-user-photo');
-        const _modalUserName = document.querySelector('.modal-user-name');
-
-        /*_userCourseManager.forEach(function(item){
-            item.addEventListener('click', function(e){
-                //_modalUserPhoto.innerHTML = `<img class="user-avatar" src="${e.target.dataset.userphoto}" />`;
-                _modalUserPhoto.innerHTML = '<img class="user-avatar" src="images/users/foto_marcelo.jpg" />';
-                //_modalUserName.innerHTML = e.target.dataset.username;
-                _modalUserName.innerHTML = 'Marcelo Neri';
-                setTimeout(function(){
-                    _videoPanel.style.opacity = 1;
-                }, 900);
-            });
-        })*/
-
-
-
-        _userManager.forEach(function(item){
-            item.addEventListener('click', function(e){
-                console.log(item);
-                _userIdDoUsurio = item.dataset.user_id;
-                //_modalUserName.innerHTML = e.target.dataset.username;
-                _modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
-                listaTrilhasDoUser(e.target.dataset.user_id);
-                console.log(_arrayIDsTrilhasDoUser);
-            });
-        })
-
-    }); 
+    listaGeralDeUsuarios();
     /////////// USUÁRIOS DA PLATAFORMA - LISTAGEM GERAL //////////////////////////////////////////   
 
 
@@ -804,6 +762,25 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
                 }            
 
+
+
+
+
+
+function salvaUser(formData){
+                    $.ajax({
+                        type: "POST",
+                        url: "php/grava_user.php",
+                        data: formData,
+                        dataType: "json",
+                        encode: true,
+                    }).done(function (data) {
+                        console.log('Retorno do ajax php/grava_user.php: '+data);
+                    });    
+                    //console.log('entrou na function vinculaVideo');
+                    //console.log(formData);
+                }
+                
 
 
 
@@ -1586,4 +1563,66 @@ function cancelar_LimpaCamposCadastroDeVideos(){
     _categoriaVideo.value = '';
     _nomeVideo.value = '';
     _codigoYt.value = '';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function listaGeralDeUsuarios(){
+    $.ajax({
+        type: "POST",
+        url: "php/lista_users.php",
+        dataType: "json",
+        encode: true,
+    }).done(function (data) {        
+        const _tbody =  document.querySelector('table.lista-user tbody');
+        _tbody.innerHTML = '';
+        for (userItem of data){
+            const _tr = document.createElement('tr');
+            const _td1 = document.createElement('td');
+            const _td2 = document.createElement('td');
+            const _td3 = document.createElement('td');
+            const _td4 = document.createElement('td');
+            const _nodeText1 = document.createTextNode(userItem.user_id);
+            const _nodeText2 = document.createTextNode(userItem.user_name);
+            _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
+            _td2.appendChild(_nodeText1);
+            _td3.appendChild(_nodeText2);
+            _td4.innerHTML = `<i class="fa-solid fa-user-gear user-manager" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
+            _tr.appendChild(_td1);
+            _tr.appendChild(_td2);
+            _tr.appendChild(_td3);
+            _tr.appendChild(_td4);
+            _tbody.appendChild(_tr);
+        }
+
+        const _userManager = document.querySelectorAll('.user-manager');
+        const _modalUserPhoto = document.querySelector('.modal-user-photo');
+        const _modalUserName = document.querySelector('.modal-user-name');
+        _userManager.forEach(function(item){
+            item.addEventListener('click', function(e){
+                console.log(item);
+                _userIdDoUsurio = item.dataset.user_id;
+                //_modalUserName.innerHTML = e.target.dataset.username;
+                _modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
+                listaTrilhasDoUser(e.target.dataset.user_id);
+                console.log(_arrayIDsTrilhasDoUser);
+            });
+        })
+
+    });     
 }
