@@ -45,6 +45,8 @@
     const _btnCancelarDoSalvarVideo = document.querySelector('.btn-cancelar-do-salvar-video');
     const _btnInsereUser = document.querySelector('.btn-insere-user');
     const _btnSalvarUser = document.querySelector('.btn-salvar-user');
+    const _btnCancelarSalvarUser = document.querySelector('.btn-cancelar-salvar-user');
+    const _userMessageSaved = document.querySelector('.user-message-saved');
     
     const _userCourseManager = document.querySelectorAll('.btn-insere-user');
 
@@ -133,7 +135,7 @@
                     fechaModalQueServeAosCadastrosTipo()
                 });*/
                 // fecha modal que serve aos cadastros _btnCancelaModalQueServeAoCadastroDeUser
-                _btnCancelaModalQueServeAoCadastroDeUser.addEventListener('click', function(){
+                _btnCancelarSalvarUser.addEventListener('click', function(){
                     fechaModalQueServeAoCadastroDeUser()
                 });
                 _btnCancelaModalQueServeAosCadastros.addEventListener('click', function(){
@@ -201,16 +203,22 @@
                                     };
                     console.log('Campos que irão para o grava_user.php', formData_);
                     salvaUser(formData_);
-                    listaGeralDeUsuarios();
-
-                    /*console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
-                    _THtituloDaTrilha = _arrPovoaSelectFiltaTrilha[_selectIdTrilhaEscolhida.value];
-                    _listaVideosDaTrilha.innerHTML = '';                    
-                    removeDisabledBtnAtribui(_btnVincula);
-                    listaVideosDaTrilha();
-                    _spanTotalVideosTrilha.style.opacity = 1;
-                    _thTituloDaTrilha.style.opacity = 1;*/
+                    
                 });
+
+    /*_btnSalvarUser.addEventListener('click', function(){
+        console.log('clicou no botão salvar user da modal de cadastro de usuarios');
+        _userMessageSaved.classList.add('success');
+        _btnSalvarUser.setAttribute('disabled', '');
+        setTimeout(() => {            
+            _userMessageSaved.classList.remove('success');
+            _btnSalvarUser.removeAttribute('disabled');
+        }, 2000);
+
+        setTimeout(function(){
+            $(_btnCancelarSalvarUser).trigger('click');
+        }, 1500);
+    });*/
 
                 
     $(_formModalCadastroDeCategoria).submit(function(event){
@@ -776,6 +784,20 @@ function salvaUser(formData){
                         encode: true,
                     }).done(function (data) {
                         console.log('Retorno do ajax php/grava_user.php: '+data);
+                        _btnSalvarUser.setAttribute('disabled','');
+                        _btnCancelarSalvarUser.setAttribute('disabled','');
+                        setTimeout(function(){
+                            _userMessageSaved.classList.add('success');
+                        }, 1000);
+                        setTimeout(function(){
+                            _userMessageSaved.classList.remove('success');
+                        }, 2500);
+                        setTimeout(() => {
+                            _btnSalvarUser.removeAttribute('disabled');
+                            _btnCancelarSalvarUser.removeAttribute('disabled');
+                            $(_btnCancelarSalvarUser).trigger('click');
+                        }, 3000);
+                        listaGeralDeUsuarios();
                     });    
                     //console.log('entrou na function vinculaVideo');
                     //console.log(formData);

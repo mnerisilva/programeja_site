@@ -245,5 +245,18 @@ footer {
 .user-message-saved {
     transition: opacity .5s linear;
     height: 5em;
+    opacity: 0;
+}
+
+.success {
+    color: #fff;
+    background-color: #28a745!important;
+    opacity: 1;
+}
+
+.danger {
+    color: #fff;
+    background-color: #dc3545!important;
+    opacity: 1;
 }
 
