@@ -105,7 +105,7 @@
 
 
 
-
+    pegaDadosUsuarioEspecifico(2);
 
 
 
@@ -450,7 +450,7 @@ function povoaSelectDoFiltrarTrilhas(){ // chamado quando a aplicação inicia
                             _selectIdTrilhaEscolhida.appendChild(_option);
                             _arrPovoaSelectFiltaTrilha[trilha.trilha_id] = trilha.trilha_name;
                         }
-                        console.log('_arrPovoaSelectFiltraTrilha: '+_arrPovoaSelectFiltaTrilha);
+                        //console.log('_arrPovoaSelectFiltraTrilha: '+_arrPovoaSelectFiltaTrilha);
                     });
                 }
 
@@ -1681,21 +1681,11 @@ function listaGeralDeUsuarios(){
             });
         })
 
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
-        // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
         _userManagerTrash.forEach(function(item){
             item.addEventListener('click', function(e){
                 //console.log(item);
                 user_id = item.dataset.user_id;
+                user_name = item.dataset.user_name;
 
                 var formData = {
                     user_id: user_id
@@ -1712,7 +1702,7 @@ function listaGeralDeUsuarios(){
                     if(data > 0){
                         alert('O USUÁRIO não pose ser excluído!!!!!');                        
                     } else {
-                        let retorno = confirm('VOU EXCLUIR O USUÁRIO! Confirme, por favor!');
+                        let retorno = confirm(`VOU EXCLUIR O USUÁRIO: ${user_name}. Confirme, por favor!`);
                         console.log(retorno);
                         if(retorno){
                             console.log('aqui você coloca o código que escluirá o registro.');
@@ -1727,3 +1717,19 @@ function listaGeralDeUsuarios(){
 
     });     
 }
+
+function pegaDadosUsuarioEspecifico(user_id) {
+                var formData = {
+                    user_id: user_id
+                };    
+                $.ajax({
+                    type: "POST",
+                    url: "php/pega_user.php",
+                    data: formData,
+                    dataType: "json",
+                    encode: true,
+                }).done(function (data) { 
+                    console.log('Dados do usuário cujo user_id é igual a 2:', data);
+                })
+
+            }
