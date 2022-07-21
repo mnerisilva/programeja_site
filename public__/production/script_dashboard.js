@@ -46,9 +46,16 @@
     const _btnInsereUser = document.querySelector('.btn-insere-user');
     const _btnSalvarUser = document.querySelector('.btn-salvar-user');
     const _btnCancelarSalvarUser = document.querySelector('.btn-cancelar-salvar-user');
-    const _userMessageSaved = document.querySelector('.user-message-saved');
+    const _btnUserCourseManager = document.querySelectorAll('.btn-insere-user');
+
+
+
+    const _btnUserMessageSaved = document.querySelector('.user-message-saved');
+
+
+
     
-    const _userCourseManager = document.querySelectorAll('.btn-insere-user');
+    
 
     const _mask = document.querySelector('.mask');
 
@@ -91,7 +98,10 @@
 
     const _userManager      = '';
     const _modalUserPhoto   = '';
-    const _modalUserName    = '';   
+    const _modalUserName    = '';  
+    
+    
+    let _statusExclusao = '9999999999';
 
 
 
@@ -773,7 +783,7 @@ function salvaUser(formData){
                         _btnSalvarUser.setAttribute('disabled','');
                         _btnCancelarSalvarUser.setAttribute('disabled','');
                         setTimeout(function(){
-                            _userMessageSaved.classList.add('success');
+                            _btnUserMessageSaved.classList.add('success');
                         }, 1000);
                         setTimeout(function(){
                         }, 2500);
@@ -784,7 +794,7 @@ function salvaUser(formData){
                             listaGeralDeUsuarios();
                             _formModalCadastroDeUser.querySelector('#user_name').value;
                             _formModalCadastroDeUser.querySelector('#user_email').value;
-                            _userMessageSaved.classList.remove('success');
+                            _btnUserMessageSaved.classList.remove('success');
                         }, 5000);
                     });  
                 }
@@ -792,6 +802,19 @@ function salvaUser(formData){
 
 
 function excluiUser(user_id){
+        var formData = {
+            user_id: user_id
+        };    
+        $.ajax({
+            type: "POST",
+            url: "php/exclui_user.php",
+            data: formData,
+            dataType: "json",
+            encode: true,
+        }).done(function (data) {
+            //// console.log(data);
+            listaGeralDeUsuarios();
+        });
 
 }
                 
@@ -1584,7 +1607,17 @@ function cancelar_LimpaCamposCadastroDeVideos(){
 
 
 
+function verificaSeUserPodeSerExcluido(user_id) {
+    console.log('verifica se o usuário ' + user_id +' pode ser excluído');
+                _status = 9999999999; 
 
+                /*while (_status === 9999999999) {
+                    if(_statusExclusao != 9999999999){
+                        _status = _statusExclusao;
+                    }            
+                    return _statusExclusao ;
+                  }*/ 
+            }
 
 
 
@@ -1619,10 +1652,10 @@ function listaGeralDeUsuarios(){
             _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
             _td2.appendChild(_nodeText1);
             _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-pencil"></i>`;
-            _td5.innerHTML = `<i class="fa-solid fa-user-gear user-manager" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
+            _td4.innerHTML = `<i class="fa-solid fa-user-pen"></i>`;
+            _td5.innerHTML = `<i class="fa-solid fa-user-gear user-manager" title="atribuir trilhas" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
             _td6.innerHTML = `<i class="fa-solid fa-diagram-project"></i>`;
-            _td7.innerHTML = `<i class="fa-solid fa-trash-can user-manager-trash" data-toggle="modal" data-target="#xxx" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
+            _td7.innerHTML = `<i class="fa-solid fa-user-minus user-manager-trash" data-toggle="modal" title="excluir usuário" data-target="#xxx" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
             _tr.appendChild(_td1);
             _tr.appendChild(_td2);
             _tr.appendChild(_td3);
@@ -1661,8 +1694,34 @@ function listaGeralDeUsuarios(){
         // CRIAR UM POPUP PARA CONFIRMAR OU NÃO A EXCLUSÃO DO USUÁRIO
         _userManagerTrash.forEach(function(item){
             item.addEventListener('click', function(e){
-                console.log(item);
-                _userIdDoUsuario = item.dataset.user_id;
+                //console.log(item);
+                user_id = item.dataset.user_id;
+
+                var formData = {
+                    user_id: user_id
+                };
+                $.ajax({
+                    type: "POST",
+                    url: "php/verifica_se_o_user_pode_ser_excluido.php",
+                    data: formData,
+                    dataType: "json",
+                    encode: true,
+                }).done(function (data) {  
+                    //console.log(data);
+                    //console.log(typeof data);
+                    if(data > 0){
+                        alert('O USUÁRIO não pose ser excluído!!!!!');                        
+                    } else {
+                        let retorno = confirm('VOU EXCLUIR O USUÁRIO! Confirme, por favor!');
+                        console.log(retorno);
+                        if(retorno){
+                            console.log('aqui você coloca o código que escluirá o registro.');
+                            excluiUser(user_id);
+                        }
+                        
+                        
+                    }
+                })                 
             });
         })        
 

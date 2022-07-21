@@ -327,7 +327,7 @@
               <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-arrow-down"></i>&nbsp;Operações com usuários</h2>
+                    <h2><i class="fa fa-arrow-down"></i>&nbsp;Operações envolvendo usuários</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <button class="btn btn-secondary button-4 btn-insere-user" data-toggle="modal" data-target="#form_cadastro_de_user"><i class="fa-solid fa-plus"></i>
                         &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-plus"></i></button>
@@ -371,11 +371,11 @@
                               <tr>
                                 <th></th>
                                 <th>#</th>
-                                <th>Usuário</th>
+                                <th><i class="fa-solid fa-list-ol"></i>&nbsp;&nbsp;Usuário</th>
+                                <th><i class="fa-solid fa-pen"></i>&nbsp;&nbsp;editar</th>
+                                <th><i class="fa-solid fa-plus-minus"></i>&nbsp;&nbsp;atribuir trilha</th>
                                 <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                <th><i class="fa-solid fa-minus"></i>&nbsp;&nbsp;excluir</th>
                               </tr>
                             </thead>
                             <tbody></tbody>
@@ -866,6 +866,32 @@
 
 
 
+
+      <!-- MODAL CONFIMAÇÃO OU NÃO EXCLUSÃO DE REGISTRO, BEM COMO ALERTA DE IMPOSSIBILIDADE DE EXCLUI-LO -->
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#excluiUser">
+        Launch demo modal
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="excluiUser" tabindex="-1" aria-labelledby="excluiUserLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="excluiUserLabel">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              ...
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
 
 
