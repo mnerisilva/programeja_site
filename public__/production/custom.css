@@ -225,7 +225,7 @@ footer {
 }
 
 .user-course-manager:hover, .user-manager:hover, .user-manager-trash:hover {
-    transition: all .4s ease;
+    transition: all .3s ease;
     /*transform: scale(1.1); */
     color: white;
     background: #1ABB9C;
