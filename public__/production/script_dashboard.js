@@ -1583,6 +1583,7 @@ function listaGeralDeUsuarios(){
                     dataType: "json",
                     encode: true,
                 }).done(function (data) {
+                    console.log(data);
                     _formModalCadastroDeUserEdit.querySelector('#user_name_edit').value = data[0].user_name;
                     _formModalCadastroDeUserEdit.querySelector('#user_email_edit').value = data[0].user_email;
                 })
