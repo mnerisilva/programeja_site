@@ -213,7 +213,18 @@
                     var formData_ = {
                                         user_name: _formModalCadastroDeUser.querySelector('#user_name').value,
                                         user_email: _formModalCadastroDeUser.querySelector('#user_email').value,
-                                        user_photo: 'https://userstock.io/data/wp-content/uploads/2017/09/michael-dam-258165-scaled.jpg'
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_whatsapp').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_logradouro').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_numero').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_complemento').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_cep').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_bairro').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_cidade').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_uf').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_cpf').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_idade').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_login').value,
+                                        user_email: _formModalCadastroDeUser.querySelector('#user_pix').value,
                                     };
                     console.log('Campos que irão para o grava_user.php', formData_);
                     salvaUser(formData_);
@@ -1586,6 +1597,18 @@ function listaGeralDeUsuarios(){
                     console.log(data);
                     _formModalCadastroDeUserEdit.querySelector('#user_name_edit').value = data[0].user_name;
                     _formModalCadastroDeUserEdit.querySelector('#user_email_edit').value = data[0].user_email;
+                    _formModalCadastroDeUserEdit.querySelector('#user_whatsapp_edit').value = data[0].user_whatsapp;
+                    _formModalCadastroDeUserEdit.querySelector('#user_logradouro_edit').value = data[0].user_logradouro;
+                    _formModalCadastroDeUserEdit.querySelector('#user_numero_edit').value = data[0].user_numero;
+                    _formModalCadastroDeUserEdit.querySelector('#user_complemento_edit').value = data[0].user_complemento;
+                    _formModalCadastroDeUserEdit.querySelector('#user_cep_edit').value = data[0].user_cep;
+                    _formModalCadastroDeUserEdit.querySelector('#user_bairro_edit').value = data[0].user_bairro;
+                    _formModalCadastroDeUserEdit.querySelector('#user_cidade_edit').value = data[0].user_cidade;
+                    _formModalCadastroDeUserEdit.querySelector('#user_uf_edit').value = data[0].user_uf;
+                    _formModalCadastroDeUserEdit.querySelector('#user_cpf_edit').value = data[0].user_cpf;
+                    _formModalCadastroDeUserEdit.querySelector('#user_idade_edit').value = data[0].user_idade;
+                    _formModalCadastroDeUserEdit.querySelector('#user_login_edit').value = data[0].user_login;
+                    _formModalCadastroDeUserEdit.querySelector('#user_pix_edit').value = data[0].user_pix;
                 })
             });
         })        
