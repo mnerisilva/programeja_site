@@ -48,6 +48,8 @@
     const _btnCancelarSalvarUser = document.querySelector('.btn-cancelar-salvar-user');
     const _btnUserCourseManager = document.querySelectorAll('.btn-insere-user');
 
+    const _btnUserManagerEdit = document.querySelector('.user-manager-edit');
+
 
 
     const _btnUserMessageSaved = document.querySelector('.user-message-saved');
@@ -64,6 +66,7 @@
     const _formModalQueServeAosCadastrosTipo = document.querySelector('.form-modal-que-serve-aos-cadastros-tipo');
     const _formModalQueServeAoCadastroDeUser = document.querySelector('.form-modal-que-serve-ao-cadastro-de-user');
     const _formModalCadastroDeUser = document.querySelector('#form_cadastro_de_user');
+    const _formModalCadastroDeUserEdit = document.querySelector('#form_cadastro_de_user-edit');
     const _formModalCadastroDeCategoria = document.querySelector('#form_cadastro_de_categoria');
     const _formModalCadastroDeTipo = document.querySelector('#form_cadastro_de_tipo');
 
@@ -72,13 +75,14 @@
 
             // EXECUTA "alert('modal fechou')" ASSIM QUE A MODAL FOR FECHADA
             $(form_cadastro_de_user).on('hide.bs.modal', function (event) {
-                //alert('modal fechou');
+                _formModalQueServeAoCadastroDeUser.querySelector('#user_name').value = '';
+                _formModalQueServeAoCadastroDeUser.querySelector('#user_email').value = '';
             });
 
             
             // EXECUTA "alert('modal abriu')" ASSIM QUE A MODAL FOR aberta
-            $(form_cadastro_de_user).on('shown.bs.modal', function (event) {
-                //alert('modal abriu');
+            $(_formModalCadastroDeUser).on('shown.bs.modal', function (event) {
+                // alert('modal abriu);
             });
 
 
@@ -546,133 +550,6 @@ function removeClassActive(nodeListLinks){
 
 
 
-/*function atualizaListaDeVideosGeral(nodeList){   
-                    console.log(_arrIdConteudoVideosDaTrilha);
-                    console.log(nodeList);
-                    if(_arrIdConteudoVideosDaTrilha.length === 0){
-                        for (videoItem of nodeList) {
-                            let _tr = document.createElement("tr");
-                            let _td1 = document.createElement("td");
-                            let _td2 = document.createElement("td");
-                            let _td3 = document.createElement("td");
-                            let _td4 = document.createElement("td");
-                            let _td5 = document.createElement("td");
-                            let _nodeText1 = document.createTextNode(videoItem.id);
-                            let _nodeText2 = document.createTextNode(videoItem.descricao);
-                            let _nodeText3 = document.createTextNode(videoItem.codigo);
-                            _td1.appendChild(_nodeText1);
-                            _td2.appendChild(_nodeText2);
-                            _td2.classList.add("tdlink");
-                            let texto_t2 = _td2.textContent;
-                            _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i>${texto_t2}</a>`;
-                            _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincular</button></form>`;
-                            _tr.appendChild(_td1);
-                            _tr.appendChild(_td2);
-                            _tr.appendChild(_td3);
-                            _tr.appendChild(_td4);
-                            _listaVideosGeral.appendChild(_tr);
-                        } 
-                            _totalVideosGeralDoMomento.textContent = `Total - [ ${nodeList.length} ]`;                        
-                                        
-                            const _linkYoutube = document.querySelectorAll('.link-youtube');
-
-                            _linkYoutube.forEach(function(link){
-                                                link.addEventListener('click', function(e){
-                                                                e.preventDefault();
-                                                                console.log(e.target.dataset.youtube_code);
-                                                                let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
-                                                                _iframeYoutube.setAttribute('src', src);
-                                                                _iframeYoutube.getAttribute('src');
-                                                                removeClassActive(_linkYoutube);
-                                                                e.target.parentNode.parentNode.classList.add('active');
-                                                                e.target.querySelector('i').style.color = 'red';
-                                                            })
-                                        });
-
-                        
-                            const _formVinculaVideoATrilha = document.querySelectorAll('.form-vincula-video-a-trilha');
-                            _formVinculaVideoATrilha.forEach(function(item){
-                                $(item).submit(function(event){
-                                    event.preventDefault();
-                                    
-                                    var formData_ = {
-                                        trilha_escolhida: _idDaTrilhaEscolhida,
-                                        video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
-                                    };
-                                    console.log(formData_);
-                                    item.parentNode.parentNode.style.opacity = 0;
-                                    setTimeout(function(){
-                                        item.parentNode.parentNode.remove();
-                                        vinculaVideo(formData_);
-                                    }, 1000);
-                                })
-                            });
-
-                    } else if(_arrIdConteudoVideosDaTrilha.length > 0){
-                        console.log('entrou aqui');
-                        for (videoItem of nodeList) {
-                            let _tr = document.createElement("tr");
-                            let _td1 = document.createElement("td");
-                            let _td2 = document.createElement("td");
-                            let _td3 = document.createElement("td");
-                            let _td4 = document.createElement("td");
-                            let _td5 = document.createElement("td");
-                            let _nodeText1 = document.createTextNode(videoItem.id);
-                            let _nodeText2 = document.createTextNode(videoItem.descricao);
-                            let _nodeText3 = document.createTextNode(videoItem.codigo);
-                            _td1.appendChild(_nodeText1);
-                            _td2.appendChild(_nodeText2);
-                            _td2.classList.add("tdlink");
-                            let texto_t2 = _td2.textContent;
-                            _td2.textContent = texto_t2;
-                            _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
-                            _td3.appendChild(_nodeText3);
-                            _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincular</button></form>`;
-                            _tr.appendChild(_td1);
-                            _tr.appendChild(_td2);
-                            _tr.appendChild(_td3);
-                            _tr.appendChild(_td4);
-                            if(!_arrIdConteudoVideosDaTrilha.includes(videoItem.id)){_listaVideosGeral.appendChild(_tr);}
-                        }
-                            _totalVideosGeralDoMomento.textContent = `Total: [ ${_listaVideosGeral.childElementCount} ]`;                            
-                                        
-                            const _linkYoutube = document.querySelectorAll('.link-youtube');
-
-                            _linkYoutube.forEach(function(link){
-                                                link.addEventListener('click', function(e){
-                                                                e.preventDefault();
-                                                                console.log(e.target.dataset.youtube_code);
-                                                                let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
-                                                                _iframeYoutube.setAttribute('src', src);
-                                                                _iframeYoutube.getAttribute('src');
-                                                                removeClassActive(_linkYoutube);
-                                                                e.target.parentNode.parentNode.classList.add('active');
-                                                                e.target.querySelector('i').style.color = 'red';
-                                                            })
-                                        });
-    
-                            const _formVinculaVideoATrilha = document.querySelectorAll('.form-vincula-video-a-trilha');
-                            _formVinculaVideoATrilha.forEach(function(item){
-                                $(item).submit(function(event){
-                                    event.preventDefault();
-                                    
-                                    var formData_ = {
-                                        trilha_escolhida: _idDaTrilhaEscolhida,
-                                        video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
-                                    };
-                                    console.log(formData_);
-                                    item.parentNode.parentNode.style.opacity = 0;
-                                    setTimeout(function(){
-                                        item.parentNode.parentNode.remove();
-                                        vinculaVideo(formData_);
-                                    }, 1000);
-                                })
-                            });                                                               
-                    }
-                }*/
-
 
 
 
@@ -781,7 +658,9 @@ function salvaUser(formData){
                     }).done(function (data) {
                         console.log('Retorno do ajax php/grava_user.php: '+data);
                         _btnSalvarUser.setAttribute('disabled','');
+                        _btnSalvarUser.style.pointerEvents = 'none';
                         _btnCancelarSalvarUser.setAttribute('disabled','');
+                        _btnCancelarSalvarUser.style.pointerEvents = 'none';
                         setTimeout(function(){
                             _btnUserMessageSaved.classList.add('success');
                         }, 1000);
@@ -789,7 +668,9 @@ function salvaUser(formData){
                         }, 2500);
                         setTimeout(() => {
                             _btnSalvarUser.removeAttribute('disabled');
+                            _btnSalvarUser.style.pointerEvents = 'all';
                             _btnCancelarSalvarUser.removeAttribute('disabled');
+                            _btnCancelarSalvarUser.style.pointerEvents = 'all';
                             $(_btnCancelarSalvarUser).trigger('click');
                             listaGeralDeUsuarios();
                             _formModalCadastroDeUser.querySelector('#user_name').value;
@@ -1497,6 +1378,7 @@ function DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser){
 
 
 function abreModalQueServeAoCadastroDeUser() {
+
         setTimeout(() => {
             _formModalQueServeAoCadastroDeUser.classList.add('popup-open');            
         }, 300);
@@ -1652,9 +1534,9 @@ function listaGeralDeUsuarios(){
             _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
             _td2.appendChild(_nodeText1);
             _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-user-pen"></i>`;
+            _td4.innerHTML = `<i class="fa-solid fa-user-pen user-manager-edit" data-toggle="modal" title="editar usuário" data-target="#form_cadastro_de_user-edit" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}" data-user_email="${userItem.user_email}"></i>`;
             _td5.innerHTML = `<i class="fa-solid fa-user-gear user-manager" title="atribuir trilhas" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
-            _td6.innerHTML = `<i class="fa-solid fa-diagram-project"></i>`;
+            _td6.innerHTML = `<i class="fa-solid fa-eye user-manager-view"></i>`;
             _td7.innerHTML = `<i class="fa-solid fa-user-minus user-manager-trash" data-toggle="modal" title="excluir usuário" data-target="#xxx" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
             _tr.appendChild(_td1);
             _tr.appendChild(_td2);
@@ -1667,6 +1549,7 @@ function listaGeralDeUsuarios(){
         }
 
         const _userManager = document.querySelectorAll('.user-manager');
+        const _userManagerEdit = document.querySelectorAll('.user-manager-edit');
         const _userManagerTrash = document.querySelectorAll('.user-manager-trash');
         const _modalUserPhoto = document.querySelector('.modal-user-photo');
         const _modalUserName = document.querySelector('.modal-user-name');
@@ -1680,6 +1563,22 @@ function listaGeralDeUsuarios(){
                 console.log(_arrayIDsTrilhasDoUser);
             });
         })
+
+
+
+        _userManagerEdit.forEach(function(item){
+            item.addEventListener('click', function(e){
+                console.log(item);
+                _userIdDoUsuario = item.dataset.user_id;
+                console.log(`clicou no user-mabager-edit ${_userIdDoUsuario}`);
+                _formModalCadastroDeUserEdit.querySelector('span').innerHTML = `&nbsp;&nbsp;&nbsp;#${_userIdDoUsuario}`;
+                _formModalCadastroDeUserEdit.querySelector('#user_name_edit').value = item.dataset.user_name;
+                _formModalCadastroDeUserEdit.querySelector('#user_email_edit').value = item.dataset.user_email;
+                //_modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
+                //listaTrilhasDoUser(e.target.dataset.user_id);
+                //console.log(_arrayIDsTrilhasDoUser);
+            });
+        })        
 
         _userManagerTrash.forEach(function(item){
             item.addEventListener('click', function(e){
@@ -1702,7 +1601,7 @@ function listaGeralDeUsuarios(){
                     if(data > 0){
                         alert('O USUÁRIO não pose ser excluído!!!!!');                        
                     } else {
-                        let retorno = confirm(`VOU EXCLUIR O USUÁRIO: ${user_name}. Confirme, por favor!`);
+                        let retorno = confirm(`VOU EXCLUIR O USUÁRIO:\n              ${user_name}.\nConfirme, por favor!`);
                         console.log(retorno);
                         if(retorno){
                             console.log('aqui você coloca o código que escluirá o registro.');
@@ -1713,7 +1612,10 @@ function listaGeralDeUsuarios(){
                     }
                 })                 
             });
-        })        
+        })   
+        
+        
+
 
     });     
 }
@@ -1733,3 +1635,5 @@ function pegaDadosUsuarioEspecifico(user_id) {
                 })
 
             }
+
+            

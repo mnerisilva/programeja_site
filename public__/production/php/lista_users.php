@@ -15,7 +15,7 @@ include('connect.php');
 
 		if($result){
 			while($row = mysqli_fetch_array($result)){
-				$arr_json[$contador] = ['user_id' => $row["user_id"], 'user_name' => $row["user_name"],'user_photo' => $row["user_photo"],'user_date' => $row["user_date"]];
+				$arr_json[$contador] = ['user_id' => $row["user_id"], 'user_name' => $row["user_name"],'user_email' => $row["user_email"],'user_photo' => $row["user_photo"],'user_date' => $row["user_date"]];
 				$contador++;			
 			}
 	

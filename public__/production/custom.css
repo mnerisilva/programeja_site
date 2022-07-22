@@ -122,7 +122,7 @@ footer {
     margin-right: 10px;
 }
 
-.user-manager, .user-manager-trash {
+.user-manager, .user-manager-trash, .user-manager-edit, .user-manager-view {
     cursor: pointer;
     padding: 5px;
     border: solid thin #dedede47;
@@ -220,11 +220,11 @@ footer {
     /*height: 100vh;*/
 }
 
-.user-course-manager, .user-manager, .user-manager-trash {
+.user-course-manager, .user-manager, .user-manager-trash, .user-manager-edit, .user-manager-view {
     cursor: pointer;
 }
 
-.user-course-manager:hover, .user-manager:hover, .user-manager-trash:hover {
+.user-course-manager:hover, .user-manager:hover, .user-manager-trash:hover, .user-manager-edit:hover, .user-manager-view:hover {
     transition: all .3s ease;
     /*transform: scale(1.1); */
     color: white;

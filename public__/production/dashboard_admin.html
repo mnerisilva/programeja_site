@@ -88,6 +88,59 @@
 
         
 
+
+
+        <!-- Modal -->
+        <div class="modal fade" id="form_cadastro_de_user-edit" tabindex="-1" role="dialog" aria-labelledby="form_cadastro_de_userLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="form_cadastro_de_userLabel"><i class="fa-solid fa-user-plus"></i> Usuário <small>Editar  </small><span></span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-modal-que-serve-ao-cadastro-de-user form-horizontal form-label-left">
+                        <div class="form-group row ">
+                          <label class="control-label col-md-3 col-sm-3 ">Nome</label>
+                          <div class="col-md-9 col-sm-9 ">
+                            <input type="text" class="form-control" id="user_name_edit" required="" name="user_name_edit" placeholder="">
+                          </div>
+                        </div>  
+                        <div class="form-group row ">
+                          <label class="control-label col-md-3 col-sm-3 ">E-mail</label>
+                          <div class="col-md-9 col-sm-9 ">
+                            <input type="email" class="form-control" id="user_email_edit" required="" name="user_email_edit" placeholder="">
+                          </div>
+                        </div>                         
+                        <div class="ln_solid"></div>
+                        <div class="form-group">
+                          <div class="col-md-9 col-sm-9">
+                            <!--<button type="button" class="btn btn-secondary button-4 cancela-modal-que-serve-ao-cadastro-de-user">Cancela</button>-->
+                            <!--<button type="submit" class="btn btn-secondary btn-salvar btn-salvar-categoria submit">Salvar categoria</button>-->
+                          </div>
+                          <div class="col-md-12 col-sm-12">
+                            <div class="user-message-saved d-flex justify-content-center align-items-center text-white bg-success">
+                              <h4><i class="fa-solid fa-check"></i>&nbsp;&nbsp;Usuário inserido com sucesso!</h4>                              
+                            </div>
+                          </div>
+                        </div> 
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary button-4 btn-cancelar-salvar-user" data-dismiss="modal">Cancelar</button>
+                    <button type="submit" class="btn btn-secondary button-4 btn-salvar btn-salvar-user submit">Salvar</button>
+                </div>                 
+            </form> 
+            </div>
+            </div>
+        </div> 
+
+
+
+
+
+
         <!-- Modal -->
         <div class="modal fade" id="form_cadastro_de_categoria" tabindex="-1" role="dialog" aria-labelledby="form_cadastro_de_categoriaLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
@@ -134,15 +187,6 @@
 
 
         
-    
-    
-        
-    
-        
-
-
-
-
 
 
 
@@ -374,7 +418,7 @@
                                 <th><i class="fa-solid fa-list-ol"></i>&nbsp;&nbsp;Usuário</th>
                                 <th><i class="fa-solid fa-pen"></i>&nbsp;&nbsp;editar</th>
                                 <th><i class="fa-solid fa-plus-minus"></i>&nbsp;&nbsp;atribuir trilha</th>
-                                <th></th>
+                                <th><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;exibe dados</th>
                                 <th><i class="fa-solid fa-minus"></i>&nbsp;&nbsp;excluir</th>
                               </tr>
                             </thead>
