@@ -1553,6 +1553,7 @@ function listaGeralDeUsuarios(){
         const _userManagerTrash = document.querySelectorAll('.user-manager-trash');
         const _modalUserPhoto = document.querySelector('.modal-user-photo');
         const _modalUserName = document.querySelector('.modal-user-name');
+        
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
                 console.log(item);
@@ -1572,11 +1573,19 @@ function listaGeralDeUsuarios(){
                 _userIdDoUsuario = item.dataset.user_id;
                 console.log(`clicou no user-mabager-edit ${_userIdDoUsuario}`);
                 _formModalCadastroDeUserEdit.querySelector('span').innerHTML = `&nbsp;&nbsp;&nbsp;#${_userIdDoUsuario}`;
-                _formModalCadastroDeUserEdit.querySelector('#user_name_edit').value = item.dataset.user_name;
-                _formModalCadastroDeUserEdit.querySelector('#user_email_edit').value = item.dataset.user_email;
-                //_modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
-                //listaTrilhasDoUser(e.target.dataset.user_id);
-                //console.log(_arrayIDsTrilhasDoUser);
+                let formData = {
+                    user_id: _userIdDoUsuario
+                };    
+                $.ajax({
+                    type: "POST",
+                    url: "php/pega_user.php",
+                    data: formData,
+                    dataType: "json",
+                    encode: true,
+                }).done(function (data) {
+                    _formModalCadastroDeUserEdit.querySelector('#user_name_edit').value = data[0].user_name;
+                    _formModalCadastroDeUserEdit.querySelector('#user_email_edit').value = data[0].user_email;
+                })
             });
         })        
 
