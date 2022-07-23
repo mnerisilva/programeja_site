@@ -213,19 +213,20 @@
                     var formData_ = {
                                         user_name: _formModalCadastroDeUser.querySelector('#user_name').value,
                                         user_email: _formModalCadastroDeUser.querySelector('#user_email').value,
-                                        user_whatsapp: _formModalCadastroDeUser.querySelector('#user_whatsapp').value,
+                                        user_whatsapp: (_formModalCadastroDeUser.querySelector('#user_whatsapp').value).match(/\d/g).join(""),
                                         user_logradouro: _formModalCadastroDeUser.querySelector('#user_logradouro').value,
                                         user_numero: _formModalCadastroDeUser.querySelector('#user_numero').value,
                                         user_complemento: _formModalCadastroDeUser.querySelector('#user_complemento').value,
-                                        user_cep: _formModalCadastroDeUser.querySelector('#user_cep').value,
+                                        user_cep: (_formModalCadastroDeUser.querySelector('#user_cep').value).match(/\d/g).join(""),
                                         user_bairro: _formModalCadastroDeUser.querySelector('#user_bairro').value,
                                         user_cidade: _formModalCadastroDeUser.querySelector('#user_cidade').value,
                                         user_uf: _formModalCadastroDeUser.querySelector('#user_uf').value,
-                                        user_cpf: _formModalCadastroDeUser.querySelector('#user_cpf').value,
+                                        user_cpf: (_formModalCadastroDeUser.querySelector('#user_cpf').value).match(/\d/g).join(""),
                                         user_idade: _formModalCadastroDeUser.querySelector('#user_idade').value,
-                                        user_pix: _formModalCadastroDeUser.querySelector('#user_pix').value
+                                        user_pix: _formModalCadastroDeUser.querySelector('#user_pix').value,
+                                        user_photo: 'images/users/avatar.png'
                                     };
-                    console.log('Campos que irão para o grava_user.php', formData_);
+                    console.log('Campos que irão para o salva_user.php', formData_);
                     salvaUser(formData_);
                     
                 });
@@ -661,12 +662,12 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
 function salvaUser(formData){
                     $.ajax({
                         type: "POST",
-                        url: "php/grava_user.php",
+                        url: "php/salva_user.php",
                         data: formData,
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        console.log('Retorno do ajax php/grava_user.php: '+data);
+                        console.log('Retorno do ajax php/salva_user.php: '+data);
                         _btnSalvarUser.setAttribute('disabled','');
                         _btnSalvarUser.style.pointerEvents = 'none';
                         _btnCancelarSalvarUser.setAttribute('disabled','');
