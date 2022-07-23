@@ -119,7 +119,8 @@ footer {
     width: 29px;
     height: 29px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-right: 10px;    
+    border: solid thin #dedede;
 }
 
 .user-manager, .user-manager-trash, .user-manager-edit, .user-manager-view {
