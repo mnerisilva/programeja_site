@@ -66,7 +66,7 @@
     const _formModalQueServeAosCadastrosTipo = document.querySelector('.form-modal-que-serve-aos-cadastros-tipo');
     const _formModalQueServeAoCadastroDeUser = document.querySelector('.form-modal-que-serve-ao-cadastro-de-user');
     const _formModalCadastroDeUser = document.querySelector('#form_cadastro_de_user');
-    const _formModalCadastroDeUserEdit = document.querySelector('#form_cadastro_de_user-edit');
+    const _formModalCadastroDeUserEdit = document.querySelector('#form-modal-cadastro-de-user-edit');
     const _formModalCadastroDeCategoria = document.querySelector('#form_cadastro_de_categoria');
     const _formModalCadastroDeTipo = document.querySelector('#form_cadastro_de_tipo');
 
@@ -230,6 +230,31 @@
                     salvaUser(formData_);
                     
                 });
+
+
+    $(_formModalCadastroDeUserEdit).submit(function(event){
+                    event.preventDefault();
+                    console.log('clicou no button submit da modal de cadastro de usuário')
+                    var formData_ = {
+                                        user_name_edit: _formModalCadastroDeUser.querySelector('#user_name_edit').value,
+                                        user_email_edit: _formModalCadastroDeUser.querySelector('#user_email_edit').value,
+                                        user_whatsapp_edit: (_formModalCadastroDeUser.querySelector('#user_whatsapp_edit').value).match(/\d/g).join(""),
+                                        user_logradouro_edit: _formModalCadastroDeUser.querySelector('#user_logradouro_edit').value,
+                                        user_numero_edit: _formModalCadastroDeUser.querySelector('#user_numero_edit').value,
+                                        user_complemento_edit: _formModalCadastroDeUser.querySelector('#user_complemento_edit').value,
+                                        user_cep_edit: (_formModalCadastroDeUser.querySelector('#user_cep_edit').value).match(/\d/g).join(""),
+                                        user_bairro_edit: _formModalCadastroDeUser.querySelector('#user_bairro_edit').value,
+                                        user_cidade_edit: _formModalCadastroDeUser.querySelector('#user_cidade_edit').value,
+                                        user_uf_edit: _formModalCadastroDeUser.querySelector('#user_uf_edit').value,
+                                        user_cpf_edit: (_formModalCadastroDeUser.querySelector('#user_cpf_edit').value).match(/\d/g).join(""),
+                                        user_idade_edit: _formModalCadastroDeUser.querySelector('#user_idade_edit').value,
+                                        user_pix_edit: _formModalCadastroDeUser.querySelector('#user_pix_edit').value,
+                                        user_photo_edit: 'images/users/avatar.png'
+                                    };
+                    console.log('Campos que irão para o salva_user.php', formData_);
+                    salvaUserEdit(formData_);
+                    
+                });                
 
                 
     $(_formModalCadastroDeCategoria).submit(function(event){
@@ -690,6 +715,39 @@ function salvaUser(formData){
                         }, 5000);
                     });  
                 }
+
+
+function salvaUserEdit(formData){
+                    $.ajax({
+                        type: "POST",
+                        url: "php/salva_user_editado.php",
+                        data: formData,
+                        dataType: "json",
+                        encode: true,
+                    }).done(function (data) {
+                        console.log('Retorno do ajax php/salva_user.php: '+data);
+                        _btnSalvarUserEdit.setAttribute('disabled','');
+                        _btnSalvarUserEdit.style.pointerEvents = 'none';
+                        _btnCancelarSalvarUserEdit.setAttribute('disabled','');
+                        _btnCancelarSalvarUserEdit.style.pointerEvents = 'none';
+                        setTimeout(function(){
+                            _btnUserMessageSaved.classList.add('success');
+                        }, 1000);
+                        setTimeout(function(){
+                        }, 2500);
+                        setTimeout(() => {
+                            _btnSalvarUserEdit.removeAttribute('disabled');
+                            _btnSalvarUserEdit.style.pointerEvents = 'all';
+                            _btnCancelarSalvarUserEdit.removeAttribute('disabled');
+                            _btnCancelarSalvarUserEdit.style.pointerEvents = 'all';
+                            $(_btnCancelarSalvarUserEdit).trigger('click');
+                            listaGeralDeUsuarios();
+                            _formModalCadastroDeUserEdit.querySelector('#user_name').value;
+                            _formModalCadastroDeUserEdit.querySelector('#user_email').value;
+                            _btnUserMessageSaved.classList.remove('success');
+                        }, 5000);
+                    });  
+                }                
 
 
 
