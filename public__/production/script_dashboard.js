@@ -213,18 +213,17 @@
                     var formData_ = {
                                         user_name: _formModalCadastroDeUser.querySelector('#user_name').value,
                                         user_email: _formModalCadastroDeUser.querySelector('#user_email').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_whatsapp').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_logradouro').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_numero').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_complemento').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_cep').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_bairro').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_cidade').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_uf').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_cpf').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_idade').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_login').value,
-                                        user_email: _formModalCadastroDeUser.querySelector('#user_pix').value,
+                                        user_whatsapp: _formModalCadastroDeUser.querySelector('#user_whatsapp').value,
+                                        user_logradouro: _formModalCadastroDeUser.querySelector('#user_logradouro').value,
+                                        user_numero: _formModalCadastroDeUser.querySelector('#user_numero').value,
+                                        user_complemento: _formModalCadastroDeUser.querySelector('#user_complemento').value,
+                                        user_cep: _formModalCadastroDeUser.querySelector('#user_cep').value,
+                                        user_bairro: _formModalCadastroDeUser.querySelector('#user_bairro').value,
+                                        user_cidade: _formModalCadastroDeUser.querySelector('#user_cidade').value,
+                                        user_uf: _formModalCadastroDeUser.querySelector('#user_uf').value,
+                                        user_cpf: _formModalCadastroDeUser.querySelector('#user_cpf').value,
+                                        user_idade: _formModalCadastroDeUser.querySelector('#user_idade').value,
+                                        user_pix: _formModalCadastroDeUser.querySelector('#user_pix').value
                                     };
                     console.log('Campos que irão para o grava_user.php', formData_);
                     salvaUser(formData_);
