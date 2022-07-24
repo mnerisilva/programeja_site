@@ -1,5 +1,10 @@
 
                           const _formCadastroDeTrilha = document.querySelector('.form-cadastro-de-trilha');
+
+                          const _x_panelCadastrarTrilha = document.querySelector('.x_panel-cadastrar-trilha');
+                          const _divMensagemTrilhaSavedMessage = document.querySelector('.trilha-save-message')
+
+                          
                          
                             $(_formCadastroDeTrilha).submit(function(event){
                                 event.preventDefault();
@@ -36,11 +41,11 @@
                                     url: "php/insere_trilha.php",
                                     data: formData_,
                                     dataType: "json",
-                                    encode: true // precisei remover a vírgula após o true, pois a requisião não estava retornando - "vai entender?!?!?"
+                                    encode: true, // precisei remover a vírgula após o true, pois a requisião não estava retornando - "vai entender?!?!?"
                                 }).done(function (data) {
                                     console.log(data);
-                                    console.log(data[0].ultimo_indice_inserido);
-                                    _indiceDaTrilhaInseridaNoBancoDeDados = data[0].ultimo_indice_inserido;
+                                    console.log(data.indice);
+                                    _indiceDaTrilhaInseridaNoBancoDeDados = dataindice;
                                     _divMessageTrilhaSalva.innerHTML = `<img src="images/spinner.gif" />`;
                                     _btnSubmitCadastroDeTrilha.setAttribute('disabled', true);
                                     setTimeout(function(){
@@ -61,6 +66,13 @@
                                         _btnSubmitCadastroDeTrilha.removeAttribute('disabled');
                                         _selectIdTrilhaEscolhida.style.backgroundColor = 'gainsboro';
                                         $(_selectIdTrilhaEscolhida).val(_indiceDaTrilhaInseridaNoBancoDeDados).trigger( "change" );
-                                    }, 2300);                                    
-                                });                        
+                                        _formCadastroDeTrilha.querySelector('#id_categoria').value = '';
+                                        _formCadastroDeTrilha.querySelector('#trilha_type').value = '';
+                                        _formCadastroDeTrilha.querySelector('#trilha_name').value = '';;
+                                        _formCadastroDeTrilha.querySelector('#trilha_descricao').value = '';;
+                                        _formCadastroDeTrilha.querySelector('#trilha_nomeamigavel').value = '';;                                        
+                                    }, 2300); 
+                                }).fail(function(jqXHR, textStatus, msg){
+                                    alert(msg);
+                                })                   ;                        
                           });
