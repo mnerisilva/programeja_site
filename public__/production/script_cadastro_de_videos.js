@@ -30,11 +30,11 @@ _copy.addEventListener("click", function () {
         if (partes[1].length > 11) {
           console.log("é uma playlist");
           _codigoyt.value = partes[1].substring(0, 11);
-          _youtubeLinkTester.setAttribute("href", `https://www.youtube.com/watch?v=${_codigoyt.value}`);
+          _youtubeLinkTester.parentNode.setAttribute("href", `https://www.youtube.com/watch?v=${_codigoyt.value}`);
         } else {
           console.log("é um vídeo simples");
           _codigoyt.value = partes[1];
-          _youtubeLinkTester.setAttribute("href", `https://www.youtube.com/watch?v=${_codigoyt.value}`);
+          _youtubeLinkTester.parentNode.setAttribute("href", `https://www.youtube.com/watch?v=${_codigoyt.value}`);
         }
         return;
       }

@@ -286,3 +286,20 @@ table.lista-user td, .table th {
 .spinner {
     width: 35px;
 }
+
+.rubber, .copy, .normalize, .youtube-link-tester {
+    padding: 5px 7px;
+    font-size: 1.2em;
+    border: solid thin #dedede;
+}
+
+.rubber:hover, .copy:hover, .normalize:hover, .youtube-link-tester:hover {
+    cursor: pointer;
+    background-color: #e7e7e7;
+}
+
+.ferramentas-codigo-video {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
