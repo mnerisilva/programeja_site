@@ -69,6 +69,7 @@
     const _formModalCadastroDeUserEdit = document.querySelector('#form-modal-cadastro-de-user-edit');
     const _formModalCadastroDeCategoria = document.querySelector('#form_cadastro_de_categoria');
     const _formModalCadastroDeTipo = document.querySelector('#form_cadastro_de_tipo');
+    const _formCadastroDeUserEdit = document.querySelector('#form-cadastro-de-user-edit')
 
 
             //$(form_cadastro_de_user).modal('show'); // ABRE MODAL BOOTSTRAP ASSIM QUE A PÁGINA CARREGA
@@ -1603,7 +1604,7 @@ function listaGeralDeUsuarios(){
             _td1.innerHTML = `<img src="${userItem.user_photo}" class="user-avatar" />`;
             _td2.appendChild(_nodeText1);
             _td3.appendChild(_nodeText2);
-            _td4.innerHTML = `<i class="fa-solid fa-user-pen user-manager-edit" data-toggle="modal" title="editar usuário" data-target="#form_cadastro_de_user-edit" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}" data-user_email="${userItem.user_email}"></i>`;
+            _td4.innerHTML = `<i class="fa-solid fa-user-pen user-manager-edit" data-toggle="modal" title="editar usuário" data-target="#form-cadastro-de-user-edit" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}" data-user_email="${userItem.user_email}"></i>`;
             _td5.innerHTML = `<i class="fa-solid fa-user-gear user-manager" title="atribuir trilhas" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
             _td6.innerHTML = `<i class="fa-solid fa-eye user-manager-view"></i>`;
             _td7.innerHTML = `<i class="fa-solid fa-user-minus user-manager-trash" data-toggle="modal" title="excluir usuário" data-target="#xxx" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
@@ -1641,7 +1642,7 @@ function listaGeralDeUsuarios(){
                 console.log(item);
                 _userIdDoUsuario = item.dataset.user_id;
                 console.log(`clicou no user-mabager-edit ${_userIdDoUsuario}`);
-                _formModalCadastroDeUserEdit.querySelector('span').innerHTML = `&nbsp;&nbsp;&nbsp;#${_userIdDoUsuario}`;
+                _formCadastroDeUserEdit.querySelector('span').innerHTML = `&nbsp;&nbsp;&nbsp;#${_userIdDoUsuario}`;
                 let formData = {
                     user_id: _userIdDoUsuario
                 };    
