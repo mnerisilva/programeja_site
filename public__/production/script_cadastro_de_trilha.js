@@ -1,4 +1,7 @@
 
+
+
+
                           const _formCadastroDeTrilha = document.querySelector('.form-cadastro-de-trilha');
 
                           const _x_panelCadastrarTrilha = document.querySelector('.x_panel-cadastrar-trilha');
@@ -45,8 +48,8 @@
                                 }).done(function (data) {
                                     console.log(data);
                                     console.log(data.indice);
-                                    _indiceDaTrilhaInseridaNoBancoDeDados = dataindice;
-                                    _divMessageTrilhaSalva.innerHTML = `<img src="images/spinner.gif" />`;
+                                    _indiceDaTrilhaInseridaNoBancoDeDados = data.indice;
+                                    _divMessageTrilhaSalva.innerHTML = `<img class="spinner" src="images/spinner.gif" />`;
                                     _btnSubmitCadastroDeTrilha.setAttribute('disabled', true);
                                     setTimeout(function(){
                                         _formCadastroDeTrilha.querySelector('#id_categoria').value = '';
@@ -56,7 +59,7 @@
                                         _formCadastroDeTrilha.querySelector('#trilha_nomeamigavel').value = '';
                                         _divMessageTrilhaSalva.innerHTML = '';
                                         _selectIdTrilhaEscolhida.style.backgroundColor = 'red';
-                                        povoaSelectDasTrilhas(); 
+                                        povoaSelectDoFiltrarTrilhas(); 
                                     }, 800);
                                     setTimeout(function(){
                                         _divMessageTrilhaSalva.innerHTML = `Trilha adicionada com sucesso!`;
@@ -70,7 +73,9 @@
                                         _formCadastroDeTrilha.querySelector('#trilha_type').value = '';
                                         _formCadastroDeTrilha.querySelector('#trilha_name').value = '';;
                                         _formCadastroDeTrilha.querySelector('#trilha_descricao').value = '';;
-                                        _formCadastroDeTrilha.querySelector('#trilha_nomeamigavel').value = '';;                                        
+                                        _formCadastroDeTrilha.querySelector('#trilha_nomeamigavel').value = '';
+                                        
+                                        $(_btnCarregaTrilha).trigger( "click" );                                      
                                     }, 2300); 
                                 }).fail(function(jqXHR, textStatus, msg){
                                     alert(msg);
