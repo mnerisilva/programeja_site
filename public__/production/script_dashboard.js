@@ -45,7 +45,9 @@
     const _btnCancelarDoSalvarVideo = document.querySelector('.btn-cancelar-do-salvar-video');
     const _btnInsereUser = document.querySelector('.btn-insere-user');
     const _btnSalvarUser = document.querySelector('.btn-salvar-user');
+    const _btnSalvarUserEdit = document.querySelector('.btn-salvar-user-edit');
     const _btnCancelarSalvarUser = document.querySelector('.btn-cancelar-salvar-user');
+    const _btnCancelarSalvarUserEdit = document.querySelector('.btn-cancelar-salvar-user-edit');
     const _btnUserCourseManager = document.querySelectorAll('.btn-insere-user');
 
     const _btnUserManagerEdit = document.querySelector('.user-manager-edit');
@@ -237,19 +239,20 @@
                     event.preventDefault();
                     console.log('clicou no button submit da modal de cadastro de usuário')
                     var formData_ = {
-                                        user_name_edit: _formModalCadastroDeUser.querySelector('#user_name_edit').value,
-                                        user_email_edit: _formModalCadastroDeUser.querySelector('#user_email_edit').value,
-                                        user_whatsapp_edit: (_formModalCadastroDeUser.querySelector('#user_whatsapp_edit').value).match(/\d/g).join(""),
-                                        user_logradouro_edit: _formModalCadastroDeUser.querySelector('#user_logradouro_edit').value,
-                                        user_numero_edit: _formModalCadastroDeUser.querySelector('#user_numero_edit').value,
-                                        user_complemento_edit: _formModalCadastroDeUser.querySelector('#user_complemento_edit').value,
-                                        user_cep_edit: (_formModalCadastroDeUser.querySelector('#user_cep_edit').value).match(/\d/g).join(""),
-                                        user_bairro_edit: _formModalCadastroDeUser.querySelector('#user_bairro_edit').value,
-                                        user_cidade_edit: _formModalCadastroDeUser.querySelector('#user_cidade_edit').value,
-                                        user_uf_edit: _formModalCadastroDeUser.querySelector('#user_uf_edit').value,
-                                        user_cpf_edit: (_formModalCadastroDeUser.querySelector('#user_cpf_edit').value).match(/\d/g).join(""),
-                                        user_idade_edit: _formModalCadastroDeUser.querySelector('#user_idade_edit').value,
-                                        user_pix_edit: _formModalCadastroDeUser.querySelector('#user_pix_edit').value,
+                                        user_id_edit: _userIdDoUsuario,
+                                        user_name_edit: _formModalCadastroDeUserEdit.querySelector('#user_name_edit').value,
+                                        user_email_edit: _formModalCadastroDeUserEdit.querySelector('#user_email_edit').value,
+                                        user_whatsapp_edit: (_formModalCadastroDeUserEdit.querySelector('#user_whatsapp_edit').value).match(/\d/g).join(""),
+                                        user_logradouro_edit: _formModalCadastroDeUserEdit.querySelector('#user_logradouro_edit').value,
+                                        user_numero_edit: _formModalCadastroDeUserEdit.querySelector('#user_numero_edit').value,
+                                        user_complemento_edit: _formModalCadastroDeUserEdit.querySelector('#user_complemento_edit').value,
+                                        user_cep_edit: (_formModalCadastroDeUserEdit.querySelector('#user_cep_edit').value).match(/\d/g).join(""),
+                                        user_bairro_edit: _formModalCadastroDeUserEdit.querySelector('#user_bairro_edit').value,
+                                        user_cidade_edit: _formModalCadastroDeUserEdit.querySelector('#user_cidade_edit').value,
+                                        user_uf_edit: _formModalCadastroDeUserEdit.querySelector('#user_uf_edit').value,
+                                        user_cpf_edit: (_formModalCadastroDeUserEdit.querySelector('#user_cpf_edit').value).match(/\d/g).join(""),
+                                        user_idade_edit: _formModalCadastroDeUserEdit.querySelector('#user_idade_edit').value,
+                                        user_pix_edit: _formModalCadastroDeUserEdit.querySelector('#user_pix_edit').value,
                                         user_photo_edit: 'images/users/avatar.png'
                                     };
                     console.log('Campos que irão para o salva_user.php', formData_);
@@ -719,6 +722,7 @@ function salvaUser(formData){
 
 
 function salvaUserEdit(formData){
+                    console.log(formData);
                     $.ajax({
                         type: "POST",
                         url: "php/salva_user_editado.php",
@@ -1666,7 +1670,6 @@ function listaGeralDeUsuarios(){
                     _formModalCadastroDeUserEdit.querySelector('#user_uf_edit').value = data[0].user_uf;
                     _formModalCadastroDeUserEdit.querySelector('#user_cpf_edit').value = data[0].user_cpf;
                     _formModalCadastroDeUserEdit.querySelector('#user_idade_edit').value = data[0].user_idade;
-                    _formModalCadastroDeUserEdit.querySelector('#user_login_edit').value = data[0].user_login;
                     _formModalCadastroDeUserEdit.querySelector('#user_pix_edit').value = data[0].user_pix;
                 })
             });

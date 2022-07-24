@@ -17,13 +17,12 @@ if(count($_POST) > 0){
         $id_categoria           = $_POST['id_categoria'];
         $trilha_status          = 1;
 
-		$sql = "INSERT INTO `trilha`( `trilha_name`, `trilha_type`, `trilha_descricao`, `trilha_nomeamigavel`, `id_categoria`, `trilha_status`) VALUES ('$trilha_name', '$trilha_type', '$trilha_descricao', '$trilha_nomeamigavel', '$id_categoria', '$trilha_status')";
+		$sql = "INSERT INTO `trilha`( `trilha_name`, `trilha_type_id`, `trilha_descricao`, `trilha_nomeamigavel`, `id_categoria`, `trilha_status_id`) VALUES ('$trilha_name', '$trilha_type', '$trilha_descricao', '$trilha_nomeamigavel', '$id_categoria', '$trilha_status')";
 		if (mysqli_query($conn, $sql)) {
-			//echo json_encode(array("statusCode"=>200));
-			$id_doIndice = mysqli_insert_id($conn);
+			echo json_encode(array("statusCode"=>200));
 		} 
 		else {
-			//echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
  
         
@@ -36,6 +35,8 @@ if(count($_POST) > 0){
 		
 		$sql = "SELECT * FROM trilha";
 		$result = mysqli_query($conn, $sql);
+		
+		$id_doIndice = mysqli_insert_id($conn);
 
 		$arr_json = [];
 		$contador = 0;
