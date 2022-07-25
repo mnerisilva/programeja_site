@@ -11,8 +11,10 @@ if(!isset($_SESSION['logado'])):
 endif;
 
 // Dados
-$id = $_SESSION['id_usuario'];
-$sql = "SELECT * FROM usuarios WHERE id = '$id'";
+$user_id = $_SESSION['id_usuario'];
+$user_name =  $_SESSION['user_name'];
+$user_photo =  $_SESSION['user_photo'];
+$sql = "SELECT * FROM user WHERE user_id = '$user_id'";
 $resultado = mysqli_query($conn, $sql);
 $dados = mysqli_fetch_array($resultado);
 mysqli_close($conn);
@@ -431,7 +433,7 @@ mysqli_close($conn);
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                      <img src="images/users/foto_marcelo.jpg" alt=""><?php echo $dados['nome']; ?>
+                      <img src="<?php echo $dados['user_photo']; ?>" alt=""><?php echo $dados['user_name']; ?>
                     </a><i class="fa-solid fa-ellipsis-vertical config-geral user-course-manager" data-toggle="modal" data-target="#modalGerenciarAtribuidos"></i>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item"  href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>

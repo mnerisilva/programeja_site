@@ -630,7 +630,8 @@ function loopingDeMontagemAjaxListaVideosGeral(nodeList){
                         _td2.classList.add("tdlink");
                         let texto_t2 = _td2.textContent;
                         _td2.textContent = texto_t2;
-                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                        //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><img src="https://img.youtube.com/vi/${videoItem.codigo}/hqdefault.jpg" class="img-responsive" style="max-width: 180px"> ${texto_t2}</a>`;
                         _td3.appendChild(_nodeText3);
                         _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincular</button></form>`;
                         _tr.appendChild(_td1);
@@ -686,7 +687,7 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         _td2.classList.add("tdlink");
                         let texto_t2 = _td2.textContent;
                         _td2.textContent = texto_t2;
-                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><i class="fa-brands fa-youtube youtube-icon"></i> <span>${texto_t2}</span></a>`;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${trilha.conteudo_codigoyoutube}" class="link-youtube"><img src="https://img.youtube.com/vi/${trilha.conteudo_codigoyoutube}/hqdefault.jpg" class="img-responsive" style="max-width: 180px"> <span>${texto_t2}</span></a>`;
                         _td3.appendChild(_nodeText3);
                         _td4.innerHTML = `<form class="form-remove-video-da-trilha" data-trilha_videos_id="${trilha.trilha_videos_id}"><input type="hidden" class="input-form-remove-video-trilha" name="input-form-remove-video-trilha" value="${trilha.trilha_videos_id}" /><button type="submit" class="btn btn-secondary btn-desvincula"><i class="fa-solid fa-xmark"></i> Desvincular</button></form>`;
                         _tr.appendChild(_td1);
@@ -942,7 +943,8 @@ function atualizaListaDeVideosGeral(nodeList){
                         _td2.classList.add("tdlink");
                         let texto_t2 = _td2.textContent;
                         _td2.textContent = texto_t2;
-                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i>${texto_t2}</a>`;
+                        //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i>${texto_t2}</a>`;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><img src="https://img.youtube.com/vi/${videoItem.codigo}/hqdefault.jpg" class="img-responsive" style="max-width: 180px">${texto_t2}</a>`;
                         _td3.appendChild(_nodeText3);
                         _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincular</button></form>`;
                         _tr.appendChild(_td1);
@@ -1004,7 +1006,8 @@ function atualizaListaDeVideosGeral(nodeList){
                         _td2.classList.add("tdlink");
                         let texto_t2 = _td2.textContent;
                         _td2.textContent = texto_t2;
-                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                        //_td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><i class="fa-brands fa-youtube youtube-icon"></i> ${texto_t2}</a>`;
+                        _td2.innerHTML = `<a href="https://www.youtube.com/watch?v=${videoItem.codigo}" class="link-youtube" data-youtube_code="${videoItem.codigo}" data-descricao="${videoItem.descricao}"><img src="https://img.youtube.com/vi/${videoItem.codigo}/hqdefault.jpg" class="img-responsive" style="max-width: 180px"> ${texto_t2}</a>`;
                         _td3.appendChild(_nodeText3);
                         _td4.innerHTML = `<form class="form-vincula-video-a-trilha"><input type="hidden" class="input-form-vincula-video-a-trilha" name="input-form-vincula-video-a-trilha" value="${videoItem.id}"><button type="submit" class="btn btn-secondary btn-vincula" data-id="${videoItem.id}" data-id_conteudo_indice="${videoItem.id_conteudo_indice}" data-descricao="${videoItem.descricao}" data-codigo="${videoItem.codigo}"><i class="fa fa-plus" aria-hidden="true"></i> Vincular</button></form>`;
                         _tr.appendChild(_td1);
@@ -1750,53 +1753,4 @@ function pegaDadosUsuarioEspecifico(user_id) {
             }
 
             
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

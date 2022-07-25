@@ -8,27 +8,27 @@ session_start();
 // Botão enviar
 if(isset($_POST['btn-entrar'])):
 	$erros = array();
-	$login = mysqli_escape_string($conn, $_POST['login']);
-	$senha = mysqli_escape_string($conn, $_POST['senha']);
+	$user_login = mysqli_escape_string($conn, $_POST['user_login']);
+	$user_password = mysqli_escape_string($conn, $_POST['user_password']);
 
 	if(isset($_POST['lembrar-senha'])):
 
-		setcookie('login', $login, time()+3600);
-		setcookie('senha', md5($senha), time()+3600);
+		setcookie('login', $user_login, time()+3600);
+		setcookie('senha', md5($user_password), time()+3600);
 	endif;
 
-	if(empty($login) or empty($senha)):
+	if(empty($user_login) or empty($user_password)):
 		$erros[] = "<li> O campo login/senha precisa ser preenchido </li>";
 	else:
 		// 105 OR 1=1 
 	    // 1; DROP TABLE teste
 
-		$sql = "SELECT login FROM usuarios WHERE login = '$login'";
+		$sql = "SELECT user_login FROM user WHERE user_login = '$user_login'";
 		$resultado = mysqli_query($conn, $sql);		
 
 		if(mysqli_num_rows($resultado) > 0):
-		$senha = md5($senha);       
-		$sql = "SELECT * FROM usuarios WHERE login = '$login' AND senha = '$senha'";
+		$user_password = md5($user_password);       
+		$sql = "SELECT * FROM user WHERE user_login = '$user_login' AND user_password = '$user_password'";
 
 
 
@@ -38,7 +38,9 @@ if(isset($_POST['btn-entrar'])):
 				$dados = mysqli_fetch_array($resultado);
 				mysqli_close($conn);
 				$_SESSION['logado'] = true;
-				$_SESSION['id_usuario'] = $dados['id'];
+				$_SESSION['id_usuario'] = $dados['user_id'];
+				$_SESSION['user_name'] = $dados['user_name'];
+				$_SESSION['user_photo'] = $dados['user_photo'];
 				header('Location: dashboard_admin.php');
 			else:
 				$erros[] = "<li> Usuário e senha não conferem </li>";
@@ -101,7 +103,7 @@ endif;
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
-              <h3>Sign In</h3>
+              <h3>Gestão de estudos</h3>
 
               <?php 
               if(!empty($erros)):
@@ -115,12 +117,14 @@ endif;
             <form  action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
               <div class="form-group first">
                 <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="login" value="<?php echo isset($_COOKIE['login']) ? $_COOKIE['login'] : '' ?>">
+                <!--<input type="text" class="form-control" id="username" name="login" value="<?php //echo isset($_COOKIE['login']) ? $_COOKIE['login'] : '' ?>">-->
+                <input type="text" class="form-control" id="username" name="user_login" value="">
 
               </div>
               <div class="form-group last mb-4">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" name="senha" value="<?php echo isset($_COOKIE['senha']) ? $_COOKIE['senha'] : '' ?>">
+                <!--<input type="password" class="form-control" id="password" name="senha" value="<?php //echo isset($_COOKIE['senha']) ? $_COOKIE['senha'] : '' ?>">-->
+                <input type="password" class="form-control" id="password" name="user_password" value="">
                 
               </div>
               
