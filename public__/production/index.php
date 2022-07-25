@@ -103,7 +103,7 @@ endif;
           <div class="row justify-content-center">
             <div class="col-md-8">
               <div class="mb-4">
-              <h3>Gestão de estudos</h3>
+              <h3>Gestão de trilhas de estudo</h3>
 
               <?php 
               if(!empty($erros)):
