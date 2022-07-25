@@ -1630,7 +1630,7 @@ function listaGeralDeUsuarios(){
             _td2.appendChild(_nodeText1);
             _td3.appendChild(_nodeText2);
             _td4.innerHTML = `<i class="fa-solid fa-user-pen user-manager-edit" data-toggle="modal" title="editar usuário" data-target="#form-cadastro-de-user-edit" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}" data-user_email="${userItem.user_email}"></i>`;
-            _td5.innerHTML = `<i class="fa-solid fa-user-gear user-manager" title="atribuir trilhas" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
+            _td5.innerHTML = `<i class="fa-solid fa-user-gear user-manager" title="atribuir trilhas" data-toggle="modal" data-target="#modalGerenciarTrilhasUsers" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}" data-user_photo="${userItem.user_photo}"></i>`;
             _td6.innerHTML = `<i class="fa-solid fa-eye user-manager-view"></i>`;
             _td7.innerHTML = `<i class="fa-solid fa-user-minus user-manager-trash" data-toggle="modal" title="excluir usuário" data-target="#xxx" data-user_id="${userItem.user_id}" data-user_name="${userItem.user_name}"></i>`;
             _tr.appendChild(_td1);
@@ -1648,6 +1648,8 @@ function listaGeralDeUsuarios(){
         const _userManagerTrash = document.querySelectorAll('.user-manager-trash');
         const _modalUserPhoto = document.querySelector('.modal-user-photo');
         const _modalUserName = document.querySelector('.modal-user-name');
+        const _modalGerenciarTrilhasUsersSpanUserName = document.querySelector('#modalGerenciarTrilhasUsers .modal-header a span');
+        const _modalGerenciarTrilhasUsersSrcUserPhoto = document.querySelector('#modalGerenciarTrilhasUsers .modal-header a img');
         
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
@@ -1655,6 +1657,8 @@ function listaGeralDeUsuarios(){
                 _userIdDoUsuario = item.dataset.user_id;
                 //_modalUserName.innerHTML = e.target.dataset.username;
                 _modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
+                _modalGerenciarTrilhasUsersSpanUserName.innerHTML = e.target.dataset.user_name;
+                _modalGerenciarTrilhasUsersSrcUserPhoto.setAttribute('src', e.target.dataset.user_photo);
                 listaTrilhasDoUser(e.target.dataset.user_id);
                 console.log(_arrayIDsTrilhasDoUser);
             });

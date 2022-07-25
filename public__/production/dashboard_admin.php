@@ -974,7 +974,7 @@ mysqli_close($conn);
             <div class="modal-content">
             <div class="modal-header">
               <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-              <img src="images/users/foto_marcelo.jpg" alt="">Marcelo Neri
+              <img src="images/users/foto_marcelo.jpg" alt=""><span>Marcelo Neri</span>
             </a>
                 <h5 class="modal-title" style="display: none;" id="modalGerenciarAtribuidosLabel"><span class="modal-user-photo user-profile"></span><span class="modal-user-name"></span></h5>
                 <!--<h5 class="modal-title" id="exampleModalLabel"></h5>-->
