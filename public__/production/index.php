@@ -34,17 +34,22 @@ if(isset($_POST['btn-entrar'])):
 
 		$resultado = mysqli_query($conn, $sql);
 
-			if(mysqli_num_rows($resultado) == 1):
+			if(mysqli_num_rows($resultado) == 1){
 				$dados = mysqli_fetch_array($resultado);
 				mysqli_close($conn);
 				$_SESSION['logado'] = true;
 				$_SESSION['id_usuario'] = $dados['user_id'];
+				$_SESSION['user_access_type'] = $dados['user_access_type'];
 				$_SESSION['user_name'] = $dados['user_name'];
 				$_SESSION['user_photo'] = $dados['user_photo'];
-				header('Location: dashboard_admin.php');
-			else:
+        if($_SESSION['user_access_type'] == 1){
+				  header('Location: dashboard_admin.php');
+        }elseif($_SESSION['user_access_type'] == 2){
+				  header('Location: plataforma.php');
+        }
+      } else {
 				$erros[] = "<li> Usuário e senha não conferem </li>";
-			endif;
+      }
 
 		else:
 			$erros[] = "<li> Usuário inexistente </li>";
