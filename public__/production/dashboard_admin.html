@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" style="overflow-y: hidden; overflow-x: hidden;">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <!-- Meta, title, CSS, favicons, etc. -->
@@ -650,7 +650,7 @@
 
 
     <!-- Modal/Painel gerendiamento de recursos para o usuário (trilhas, vídeos)-->
-    <div class="modal fade bd-example-modal-xl" id="modalGerenciarAtribuidos" tabindex="-1" role="dialog" aria-labelledby="modalGerenciarAtribuidosLabel" aria-hidden="true">
+    <div class="modal fade bd-example-modal-xl" id="modalGerenciarAtribuidos" tabindex="-1" role="dialog" aria-labelledby="modalGerenciarAtribuidosLabel" aria-hidden="true" style="overflow-y: auto; overflow-x: hidden;">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
             <div class="modal-header">
@@ -770,7 +770,6 @@
                                     <button type="button" class="btn btn-secondary button-4 btn-cancelar-do-salvar-trilha">Cancelar</button>
                                   </div>
                                   <div class="col-md-3 col-sm-3">
-                                    <!--<button type="submit" class="btn btn-secondary btn-salvar btn-salvar-trilha submit-cadastro-de-trilha">Salvar trilha</button>-->
                                     <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-trilha submit-cadastro-de-trilha">Salvar trilha</button>
                                   </div>
                                   <div class="col-md-7 col-sm-7">
@@ -842,13 +841,14 @@
                                 </div>                         
                                 <div class="ln_solid"></div>
                                 <div class="form-group">
-                                  <div class="col-md-2 col-sm-4">
+                                  <div class="col-md-2 col-sm-2">
                                     <button type="button" class="btn btn-secondary button-4 btn-cancelar-do-salvar-video">Cancelar</button>
                                   </div>
-                                  <div class="col-md-5 col-sm-4">
+                                  <div class="col-md-3 col-sm-3">
                                     <button type="submit" class="btn btn-secondary btn-salvar btn-salvar-video submit">Salvar vídeo</button>
                                   </div>
-                                  <div class="col-md-7 col-sm-7">                                    
+                                  <div class="col-md-7 col-sm-7">
+                                    <div class="trilha-save-message text-success"></div>                                    
                                   </div>
                                 </div>                  
                               </form>

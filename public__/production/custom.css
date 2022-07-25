@@ -302,4 +302,5 @@ table.lista-user td, .table th {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border: solid thin #dedede4f;
 }

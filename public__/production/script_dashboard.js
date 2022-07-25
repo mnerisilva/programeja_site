@@ -72,7 +72,9 @@
     const _formModalCadastroDeCategoria = document.querySelector('#form_cadastro_de_categoria');
     const _formModalCadastroDeTipo = document.querySelector('#form_cadastro_de_tipo');
     const _formCadastroDeUserEdit = document.querySelector('#form-cadastro-de-user-edit');
-    //const _formCadastroDeTrilha = document.querySelector('.form-cadastro-de-trilha');
+
+
+    const _modalGerenciarAtribuidos = document.querySelector('.modal#modalGerenciarAtribuidos');
 
 
 
