@@ -1,3 +1,24 @@
+<?php
+// Conexão
+require_once 'PHP/connect.php';
+
+// Sessão
+session_start();
+
+// Verificação
+if(!isset($_SESSION['logado'])):
+	header('Location: index.php');
+endif;
+
+// Dados
+$id = $_SESSION['id_usuario'];
+$sql = "SELECT * FROM usuarios WHERE id = '$id'";
+$resultado = mysqli_query($conn, $sql);
+$dados = mysqli_fetch_array($resultado);
+mysqli_close($conn);
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br" style="overflow-y: hidden; overflow-x: hidden;">
   <head>
@@ -410,16 +431,10 @@
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                      <img src="images/users/foto_marcelo.jpg" alt="">Marcelo Neri
+                      <img src="images/users/foto_marcelo.jpg" alt=""><?php echo $dados['nome']; ?>
                     </a><i class="fa-solid fa-ellipsis-vertical config-geral user-course-manager" data-toggle="modal" data-target="#modalGerenciarAtribuidos"></i>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item"  href="javascript:;"> Profile</a>
-                        <a class="dropdown-item"  href="javascript:;">
-                          <span class="badge bg-red pull-right">50%</span>
-                          <span>Settings</span>
-                        </a>
-                    <a class="dropdown-item"  href="javascript:;">Help</a>
-                      <a class="dropdown-item"  href="login.html"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                      <a class="dropdown-item"  href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                     </div>
                   </li>
   
