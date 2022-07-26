@@ -580,7 +580,7 @@ mysqli_close($conn);
                                     </thead>
                                     <tbody></tbody>
                                   </table>    
-                                <table class="table jambo_table table-responsive-sm table-responsive-md lista-trilhas-do-user">
+                                <table class="table table-striped table-responsive-sm table-responsive-md lista-trilhas-do-user">
                                   <thead>
                                     <tr>
                                       <th>#</th>
@@ -595,7 +595,7 @@ mysqli_close($conn);
                                 </table> 
                                 </div> 
                                 <div class="col-md-6">
-                                  <table class="table table-striped jambo_table lista-trilhas-do-user-plataforma">
+                                  <table class="table table-striped lista-trilhas-do-user-plataforma">
                                     <thead>
                                       <tr>
                                         <th></th>
