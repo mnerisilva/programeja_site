@@ -140,7 +140,7 @@ mysqli_close($conn);*/
           <div class="classX">
             <div class="page-title">
               <div class="title_left">
-                <h3>Dashboard Admin</h3>
+                <h3>Gestão de trilhas de estudo</h3>
               </div>
               <div class="title_right">
                 <div class="col-md-5 col-sm-5   form-group pull-right top_search">
@@ -160,10 +160,7 @@ mysqli_close($conn);*/
               <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-arrow-down"></i>&nbsp;Operações envolvendo usuários</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                        <button class="btn btn-secondary button-4 btn-insere-user" data-toggle="modal" data-target="#form_cadastro_de_user"><i class="fa-solid fa-plus"></i>
-                        &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-plus"></i></button>
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
                       <li class="dropdown">
@@ -181,33 +178,50 @@ mysqli_close($conn);*/
                   <div class="x_content">
                       <!--Add content to the page ...-->
                       <div class="row">
-                        <div class="col-md-12 d-flex justify-content-around align-items-center titulo mt-2">
+                        <!--<div class="col-md-12 d-flex justify-content-around align-items-center titulo mt-2">-->
+                        <div class="col-md-12 titulo mt-2">
                           <div class="icon-user-titulo d-flex justify-content-center align-items-center">  
                           </div>
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-12 d-flex justify-content-center mt-2">
-                            <div class="container d-flex justify-content-center">
+                        <div class="col-md-12 d-flex mt-2">
+                            <div class="container">
                                 <div class="row"></div>
                                 <div class="col-md-6">
-                          <table class="table table-striped jambo_table lista-user">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>#</th>
-                                <th><i class="fa-solid fa-list-ol"></i>&nbsp;&nbsp;Usuário</th>
-                                <th><i class="fa-solid fa-pen"></i>&nbsp;&nbsp;editar</th>
-                                <th><i class="fa-solid fa-plus-minus"></i>&nbsp;&nbsp;atribuir trilha</th>
-                                <th><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;exibe dados</th>
-                                <th><i class="fa-solid fa-minus"></i>&nbsp;&nbsp;excluir</th>
-                              </tr>
-                            </thead>
-                            <tbody></tbody>
-                          </table>
-                        </div>
-                        </div>
-                        </div>
+                                    <table class="table table-striped jambo_table lista-user">
+                                      <thead>
+                                        <tr>
+                                          <th></th>
+                                          <th>#</th>
+                                          <th><i class="fa-solid fa-list-ol"></i>&nbsp;&nbsp;Usuário</th>
+                                          <th><i class="fa-solid fa-pen"></i>&nbsp;&nbsp;editar</th>
+                                          <th><i class="fa-solid fa-plus-minus"></i>&nbsp;&nbsp;atribuir trilha</th>
+                                          <th><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;exibe dados</th>
+                                          <th><i class="fa-solid fa-minus"></i>&nbsp;&nbsp;excluir</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody></tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <table class="table table-striped jambo_table lista-user">
+                                      <thead>
+                                        <tr>
+                                          <th></th>
+                                          <th>#</th>
+                                          <th><i class="fa-solid fa-list-ol"></i>&nbsp;&nbsp;Usuário</th>
+                                          <th><i class="fa-solid fa-pen"></i>&nbsp;&nbsp;editar</th>
+                                          <th><i class="fa-solid fa-plus-minus"></i>&nbsp;&nbsp;atribuir trilha</th>
+                                          <th><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;exibe dados</th>
+                                          <th><i class="fa-solid fa-minus"></i>&nbsp;&nbsp;excluir</th>
+                                        </tr>
+                                      </thead>
+                                      <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                          </div>
                         </div>
                       </div>
                   </div>
