@@ -537,7 +537,7 @@ mysqli_close($conn);
                   <div class="x_title">
                     <h2><i class="fa fa-arrow-down"></i>&nbsp;Suas trilhas</h2>
                     <ul class="nav navbar-right panel_toolbox">
-                        <button class="btn btn-secondary button-4 btn-insere-user" data-toggle="modal" data-target="#form_cadastro_de_user"><i class="fa-solid fa-plus"></i>
+                        <button class="btn btn-secondary button-4 btn-insere-user" data-toggle="modal" data-target="#form_cadastro_de_user" style="display: none;"><i class="fa-solid fa-plus"></i>
                         &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-plus"></i></button>
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -584,7 +584,7 @@ mysqli_close($conn);
                                   <thead>
                                     <tr>
                                       <th>#</th>
-                                      <th>nome da trilha</th>
+                                      <th>nome</th>
                                       <th>tipo</th>
                                       <th>categoria</th>
                                       <th>status</th>
