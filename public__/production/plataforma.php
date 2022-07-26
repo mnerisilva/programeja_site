@@ -433,7 +433,7 @@ mysqli_close($conn);
                 <ul class=" navbar-right">
                   <li class="nav-item dropdown open" style="padding-left: 15px;">
                     <a href="javascript:;" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                      <img src="<?php echo $dados['user_photo']; ?>" alt=""><?php echo $dados['user_name']; ?>
+                      <img src="<?php echo $dados['user_photo']; ?>" alt=""><?php echo $dados['user_name']; ?> <span class="span-plataforma-user-id" style="opacity: 0;"><?php echo $user_id; ?></span>
                     </a><i class="fa-solid fa-ellipsis-vertical config-geral user-course-manager" data-toggle="modal" data-target="#modalGerenciarAtribuidos"></i>
                     <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                       <a class="dropdown-item"  href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
@@ -515,7 +515,7 @@ mysqli_close($conn);
           <div class="classX">
             <div class="page-title">
               <div class="title_left">
-                <h3>Dashboard Admin</h3>
+                <h3>Gestão de Trilhas de Estudo</h3>
               </div>
               <div class="title_right">
                 <div class="col-md-5 col-sm-5   form-group pull-right top_search">
@@ -535,7 +535,7 @@ mysqli_close($conn);
               <div class="col-md-12 col-sm-12  ">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2><i class="fa fa-arrow-down"></i>&nbsp;Operações envolvendo usuários</h2>
+                    <h2><i class="fa fa-arrow-down"></i>&nbsp;Suas trilhas</h2>
                     <ul class="nav navbar-right panel_toolbox">
                         <button class="btn btn-secondary button-4 btn-insere-user" data-toggle="modal" data-target="#form_cadastro_de_user"><i class="fa-solid fa-plus"></i>
                         &nbsp;&nbsp;&nbsp;<i class="fa-solid fa-user-plus"></i></button>
@@ -562,27 +562,56 @@ mysqli_close($conn);
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-12 d-flex justify-content-center mt-2">
-                            <div class="container d-flex justify-content-center">
+                        <div class="col-md-12 mt-2">
+                            <div class="container">
                                 <div class="row"></div>
                                 <div class="col-md-6">
-                          <table class="table table-striped jambo_table lista-user">
-                            <thead>
-                              <tr>
-                                <th></th>
-                                <th>#</th>
-                                <th><i class="fa-solid fa-list-ol"></i>&nbsp;&nbsp;Usuário</th>
-                                <th><i class="fa-solid fa-pen"></i>&nbsp;&nbsp;editar</th>
-                                <th><i class="fa-solid fa-plus-minus"></i>&nbsp;&nbsp;atribuir trilha</th>
-                                <th><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;exibe dados</th>
-                                <th><i class="fa-solid fa-minus"></i>&nbsp;&nbsp;excluir</th>
-                              </tr>
-                            </thead>
-                            <tbody></tbody>
-                          </table>
-                        </div>
-                        </div>
-                        </div>
+                                  <table class="table table-striped jambo_table lista-user" style="display: none;">
+                                    <thead>
+                                      <tr>
+                                        <th></th>
+                                        <th>#</th>
+                                        <th><i class="fa-solid fa-list-ol"></i>&nbsp;&nbsp;Usuário</th>
+                                        <th><i class="fa-solid fa-pen"></i>&nbsp;&nbsp;editar</th>
+                                        <th><i class="fa-solid fa-plus-minus"></i>&nbsp;&nbsp;atribuir trilha</th>
+                                        <th><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;exibe dados</th>
+                                        <th><i class="fa-solid fa-minus"></i>&nbsp;&nbsp;excluir</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                  </table>    
+                                <table class="table jambo_table table-responsive-sm table-responsive-md lista-trilhas-do-user">
+                                  <thead>
+                                    <tr>
+                                      <th>#</th>
+                                      <th>nome da trilha</th>
+                                      <th>tipo</th>
+                                      <th>categoria</th>
+                                      <th>status</th>
+                                      <th></th>
+                                    </tr>
+                                  </thead>
+                                  <tbody></tbody>
+                                </table> 
+                                </div> 
+                                <div class="col-md-6">
+                                  <table class="table table-striped jambo_table lista-trilhas-do-user-plataforma">
+                                    <thead>
+                                      <tr>
+                                        <th></th>
+                                        <th>#</th>
+                                        <th><i class="fa-solid fa-list-ol"></i>&nbsp;&nbsp;Usuário</th>
+                                        <th><i class="fa-solid fa-pen"></i>&nbsp;&nbsp;editar</th>
+                                        <th><i class="fa-solid fa-plus-minus"></i>&nbsp;&nbsp;atribuir trilha</th>
+                                        <th><i class="fa-solid fa-eye"></i>&nbsp;&nbsp;exibe dados</th>
+                                        <th><i class="fa-solid fa-minus"></i>&nbsp;&nbsp;excluir</th>
+                                      </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                  </table>
+                                </div>                     
+                            </div>
+                          </div>
                         </div>
                       </div>
                   </div>
@@ -1040,7 +1069,7 @@ mysqli_close($conn);
     
     <!-- Custom Theme Scripts -->
     <script src="../build/js/custom.min.js"></script>
-    <script src="script_dashboard.js"></script>
+    <script src="script_plataforma.js"></script>
     <script src="script_cadastro_de_trilha.js"></script>
     <script src="script_cadastro_de_videos.js"></script>
     <script src="script_precessa_tela_trilha_usuario.js"></script>

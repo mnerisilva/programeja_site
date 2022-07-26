@@ -56,6 +56,8 @@
 
     const _btnUserMessageSaved = document.querySelector('.user-message-saved');
 
+    const _spanPlataformaUserId = document.querySelector('.span-plataforma-user-id').textContent;
+
 
 
     
@@ -96,6 +98,7 @@
 
 
     const _listaTrilhasDoUser = document.querySelector('table.lista-trilhas-do-user tbody');
+    const _listaTrilhasDoUserPlataforma = document.querySelector('table.lista-trilhas-do-user-plataforma tbody');
 
     const _listaTrilhasDisponiveisTelaUserManager = document.querySelector('.lista-trilhas-disponiveis-user-manager tbody');
 
@@ -114,7 +117,9 @@
     
     let _statusExclusao = '9999999999';
 
-
+    
+    console.log(_spanPlataformaUserId);
+    listaTrilhasDoUser(_spanPlataformaUserId);
 
     pegaDadosUsuarioEspecifico(2);
 
