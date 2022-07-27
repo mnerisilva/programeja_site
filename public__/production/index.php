@@ -42,6 +42,11 @@ if(isset($_POST['btn-entrar'])):
 				$_SESSION['user_access_type'] = $dados['user_access_type'];
 				$_SESSION['user_name'] = $dados['user_name'];
 				$_SESSION['user_photo'] = $dados['user_photo'];
+				$_SESSION['user_sexo'] = $dados['user_sexo'];
+				$_SESSION['saudacao'] = 'Bem-vindo,';
+          if($dados['user_sexo'] == 2){
+            $_SESSION['saudacao'] = 'Bem-vinda,';
+          }
         if($_SESSION['user_access_type'] == 1){
 				  header('Location: dashboard_admin.php');
         }elseif($_SESSION['user_access_type'] == 2){
@@ -74,6 +79,11 @@ if(!empty($erros)):
 	endforeach;
 endif;
 ?>
+
+
+
+
+
 <!doctype html>
 <html lang="pt-br">
   <head>
