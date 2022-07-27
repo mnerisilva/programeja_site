@@ -336,6 +336,9 @@ table.lista-user td, .table th {
     text-shadow: none !important;
 }
 
+.right_col {
+    background-color: #fff !important;
+}
 .right_col .title_left {
     color: #2A3F54;
 }
@@ -346,5 +349,13 @@ table.lista-user td, .table th {
 
 .nav.child_menu li:hover, .nav.child_menu li.active {
     background-color: rgba(0,0,0,.05);
+}
+
+.nav.side-menu>li>a:hover {
+    color: #8fa0ab !important;
+}
+
+.nav.side-menu>li.active>a {
+    color: #fff;
 }
 
