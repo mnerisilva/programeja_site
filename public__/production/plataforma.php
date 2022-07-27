@@ -438,7 +438,7 @@ mysqli_close($conn);
               <div class="menu_section">
                 <h3><span class="badge badge-secondary">Html</span><small>trilhas</small></h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-home"></i><span> Primeiro Html </span><span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa-solid fa-list-ul"></i><span> Primeiro Html </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="index.html">Como INSERIR IMAGEM no HTML - COMPLETO!!!! Passo a</a></li>
                       <li><a href="index2.html">HTML em 7 minutos</a></li>
@@ -450,7 +450,7 @@ mysqli_close($conn);
               <div class="menu_section">
                 <!--<h3><span class="badge badge-secondary">Lógica</span></h3>-->
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i><span> Html como você nunca viu </span><span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa-solid fa-list-ul"></i><span> Html como você nunca viu </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e_commerce.html">Aprendendo Lógica de Programação</a></li>
                       <li><a href="projects.html">Lógica de Programação - Aula 01 - Introdução</a></li>
@@ -461,7 +461,7 @@ mysqli_close($conn);
               <div class="menu_section">
                 <!--<h3><span class="badge badge-secondary">Htmlllll</span></h3>-->
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i><span> Primeiro Html </span><span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa-solid fa-list-ul"></i><span> Primeiro Html </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e_commerce.html">Aprendendo Lógica de Programação</a></li>
                       <li><a href="projects.html">Lógica de Programação - Aula 01 - Introdução</a></li>
@@ -472,7 +472,7 @@ mysqli_close($conn);
               <div class="menu_section">
                 <h3><span class="badge badge-secondary">Lógica</span><small>trilhas</small></h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e_commerce.html">Aprendendo Lógica de Programação</a></li>
                       <li><a href="projects.html">Lógica de Programação - Aula 01 - Introdução</a></li>
@@ -483,7 +483,7 @@ mysqli_close($conn);
               <div class="menu_section">
                 <h3><span class="badge badge-secondary">Lógica</span></h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e_commerce.html">Aprendendo Lógica de Programação</a></li>
                       <li><a href="projects.html">Lógica de Programação - Aula 01 - Introdução</a></li>
@@ -494,7 +494,7 @@ mysqli_close($conn);
               <div class="menu_section">
                 <h3><span class="badge badge-secondary">Banco de dados</span><small>trilhas</small></h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e_commerce.html">Aprendendo Lógica de Programação</a></li>
                       <li><a href="projects.html">Lógica de Programação - Aula 01 - Introdução</a></li>
@@ -505,7 +505,7 @@ mysqli_close($conn);
               <div class="menu_section">
                 <h3><span class="badge badge-secondary">Css</span><small>trilhas</small></h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e_commerce.html">Aprendendo Lógica de Programação</a></li>
                       <li><a href="projects.html">Lógica de Programação - Aula 01 - Introdução</a></li>
@@ -516,7 +516,7 @@ mysqli_close($conn);
               <div class="menu_section">
                 <h3><span class="badge badge-secondary">Flex box</span><small>trilhas</small></h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e_commerce.html">Aprendendo Lógica de Programação</a></li>
                       <li><a href="projects.html">Lógica de Programação - Aula 01 - Introdução</a></li>
@@ -527,7 +527,7 @@ mysqli_close($conn);
               <div class="menu_section">
                 <h3><span class="badge badge-secondary">Algoritimo</span><small>trilhas</small></h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e_commerce.html">Aprendendo Lógica de Programação</a></li>
                       <li><a href="projects.html">Lógica de Programação - Aula 01 - Introdução</a></li>
@@ -538,7 +538,7 @@ mysqli_close($conn);
               <div class="menu_section">
                 <h3><span class="badge badge-secondary">Devops</span><small>trilhas</small></h3>
                 <ul class="nav side-menu">
-                  <li><a><i class="fa fa-bug"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa-solid fa-list-ulg"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="e_commerce.html">Aprendendo Lógica de Programação</a></li>
                       <li><a href="projects.html">Lógica de Programação - Aula 01 - Introdução</a></li>

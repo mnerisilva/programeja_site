@@ -377,7 +377,7 @@ table.lista-user td, .table th {
     background-color: #fff;
     top: 4em;
     z-index: 999;
-    width: 17.5em;
+    width: 17.8em;
 }
 
 .nav_title {
@@ -445,16 +445,16 @@ table.lista-user td, .table th {
 }
 
 .profile {
-    width: 24.9vw;
+    width: 25vw;
 }
 
 .nav_title {
-    width: 24.9vw;
+    width: 25vw;
 }
 
 
 .img-circle.profile_img {
-    width: 3vw;
+    width: 5vw;
 }
 
 
