@@ -300,3 +300,51 @@ table.lista-user td, .table th {
     align-items: center;
     border: solid thin #dedede4f;
 }
+
+.left_col {
+    background: #fff !important;
+    color: #2A3F54;
+}
+
+.profile_info span, .profile_info h2, .menu_section h3, .side_menu .nav.child_menu li {
+    color: #2A3F54 !important;
+}
+
+.nav.side-menu>li>a, .nav.child_menu>li>a {
+    color: #2A3F54;
+}
+
+.profile {
+    border-bottom: solid thin #ebebeb;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
+.profile_info h2 {
+    font-weight: 500;
+}
+
+.sidebar-footer a {
+    color: #fff !important;
+}
+
+.sidebar-footer a {
+    color: #fff !important;
+}
+
+.menu_section h3 {    
+    text-shadow: none !important;
+}
+
+.right_col .title_left {
+    color: #2A3F54;
+}
+
+.badge {
+    padding: 2px 4px;
+}
+
+.nav.child_menu li:hover, .nav.child_menu li.active {
+    background-color: rgba(0,0,0,.05);
+}
+

@@ -304,3 +304,8 @@ table.lista-user td, .table th {
     align-items: center;
     border: solid thin #dedede4f;
 }
+
+#left_col, .scroll-view, .left_col {
+    background: #fff !important;
+    color: #2A3F54 !important;
+}
