@@ -377,7 +377,7 @@ table.lista-user td, .table th {
     background-color: #fff;
     top: 4em;
     z-index: 999;
-    width: 16em;
+    width: 17.5em;
 }
 
 .nav_title {
@@ -387,9 +387,139 @@ table.lista-user td, .table th {
 }
 
 #sidebar-menu {
-    margin-top: 10em;
+    margin-top: 14em;
 }
 
 .menu_section {
     margin-bottom: 0 !important;
+}
+
+.nav.child_menu li {
+    background-color: antiquewhite;
+    background-color: floralwhite;
+    background-color: ghostwhite;
+}
+
+.menu_section h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkcyan;
+    background-color: #95a393;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.menu_section h3 small {
+    margin-right: 2em;
+}
+
+.menu_section h3 .badge {
+    color: #000;
+    background-color: #fff;
+}
+
+.menu_section>ul {
+    border-bottom: solid thin #dedede78;
+}
+
+
+
+
+
+
+
+
+
+.nav-md .container.body .right_col {
+    margin-left: 25vw;
+    width: 75vw;
+}
+
+.nav-md .container.body .col-md-3.left_col {
+    width: 30vw;
+}
+
+.left_col {
+    width: 30vw;
+}
+
+.profile {
+    width: 24.9vw;
+}
+
+.nav_title {
+    width: 24.9vw;
+}
+
+
+.img-circle.profile_img {
+    width: 3vw;
+}
+
+
+.main_container .top_nav {
+    margin-left: 25vw;
+    width: 75vw;
+}
+
+.sidebar-footer {
+    width: 25vw;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+::-webkit-scrollbar-thumb {
+  background: #e1e1e1;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb:active {
+  background: #000000;
+}
+::-webkit-scrollbar-track {
+  background: #666666;
+  border: 0px none #ffffff;
+  border-radius: 50px;
+}
+::-webkit-scrollbar-track:hover {
+  background: #666666;
+}
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
 }
