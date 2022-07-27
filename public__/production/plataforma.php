@@ -436,7 +436,7 @@ mysqli_close($conn);
             <!-- sidebar menu -->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <h3><span class="badge badge-secondary">Html</span><small>trilhas</small></h3>
+                <h3><span class="badge badge-secondary">Html</span> <span> <i class="fa fa-arrow-down"></i><small>trilhas</small></span></h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa-solid fa-list-ul"></i><span> Primeiro Html </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -470,7 +470,7 @@ mysqli_close($conn);
                 </ul>
               </div>
               <div class="menu_section">
-                <h3><span class="badge badge-secondary">Lógica</span><small>trilhas</small></h3>
+                <h3><span class="badge badge-secondary">Lógica</span><span> <i class="fa fa-arrow-down"></i><small>trilhas</small></span></h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -492,7 +492,7 @@ mysqli_close($conn);
                 </ul>
               </div>
               <div class="menu_section">
-                <h3><span class="badge badge-secondary">Banco de dados</span><small>trilhas</small></h3>
+                <h3><span class="badge badge-secondary">Banco de dados</span><span> <i class="fa fa-arrow-down"></i><small>trilhas</small></span></h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -503,7 +503,7 @@ mysqli_close($conn);
                 </ul>
               </div>
               <div class="menu_section">
-                <h3><span class="badge badge-secondary">Css</span><small>trilhas</small></h3>
+                <h3><span class="badge badge-secondary">Css</span><span> <i class="fa fa-arrow-down"></i><small>trilhas</small></span></h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -514,7 +514,7 @@ mysqli_close($conn);
                 </ul>
               </div>
               <div class="menu_section">
-                <h3><span class="badge badge-secondary">Flex box</span><small>trilhas</small></h3>
+                <h3><span class="badge badge-secondary">Flex box</span><span> <i class="fa fa-arrow-down"></i><small>trilhas</small></span></h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -525,7 +525,7 @@ mysqli_close($conn);
                 </ul>
               </div>
               <div class="menu_section">
-                <h3><span class="badge badge-secondary">Algoritimo</span><small>trilhas</small></h3>
+                <h3><span class="badge badge-secondary">Algoritimo</span><span> <i class="fa fa-arrow-down"></i><small>trilhas</small></span></h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa-solid fa-list-ul"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -536,7 +536,7 @@ mysqli_close($conn);
                 </ul>
               </div>
               <div class="menu_section">
-                <h3><span class="badge badge-secondary">Devops</span><small>trilhas</small></h3>
+                <h3><span class="badge badge-secondary">Devops</span><span> <i class="fa fa-arrow-down"></i><small>trilhas</small></span></h3>
                 <ul class="nav side-menu">
                   <li><a><i class="fa-solid fa-list-ulg"></i><span> Iniciando com lógica de programação </span><span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">

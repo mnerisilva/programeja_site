@@ -410,6 +410,11 @@ table.lista-user td, .table th {
     padding-bottom: 6px;
 }
 
+.menu_section h3 i {
+    color: #fff;
+    font-size: .7em !important;
+}
+
 .menu_section h3 small {
     margin-right: 2em;
 }
