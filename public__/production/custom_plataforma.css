@@ -367,3 +367,29 @@ table.lista-user td, .table th {
     border-right: 5px solid rgba(0,0,0, .3);
 }
 
+.left_col {
+    height: 95vh !important;
+    overflow: auto !important;
+}
+
+.profile {
+    position: fixed;
+    background-color: #fff;
+    top: 4em;
+    z-index: 999;
+    width: 16em;
+}
+
+.nav_title {
+    position: fixed;
+    height: 4em;
+    z-index: 999;
+}
+
+#sidebar-menu {
+    margin-top: 10em;
+}
+
+.menu_section {
+    margin-bottom: 0 !important;
+}
