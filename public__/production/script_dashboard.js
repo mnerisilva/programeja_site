@@ -114,7 +114,7 @@
     
     let _statusExclusao = '9999999999';
 
-
+    pega();
 
     pegaDadosUsuarioEspecifico(2);
 
@@ -1756,5 +1756,47 @@ function pegaDadosUsuarioEspecifico(user_id) {
 
             }
 
-            
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+function pega() { 
+                $.ajax({
+                    type: "POST",
+                    url: "php/monta_json_menu_categia_trilhas_videos.php",
+                    dataType: "json",
+                    encode: true,
+                }).done(function (data) { 
+                    console.log('Dados tabelão menu lateral - left_menu: ', data);
+                })
+
+            }

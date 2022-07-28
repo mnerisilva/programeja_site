@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<script>
+function pega() { 
+                $.ajax({
+                    type: "POST",
+                    url: "php/monta_json_menu_categia_trilhas_videos.php",
+                    dataType: "json",
+                    encode: true
+                }).done(function (data) { 
+                    console.log('Dados tabelão menu lateral - left_menu: ', data);
+                    let _abrevCategoria = 'xyz';
+                    for (dados of data){
+                        if(_abrevCategoria != dados.abrev_categoria){
+                            console.log(dados.abrev_categoria);
+                            _abrevCategoria = dados.abrev_categoria
+                        }
+                        console.log('percorreu');
+                    }
+                })
+
+            }
+
+
+
+
+
+
+
+            [
+                "css":
+                       [
+                            {
+                                "Css básico nível 1": 
+                                                    [
+                                                        {
+                                                           "video" : "10 ideias de projetos em HTML e CSS para adicionar no portfólio!" 
+                                                        },
+                                                        {
+                                                            "video" : "A malas sem alça"
+                                                        },
+                                                        {
+                                                            "video" : "APRENDA CSS EM 10 MINUTOS"
+                                                        },
+                                                        {
+                                                            "video" : "Aprendendo o básico de html (web) | Web #1"
+                                                        },
+                                                        {
+                                                            "video" : "CSS (Cascading Style Sheets) // Dicionário do Programador"
+                                                        },
+                                                        {
+                                                            "video" : "CSS3: Aprenda como Funciona a Estrutura CSS"
+                                                        },
+                                                        {
+                                                            "video" : "O QUE É CSS? (SELETORES, PROPRIEDADES E VALORES)"
+                                                        },
+                                                    ]
+                            },
+                            {
+                                "Html nível básico trilha 1": 
+                                                    [
+                                                        {
+                                                           "video" : "10 ideias de projetos em HTML e CSS para adicionar no portfólio!" 
+                                                        },
+                                                        {
+                                                            "video" : "A malas sem alça"
+                                                        },
+                                                        {
+                                                            "video" : "APRENDA CSS EM 10 MINUTOS"
+                                                        },
+                                                        {
+                                                            "video" : "Aprendendo o básico de html (web) | Web #1"
+                                                        },
+                                                        {
+                                                            "video" : "Como INSERIR IMAGEM no HTML - COMPLETO!!!! Passo a Passo!"
+                                                        },
+                                                        {
+                                                            "video" : "HTML em 7 minutos"
+                                                        },
+                                                        {
+                                                            "video" : "HTML in 100 Seconds"
+                                                        },
+                                                        {
+                                                            "video" : "HTML o ESSENCIAL pra programação Front-end"
+                                                        },
+                                                    ]
+                            },
+                       ]
+            ]
+            
+
+pega();
+</script>
+</body>
+</html>
