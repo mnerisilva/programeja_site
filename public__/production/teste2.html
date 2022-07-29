@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -18,7 +20,10 @@
 
     const _conteudo = document.querySelector('#conteudo');
     let string = '';    
+    const arrayAux = [];
     const arrayNew = [];
+    const arrayCat = [];
+    const arrayGeral = [];
 function pega() { 
                 $.ajax({
                     type: "POST",
@@ -37,25 +42,46 @@ function pega() {
                     }
 
                         console.log(arrayNew);
+                        const arrayCat = arrayNew.map(item => item);
+                        console.log(arrayCat);
                         arrayNew.forEach(item => {
                             string = string + '<h1>' + item + '</h1>';
                         });
                         console.log(string);
                         _conteudo.innerHTML = string;
 
+
+
                     
+
                     /*for (item of data){
-                        if(item != ''){
-                            if(!(arrayNew[item.id_categoria][item.trilha_id])){
-                                console.log('entrou aqui');
-                                arrayNew[item.id_categoria][item.trilha_id] = item.trilha_name;
+                        if(!(arrayGeral[item.id_categoria])){
+                            arrayGeral[item.id_categoria] = [ [item.trilha_name], [{'video': [conteudo_id, conteudo_descricao, conteudo_codigoyoutube]}] ];
+                            arrayAux[item.id_categoria][item.trilha_id] = '';
+                        } else {
+                            if(arrayAux[item.id_categoria][item.trilha_id]){
+                                arrayGeral[id_categoria]
                             }
                         }
-                    }*/
+                    }
 
-                    console.log(arrayNew);
-                    
-                    
+                    console.log(arrayGeral);*/
+                    let arrxxCat = [];
+                    let arrxxTri = [];
+                    for (item of data){
+                        if(!(arrxxCat.includes(item.abrev_categoria))){
+                            console.table(item.abrev_categoria, item.trilha_name, item.conteudo_descricao, item.conteudo_codigoyoutube);
+                            arrxxCat.push(item.abrev_categoria);
+                        } else {   
+                            if(arrxxTri.includes(item.trilha_name)){                        
+                                console.table('xxxxxxxxxxxx', 'yyyyyyyyyy', item.conteudo_descricao, item.conteudo_codigoyoutube);
+                            } else {                        
+                                console.table('xxxxxxxxxxxx', item.trilha_name, item.conteudo_descricao, item.conteudo_codigoyoutube);
+                                arrxxTri.push(item.trilha_name);
+                            } 
+                        }
+
+                    }
 
 
 
@@ -68,7 +94,18 @@ function pega() {
 
 
 
+
+
+
+
+
+
+
+
 pega();
-</script>
+</script><!-- jQuery -->
+<script src="../vendors/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="../vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
