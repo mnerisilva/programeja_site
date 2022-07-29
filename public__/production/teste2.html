@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,9 +10,27 @@
 </head>
 <body>
 
+    <div class="container">
+        
     <div id="conteudo">
 
     </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Categoria</th>
+                <th>Trilha</th>
+                <th>Id vídeo</th>
+                <th>Título do vídeo</th>
+                <th>Código vídeo</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>  
+    
+</div>  
     
 <!-- jQuery -->
 <script src="../vendors/jquery/dist/jquery.min.js"></script>
@@ -48,7 +66,7 @@ function pega() {
                             string = string + '<h1>' + item + '</h1>';
                         });
                         console.log(string);
-                        _conteudo.innerHTML = string;
+                        //_conteudo.innerHTML = string;
 
 
 
