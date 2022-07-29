@@ -37,7 +37,9 @@
 <script>
 
     const _conteudo = document.querySelector('#conteudo');
+    const _tbody = document.querySelector('.table tbody');
     let string = '';    
+    let string2 = '';    
     const arrayAux = [];
     const arrayNew = [];
     const arrayCat = [];
@@ -72,32 +74,42 @@ function pega() {
 
                     
 
-                    /*for (item of data){
-                        if(!(arrayGeral[item.id_categoria])){
-                            arrayGeral[item.id_categoria] = [ [item.trilha_name], [{'video': [conteudo_id, conteudo_descricao, conteudo_codigoyoutube]}] ];
-                            arrayAux[item.id_categoria][item.trilha_id] = '';
-                        } else {
-                            if(arrayAux[item.id_categoria][item.trilha_id]){
-                                arrayGeral[id_categoria]
-                            }
-                        }
-                    }
-
-                    console.log(arrayGeral);*/
                     let arrxxCat = [];
                     let arrxxTri = [];
                     for (item of data){
                         if(!(arrxxCat.includes(item.abrev_categoria))){
                             console.table(item.abrev_categoria, item.trilha_name, item.conteudo_descricao, item.conteudo_codigoyoutube);
+                            string2 = string2 + `<tr>
+                                                    <td>${item.abrev_categoria}</td>
+                                                    <td>${item.trilha_name}</td>
+                                                    <td>${item.id_conteudo}</td>
+                                                    <td>${item.conteudo_descricao}</td>
+                                                    <td>${item.conteudo_codigoyoutube}</td>
+                                                </tr>`;
                             arrxxCat.push(item.abrev_categoria);
                         } else {   
                             if(arrxxTri.includes(item.trilha_name)){                        
                                 console.table('xxxxxxxxxxxx', 'yyyyyyyyyy', item.conteudo_descricao, item.conteudo_codigoyoutube);
+                            string2 = string2 + `<tr>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td>${item.id_conteudo}</td>
+                                                    <td>${item.conteudo_descricao}</td>
+                                                    <td>${item.conteudo_codigoyoutube}</td>
+                                                </tr>`;
                             } else {                        
                                 console.table('xxxxxxxxxxxx', item.trilha_name, item.conteudo_descricao, item.conteudo_codigoyoutube);
+                            string2 = string2 + `<tr>
+                                                    <td></td>
+                                                    <td>${item.trilha_name}</td>
+                                                    <td>${item.id_conteudo}</td>
+                                                    <td>${item.conteudo_descricao}</td>
+                                                    <td>${item.conteudo_codigoyoutube}</td>
+                                                </tr>`;
                                 arrxxTri.push(item.trilha_name);
                             } 
                         }
+                        _tbody.innerHTML = string2;
 
                     }
 
