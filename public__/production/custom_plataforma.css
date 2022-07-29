@@ -409,6 +409,11 @@ table.lista-user td, .table th {
     background-color: rgb(0 0 0 / 18%);
     padding-top: 6px;
     padding-bottom: 6px;
+    margin-left: 0.5em !important;
+}
+
+#sidebar-menu h3 {
+    margin-left: 0.5em !important;
 }
 
 .menu_section h3 i {

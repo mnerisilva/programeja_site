@@ -87,6 +87,7 @@ function pega() {
                                                         <td>${item.conteudo_codigoyoutube}</td>
                                                     </tr>`;
                             arrxxCat.push(item.abrev_categoria);
+                            arrxxTri.push(item.trilha_name); 
                         } else {   
                             if(!(arrxxTri.includes(item.trilha_name))){                       
                                 console.table('xxxxxxxxxxxx', item.trilha_name, item.conteudo_descricao, item.conteudo_codigoyoutube);
