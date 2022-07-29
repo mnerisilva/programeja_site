@@ -79,34 +79,34 @@ function pega() {
                     for (item of data){
                         if(!(arrxxCat.includes(item.abrev_categoria))){
                             console.table(item.abrev_categoria, item.trilha_name, item.conteudo_descricao, item.conteudo_codigoyoutube);
-                            string2 = string2 + `<tr>
-                                                    <td>${item.abrev_categoria}</td>
-                                                    <td>${item.trilha_name}</td>
-                                                    <td>${item.id_conteudo}</td>
-                                                    <td>${item.conteudo_descricao}</td>
-                                                    <td>${item.conteudo_codigoyoutube}</td>
-                                                </tr>`;
+                                string2 = string2 + `<tr>
+                                                        <td>${item.abrev_categoria}</td>
+                                                        <td>${item.trilha_name}</td>
+                                                        <td>${item.id_conteudo}</td>
+                                                        <td>${item.conteudo_descricao}</td>
+                                                        <td>${item.conteudo_codigoyoutube}</td>
+                                                    </tr>`;
                             arrxxCat.push(item.abrev_categoria);
                         } else {   
-                            if(arrxxTri.includes(item.trilha_name)){                        
-                                console.table('xxxxxxxxxxxx', 'yyyyyyyyyy', item.conteudo_descricao, item.conteudo_codigoyoutube);
-                            string2 = string2 + `<tr>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td>${item.id_conteudo}</td>
-                                                    <td>${item.conteudo_descricao}</td>
-                                                    <td>${item.conteudo_codigoyoutube}</td>
-                                                </tr>`;
-                            } else {                        
+                            if(!(arrxxTri.includes(item.trilha_name))){                       
                                 console.table('xxxxxxxxxxxx', item.trilha_name, item.conteudo_descricao, item.conteudo_codigoyoutube);
-                            string2 = string2 + `<tr>
-                                                    <td></td>
-                                                    <td>${item.trilha_name}</td>
-                                                    <td>${item.id_conteudo}</td>
-                                                    <td>${item.conteudo_descricao}</td>
-                                                    <td>${item.conteudo_codigoyoutube}</td>
-                                                </tr>`;
-                                arrxxTri.push(item.trilha_name);
+                                string2 = string2 + `<tr>
+                                                        <td></td>
+                                                        <td>${item.trilha_name}</td>
+                                                        <td>${item.id_conteudo}</td>
+                                                        <td>${item.conteudo_descricao}</td>
+                                                        <td>${item.conteudo_codigoyoutube}</td>
+                                                    </tr>`;
+                                arrxxTri.push(item.trilha_name); 
+                            } else {                       
+                                console.table('xxxxxxxxxxxx', 'yyyyyyyyyy', item.conteudo_descricao, item.conteudo_codigoyoutube);
+                                string2 = string2 + `<tr>
+                                                        <td></td>
+                                                        <td></td>
+                                                        <td>${item.id_conteudo}</td>
+                                                        <td>${item.conteudo_descricao}</td>
+                                                        <td>${item.conteudo_codigoyoutube}</td>
+                                                    </tr>`;
                             } 
                         }
                         _tbody.innerHTML = string2;
@@ -124,7 +124,7 @@ function pega() {
 
 
 
-
+ 
 
 
 
