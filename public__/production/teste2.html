@@ -7,10 +7,18 @@
     <title>Document</title>
 </head>
 <body>
+
+    <div id="conteudo">
+
+    </div>
     
 <!-- jQuery -->
 <script src="../vendors/jquery/dist/jquery.min.js"></script>
 <script>
+
+    const _conteudo = document.querySelector('#conteudo');
+    let string = '';    
+    const arrayNew = [];
 function pega() { 
                 $.ajax({
                     type: "POST",
@@ -19,15 +27,39 @@ function pega() {
                     encode: true
                 }).done(function (data) { 
                     console.log('Dados tabelão menu lateral - left_menu: ', data);
-                    let _abrevCategoria = 'xyz';
-                    for (dados of data){
-                        if(_abrevCategoria != dados.abrev_categoria){
-                            console.log(dados.abrev_categoria);
-                            _abrevCategoria = dados.abrev_categoria
+                    for (item of data){
+                        if(arrayNew[item.id_categoria]){
+                        } else {
+                            let obj = {};
+                            let nomeCategoria = item.abrev_categoria;
+                            arrayNew[item.id_categoria] = nomeCategoria;
                         }
-                        console.log('percorreu');
                     }
-                })
+
+                        console.log(arrayNew);
+                        arrayNew.forEach(item => {
+                            string = string + '<h1>' + item + '</h1>';
+                        });
+                        console.log(string);
+                        _conteudo.innerHTML = string;
+
+                    
+                    /*for (item of data){
+                        if(item != ''){
+                            if(!(arrayNew[item.id_categoria][item.trilha_id])){
+                                console.log('entrou aqui');
+                                arrayNew[item.id_categoria][item.trilha_id] = item.trilha_name;
+                            }
+                        }
+                    }*/
+
+                    console.log(arrayNew);
+                    
+                    
+
+
+
+                });
 
             }
 
@@ -35,69 +67,6 @@ function pega() {
 
 
 
-
-
-            [
-                "css":
-                       [
-                            {
-                                "Css básico nível 1": 
-                                                    [
-                                                        {
-                                                           "video" : "10 ideias de projetos em HTML e CSS para adicionar no portfólio!" 
-                                                        },
-                                                        {
-                                                            "video" : "A malas sem alça"
-                                                        },
-                                                        {
-                                                            "video" : "APRENDA CSS EM 10 MINUTOS"
-                                                        },
-                                                        {
-                                                            "video" : "Aprendendo o básico de html (web) | Web #1"
-                                                        },
-                                                        {
-                                                            "video" : "CSS (Cascading Style Sheets) // Dicionário do Programador"
-                                                        },
-                                                        {
-                                                            "video" : "CSS3: Aprenda como Funciona a Estrutura CSS"
-                                                        },
-                                                        {
-                                                            "video" : "O QUE É CSS? (SELETORES, PROPRIEDADES E VALORES)"
-                                                        },
-                                                    ]
-                            },
-                            {
-                                "Html nível básico trilha 1": 
-                                                    [
-                                                        {
-                                                           "video" : "10 ideias de projetos em HTML e CSS para adicionar no portfólio!" 
-                                                        },
-                                                        {
-                                                            "video" : "A malas sem alça"
-                                                        },
-                                                        {
-                                                            "video" : "APRENDA CSS EM 10 MINUTOS"
-                                                        },
-                                                        {
-                                                            "video" : "Aprendendo o básico de html (web) | Web #1"
-                                                        },
-                                                        {
-                                                            "video" : "Como INSERIR IMAGEM no HTML - COMPLETO!!!! Passo a Passo!"
-                                                        },
-                                                        {
-                                                            "video" : "HTML em 7 minutos"
-                                                        },
-                                                        {
-                                                            "video" : "HTML in 100 Seconds"
-                                                        },
-                                                        {
-                                                            "video" : "HTML o ESSENCIAL pra programação Front-end"
-                                                        },
-                                                    ]
-                            },
-                       ]
-            ]
-            
 
 pega();
 </script>
