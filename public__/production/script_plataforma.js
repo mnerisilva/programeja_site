@@ -118,7 +118,7 @@
     let _statusExclusao = '9999999999';
 
     
-    console.log(_spanPlataformaUserId);
+    
     listaTrilhasDoUser(_spanPlataformaUserId);
 
     pegaDadosUsuarioEspecifico(2);
@@ -207,6 +207,18 @@
     _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
 
 
+    const _sidebarMenu = document.querySelector('#sidebar-menu');
+
+   
+
+                          
+                            
+
+		
+
+    pega();
+    
+  
 
 
 
@@ -221,7 +233,7 @@
 
     $(_formModalCadastroDeUser).submit(function(event){
                     event.preventDefault();
-                    console.log('clicou no button submit da modal de cadastro de usuário')
+                    //console.log('clicou no button submit da modal de cadastro de usuário')
                     var formData_ = {
                                         user_name: _formModalCadastroDeUser.querySelector('#user_name').value,
                                         user_email: _formModalCadastroDeUser.querySelector('#user_email').value,
@@ -238,7 +250,7 @@
                                         user_pix: _formModalCadastroDeUser.querySelector('#user_pix').value,
                                         user_photo: 'images/users/avatar.png'
                                     };
-                    console.log('Campos que irão para o salva_user.php', formData_);
+                    //console.log('Campos que irão para o salva_user.php', formData_);
                     salvaUser(formData_);
                     
                 });
@@ -246,7 +258,7 @@
 
     $(_formModalCadastroDeUserEdit).submit(function(event){
                     event.preventDefault();
-                    console.log('clicou no button submit da modal de cadastro de usuário')
+                    //console.log('clicou no button submit da modal de cadastro de usuário')
                     var formData_ = {
                                         user_id_edit: _userIdDoUsuario,
                                         user_name_edit: _formModalCadastroDeUserEdit.querySelector('#user_name_edit').value,
@@ -264,7 +276,7 @@
                                         user_pix_edit: _formModalCadastroDeUserEdit.querySelector('#user_pix_edit').value,
                                         user_photo_edit: 'images/users/avatar.png'
                                     };
-                    console.log('Campos que irão para o salva_user.php', formData_);
+                    // console.log('Campos que irão para o salva_user.php', formData_);
                     salvaUserEdit(formData_);
                     
                 });                
@@ -272,8 +284,8 @@
 
     /*$(_formCadastroDeTrilha).submit(function(event){
                     event.preventDefault();
-                    console.log('clicou no button submit da modal de cadastro de trilha')*/
-                    /*console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
+                    // console.log('clicou no button submit da modal de cadastro de trilha')*/
+                    /*// console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
                     _THtituloDaTrilha = _arrPovoaSelectFiltaTrilha[_selectIdTrilhaEscolhida.value];
                     _listaVideosDaTrilha.innerHTML = '';                    
                     removeDisabledBtnAtribui(_btnVincula);
@@ -286,8 +298,8 @@
 
     $(_formModalCadastroDeCategoria).submit(function(event){
                     event.preventDefault();
-                    console.log('clicou no button submit da modal de cadastro de categoria')
-                    /*console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
+                    // console.log('clicou no button submit da modal de cadastro de categoria')
+                    /*// console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
                     _THtituloDaTrilha = _arrPovoaSelectFiltaTrilha[_selectIdTrilhaEscolhida.value];
                     _listaVideosDaTrilha.innerHTML = '';                    
                     removeDisabledBtnAtribui(_btnVincula);
@@ -298,8 +310,8 @@
 
     $(_formModalCadastroDeTipo).submit(function(event){
                     event.preventDefault();
-                    console.log('clicou no button submit da modal de cadastro de tipo')
-                    /*console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
+                    // console.log('clicou no button submit da modal de cadastro de tipo')
+                    /*// console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
                     _THtituloDaTrilha = _arrPovoaSelectFiltaTrilha[_selectIdTrilhaEscolhida.value];
                     _listaVideosDaTrilha.innerHTML = '';                    
                     removeDisabledBtnAtribui(_btnVincula);
@@ -345,8 +357,8 @@
 
 
     _selectIdTrilhaEscolhida.addEventListener('change', function(e){                
-                //console.log(_THtituloDaTrilha);
-                //console.log(e.target.value);
+                //// console.log(_THtituloDaTrilha);
+                //// console.log(e.target.value);
                 if(e.target.value === '') {
                     adicionaDisabledBtnAtribui(_btnVincula);
                 }
@@ -356,17 +368,17 @@
 
     $(_formFiltraTrilha).submit(function(event){
                     event.preventDefault();
-                    //console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.value);
-                    console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
+                    //// console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.value);
+                    // console.log('_arrPovoaSelect: '+_arrPovoaSelectFiltaTrilha);
                     _THtituloDaTrilha = _arrPovoaSelectFiltaTrilha[_selectIdTrilhaEscolhida.value];
-                    //console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.textContent);
-                    //console.log(event.target)
+                    //// console.log('entrou dentro do listener do form FiltraTrilha', _selectIdTrilhaEscolhida.textContent);
+                    //// console.log(event.target)
                     _listaVideosDaTrilha.innerHTML = '';                    
                     removeDisabledBtnAtribui(_btnVincula);
                     listaVideosDaTrilha();
                     _spanTotalVideosTrilha.style.opacity = 1;
                     _thTituloDaTrilha.style.opacity = 1;
-                    // console.log('_idDaTrilhaEscolhida: '+_idDaTrilhaEscolhida);
+                    // // console.log('_idDaTrilhaEscolhida: '+_idDaTrilhaEscolhida);
                 });
 
                 
@@ -375,9 +387,9 @@
     _linkYoutube.forEach(function(link){
                         link.addEventListener('click', function(e){
                                         e.preventDefault();
-                                        //console.log(e.target);
+                                        //// console.log(e.target);
                                         let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
-                                        //console.log(e.target);
+                                        //// console.log(e.target);
                                         _iframeYoutube.setAttribute('src', src);
                                         _iframeYoutube.getAttribute('src');
                                         setTimeout(function(){
@@ -424,7 +436,7 @@ function escutaMudancaEstadoSelect() {
 
 function removeDisabledBtnAtribui(elemento){
                     for (btn of elemento) {
-                        //console.log(btn);
+                        //// console.log(btn);
                         btn.removeAttribute('disabled');
                     }
                 }
@@ -443,7 +455,7 @@ function adicionaDisabledBtnAtribui(elemento){
 
 
 function listaVideosDaTrilha(){
-                    //console.log($("#trilha_escolhida").val());                    
+                    //// console.log($("#trilha_escolhida").val());                    
                     _idDaTrilhaEscolhida = $("#trilha_escolhida").val();
                     var formData = {
                         trilha_escolhida: $("#trilha_escolhida").val()
@@ -455,13 +467,13 @@ function listaVideosDaTrilha(){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        //console.log(data);
+                        //// console.log(data);
                         _dataListaDeVideosDaTrilha = data;
                         loopingDeMontagemAjaxListaVideosDaTrilha(data);
                         _listaVideosGeral.innerHTML = '';
                         atualizaListaDeVideosGeral(_dataListaDeVideosGeral);
                         _arrIdConteudoVideosDaTrilha = [];
-                          //console.log(_arrIdConteudoVideosDaTrilha);
+                          //// console.log(_arrIdConteudoVideosDaTrilha);
                           setTimeout(function(){
                             _listaVideosDaTrilha.style.opacity = 1;
                           }, 300)
@@ -475,7 +487,7 @@ function listaVideosDaTrilha(){
                                     trilha_escolhida: _idDaTrilhaEscolhida,
                                     video_a_desvincular: item.querySelector('.input-form-remove-video-trilha').value
                                 };
-                                //console.log(formData_);
+                                //// console.log(formData_);
                                 item.parentNode.parentNode.style.opacity = 0;
                                 setTimeout(function(){
                                     item.parentNode.parentNode.remove();
@@ -501,7 +513,7 @@ function povoaSelectDoFiltrarTrilhas(){ // chamado quando a aplicação inicia
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        //console.log(data);
+                        //// console.log(data);
                         
                         _listaVideosDaTrilha.innerHTML = '';
                         const _optionVazio = document.createElement('option');        
@@ -512,12 +524,12 @@ function povoaSelectDoFiltrarTrilhas(){ // chamado quando a aplicação inicia
                         for (trilha of data){
                             let _option = document.createElement('option');
                             _option.value = trilha.trilha_id;
-                            //console.log(_option);
+                            //// console.log(_option);
                             _option.textContent = trilha.trilha_name;
                             _selectIdTrilhaEscolhida.appendChild(_option);
                             _arrPovoaSelectFiltaTrilha[trilha.trilha_id] = trilha.trilha_name;
                         }
-                        //console.log('_arrPovoaSelectFiltraTrilha: '+_arrPovoaSelectFiltaTrilha);
+                        //// console.log('_arrPovoaSelectFiltraTrilha: '+_arrPovoaSelectFiltaTrilha);
                     });
                 }
 
@@ -529,7 +541,7 @@ function povoaSelectDoFiltrarTrilhas(){ // chamado quando a aplicação inicia
 
 
 function povoaSelectDaCategoriaDoCadastrarTrilhas(){ // chamado quando a aplicação inicia
-                    // console.log(_selectIdCategoriaCadastroDeTrilha.innerHTML);
+                    // // console.log(_selectIdCategoriaCadastroDeTrilha.innerHTML);
                     _selectIdCategoriaCadastroDeTrilha.innerHTML = '';
                     $.ajax({
                         // inicio do código ajax listagem inicial - lista users
@@ -538,7 +550,7 @@ function povoaSelectDaCategoriaDoCadastrarTrilhas(){ // chamado quando a aplica�
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        //console.log(data);
+                        //// console.log(data);
                         
                         //_listaVideosDaTrilha.innerHTML = '';
                         const _optionVazio = document.createElement('option');        
@@ -549,13 +561,13 @@ function povoaSelectDaCategoriaDoCadastrarTrilhas(){ // chamado quando a aplica�
                         for (categoria of data){
                             let _option = document.createElement('option');
                             _option.value = categoria.id_categoria;
-                            //console.log(_option);
+                            //// console.log(_option);
                             _option.textContent = categoria.abrev_categoria;
                             _selectIdCategoriaCadastroDeTrilha.appendChild(_option);
                             _arrPovoaSelect[categoria.id_categoria] = categoria.abrev_categoria;
                         }
                         _arrPovoaSelect = [];
-                        //console.log(_arrPovoaSelect);
+                        //// console.log(_arrPovoaSelect);
                     });
                 }
 
@@ -565,7 +577,7 @@ function povoaSelectDaCategoriaDoCadastrarTrilhas(){ // chamado quando a aplica�
 
                 
 function povoaSelectDaCategoriaDoCadastrarVideo(){ // chamado quando a aplicação inicia
-                    // console.log(_selectCategoriaCatastroDeVideo.innerHTML);
+                    // // console.log(_selectCategoriaCatastroDeVideo.innerHTML);
                     _selectCategoriaCatastroDeVideo.innerHTML = '';
                     $.ajax({
                         // inicio do código ajax listagem inicial - lista users
@@ -574,7 +586,7 @@ function povoaSelectDaCategoriaDoCadastrarVideo(){ // chamado quando a aplicaç�
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        //console.log(data);
+                        //// console.log(data);
                         
                         //_listaVideosDaTrilha.innerHTML = '';
                         const _optionVazio = document.createElement('option');        
@@ -585,13 +597,13 @@ function povoaSelectDaCategoriaDoCadastrarVideo(){ // chamado quando a aplicaç�
                         for (categoria of data){
                             let _option = document.createElement('option');
                             _option.value = categoria.id_categoria;
-                            //console.log(_option);
+                            //// console.log(_option);
                             _option.textContent = categoria.abrev_categoria;
                             _selectCategoriaCatastroDeVideo.appendChild(_option);
                             _arrPovoaSelect[categoria.id_categoria] = categoria.abrev_categoria;
                         }
                         _arrPovoaSelect = [];
-                        //console.log(_arrPovoaSelect);
+                        //// console.log(_arrPovoaSelect);
                     });
                 }                
 
@@ -656,7 +668,7 @@ function loopingDeMontagemAjaxListaVideosGeral(nodeList){
                             trilha_escolhida: _idDaTrilhaEscolhida,
                               video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
                           };
-                          // console.log(formData_);
+                          // // console.log(formData_);
                           if(formData_.trilha_escolhida != ''){
                             item.parentNode.parentNode.style.opacity = 0;
                             setTimeout(function(){
@@ -704,7 +716,7 @@ function loopingDeMontagemAjaxListaVideosDaTrilha(nodeList){
                         }
                         _thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         _totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
-                        //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
+                        //// console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
                 }            
 
 
@@ -720,7 +732,7 @@ function salvaUser(formData){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        console.log('Retorno do ajax php/salva_user.php: '+data);
+                        // console.log('Retorno do ajax php/salva_user.php: '+data);
                         _btnSalvarUser.setAttribute('disabled','');
                         _btnSalvarUser.style.pointerEvents = 'none';
                         _btnCancelarSalvarUser.setAttribute('disabled','');
@@ -746,7 +758,7 @@ function salvaUser(formData){
 
 
 function salvaUserEdit(formData){
-                    console.log(formData);
+                    // console.log(formData);
                     $.ajax({
                         type: "POST",
                         url: "php/salva_user_editado.php",
@@ -754,7 +766,7 @@ function salvaUserEdit(formData){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        console.log('Retorno do ajax php/salva_user.php: '+data);
+                        // console.log('Retorno do ajax php/salva_user.php: '+data);
                         _btnSalvarUserEdit.setAttribute('disabled','');
                         _btnSalvarUserEdit.style.pointerEvents = 'none';
                         _btnCancelarSalvarUserEdit.setAttribute('disabled','');
@@ -791,7 +803,7 @@ function excluiUser(user_id){
             dataType: "json",
             encode: true,
         }).done(function (data) {
-            //// console.log(data);
+            //// // console.log(data);
             listaGeralDeUsuarios();
         });
 
@@ -811,13 +823,13 @@ function vinculaVideo(formData){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        //// console.log(data);
+                        //// // console.log(data);
                         _listaVideosGeral.innerHTML = '';
                         _listaVideosDaTrilha.innerHTML = '';
                         listaVideosDaTrilha();
                     });    
-                    //console.log('entrou na function vinculaVideo');
-                    //console.log(formData);
+                    //// console.log('entrou na function vinculaVideo');
+                    //// console.log(formData);
                 }
 
 
@@ -833,13 +845,13 @@ function desvinculaVideo(formData){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        //console.log(data);
+                        //// console.log(data);
                         _listaVideosGeral.innerHTML = '';
                         _listaVideosDaTrilha.innerHTML = '';
                         listaVideosDaTrilha();
                     });    
-                    //console.log('entrou na function vinculaVideo');
-                    //console.log(formData);
+                    //// console.log('entrou na function vinculaVideo');
+                    //// console.log(formData);
                 }
 
 
@@ -857,7 +869,7 @@ function vinculaTrilhaAoUser(formData){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        console.log(data);
+                        // console.log(data);
                         _listaTrilhasDoUser.innerHTML = '';
                         _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
                         listaTrilhasDoUser(_userIdDoUsuario); 
@@ -877,7 +889,7 @@ function desvinculaTrilhaDoUser(formData){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        console.log(data);
+                        // console.log(data);
                         _listaTrilhasDoUser.innerHTML = '';
                         _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
                         listaTrilhasDoUser(_userIdDoUsuario);
@@ -900,7 +912,7 @@ function desvinculaTrilhaDoUser(formData){
                     dataType: "json",
                     encode: true,
                 }).done(function (data) {
-                    console.log(data, typeof data);
+                    // console.log(data, typeof data);
                 });
             }
 function listaTabelaDaDireita ( _idDaTrilhaEscolhida ) {
@@ -914,7 +926,7 @@ function listaTabelaDaDireita ( _idDaTrilhaEscolhida ) {
                     dataType: "json",
                     encode: true,
                 }).done(function (data) {
-                    console.log(data, typeof data);
+                    // console.log(data, typeof data);
                 });
             }*/                
 
@@ -929,8 +941,8 @@ function listaTabelaDaDireita ( _idDaTrilhaEscolhida ) {
 
 
 function atualizaListaDeVideosGeral(nodeList){   
-                // console.log(_arrIdConteudoVideosDaTrilha);
-                // console.log(nodeList);
+                // // console.log(_arrIdConteudoVideosDaTrilha);
+                // // console.log(nodeList);
                 if(_arrIdConteudoVideosDaTrilha.length === 0){
                 //if(_idDaTrilhaEscolhida === ''){
                     for (videoItem of nodeList) {
@@ -965,7 +977,7 @@ function atualizaListaDeVideosGeral(nodeList){
                         _linkYoutube.forEach(function(link){
                                             link.addEventListener('click', function(e){
                                                             e.preventDefault();
-                                                            // console.log(e.target.dataset.youtube_code);
+                                                            // // console.log(e.target.dataset.youtube_code);
                                                             let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
                                                             _iframeYoutube.setAttribute('src', src);
                                                             _iframeYoutube.getAttribute('src');
@@ -985,7 +997,7 @@ function atualizaListaDeVideosGeral(nodeList){
                                     trilha_escolhida: _idDaTrilhaEscolhida,
                                     video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
                                 };
-                                // console.log(formData_);
+                                // // console.log(formData_);
                                 item.parentNode.parentNode.style.opacity = 0;
                                 setTimeout(function(){
                                     item.parentNode.parentNode.remove();
@@ -995,7 +1007,7 @@ function atualizaListaDeVideosGeral(nodeList){
                         });
 
                 } else if(_arrIdConteudoVideosDaTrilha.length > 0){
-                    // console.log('entrou aqui');
+                    // // console.log('entrou aqui');
                     for (videoItem of nodeList) {
                         let _tr = document.createElement("tr");
                         let _td1 = document.createElement("td");
@@ -1028,7 +1040,7 @@ function atualizaListaDeVideosGeral(nodeList){
                         _linkYoutube.forEach(function(link){
                                             link.addEventListener('click', function(e){
                                                             e.preventDefault();
-                                                            // console.log(e.target.dataset.youtube_code);
+                                                            // // console.log(e.target.dataset.youtube_code);
                                                             let src = `https://www.youtube.com/embed/${e.target.dataset.youtube_code}?autoplay=1`;
                                                             _iframeYoutube.setAttribute('src', src);
                                                             _iframeYoutube.getAttribute('src');
@@ -1047,7 +1059,7 @@ function atualizaListaDeVideosGeral(nodeList){
                                     trilha_escolhida: _idDaTrilhaEscolhida,
                                     video_a_vincular: item.querySelector('.input-form-vincula-video-a-trilha').value
                                 };
-                                // console.log(formData_);
+                                // // console.log(formData_);
                                 item.parentNode.parentNode.style.opacity = 0;
                                 setTimeout(function(){
                                     item.parentNode.parentNode.remove();
@@ -1179,17 +1191,17 @@ function loopingDeMontagemAjaxListaTrilhasDoUser(nodeList){
                     }
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
-                        //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
+                        //// console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
                         const _formDesvinculaTrilhaDoUser = document.querySelectorAll('.form-desvincula-trilha-do-user');
                         _formDesvinculaTrilhaDoUser.forEach(function(item){
                             $(item).submit(function(event){
                                 event.preventDefault();
-                                console.log('clicou no botão');  
+                                // console.log('clicou no botão');  
                                 var formData_ = {
                                     userid: item.querySelector('.input-form-desvincula-trilha-do-user-userid').value,
                                     trilhaid: item.querySelector('.input-form-desvincula-trilha-do-user-trilhaid').value
                                 };
-                                // console.log(formData_);                                
+                                // // console.log(formData_);                                
                                   item.parentNode.parentNode.style.opacity = 0;
                                   DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser)
                                   setTimeout(function(){
@@ -1211,7 +1223,7 @@ function listaTrilhasDoUser(user_id){
                     var formData = {
                         user_id: user_id
                     };
-                    //console.log(formData.user_id);
+                    //// console.log(formData.user_id);
                     $.ajax({
                         type: "POST",
                         url: "php/lista_trilhas_do_user.php",
@@ -1219,7 +1231,7 @@ function listaTrilhasDoUser(user_id){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        //console.log(data);
+                        //// console.log(data);
                         _trilhasDoUser = data;
                         _arrayIDsTrilhasDoUser = []; 
                         let cont = 0;
@@ -1376,31 +1388,31 @@ function loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(nodeList){
                         _tr.appendChild(_td6);
                         //_tr.appendChild(_td3);
                         //_tr.appendChild(_td4);
-                        //console.log(_arrayIDsTrilhasDoUser);
-                        //console.log(trilhaUser.trilha_id);
-                        //console.log(nodeList);
+                        //// console.log(_arrayIDsTrilhasDoUser);
+                        //// console.log(trilhaUser.trilha_id);
+                        //// console.log(nodeList);
                         if(!(_arrayIDsTrilhasDoUser.includes(trilhaUser.trilha_id))){
                             _listaTrilhasDisponiveisTelaUserManager.appendChild(_tr);
                         }
                         //_arrIdConteudoVideosDaTrilha.push(trilha.id_conteudo);
                     }   
-                        // console.log(nodeList);
-                        // console.log(_arrayIDsTrilhasDoUser);
+                        // // console.log(nodeList);
+                        // // console.log(_arrayIDsTrilhasDoUser);
                         //_thTituloDestaTrilha.innerHTML = ` <span class="th-titulo-da-trilha"><span class="barra1"></span>${_THtituloDaTrilha}<span class="barra2"></span></span> `;
                         //_totalVideosDestaTrilha.innerHTML = `          Total: [ ${nodeList.length} ] vídeos`;
-                        //console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
+                        //// console.log('TRILHA ESCOLHIDA:'+ _idDaTrilhaEscolhida)
                         _btnFormTrilhaUser = document.querySelectorAll('.btn-form-trilha-user');
                         const _formVinculaTrilhaAoUser = document.querySelectorAll('.form-vincula-trilha-ao-user');
                         _formVinculaTrilhaAoUser.forEach(function(item){
                             $(item).submit(function(event){
                                 event.preventDefault();
-                                console.log('clicou no botão'); 
+                                // console.log('clicou no botão'); 
                                 var formData_ = {
                                   trilha_escolhida: _idDaTrilhaEscolhida,
                                     userid: item.querySelector('.input-form-vincula-trilha-ao-user-userid').value,
                                     trilhaid: item.querySelector('.input-form-vincula-trilha-ao-user-trilhaid').value
                                 };
-                                // console.log(formData_);                                
+                                // // console.log(formData_);                                
                                   item.parentNode.parentNode.style.opacity = 0;
                                   DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser)
                                   setTimeout(function(){
@@ -1425,11 +1437,11 @@ function listaTrilhasDisponiveisUserManager(){
                         dataType: "json",
                         encode: true,
                     }).done(function (data) {
-                        // console.log(data);
-                        // console.log(typeof data);
-                        // console.log(data[0]);
+                        // // console.log(data);
+                        // // console.log(typeof data);
+                        // // console.log(data[0]);
                         _listaTrilhasDisponiveisTelaUserManager.innerHTML = '';
-                        // console.log(_arrayIDsTrilhasDoUser);
+                        // // console.log(_arrayIDsTrilhasDoUser);
                         loopingDeMontagemAjaxListaTrilhasDisponiveisUserManage(data);
                         /*
                         _dataListaDeVideosDaTrilha = data;
@@ -1448,7 +1460,7 @@ function listaTrilhasDisponiveisUserManager(){
                                     trilha_escolhida: _idDaTrilhaEscolhida,
                                     video_a_desvincular: item.querySelector('.input-form-remove-video-trilha').value
                                 };
-                                //console.log(formData_);
+                                //// console.log(formData_);
                                 item.parentNode.parentNode.style.opacity = 0;
                                 setTimeout(function(){
                                     item.parentNode.parentNode.remove();
@@ -1470,7 +1482,7 @@ function listaTrilhasDisponiveisUserManager(){
 
 function DESABILITAbtnFormTrilhaUser(_btnFormTrilhaUser){
     _btnFormTrilhaUser.forEach(function(item){
-        console.log('DESABILITOU OS BOTÕES DE VINCULA E DESVINCULA TRILHA')
+        // console.log('DESABILITOU OS BOTÕES DE VINCULA E DESVINCULA TRILHA')
         item.setAttribute('disabled','');
     });
 }  
@@ -1590,7 +1602,7 @@ function cancelar_LimpaCamposCadastroDeVideos(){
 
 
 function verificaSeUserPodeSerExcluido(user_id) {
-    console.log('verifica se o usuário ' + user_id +' pode ser excluído');
+    // console.log('verifica se o usuário ' + user_id +' pode ser excluído');
                 _status = 9999999999; 
 
                 /*while (_status === 9999999999) {
@@ -1658,14 +1670,14 @@ function listaGeralDeUsuarios(){
         
         _userManager.forEach(function(item){
             item.addEventListener('click', function(e){
-                console.log(item);
+                // console.log(item);
                 _userIdDoUsuario = item.dataset.user_id;
                 //_modalUserName.innerHTML = e.target.dataset.username;
                 _modalGerenciamentoTrilhasUsers.querySelector('.userName').innerHTML = e.target.dataset.user_name;
                 _modalGerenciarTrilhasUsersSpanUserName.innerHTML = e.target.dataset.user_name;
                 _modalGerenciarTrilhasUsersSrcUserPhoto.setAttribute('src', e.target.dataset.user_photo);
                 listaTrilhasDoUser(e.target.dataset.user_id);
-                console.log(_arrayIDsTrilhasDoUser);
+                // console.log(_arrayIDsTrilhasDoUser);
             });
         })
 
@@ -1673,9 +1685,9 @@ function listaGeralDeUsuarios(){
 
         _userManagerEdit.forEach(function(item){
             item.addEventListener('click', function(e){
-                console.log(item);
+                // console.log(item);
                 _userIdDoUsuario = item.dataset.user_id;
-                console.log(`clicou no user-mabager-edit ${_userIdDoUsuario}`);
+                // console.log(`clicou no user-mabager-edit ${_userIdDoUsuario}`);
                 _formCadastroDeUserEdit.querySelector('span').innerHTML = `&nbsp;&nbsp;&nbsp;#${_userIdDoUsuario}`;
                 let formData = {
                     user_id: _userIdDoUsuario
@@ -1687,7 +1699,7 @@ function listaGeralDeUsuarios(){
                     dataType: "json",
                     encode: true,
                 }).done(function (data) {
-                    console.log(data);
+                    // console.log(data);
                     _formModalCadastroDeUserEdit.querySelector('#user_name_edit').value = data[0].user_name;
                     _formModalCadastroDeUserEdit.querySelector('#user_email_edit').value = data[0].user_email;
                     _formModalCadastroDeUserEdit.querySelector('#user_whatsapp_edit').value = data[0].user_whatsapp;
@@ -1707,7 +1719,7 @@ function listaGeralDeUsuarios(){
 
         _userManagerTrash.forEach(function(item){
             item.addEventListener('click', function(e){
-                //console.log(item);
+                //// console.log(item);
                 user_id = item.dataset.user_id;
                 user_name = item.dataset.user_name;
 
@@ -1721,15 +1733,15 @@ function listaGeralDeUsuarios(){
                     dataType: "json",
                     encode: true,
                 }).done(function (data) {  
-                    //console.log(data);
-                    //console.log(typeof data);
+                    //// console.log(data);
+                    //// console.log(typeof data);
                     if(data > 0){
                         alert('O USUÁRIO não pose ser excluído!!!!!');                        
                     } else {
                         let retorno = confirm(`VOU EXCLUIR O USUÁRIO:\n              ${user_name}.\nConfirme, por favor!`);
-                        console.log(retorno);
+                        // console.log(retorno);
                         if(retorno){
-                            console.log('aqui você coloca o código que escluirá o registro.');
+                            // console.log('aqui você coloca o código que escluirá o registro.');
                             excluiUser(user_id);
                         }
                         
@@ -1756,8 +1768,80 @@ function pegaDadosUsuarioEspecifico(user_id) {
                     dataType: "json",
                     encode: true,
                 }).done(function (data) { 
-                    console.log('Dados do usuário cujo user_id é igual a 2:', data);
+                    // console.log('Dados do usuário cujo user_id é igual a 2:', data);
                 })
+
+            }
+
+
+
+
+
+
+
+            
+
+
+
+function pega() { 
+                $.ajax({
+                    type: "POST",
+                    url: "php/monta_json_menu_categia_trilhas_videos.php",
+                    dataType: "json",
+                    encode: true
+                }).done(function (data) {
+                    console.log(data);
+                    let string = '';  
+                    const arrxxCat = [];
+                    const arrxxTri = [];
+                    for (item of data){
+                        if(!(arrxxCat.includes(item.abrev_categoria))){
+                             // aqui a categoria e trilha são impressas
+                                string = string + `<h3><span class="badge badge-secondary">${item.abrev_categoria}</span> <span> <i class="fa fa-arrow-down"></i><small>trilhas</small></span></h3>`;
+                                string = string + `<div class="menu_section">`;
+                                string = string + `<ul class="nav side-menu">`;
+                                string = string + `<li><a><i class="fa-solid fa-list-ul"></i><span> ${item.trilha_name} </span><span class="fa fa-chevron-down"></span></a>`;
+                                string = string + `<ul class="nav child_menu">`;
+                                string = string + `<li><a href="">${item.conteudo_descricao}</a></li><li><a href="index2.html">HTML em 7 minutos</a>`;
+                                string = string + `</li>`;
+                                string = string + `</ul>`;
+                                string = string + `</li>`;
+                                string = string + `</ul>`;
+                                string = string + `</div>`;
+                                
+                                /*_h3Categoria + _menuSection_Abertura + _nav_SideMenu_Abertura + _li_Trilha_Abertura + _nav_ChildMenu_abertura + _li_Video_Abertura + _li_Video_Fechamento + _nav_ChildMenu_Fechamento + _li_Trilha_Fechamento + _nav_SideMenu_Fechamento + _menuSection_Fechamento;*/
+                            arrxxCat.push(item.abrev_categoria);
+                            arrxxTri.push(item.trilha_name); 
+                        } else {   
+                            if(!(arrxxTri.includes(item.trilha_name))){                                
+                             // aqui a categoria não é impressas                                
+                                string = string + `<div class="menu_section">`;
+                                string = string + `<ul class="nav side-menu">`;
+                                string = string + `<li><a><i class="fa-solid fa-list-ul"></i><span> ${item.trilha_name} </span><span class="fa fa-chevron-down"></span></a>`;
+                                string = string + `<ul class="nav child_menu">`;
+                                string = string + `<li><a href="">${item.conteudo_descricao}</a></li><li><a href="index2.html">HTML em 7 minutos</a>`;
+                                string = string + `</li>`;
+                                string = string + `</ul>`;
+                                string = string + `</li>`;
+                                string = string + `</ul>`;
+                                string = string + `</div>`;
+                                arrxxTri.push(item.trilha_name); 
+                            } else {                                                                
+                                // aqui nem a categoria, nem a trilha são impressas                              
+                                
+                                string = string + `<ul class="nav child_menu">`;
+                                string = string + `<li><a href="">${item.conteudo_descricao}</a></li><li><a href="index2.html">HTML em 7 minutos</a>`;
+                                string = string + `</li>`;
+                                string = string + `</ul>`;
+                            } 
+                        }
+
+                    }
+
+                        //console.log(string);
+                        _sidebarMenu.innerHTML = string;
+
+                });
 
             }
 

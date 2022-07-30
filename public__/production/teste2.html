@@ -36,46 +36,18 @@
 <script src="../vendors/jquery/dist/jquery.min.js"></script>
 <script>
 
-    const _conteudo = document.querySelector('#conteudo');
     const _tbody = document.querySelector('.table tbody');
-    let string = '';    
-    let string2 = '';    
-    const arrayAux = [];
-    const arrayNew = [];
-    const arrayCat = [];
-    const arrayGeral = [];
 function pega() { 
                 $.ajax({
                     type: "POST",
                     url: "php/monta_json_menu_categia_trilhas_videos.php",
                     dataType: "json",
                     encode: true
-                }).done(function (data) { 
-                    console.log('Dados tabelão menu lateral - left_menu: ', data);
-                    for (item of data){
-                        if(arrayNew[item.id_categoria]){
-                        } else {
-                            let obj = {};
-                            let nomeCategoria = item.abrev_categoria;
-                            arrayNew[item.id_categoria] = nomeCategoria;
-                        }
-                    }
-
-                        console.log(arrayNew);
-                        const arrayCat = arrayNew.map(item => item);
-                        console.log(arrayCat);
-                        arrayNew.forEach(item => {
-                            string = string + '<h1>' + item + '</h1>';
-                        });
-                        console.log(string);
-                        //_conteudo.innerHTML = string;
-
-
-
-                    
-
-                    let arrxxCat = [];
-                    let arrxxTri = [];
+                }).done(function (data) {                    
+   
+                    let string2 = '';  
+                    const arrxxCat = [];
+                    const arrxxTri = [];
                     for (item of data){
                         if(!(arrxxCat.includes(item.abrev_categoria))){
                             console.table(item.abrev_categoria, item.trilha_name, item.conteudo_descricao, item.conteudo_codigoyoutube);
