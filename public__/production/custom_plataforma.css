@@ -570,3 +570,13 @@ table.lista-user td, .table th {
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
+
+
+.xxx {
+    border: solid #000;
+    width: 326px;
+    height: 373px;
+    z-index: 999999999;
+    position: absolute;
+    bottom: 0px;
+}

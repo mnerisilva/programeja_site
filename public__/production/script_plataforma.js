@@ -216,7 +216,7 @@
 
 		
 
-    pega();
+    //pega();
     
   
 
@@ -1783,6 +1783,80 @@ function pegaDadosUsuarioEspecifico(user_id) {
 
 
 
+/*function pega() { 
+                $.ajax({
+                    type: "POST",
+                    url: "php/monta_json_menu_categia_trilhas_videos.php",
+                    dataType: "json",
+                    encode: true
+                }).done(function (data) {
+                    console.log(data);
+                    let string = '';  
+                    const arrxxCat = [];
+                    const arrxxTri = [];
+                    for (item of data){
+                        if(!(arrxxCat.includes(item.abrev_categoria))){
+                                string = string + `<h3><span class="badge badge-secondary">${item.abrev_categoria}</span> <span> <i class="fa fa-arrow-down"></i><small>trilhas</small></span></h3>`;
+                                string = string + `<div class="menu_section">`;
+                                string = string + `<ul class="nav side-menu">`;
+                                string = string + `<li><a><i class="fa-solid fa-list-ul"></i><span> ${item.trilha_name} </span><span class="fa fa-chevron-down"></span></a>`;
+                                string = string + `<ul class="nav child_menu">`;
+                                string = string + `<li><a href="">${item.conteudo_descricao}</a></li><li><a href="index2.html">HTML em 7 minutos</a>`;
+                                string = string + `</li>`;
+                                string = string + `</ul>`;
+                                string = string + `</li>`;
+                                string = string + `</ul>`;
+                                string = string + `</div>`;
+                            arrxxCat.push(item.abrev_categoria);
+                            arrxxTri.push(item.trilha_name); 
+                        } else {   
+                            if(!(arrxxTri.includes(item.trilha_name))){                         
+                                string = string + `<div class="menu_section">`;
+                                string = string + `<ul class="nav side-menu">`;
+                                string = string + `<li><a><i class="fa-solid fa-list-ul"></i><span> ${item.trilha_name} </span><span class="fa fa-chevron-down"></span></a>`;
+                                string = string + `<ul class="nav child_menu">`;
+                                string = string + `<li><a href="">${item.conteudo_descricao}</a></li><li><a href="index2.html">HTML em 7 minutos</a>`;
+                                string = string + `</li>`;
+                                string = string + `</ul>`;
+                                string = string + `</li>`;
+                                string = string + `</ul>`;
+                                string = string + `</div>`;
+                                arrxxTri.push(item.trilha_name); 
+                            } else {
+                                string = string + `<ul class="nav child_menu">`;
+                                string = string + `<li><a href="">${item.conteudo_descricao}</a></li><li><a href="index2.html">HTML em 7 minutos</a>`;
+                                string = string + `</li>`;
+                                string = string + `</ul>`;
+                            } 
+                        }
+
+                    }
+                        _sidebarMenu.innerHTML = string;
+
+                });
+
+            }*/
+
+            
+
+const _div = document.createElement('div');
+const _ulNavSideMenu = document.createElement('ul');
+const _ulNavChildMenu = document.createElement('ul');
+const _liTrilhaName = document.createElement('li');
+const _h3 = document.createElement('h3');
+const _span = document.createElement('span');
+
+_div.classList.add('menu_section');
+_ulNavSideMenu.classList.add('nav,side-menu');
+_ulNavChildMenu.classList.add('nav,child_menu');
+
+const _xxx = document.querySelector('.xxx');
+
+_xxx.appendChild(_div);
+
+
+
+/*
 function pega() { 
                 $.ajax({
                     type: "POST",
@@ -1796,7 +1870,6 @@ function pega() {
                     const arrxxTri = [];
                     for (item of data){
                         if(!(arrxxCat.includes(item.abrev_categoria))){
-                             // aqui a categoria e trilha são impressas
                                 string = string + `<h3><span class="badge badge-secondary">${item.abrev_categoria}</span> <span> <i class="fa fa-arrow-down"></i><small>trilhas</small></span></h3>`;
                                 string = string + `<div class="menu_section">`;
                                 string = string + `<ul class="nav side-menu">`;
@@ -1808,13 +1881,10 @@ function pega() {
                                 string = string + `</li>`;
                                 string = string + `</ul>`;
                                 string = string + `</div>`;
-                                
-                                /*_h3Categoria + _menuSection_Abertura + _nav_SideMenu_Abertura + _li_Trilha_Abertura + _nav_ChildMenu_abertura + _li_Video_Abertura + _li_Video_Fechamento + _nav_ChildMenu_Fechamento + _li_Trilha_Fechamento + _nav_SideMenu_Fechamento + _menuSection_Fechamento;*/
                             arrxxCat.push(item.abrev_categoria);
                             arrxxTri.push(item.trilha_name); 
                         } else {   
-                            if(!(arrxxTri.includes(item.trilha_name))){                                
-                             // aqui a categoria não é impressas                                
+                            if(!(arrxxTri.includes(item.trilha_name))){                         
                                 string = string + `<div class="menu_section">`;
                                 string = string + `<ul class="nav side-menu">`;
                                 string = string + `<li><a><i class="fa-solid fa-list-ul"></i><span> ${item.trilha_name} </span><span class="fa fa-chevron-down"></span></a>`;
@@ -1826,9 +1896,7 @@ function pega() {
                                 string = string + `</ul>`;
                                 string = string + `</div>`;
                                 arrxxTri.push(item.trilha_name); 
-                            } else {                                                                
-                                // aqui nem a categoria, nem a trilha são impressas                              
-                                
+                            } else {
                                 string = string + `<ul class="nav child_menu">`;
                                 string = string + `<li><a href="">${item.conteudo_descricao}</a></li><li><a href="index2.html">HTML em 7 minutos</a>`;
                                 string = string + `</li>`;
@@ -1837,13 +1905,9 @@ function pega() {
                         }
 
                     }
-
-                        //console.log(string);
                         _sidebarMenu.innerHTML = string;
 
                 });
 
-            }
-
-            
+            }*/        
 
